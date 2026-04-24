@@ -1,3 +1,5 @@
+from passlib import apps
+
 from training.trainer import ProfessionalTrainer
 from training.scheduler import TrainingScheduler
 import threading
@@ -98,6 +100,16 @@ OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
 BASE_DIR = Path(__file__).resolve().parent.parent
 FRONTEND_DIR = BASE_DIR / "weather-ai-website"
 WEBAPP_DIR = BASE_DIR / "frontend"
+
+@apps.get("/debug-paths")
+async def debug_paths():
+    return {
+        "base_dir": str(BASE_DIR),
+        "frontend_exists": FRONTEND_DIR.exists(),
+        "webapp_exists": WEBAPP_DIR.exists(),
+        "cwd": str(Path.cwd()),
+        "files": os.listdir(str(BASE_DIR)) if BASE_DIR.exists() else []
+    }
 
 print("="*60)
 print("🚀 WEATHER AI PLATFORM - STARTING SERVER")
