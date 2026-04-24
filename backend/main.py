@@ -101,14 +101,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 FRONTEND_DIR = BASE_DIR / "weather-ai-website"
 WEBAPP_DIR = BASE_DIR / "frontend"
 
-@apps.get("/debug-paths")
+@app.get("/debug-paths")
 async def debug_paths():
+    import os
     return {
         "base_dir": str(BASE_DIR),
         "frontend_exists": FRONTEND_DIR.exists(),
         "webapp_exists": WEBAPP_DIR.exists(),
         "cwd": str(Path.cwd()),
-        "files": os.listdir(str(BASE_DIR)) if BASE_DIR.exists() else []
+        "frontend_path": str(FRONTEND_DIR),
+        "webapp_path": str(WEBAPP_DIR)
     }
 
 print("="*60)
