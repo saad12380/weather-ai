@@ -3874,8 +3874,6 @@ async def reset_password_confirm(request: PasswordResetConfirm):
         print(f"❌ Password reset confirm error: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to reset password")
 
-# ============ OAUTH ENDPOINTS ============
-
 @app.get("/auth/{provider}")
 async def oauth_login(request: Request, provider: str):
     """Initiate OAuth login with the specified provider"""
@@ -3884,31 +3882,20 @@ async def oauth_login(request: Request, provider: str):
         if provider not in ['google', 'github', 'microsoft']:
             raise HTTPException(status_code=400, detail=f"Unsupported provider: {provider}")
         
-        print(f"1. Provider validated: {provider}")
-        
-        # Create OAuth client
         client = oauth.create_client(provider)
         if not client:
-            print(f"2. Failed to create OAuth client for {provider}")
             raise HTTPException(status_code=400, detail=f"OAuth client not configured for {provider}")
         
-        print(f"2. OAuth client created successfully for {provider}")
-        print(f"   Client ID: {client.client_id}")
-        
-        # Generate redirect URI
-        redirect_uri = request.url_for('oauth_callback', provider=provider)
+        # FIX: Force HTTPS in redirect URI
+        redirect_uri = str(request.url_for('oauth_callback', provider=provider))
+        redirect_uri = redirect_uri.replace("http://", "https://")
         print(f"3. Redirect URI: {redirect_uri}")
         
-        # Redirect to provider's login page
-        print(f"4. Redirecting to {provider} login page...")
         return await client.authorize_redirect(request, redirect_uri)
         
     except Exception as e:
         print(f"❌ OAuth login error for {provider}: {str(e)}")
-        import traceback
-        traceback.print_exc()
         return RedirectResponse(url=f"/login?error={str(e)}")
-
 # Add this temporary endpoint to check OAuth configuration
 @app.get("/debug/oauth")
 async def debug_oauth():
