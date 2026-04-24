@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance & Standards - Weather AI Platform</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Compliance information for Weather AI Platform. Learn about our GDPR, CCPA, ISO, and SOC 2 compliance certifications.">
+    <meta name="keywords" content="compliance, GDPR, CCPA, ISO 27001, SOC 2, data protection, security standards">
+    
+
+     <!-- Favicon -->
+   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        html { font-size: 14px !important; }
+        body {
+            font-size: 0.95rem !important;
+            overflow-x: hidden !important;
+        }
+        @supports (zoom: 1) {
+            body { zoom: 0.95 !important; }
+        }
+        @supports not (zoom: 1) {
+            body {
+                transform: scale(0.95) !important;
+                transform-origin: top center !important;
+                width: 100% !important;
+            }
+        }
+
+        :root {
+            --primary-color: #1a6bb3;
+            --secondary-color: #0a2540;
+            --accent-color: #00c9ff;
+            --light-bg: #f8fafc;
+            --dark-bg: #0f172a;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --gradient-primary: linear-gradient(135deg, #1a6bb3 0%, #00c9ff 100%);
+            --gradient-dark: linear-gradient(135deg, #0a2540 0%, #1e293b 100%);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            padding-top: 80px;
+            background-color: #f8fafc;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Enhanced Navbar Styles - Matching Home Page Theme */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
+            padding: 1rem 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar-scrolled {
+            padding: 0.7rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 6px 30px rgba(10, 37, 64, 0.12);
+        }
+
+        /* Logo Styling */
+        .logo-container {
+            position: relative;
+            padding: 0.25rem 0;
+        }
+
+        .logo-icon {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .logo-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(0, 201, 255, 0.1);
+            animation: pulse 2s infinite;
+        }
+
+        /* Animated Hamburger Menu */
+        .hamburger-menu {
+            position: relative;
+            width: 30px;
+            height: 21px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .hamburger-line {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Navigation Links Styling */
+        .nav-link-content {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-icon {
+            font-size: 1.1rem;
+            margin-right: 8px;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .nav-text {
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .nav-underline {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50px;
+            background: linear-gradient(135deg, rgba(26, 107, 179, 0.1), rgba(0, 201, 255, 0.1));
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        /* Hover Effects */
+        .nav-link:hover .nav-text,
+        .nav-link.active .nav-text {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .nav-link:hover .nav-icon,
+        .nav-link.active .nav-icon {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover .nav-underline,
+        .nav-link.active .nav-underline {
+            width: 70%;
+        }
+
+        .nav-link:hover .nav-bg,
+        .nav-link.active .nav-bg {
+            width: calc(100% + 20px);
+            height: calc(100% + 10px);
+            opacity: 1;
+        }
+
+        .navbar-brand:hover .logo-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Login Button Styling */
+        .btn-login {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            overflow: hidden;
+            border-radius: 12px;
+            background: var(--gradient-primary);
+            padding: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+            background: white;
+            border-radius: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(26, 107, 179, 0.3);
+        }
+
+        .btn-login:hover .btn-content {
+            background: transparent;
+            color: white;
+        }
+
+        .btn-login:hover .btn-gradient {
+            opacity: 1;
+        }
+
+        /* Mobile Menu Styling */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                padding: 1.5rem;
+                border-radius: 0 0 20px 20px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+                animation: slideDown 0.3s ease;
+            }
+
+            .nav-link-content {
+                padding: 0.75rem 0;
+                margin: 0.25rem 0;
+            }
+
+            .btn-login {
+                margin-top: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.5;
+            }
+            100% {
+                width: 60px;
+                height: 60px;
+                opacity: 0;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Active State Enhancement */
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Floating Particles Background (Subtle) */
+        .navbar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 201, 255, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(26, 107, 179, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        /* Hero Section */
+        .compliance-hero {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .compliance-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.15;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(to right, #00c9ff, #92fe9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Compliance Cards */
+        .compliance-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .compliance-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-color);
+        }
+        
+        .compliance-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .compliance-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .compliance-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .certification-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(40, 167, 69, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #28a745;
+        }
+        
+        /* Standards Grid */
+        .standards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .standard-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .standard-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-color);
+        }
+        
+        /* Compliance Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--gradient-primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin: 20px 0;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background: white;
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: -10px;
+            background: white;
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Scroll Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, opacity;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Compliance Matrix */
+        .compliance-matrix {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin: 40px 0;
+        }
+        
+        .matrix-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 20px;
+            display: flex;
+            font-weight: 600;
+        }
+        
+        .matrix-row {
+            display: flex;
+            padding: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .matrix-row:hover {
+            background: #f8fafc;
+        }
+        
+        .matrix-cell {
+            flex: 1;
+            padding: 10px;
+        }
+        
+        /* Compliance Badges */
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .compliance-badge {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .compliance-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-color);
+        }
+        
+        .badge-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Info Boxes */
+        .info-box {
+            background: linear-gradient(135deg, rgba(26, 107, 179, 0.05), rgba(0, 201, 255, 0.05));
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .info-box.warning {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.05), rgba(255, 235, 59, 0.05));
+            border-left-color: #ffc107;
+        }
+        
+        .info-box.success {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.05), rgba(76, 175, 80, 0.05));
+            border-left-color: #28a745;
+        }
+        
+        /* Table of Contents */
+        .toc-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 40px;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .toc-link {
+            display: block;
+            padding: 12px 20px;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .toc-link:hover,
+        .toc-link.active {
+            background: rgba(26, 107, 179, 0.1);
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+        
+        .toc-link::before {
+            content: '•';
+            position: absolute;
+            left: 20px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        /* Scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        /* Custom button styles */
+        .btn-primary {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* Privacy features */
+        .privacy-feature {
+            margin-bottom: 20px;
+        }
+
+        .privacy-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Custom list styles */
+        .custom-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        .custom-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Privacy card and sections */
+        .privacy-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 40px;
+        }
+
+        .privacy-section {
+            margin-bottom: 60px;
+            padding-top: 80px;
+            margin-top: -60px;
+        }
+
+        .privacy-section:first-child {
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        /* Footer specific */
+        .footer {
+            background: var(--gradient-dark) !important;
+        }
+
+        .footer a {
+            color: #e2e8f0 !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: white !important;
+            text-decoration: underline;
+        }
+
+        /* Download Section */
+        .download-section {
+            background: var(--light-bg);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+        
+        .download-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Fix for mobile timeline */
+        @media (max-width: 768px) {
+            .compliance-hero {
+                padding: 100px 0 60px;
+            }
+            
+            .compliance-card {
+                padding: 30px;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .matrix-row {
+                flex-wrap: wrap;
+            }
+            
+            .matrix-cell {
+                flex: 0 0 100%;
+                margin-bottom: 10px;
+            }
+
+            .matrix-cell:last-child {
+                margin-bottom: 0;
+            }
+            
+            .toc-container {
+                position: static;
+                margin-top: 30px;
+            }
+
+            .privacy-section {
+                padding-top: 100px;
+                margin-top: -80px;
+            }
+
+            .badge-container {
+                justify-content: center;
+            }
+
+            .compliance-badge {
+                flex: 0 0 auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .standards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .compliance-badge {
+                width: 100%;
+            }
+
+            .badge-container {
+                gap: 10px;
+            }
+        }
+        .newsletter-message {
+    animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.footer .btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <!-- Animated Logo with Hover Effect -->
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-container d-flex align-items-center">
+                    <div class="logo-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <div class="logo-text ms-2">
+                        <span class="fw-bold">Weather</span>
+                        <span class="logo-gradient fw-bold">AI</span>
+                    </div>
+                    <div class="logo-pulse"></div>
+                </div>
+            </a>
+
+            <!-- Mobile Toggle Button with Animation -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <div class="hamburger-menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+
+            <!-- Navigation Items -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-home nav-icon"></i>
+                                <span class="nav-text">Home</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-sliders-h nav-icon"></i>
+                                <span class="nav-text">Features</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-tag nav-icon"></i>
+                                <span class="nav-text">Pricing</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-blog nav-icon"></i>
+                                <span class="nav-text">Blog</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-info-circle nav-icon"></i>
+                                <span class="nav-text">About</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-envelope nav-icon"></i>
+                                <span class="nav-text">Contact</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                   
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a href="login.html" class="btn-login">
+                            <div class="btn-content">
+                                <i class="fas fa-sign-in-alt me-2"></i>
+                                <span>Login/Signup</span>
+                                <div class="btn-gradient"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="compliance-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center fade-in-up">
+                    <h1 class="display-3 fw-bold mb-4">
+                        Compliance & <span class="text-gradient">Standards</span>
+                    </h1>
+                    <p class="lead mb-4">
+                        Weather AI is committed to the highest standards of data protection, security, and regulatory compliance. 
+                        Our platform meets and exceeds global compliance requirements to ensure your data is always secure.
+                    </p>
+                    <div class="badge-container justify-content-center fade-in-up" style="transition-delay: 0.2s;">
+                        <div class="compliance-badge">
+                            <div class="badge-icon">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-bold">GDPR Compliant</h6>
+                                <small class="text-muted">EU Data Protection</small>
+                            </div>
+                        </div>
+                        <div class="compliance-badge">
+                            <div class="badge-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-bold">ISO 27001</h6>
+                                <small class="text-muted">Security Certified</small>
+                            </div>
+                        </div>
+                        <div class="compliance-badge">
+                            <div class="badge-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-bold">SOC 2 Type II</h6>
+                                <small class="text-muted">Audited Annually</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance Content -->
+    <section class="privacy-content pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <!-- Table of Contents -->
+                <div class="col-lg-4">
+                    <div class="toc-container fade-in-up">
+                        <h4 class="fw-bold mb-4">Compliance Overview</h4>
+                        <nav class="toc-nav">
+                            <a href="#standards" class="toc-link active">1. Security Standards</a>
+                            <a href="#gdpr" class="toc-link">2. GDPR Compliance</a>
+                            <a href="#ccpa" class="toc-link">3. CCPA Compliance</a>
+                            <a href="#iso" class="toc-link">4. ISO Certifications</a>
+                            <a href="#soc2" class="toc-link">5. SOC 2 Reports</a>
+                            <a href="#hipaa" class="toc-link">6. HIPAA Ready</a>
+                            <a href="#framework" class="toc-link">7. Security Framework</a>
+                            <a href="#audits" class="toc-link">8. Audit Reports</a>
+                        </nav>
+                        
+                        <div class="mt-4">
+                            <div class="info-box success">
+                                <h6 class="fw-bold mb-2"><i class="fas fa-check-circle me-2"></i>Compliance Status</h6>
+                                <p class="mb-0 small">All certifications are current and audited annually.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Download Resources -->
+                    <div class="download-section mt-4 fade-in-up" style="transition-delay: 0.1s;">
+                        <h5 class="fw-bold mb-3">Compliance Documents</h5>
+                        <div class="download-card mb-3">
+                            <i class="fas fa-file-pdf text-danger fa-2x mb-3"></i>
+                            <h6 class="fw-bold mb-2">Security Whitepaper</h6>
+                            <p class="text-muted small mb-3">Detailed overview of our security architecture</p>
+                            <button class="btn btn-outline-primary btn-sm w-100 download-btn">Download PDF</button>
+                        </div>
+                        <div class="download-card">
+                            <i class="fas fa-file-contract text-primary fa-2x mb-3"></i>
+                            <h6 class="fw-bold mb-2">DPA Template</h6>
+                            <p class="text-muted small mb-3">Data Processing Agreement for enterprise clients</p>
+                            <button class="btn btn-outline-primary btn-sm w-100 download-btn">Download Template</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="col-lg-8">
+                    <div class="privacy-card fade-in-up" style="transition-delay: 0.2s;">
+                        <!-- Security Standards -->
+                        <div id="standards" class="privacy-section">
+                            <h2 class="display-6 fw-bold mb-4 section-title">1. Security Standards & Certifications</h2>
+                            <p class="lead">Weather AI adheres to the highest international security standards to protect your data and ensure regulatory compliance.</p>
+                            
+                            <div class="standards-grid">
+                                <div class="standard-item">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="compliance-icon me-3">
+                                            <i class="fas fa-shield-alt"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold mb-0">ISO 27001</h5>
+                                            <small class="text-muted">Information Security Management</small>
+                                        </div>
+                                    </div>
+                                    <p class="mb-0">Certified for implementing best practices in information security management systems (ISMS).</p>
+                                </div>
+                                
+                                <div class="standard-item">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="compliance-icon me-3">
+                                            <i class="fas fa-database"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold mb-0">ISO 27017</h5>
+                                            <small class="text-muted">Cloud Security Controls</small>
+                                        </div>
+                                    </div>
+                                    <p class="mb-0">Specific controls for cloud services including data protection and shared responsibility.</p>
+                                </div>
+                                
+                                <div class="standard-item">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="compliance-icon me-3">
+                                            <i class="fas fa-user-shield"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold mb-0">ISO 27018</h5>
+                                            <small class="text-muted">PII Protection in Cloud</small>
+                                        </div>
+                                    </div>
+                                    <p class="mb-0">Protection of personally identifiable information (PII) in public cloud computing environments.</p>
+                                </div>
+                                
+                                <div class="standard-item">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="compliance-icon me-3">
+                                            <i class="fas fa-balance-scale"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold mb-0">SOC 2 Type II</h5>
+                                            <small class="text-muted">Trust Services Criteria</small>
+                                        </div>
+                                    </div>
+                                    <p class="mb-0">Annual audit reports covering security, availability, processing integrity, confidentiality, and privacy.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- GDPR Compliance -->
+                        <div id="gdpr" class="privacy-section">
+                            <h2 class="display-6 fw-bold mb-4 section-title">2. GDPR Compliance</h2>
+                            <p>Weather AI is fully compliant with the European Union's General Data Protection Regulation (GDPR).</p>
+                            
+                            <div class="info-box">
+                                <h5 class="fw-bold mb-2"><i class="fas fa-gavel me-2"></i>GDPR Requirements Met</h5>
+                                <div class="row mt-3">
+                                    <div class="col-md-6 mb-3">
+                                        <h6 class="fw-bold"><i class="fas fa-check text-success me-2"></i>Data Protection by Design</h6>
+                                        <p class="small mb-0">Privacy considerations integrated into all product development stages.</p>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <h6 class="fw-bold"><i class="fas fa-check text-success me-2"></i>Data Processing Agreements</h6>
+                                        <p class="small mb-0">Standardized DPAs available for all customers and partners.</p>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <h6 class="fw-bold"><i class="fas fa-check text-success me-2"></i>Data Subject Rights</h6>
+                                        <p class="small mb-0">Tools for access, rectification, erasure, and data portability.</p>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <h6 class="fw-bold"><i class="fas fa-check text-success me-2"></i>Data Protection Officer</h6>
+                                        <p class="small mb-0">Designated DPO overseeing GDPR compliance program.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h5 class="fw-bold mt-4 mb-3">International Data Transfers</h5>
+                            <p>We use Standard Contractual Clauses (SCCs) and other approved mechanisms for international data transfers outside the EEA.</p>
+                        </div>
+                        
+                        <!-- CCPA Compliance -->
+                        <div id="ccpa" class="privacy-section">
+                            <h2 class="display-6 fw-bold mb-4 section-title">3. CCPA Compliance</h2>
+                            <p>Weather AI complies with the California Consumer Privacy Act (CCPA) for users in California, USA.</p>
+                            
+                            <div class="compliance-matrix">
+                                <div class="matrix-header">
+                                    <div class="matrix-cell">CCPA Requirement</div>
+                                    <div class="matrix-cell">Weather AI Implementation</div>
+                                </div>
+                                <div class="matrix-row">
+                                    <div class="matrix-cell">
+                                        <strong>Right to Know</strong>
+                                    </div>
+                                    <div class="matrix-cell">
+                                        Clear privacy notices and data collection disclosures
+                                    </div>
+                                </div>
+                                <div class="matrix-row">
+                                    <div class="matrix-cell">
+                                        <strong>Right to Delete</strong>
+                                    </div>
+                                    <div class="matrix-cell">
+                                        Data deletion tools and processes
+                                    </div>
+                                </div>
+                                <div class="matrix-row">
+                                    <div class="matrix-cell">
+                                        <strong>Right to Opt-Out</strong>
+                                    </div>
+                                    <div class="matrix-cell">
+                                        Opt-out mechanisms for data sales
+                                    </div>
+                                </div>
+                                <div class="matrix-row">
+                                    <div class="matrix-cell">
+                                        <strong>Non-Discrimination</strong>
+                                    </div>
+                                    <div class="matrix-cell">
+                                        Equal service regardless of privacy choices
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- ISO Certifications -->
+                        <div id="iso" class="privacy-section">
+                            <h2 class="display-6 fw-bold mb-4 section-title">4. ISO Certifications</h2>
+                            
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-content">
+                                        <h5 class="fw-bold">ISO 27001:2022</h5>
+                                        <p class="text-muted small mb-2">Certified: March 2023 | Expires: March 2026</p>
+                                        <p>Information security management system certification covering all aspects of data protection.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-content">
+                                        <h5 class="fw-bold">ISO 27017:2015</h5>
+                                        <p class="text-muted small mb-2">Certified: June 2023 | Expires: June 2026</p>
+                                        <p>Cloud-specific security controls and implementation guidance.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-content">
+                                        <h5 class="fw-bold">ISO 27018:2019</h5>
+                                        <p class="text-muted small mb-2">Certified: June 2023 | Expires: June 2026</p>
+                                        <p>PII protection in public cloud computing environments.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-content">
+                                        <h5 class="fw-bold">ISO 27701:2019</h5>
+                                        <p class="text-muted small mb-2">Certified: September 2023 | Expires: September 2026</p>
+                                        <p>Privacy information management system extension to ISO 27001.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- SOC 2 Reports -->
+                        <div id="soc2" class="privacy-section">
+                            <h2 class="display-6 fw-bold mb-4 section-title">5. SOC 2 Compliance</h2>
+                            <p>Weather AI undergoes annual SOC 2 Type II audits conducted by independent third-party auditors.</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-4">
+                                    <div class="compliance-card">
+                                        <div class="compliance-icon">
+                                            <i class="fas fa-lock"></i>
+                                        </div>
+                                        <h4 class="fw-bold mb-3">Security</h4>
+                                        <p class="text-muted">Protection against unauthorized access, disclosure, or damage.</p>
+                                        <ul class="custom-list">
+                                            <li>Network security controls</li>
+                                            <li>Access management</li>
+                                            <li>Encryption protocols</li>
+                                            <li>Security monitoring</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <div class="compliance-card">
+                                        <div class="compliance-icon">
+                                            <i class="fas fa-clock"></i>
+                                        </div>
+                                        <h4 class="fw-bold mb-3">Availability</h4>
+                                        <p class="text-muted">Systems are available for operation and use as committed.</p>
+                                        <ul class="custom-list">
+                                            <li>99.9% uptime SLA</li>
+                                            <li>Disaster recovery</li>
+                                            <li>Business continuity</li>
+                                            <li>Performance monitoring</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="compliance-card">
+                                        <div class="compliance-icon">
+                                            <i class="fas fa-user-secret"></i>
+                                        </div>
+                                        <h4 class="fw-bold mb-3">Confidentiality</h4>
+                                        <p class="text-muted">Information designated as confidential is protected.</p>
+                                        <ul class="custom-list">
+                                            <li>Data classification</li>
+                                            <li>Encryption at rest</li>
+                                            <li>Access controls</li>
+                                            <li>NDA enforcement</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="compliance-card">
+                                        <div class="compliance-icon">
+                                            <i class="fas fa-shield-alt"></i>
+                                        </div>
+                                        <h4 class="fw-bold mb-3">Privacy</h4>
+                                        <p class="text-muted">Personal information is collected, used, and disclosed appropriately.</p>
+                                        <ul class="custom-list">
+                                            <li>Privacy notices</li>
+                                            <li>Consent management</li>
+                                            <li>Data minimization</li>
+                                            <li>Right to erasure</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- HIPAA Ready -->
+                        <div id="hipaa" class="privacy-section">
+                            <h2 class="display-6 fw-bold mb-4 section-title">6. HIPAA Ready Infrastructure</h2>
+                            <p>Weather AI provides HIPAA-ready infrastructure for healthcare and research organizations handling protected health information (PHI).</p>
+                            
+                            <div class="info-box warning">
+                                <h5 class="fw-bold mb-2"><i class="fas fa-stethoscope me-2"></i>Business Associate Agreement (BAA)</h5>
+                                <p class="mb-0">
+                                    We offer HIPAA Business Associate Agreements to covered entities and business associates. 
+                                    Contact our compliance team to execute a BAA.
+                                </p>
+                            </div>
+                            
+                            <h5 class="fw-bold mt-4 mb-3">HIPAA Security Rule Compliance</h5>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <h6 class="fw-bold"><i class="fas fa-user-md text-primary me-2"></i>Administrative Safeguards</h6>
+                                    <p class="small mb-0">Security management, workforce security, and contingency planning.</p>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <h6 class="fw-bold"><i class="fas fa-laptop-medical text-primary me-2"></i>Physical Safeguards</h6>
+                                    <p class="small mb-0">Facility access controls, workstation security, and device controls.</p>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <h6 class="fw-bold"><i class="fas fa-key text-primary me-2"></i>Technical Safeguards</h6>
+                                    <p class="small mb-0">Access controls, audit controls, integrity controls, and transmission security.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Security Framework -->
+                        <div id="framework" class="privacy-section">
+                            <h2 class="display-6 fw-bold mb-4 section-title">7. Security Framework</h2>
+                            <p>Our security framework is built on industry best practices and multiple compliance standards.</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-4">
+                                    <div class="privacy-feature">
+                                        <div class="privacy-icon">
+                                            <i class="fas fa-network-wired"></i>
+                                        </div>
+                                        <h5 class="fw-bold mb-2">NIST Cybersecurity Framework</h5>
+                                        <p class="text-muted mb-0">Implementing Identify, Protect, Detect, Respond, and Recover functions.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="privacy-feature">
+                                        <div class="privacy-icon">
+                                            <i class="fas fa-chess-board"></i>
+                                        </div>
+                                        <h5 class="fw-bold mb-2">CIS Controls</h5>
+                                        <p class="text-muted mb-0">Implementing Center for Internet Security Critical Security Controls.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="privacy-feature">
+                                        <div class="privacy-icon">
+                                            <i class="fas fa-cloud"></i>
+                                        </div>
+                                        <h5 class="fw-bold mb-2">Cloud Security Alliance</h5>
+                                        <p class="text-muted mb-0">CSA STAR Level 2 certification and Cloud Controls Matrix.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="privacy-feature">
+                                        <div class="privacy-icon">
+                                            <i class="fas fa-gem"></i>
+                                        </div>
+                                        <h5 class="fw-bold mb-2">OWASP Top 10</h5>
+                                        <p class="text-muted mb-0">Protection against OWASP's top web application security risks.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Audit Reports -->
+                        <div id="audits" class="privacy-section">
+                            <h2 class="display-6 fw-bold mb-4 section-title">8. Audit Reports & Documentation</h2>
+                            <p>We maintain comprehensive audit trails and documentation for all compliance activities.</p>
+                            
+                            <div class="info-box">
+                                <h5 class="fw-bold mb-2"><i class="fas fa-file-alt me-2"></i>Available Audit Reports</h5>
+                                <div class="row mt-3">
+                                    <div class="col-md-6 mb-3">
+                                        <h6 class="fw-bold">SOC 2 Type II Report</h6>
+                                        <p class="small text-muted mb-2">Annual independent audit covering security controls</p>
+                                        <button class="btn btn-outline-primary btn-sm request-btn">Request Report</button>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <h6 class="fw-bold">Penetration Test Reports</h6>
+                                        <p class="small text-muted mb-2">Quarterly security assessments by third-party firms</p>
+                                        <button class="btn btn-outline-primary btn-sm request-btn">Request Summary</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="fw-bold">Vulnerability Scans</h6>
+                                        <p class="small text-muted mb-2">Continuous vulnerability assessment reports</p>
+                                        <button class="btn btn-outline-primary btn-sm request-btn">View Status</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="fw-bold">Compliance Certificates</h6>
+                                        <p class="small text-muted mb-2">ISO and other certification documents</p>
+                                        <button class="btn btn-outline-primary btn-sm request-btn">Download Certificates</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-5 text-center">
+                                <a href="#standards" class="btn btn-primary btn-lg me-3">
+                                    <i class="fas fa-arrow-up me-2"></i>Back to Top
+                                </a>
+                                <a href="contact.html" class="btn btn-outline-primary btn-lg">
+                                    <i class="fas fa-headset me-2"></i>Contact Compliance Team
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3" href="index.html">
+                        <i class="fas fa-cloud-sun me-2"></i>
+                        <span class="fw-bold">Weather</span><span class="fw-bold" style="color: #00c9ff;">AI</span>
+                    </a>
+                    <p class="text-light">Advanced AI-powered weather anomaly detection platform for researchers, meteorologists, and organizations worldwide.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Platform</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="features.html" class="text-light text-decoration-none">Features</a></li>
+                        <li><a href="pricing.html" class="text-light text-decoration-none">Pricing</a></li>
+                        <li><a href="demo.html" class="text-light text-decoration-none">Live Demo</a></li>
+                        <li><a href="api.html" class="text-light text-decoration-none">API Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Compliance</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="privacy.html" class="text-light text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-light text-decoration-none">Terms of Service</a></li>
+                        <li><a href="compliance.html" class="text-light text-decoration-none fw-bold">Compliance Hub</a></li>
+                        <li><a href="cookie-policy.html" class="text-light text-decoration-none">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Compliance Contact</h5>
+                    <p class="text-light">For compliance inquiries, audits, or security questions:</p>
+                    <div class="mb-3">
+                        <p class="text-light mb-1">
+                            <i class="fas fa-envelope me-2"></i>
+                            <a href="mailto:compliance@weatherai.com" class="text-light text-decoration-none">
+                                compliance@weatherai.com
+                            </a>
+                        </p>
+                        <p class="text-light">
+                            <i class="fas fa-user-shield me-2"></i>
+                            <a href="mailto:dpo@weatherai.com" class="text-light text-decoration-none">
+                                dpo@weatherai.com
+                            </a>
+                        </p>
+                    </div>
+                    <p class="text-light small">
+                        <i class="fas fa-clock me-1"></i> Response within 24 business hours
+                    </p>
+                </div>
+            </div>
+            <hr class="border-light my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light">&copy; 2024 Weather AI. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <span class="text-light">Compliance Status: All certifications current as of Dec 2024</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Enhanced Navbar Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const hamburger = document.querySelector('.navbar-toggler');
+            const currentPage = window.location.pathname.split('/').pop();
+            
+            // Set active nav link for current page
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPage || (href === 'compliance.html' && currentPage === '')) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Scroll effect with parallax
+            window.addEventListener('scroll', function() {
+                const scrollY = window.scrollY;
+                
+                // Navbar scroll effect
+                if (scrollY > 50) {
+                    navbar.classList.add('navbar-scrolled');
+                    // Add parallax effect to background
+                    navbar.style.background = `rgba(255, 255, 255, ${0.92 + (scrollY * 0.001)})`;
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                    navbar.style.background = 'rgba(255, 255, 255, 0.92)';
+                }
+                
+                // Update active TOC link based on scroll position
+                updateActiveToc();
+                
+                // Show/hide scroll to top button
+                const scrollTopBtn = document.querySelector('.scroll-top');
+                if (scrollY > 500) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+                
+                // Update scroll progress
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.querySelector('.scroll-progress').style.width = scrolled + "%";
+                
+                // Scroll animation for fade-in elements
+                const fadeElements = document.querySelectorAll('.fade-in-up');
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            });
+
+            // Update active TOC link based on scroll position
+            function updateActiveToc() {
+                const sections = document.querySelectorAll('.privacy-section');
+                const tocLinks = document.querySelectorAll('.toc-link');
+                const scrollY = window.pageYOffset;
+                
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 150;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollY >= sectionTop) {
+                        currentSection = sectionId;
+                    }
+                });
+                
+                if (currentSection) {
+                    tocLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${currentSection}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            }
+
+            // Smooth scroll for TOC links
+            const tocLinks = document.querySelectorAll('.toc-link');
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    
+                    if (target) {
+                        // Close mobile menu if open
+                        if (window.innerWidth < 992) {
+                            const collapse = document.querySelector('.navbar-collapse');
+                            if (collapse.classList.contains('show')) {
+                                hamburger.click();
+                            }
+                        }
+                        
+                        // Smooth scroll
+                        window.scrollTo({
+                            top: target.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active TOC
+                        tocLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+
+            // Smooth scroll for all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    
+                    if (targetId === '#') return;
+                    
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        // Close mobile menu if open
+                        if (window.innerWidth < 992) {
+                            const collapse = document.querySelector('.navbar-collapse');
+                            if (collapse.classList.contains('show')) {
+                                hamburger.click();
+                            }
+                        }
+                        
+                        // Smooth scroll
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Hover effects enhancement for navigation
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('active')) {
+                        const icon = this.querySelector('.nav-icon');
+                        if (icon) {
+                            icon.style.transform = 'translateY(-2px) scale(1.1)';
+                        }
+                    }
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('active')) {
+                        const icon = this.querySelector('.nav-icon');
+                        if (icon) {
+                            icon.style.transform = '';
+                        }
+                    }
+                });
+            });
+
+            // Initialize on load
+            updateActiveToc();
+            
+            // Trigger initial scroll check for animations
+            setTimeout(() => {
+                window.dispatchEvent(new Event('scroll'));
+            }, 100);
+            
+            // Add subtle animation on page load
+            setTimeout(() => {
+                navbar.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            }, 100);
+            
+            // Initialize interactive elements
+            initializeInteractiveElements();
+        });
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Initialize all interactive elements
+        function initializeInteractiveElements() {
+            // Compliance cards hover animation
+            const complianceCards = document.querySelectorAll('.compliance-card');
+            complianceCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Standard items hover effect
+            const standardItems = document.querySelectorAll('.standard-item');
+            standardItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    item.style.transform = 'translateY(-5px)';
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    item.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Badge hover effect
+            const badges = document.querySelectorAll('.compliance-badge');
+            badges.forEach(badge => {
+                badge.addEventListener('mouseenter', () => {
+                    badge.style.transform = 'translateY(-5px)';
+                });
+                
+                badge.addEventListener('mouseleave', () => {
+                    badge.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Download card hover effect
+            const downloadCards = document.querySelectorAll('.download-card');
+            downloadCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Matrix row hover effect
+            const matrixRows = document.querySelectorAll('.matrix-row');
+            matrixRows.forEach(row => {
+                row.addEventListener('mouseenter', () => {
+                    row.style.backgroundColor = '#f8fafc';
+                });
+                
+                row.addEventListener('mouseleave', () => {
+                    row.style.backgroundColor = '';
+                });
+            });
+            
+            // Download button functionality
+            document.querySelectorAll('.download-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const originalText = this.textContent;
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Processing...';
+                    this.disabled = true;
+                    
+                    // Simulate download
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-check me-2"></i>Download Started';
+                        this.classList.remove('btn-outline-primary');
+                        this.classList.add('btn-success');
+                        
+                        setTimeout(() => {
+                            this.innerHTML = originalText;
+                            this.classList.remove('btn-success');
+                            this.classList.add('btn-outline-primary');
+                            this.disabled = false;
+                        }, 2000);
+                    }, 1500);
+                });
+            });
+            
+            // Request report buttons
+            document.querySelectorAll('.request-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const originalText = this.textContent;
+                    this.innerHTML = '<i class="fas fa-envelope me-2"></i>Request Sent';
+                    this.classList.remove('btn-outline-primary');
+                    this.classList.add('btn-success');
+                    this.disabled = true;
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.classList.remove('btn-success');
+                        this.classList.add('btn-outline-primary');
+                        this.disabled = false;
+                    }, 3000);
+                });
+            });
+            
+            // Initialize timeline items for mobile
+            if (window.innerWidth <= 768) {
+                const timelineItems = document.querySelectorAll('.timeline-item');
+                timelineItems.forEach((item, index) => {
+                    if (index % 2 !== 0) {
+                        const afterElement = item.querySelector('.timeline-content::after');
+                        if (afterElement) {
+                            afterElement.style.left = '-10px';
+                        }
+                    }
+                });
+            }
+        }
+        // Newsletter Subscription Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const newsletterForm = document.querySelector('.footer .input-group');
+    if (newsletterForm) {
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const subscribeBtn = newsletterForm.querySelector('button');
+        
+        // Create message container if it doesn't exist
+        let messageDiv = document.querySelector('.newsletter-message');
+        if (!messageDiv) {
+            messageDiv = document.createElement('div');
+            messageDiv.className = 'newsletter-message mt-2';
+            messageDiv.style.display = 'none';
+            newsletterForm.parentNode.insertBefore(messageDiv, newsletterForm.nextSibling);
+        }
+        
+        // Remove existing click handler and add new one
+        const newSubscribeBtn = subscribeBtn.cloneNode(true);
+        subscribeBtn.parentNode.replaceChild(newSubscribeBtn, subscribeBtn);
+        
+        newSubscribeBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            
+            // Validate email
+            if (!email) {
+                showNewsletterMessage('Please enter your email address', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNewsletterMessage('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Disable button and show loading
+            newSubscribeBtn.disabled = true;
+            const originalText = newSubscribeBtn.innerHTML;
+            newSubscribeBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Subscribing...';
+            
+            try {
+                const response = await fetch('/api/newsletter/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showNewsletterMessage(data.message, 'success');
+                    emailInput.value = ''; // Clear input
+                } else {
+                    showNewsletterMessage(data.detail || 'Failed to subscribe. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error('Newsletter subscription error:', error);
+                showNewsletterMessage('Network error. Please check your connection and try again.', 'error');
+            } finally {
+                // Re-enable button
+                newSubscribeBtn.disabled = false;
+                newSubscribeBtn.innerHTML = originalText;
+            }
+        });
+        
+        // Allow Enter key to submit
+        emailInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                newSubscribeBtn.click();
+            }
+        });
+        
+        function showNewsletterMessage(text, type) {
+            messageDiv.style.display = 'block';
+            messageDiv.textContent = text;
+            
+            if (type === 'success') {
+                messageDiv.style.color = '#28a745';
+                messageDiv.style.backgroundColor = '#d4edda';
+                messageDiv.style.border = '1px solid #c3e6cb';
+            } else {
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.border = '1px solid #f5c6cb';
+            }
+            
+            messageDiv.style.padding = '10px';
+            messageDiv.style.borderRadius = '4px';
+            messageDiv.style.fontSize = '14px';
+            messageDiv.style.marginTop = '10px';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+    }
+});
+    </script>
+</body>
+</html>

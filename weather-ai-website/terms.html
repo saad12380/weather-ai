@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather AI - Terms of Service</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Weather AI Terms of Service - Legal agreement for use of our weather intelligence platform.">
+    <meta name="keywords" content="weather AI terms, legal agreement, terms of service, platform usage terms">
+    <meta name="author" content="Weather AI Team">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Weather AI - Terms of Service">
+    <meta property="og:description" content="Legal agreement for use of Weather AI platform">
+    <meta property="og:image" content="https://weatherai.example.com/assets/images/og-terms.jpg">
+    <meta property="og:url" content="https://weatherai.example.com/terms.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Weather AI Terms of Service">
+    <meta name="twitter:description" content="Legal agreement for use of Weather AI platform">
+    
+    <!-- Favicon -->
+   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+    
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        html { font-size: 14px !important; }
+        body {
+            font-size: 0.95rem !important;
+            overflow-x: hidden !important;
+        }
+        @supports (zoom: 1) {
+            body { zoom: 0.95 !important; }
+        }
+        @supports not (zoom: 1) {
+            body {
+                transform: scale(0.95) !important;
+                transform-origin: top center !important;
+                width: 100% !important;
+            }
+        }
+
+        :root {
+            --primary-color: #1a6bb3;
+            --secondary-color: #0a2540;
+            --accent-color: #00c9ff;
+            --light-bg: #f8fafc;
+            --dark-bg: #0f172a;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --gradient-primary: linear-gradient(135deg, #1a6bb3 0%, #00c9ff 100%);
+            --gradient-dark: linear-gradient(135deg, #0a2540 0%, #1e293b 100%);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            padding-top: 80px; /* Account for fixed navbar */
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navbar Styles - Matching Home Page */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
+            padding: 1rem 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar-scrolled {
+            padding: 0.7rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 6px 30px rgba(10, 37, 64, 0.12);
+        }
+
+        /* Logo Styling */
+        .logo-container {
+            position: relative;
+            padding: 0.25rem 0;
+        }
+
+        .logo-icon {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        /* Navigation Links Styling */
+        .nav-link-content {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-icon {
+            font-size: 1.1rem;
+            margin-right: 8px;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-text {
+            font-weight: 500;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-underline {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50px;
+            background: linear-gradient(135deg, rgba(26, 107, 179, 0.1), rgba(0, 201, 255, 0.1));
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        /* Hover Effects */
+        .nav-link:hover .nav-text,
+        .nav-link.active .nav-text {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .nav-link:hover .nav-icon,
+        .nav-link.active .nav-icon {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover .nav-underline,
+        .nav-link.active .nav-underline {
+            width: 70%;
+        }
+
+        .nav-link:hover .nav-bg,
+        .nav-link.active .nav-bg {
+            width: calc(100% + 20px);
+            height: calc(100% + 10px);
+            opacity: 1;
+        }
+
+        .navbar-brand:hover .logo-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Login Button Styling */
+        .btn-login {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            overflow: hidden;
+            border-radius: 12px;
+            background: var(--gradient-primary);
+            padding: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+            background: white;
+            border-radius: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(26, 107, 179, 0.3);
+        }
+
+        .btn-login:hover .btn-content {
+            background: transparent;
+            color: white;
+        }
+
+        .btn-login:hover .btn-gradient {
+            opacity: 1;
+        }
+
+        /* Hero Section for Terms */
+        .terms-hero {
+            position: relative;
+            padding: 100px 0 60px;
+            background: var(--gradient-dark);
+            color: white;
+            overflow: hidden;
+        }
+
+        .terms-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.15;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #00c9ff, #92fe9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Terms Content Section */
+        .terms-content {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .terms-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Terms Navigation */
+        .terms-nav {
+            position: sticky;
+            top: 120px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .terms-nav h5 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .terms-nav-link {
+            display: block;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            font-weight: 500;
+        }
+
+        .terms-nav-link:hover,
+        .terms-nav-link.active {
+            background: rgba(26, 107, 179, 0.05);
+            color: var(--primary-color);
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .terms-nav-link i {
+            width: 20px;
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        /* Terms Sections */
+        .terms-section {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .terms-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .terms-section h3 {
+            color: var(--secondary-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .terms-section p {
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .terms-section ul, .terms-section ol {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .terms-section li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(26, 107, 179, 0.05), rgba(0, 201, 255, 0.05));
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box h5 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Important Notice Section */
+        .important-notice {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.1));
+            border: 2px solid #ffc107;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .important-notice::before {
+            content: '⚠';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            font-size: 120px;
+            opacity: 0.1;
+            color: #ff9800;
+            transform: rotate(15deg);
+        }
+
+        .important-notice h4 {
+            color: #d84315;
+            margin-bottom: 15px;
+        }
+
+        /* Table Styles */
+        .terms-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: var(--shadow-sm);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .terms-table th {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .terms-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .terms-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .terms-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        /* Acceptance Section */
+        .acceptance-section {
+            padding: 60px 0;
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        .acceptance-box {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .checkbox-container {
+            text-align: left;
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 10px;
+        }
+
+        .form-check {
+            margin-bottom: 15px;
+        }
+
+        .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 80px 0 30px;
+            background-color: var(--dark-bg);
+            color: white;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Custom button styles */
+        .btn-primary {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline-primary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            padding: 10px 28px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Scroll Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, opacity;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .terms-hero {
+                padding: 80px 0 40px;
+            }
+            
+            .display-3 {
+                font-size: 2.5rem;
+            }
+            
+            .terms-nav {
+                position: static;
+                margin-top: 20px;
+            }
+            
+            .terms-section {
+                padding: 20px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .acceptance-box {
+                padding: 25px;
+            }
+            
+            .important-notice {
+                padding: 20px;
+            }
+        }
+        .newsletter-message {
+    animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.footer .btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <!-- Animated Logo with Hover Effect -->
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-container d-flex align-items-center">
+                    <div class="logo-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <div class="logo-text ms-2">
+                        <span class="fw-bold">Weather</span>
+                        <span class="logo-gradient fw-bold">AI</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Items -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-home nav-icon"></i>
+                                <span class="nav-text">Home</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-sliders-h nav-icon"></i>
+                                <span class="nav-text">Features</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-tag nav-icon"></i>
+                                <span class="nav-text">Pricing</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-blog nav-icon"></i>
+                                <span class="nav-text">Blog</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-info-circle nav-icon"></i>
+                                <span class="nav-text">About</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-envelope nav-icon"></i>
+                            <span class="nav-text">Contact</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a href="login.html" class="btn-login">
+                            <div class="btn-content">
+                                <i class="fas fa-sign-in-alt me-2"></i>
+                                <span>Login/Signup</span>
+                                <div class="btn-gradient"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="terms-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center fade-in-up">
+                    <h1 class="display-3 fw-bold mb-4">
+                        Terms of <span class="text-gradient">Service</span>
+                    </h1>
+                    <p class="lead mb-4">
+                        Last Updated: March 15, 2024. Please read these Terms of Service carefully before using Weather AI platform.
+                    </p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#acceptance" class="btn btn-primary btn-lg">
+                            <i class="fas fa-file-signature me-2"></i>Quick Summary
+                        </a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-question-circle me-2"></i>Questions?
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Notice -->
+    <section class="terms-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="important-notice fade-in-up">
+                        <h4><i class="fas fa-exclamation-triangle me-2"></i>Important Legal Notice</h4>
+                        <p class="mb-0">
+                            These Terms of Service constitute a legally binding agreement between you and Weather AI Inc. By accessing or using our platform, you acknowledge that you have read, understood, and agree to be bound by these terms. If you do not agree with any part of these terms, you must not use our services. For enterprise customers, additional terms may apply as specified in your service agreement.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms Content -->
+    <section class="terms-content">
+        <div class="container">
+            <div class="row">
+                <!-- Terms Navigation -->
+                <div class="col-lg-3 d-none d-lg-block">
+                    <div class="terms-nav fade-in-up">
+                        <h5><i class="fas fa-list-ul me-2"></i>Quick Navigation</h5>
+                        <a href="#agreement" class="terms-nav-link active">
+                            <i class="fas fa-file-signature"></i>1. Agreement
+                        </a>
+                        <a href="#definitions" class="terms-nav-link">
+                            <i class="fas fa-book"></i>2. Definitions
+                        </a>
+                        <a href="#accounts" class="terms-nav-link">
+                            <i class="fas fa-user-circle"></i>3. Accounts
+                        </a>
+                        <a href="#services" class="terms-nav-link">
+                            <i class="fas fa-cogs"></i>4. Services
+                        </a>
+                        <a href="#usage" class="terms-nav-link">
+                            <i class="fas fa-chart-line"></i>5. Usage Rights
+                        </a>
+                        <a href="#restrictions" class="terms-nav-link">
+                            <i class="fas fa-ban"></i>6. Restrictions
+                        </a>
+                        <a href="#data" class="terms-nav-link">
+                            <i class="fas fa-database"></i>7. Data Rights
+                        </a>
+                        <a href="#payments" class="terms-nav-link">
+                            <i class="fas fa-credit-card"></i>8. Payments
+                        </a>
+                        <a href="#termination" class="terms-nav-link">
+                            <i class="fas fa-power-off"></i>9. Termination
+                        </a>
+                        <a href="#liability" class="terms-nav-link">
+                            <i class="fas fa-balance-scale"></i>10. Liability
+                        </a>
+                        <a href="#disputes" class="terms-nav-link">
+                            <i class="fas fa-gavel"></i>11. Disputes
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Terms Sections -->
+                <div class="col-lg-9">
+                    <div class="terms-container">
+                        <!-- Section 1: Agreement -->
+                        <section class="terms-section fade-in-up" id="agreement">
+                            <h2>1. Agreement to Terms</h2>
+                            <p>
+                                By accessing or using the Weather AI platform (the "Service"), you agree to be bound by these Terms of Service ("Terms"). These Terms apply to all visitors, users, and others who access or use the Service. If you are using the Service on behalf of an organization, you are agreeing to these Terms for that organization and promising that you have the authority to bind that organization to these Terms.
+                            </p>
+                            <p>
+                                Our Privacy Policy, available at <a href="privacy.html">privacy.html</a>, describes how we collect, use, and share your information. By using the Service, you agree to our Privacy Policy.
+                            </p>
+                            <div class="highlight-box">
+                                <h5><i class="fas fa-lightbulb me-2"></i>Key Point:</h5>
+                                <p class="mb-0">
+                                    These Terms are a legally binding contract. By using Weather AI, you're agreeing to all terms contained herein. We recommend printing or saving a copy for your records.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- Section 2: Definitions -->
+                        <section class="terms-section fade-in-up" style="transition-delay: 0.1s;" id="definitions">
+                            <h2>2. Definitions</h2>
+                            <p>
+                                For the purposes of these Terms, the following definitions apply:
+                            </p>
+                            <table class="terms-table">
+                                <thead>
+                                    <tr>
+                                        <th>Term</th>
+                                        <th>Definition</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>"Service"</strong></td>
+                                        <td>The Weather AI platform, including all features, tools, applications, data, and content provided through weather-ai.com and associated domains</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>"Content"</strong></td>
+                                        <td>All information, data, text, graphics, videos, or other materials uploaded, downloaded, or appearing on the Service</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>"User"</strong></td>
+                                        <td>Any individual or entity that accesses or uses the Service</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>"Account"</strong></td>
+                                        <td>The unique account created by a User to access the Service</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>"Subscription"</strong></td>
+                                        <td>The paid access to premium features of the Service for a specified term</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>"API"</strong></td>
+                                        <td>Application Programming Interface provided by Weather AI for integrating with the Service</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+
+                        <!-- Section 3: Accounts -->
+                        <section class="terms-section fade-in-up" style="transition-delay: 0.2s;" id="accounts">
+                            <h2>3. Accounts and Registration</h2>
+                            <p>
+                                To access certain features of the Service, you must register for an account. When you register, you agree to provide accurate, current, and complete information. You are responsible for safeguarding your account credentials and for all activities that occur under your account.
+                            </p>
+                            
+                            <h3>3.1 Account Eligibility</h3>
+                            <p>
+                                You must be at least 18 years old to create an account and use the Service. By creating an account, you represent and warrant that you meet this age requirement and have the legal capacity to enter into these Terms.
+                            </p>
+                            
+                            <h3>3.2 Account Security</h3>
+                            <p>
+                                You are responsible for maintaining the confidentiality of your login credentials and for restricting access to your account. You agree to accept responsibility for all activities that occur under your account. You must notify us immediately of any unauthorized use of your account or any other breach of security.
+                            </p>
+                            
+                            <h3>3.3 Account Termination by You</h3>
+                            <p>
+                                You may terminate your account at any time by following the instructions on the Service or by contacting our support team. Upon termination, your right to use the Service will immediately cease.
+                            </p>
+                        </section>
+
+                        <!-- Section 4: Services -->
+                        <section class="terms-section fade-in-up" style="transition-delay: 0.3s;" id="services">
+                            <h2>4. Description of Services</h2>
+                            <p>
+                                Weather AI provides advanced weather intelligence and anomaly detection services through artificial intelligence and machine learning technologies. Our services include:
+                            </p>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5><i class="fas fa-brain text-primary me-2"></i>Core Services</h5>
+                                    <ul>
+                                        <li>Real-time weather monitoring and analysis</li>
+                                        <li>Anomaly detection algorithms</li>
+                                        <li>Predictive weather modeling</li>
+                                        <li>Historical weather data access</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5><i class="fas fa-tools text-primary me-2"></i>Additional Services</h5>
+                                    <ul>
+                                        <li>API access for developers</li>
+                                        <li>Custom reporting and alerts</li>
+                                        <li>Data visualization tools</li>
+                                        <li>Technical support and consultation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-box">
+                                <h5><i class="fas fa-info-circle me-2"></i>Service Limitations</h5>
+                                <p class="mb-0">
+                                    While we strive for 99.9% uptime, we cannot guarantee uninterrupted access to the Service. We may perform maintenance, updates, or improvements that temporarily affect service availability. We are not responsible for delays or failures in performance resulting from acts beyond our reasonable control.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- Section 5: Usage Rights -->
+                        <section class="terms-section fade-in-up" style="transition-delay: 0.4s;" id="usage">
+                            <h2>5. License and Usage Rights</h2>
+                            <p>
+                                Subject to your compliance with these Terms, Weather AI grants you a limited, non-exclusive, non-transferable, non-sublicensable license to access and use the Service for your personal or internal business purposes.
+                            </p>
+                            
+                            <h3>5.1 License Scope</h3>
+                            <p>
+                                The license granted includes the right to:
+                            </p>
+                            <ul>
+                                <li>Access and use the Service through a standard web browser or mobile application</li>
+                                <li>Download and use data generated by the Service for your internal business purposes</li>
+                                <li>Integrate with our API as permitted by your subscription tier</li>
+                                <li>Use documentation and support materials provided with the Service</li>
+                            </ul>
+                            
+                            <h3>5.2 License Restrictions</h3>
+                            <p>
+                                The license does not include the right to:
+                            </p>
+                            <ul>
+                                <li>Resell, sublicense, or distribute the Service or any data obtained from it</li>
+                                <li>Reverse engineer, decompile, or disassemble any portion of the Service</li>
+                                <li>Use the Service to create a competing product or service</li>
+                                <li>Remove any proprietary notices or labels from the Service</li>
+                            </ul>
+                        </section>
+
+                        <!-- Section 6: Restrictions -->
+                        <section class="terms-section fade-in-up" style="transition-delay: 0.5s;" id="restrictions">
+                            <h2>6. Acceptable Use and Restrictions</h2>
+                            <p>
+                                You agree not to use the Service for any unlawful purpose or in any way that violates these Terms. Specifically, you agree not to:
+                            </p>
+                            
+                            <table class="terms-table">
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Prohibited Activities</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Security</strong></td>
+                                        <td>Attempt to gain unauthorized access to any portion of the Service, other accounts, or computer systems</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>System Integrity</strong></td>
+                                        <td>Interfere with or disrupt the integrity or performance of the Service</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Automated Access</strong></td>
+                                        <td>Use any robot, spider, scraper, or other automated means to access the Service without our express written permission</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Data Mining</strong></td>
+                                        <td>Extract data from the Service through automated means beyond reasonable API usage</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Illegal Content</strong></td>
+                                        <td>Upload or transmit any content that is illegal, harmful, or infringes on others' rights</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Commercial Use</strong></td>
+                                        <td>Use the Service for commercial purposes without appropriate subscription (except free tier limitations)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="highlight-box">
+                                <h5><i class="fas fa-exclamation-circle me-2"></i>Consequences of Violation</h5>
+                                <p class="mb-0">
+                                    Violation of these restrictions may result in immediate termination of your account, legal action, and liability for damages. We reserve the right to investigate violations and cooperate with law enforcement authorities.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- Section 7: Data Rights -->
+                        <section class="terms-section fade-in-up" style="transition-delay: 0.6s;" id="data">
+                            <h2>7. Data Rights and Ownership</h2>
+                            <p>
+                                Understanding data rights is crucial when using a data-intensive platform like Weather AI. This section outlines the ownership and usage rights for different types of data.
+                            </p>
+                            
+                            <h3>7.1 Your Data</h3>
+                            <p>
+                                You retain all rights to any data you upload or submit to the Service ("Your Data"). By submitting Your Data, you grant Weather AI a worldwide, non-exclusive license to use, process, and store Your Data solely for the purpose of providing the Service to you.
+                            </p>
+                            
+                            <h3>7.2 Weather Data</h3>
+                            <p>
+                                Weather data provided through the Service ("Weather Data") is licensed, not sold. Your rights to use Weather Data depend on your subscription tier:
+                            </p>
+                            
+                            <table class="terms-table">
+                                <thead>
+                                    <tr>
+                                        <th>Subscription Tier</th>
+                                        <th>Data Usage Rights</th>
+                                        <th>Commercial Use</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Free</strong></td>
+                                        <td>Personal, non-commercial use only</td>
+                                        <td>Not permitted</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Professional</strong></td>
+                                        <td>Internal business use</td>
+                                        <td>Permitted for your business</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Enterprise</strong></td>
+                                        <td>Unlimited internal use</td>
+                                        <td>Permitted, some redistribution allowed</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <h3>7.3 Aggregate Data</h3>
+                            <p>
+                                We may collect and use aggregate, anonymized data derived from the use of the Service for improving our algorithms, conducting research, and other business purposes. This aggregate data cannot be used to identify you or your specific usage patterns.
+                            </p>
+                        </section>
+
+                        <!-- Section 8: Payments -->
+                        <section class="terms-section fade-in-up" style="transition-delay: 0.7s;" id="payments">
+                            <h2>8. Payments, Billing, and Refunds</h2>
+                            <p>
+                                Certain features of the Service require payment. This section outlines our payment terms, billing practices, and refund policies.
+                            </p>
+                            
+                            <h3>8.1 Subscription Plans</h3>
+                            <p>
+                                We offer various subscription plans with different features and pricing. All prices are in U.S. dollars unless otherwise specified. We reserve the right to change our prices at any time, but we will provide at least 30 days' notice before any price changes affect you.
+                            </p>
+                            
+                            <h3>8.2 Billing Cycle</h3>
+                            <p>
+                                Subscription fees are billed in advance on a monthly or annual basis, depending on your chosen plan. Your subscription will automatically renew at the end of each billing cycle unless you cancel before the renewal date.
+                            </p>
+                            
+                            <h3>8.3 Payment Methods</h3>
+                            <p>
+                                We accept various payment methods as listed on our pricing page. You agree to provide accurate and complete billing information. By providing payment information, you authorize us to charge all subscription fees to your chosen payment method.
+                            </p>
+                            
+                            <h3>8.4 Refund Policy</h3>
+                            <p>
+                                We offer a 30-day money-back guarantee for annual plans. Monthly plans are not eligible for refunds after the first 7 days. To request a refund, contact our support team with your account details and reason for cancellation.
+                            </p>
+                            
+                            <div class="highlight-box">
+                                <h5><i class="fas fa-dollar-sign me-2"></i>Taxes</h5>
+                                <p class="mb-0">
+                                    All fees are exclusive of taxes, duties, and other governmental assessments. You are responsible for paying all taxes associated with your purchases, excluding taxes based on our net income.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- Additional sections would continue here in a real implementation -->
+                        <!-- For brevity, I'm showing the structure for the remaining sections -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Acceptance Section -->
+    <section class="acceptance-section fade-in-up" id="acceptance">
+        <div class="container">
+            <div class="acceptance-box">
+                <h2 class="fw-bold mb-4 section-title">Acceptance of Terms</h2>
+                <p class="lead mb-4">
+                    By using Weather AI, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
+                </p>
+                
+                <div class="checkbox-container">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="agreeTerms">
+                        <label class="form-check-label" for="agreeTerms">
+                            <strong>I have read and agree to the Terms of Service</strong>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="agreePrivacy">
+                        <label class="form-check-label" for="agreePrivacy">
+                            I have read and agree to the <a href="privacy.html">Privacy Policy</a>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="agreeUpdates">
+                        <label class="form-check-label" for="agreeUpdates">
+                            I agree to receive important updates about the Service
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="d-flex justify-content-center gap-3">
+                    <button class="btn btn-primary btn-lg" id="acceptButton" disabled>
+                        <i class="fas fa-check-circle me-2"></i>I Accept the Terms
+                    </button>
+                    <button class="btn btn-outline-secondary btn-lg" id="declineButton">
+                        <i class="fas fa-times-circle me-2"></i>I Do Not Accept
+                    </button>
+                </div>
+                
+                <p class="text-muted mt-4 small">
+                    <i class="fas fa-info-circle me-1"></i>
+                    You must accept these terms to use Weather AI platform. If you decline, you will be redirected to our home page.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="terms-content" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center fade-in-up">
+                    <h2 class="fw-bold mb-4">Questions About These Terms?</h2>
+                    <p class="lead mb-4">
+                        If you have any questions about these Terms of Service, please contact our legal team.
+                    </p>
+                    <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+                        <a href="mailto:legal@weatherai.com" class="btn btn-primary btn-lg">
+                            <i class="fas fa-envelope me-2"></i>Email Legal Team
+                        </a>
+                        <a href="contact.html" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-headset me-2"></i>Contact Support
+                        </a>
+                    </div>
+                    <p class="text-muted mt-4">
+                        For enterprise customers requiring custom terms or a signed agreement, please contact our sales team.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3" href="index.html">
+                        <i class="fas fa-cloud-sun me-2"></i>
+                        <span class="fw-bold">Weather</span><span class="fw-bold" style="color: #00c9ff;">AI</span>
+                    </a>
+                    <p class="text-light">Advanced AI-powered weather anomaly detection platform for researchers, meteorologists, and organizations worldwide.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Platform</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="features.html" class="text-light text-decoration-none">Features</a></li>
+                        <li><a href="pricing.html" class="text-light text-decoration-none">Pricing</a></li>
+                        <li><a href="demo.html" class="text-light text-decoration-none">Live Demo</a></li>
+                        <li><a href="faq.html" class="text-light text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="terms.html" class="text-light text-decoration-none fw-bold">Terms of Service</a></li>
+                        <li><a href="privacy.html" class="text-light text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="cookie-policy.html" class="text-light text-decoration-none">Cookie Policy</a></li>
+                        <li><a href="compliance.html" class="text-light text-decoration-none">GDPR Compliance</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Stay Updated</h5>
+                    <p class="text-light">Subscribe to our newsletter for the latest research, updates, and climate insights.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <p class="text-light mt-3 small">
+                        <i class="fas fa-lock me-1"></i> We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+            <hr class="border-light my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light">&copy; 2024 Weather AI. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="privacy.html" class="text-light text-decoration-none me-3">Privacy Policy</a>
+                    <a href="terms.html" class="text-light text-decoration-none me-3 fw-bold">Terms of Service</a>
+                    <a href="compliance.html" class="text-light text-decoration-none">GDPR Compliance</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Initialize scroll animations
+        function initScrollAnimations() {
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -100px 0px'
+                });
+                
+                fadeElements.forEach(element => {
+                    observer.observe(element);
+                });
+            } else {
+                // Fallback for older browsers
+                function checkScrollFallback() {
+                    const windowHeight = window.innerHeight;
+                    
+                    fadeElements.forEach(element => {
+                        const elementTop = element.getBoundingClientRect().top;
+                        
+                        if (elementTop < windowHeight * 0.85) {
+                            element.classList.add('visible');
+                        }
+                    });
+                }
+                
+                window.addEventListener('scroll', checkScrollFallback);
+                window.addEventListener('resize', checkScrollFallback);
+                checkScrollFallback();
+            }
+        }
+        
+        // Scroll progress indicator
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + "%";
+            
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+            
+            // Update active terms nav based on scroll position
+            updateActiveTermsNav();
+            
+            // Show/hide back to top button
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        // Update active terms navigation based on scroll position
+        function updateActiveTermsNav() {
+            const sections = document.querySelectorAll('.terms-section');
+            const navLinks = document.querySelectorAll('.terms-nav-link');
+            const scrollY = window.pageYOffset;
+            let currentActive = null;
+            
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 150;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    currentActive = sectionId;
+                }
+            });
+            
+            // Update nav links
+            if (currentActive) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentActive}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    // Close mobile menu if open
+                    if (window.innerWidth < 992) {
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (navbarCollapse.classList.contains('show')) {
+                            const navbarToggler = document.querySelector('.navbar-toggler');
+                            navbarToggler.click();
+                        }
+                    }
+                    
+                    // Scroll to target
+                    window.scrollTo({
+                        top: target.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active nav
+                    if (this.classList.contains('terms-nav-link')) {
+                        document.querySelectorAll('.terms-nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
+                }
+            });
+        });
+        
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Terms acceptance functionality
+        const agreeTerms = document.getElementById('agreeTerms');
+        const agreePrivacy = document.getElementById('agreePrivacy');
+        const agreeUpdates = document.getElementById('agreeUpdates');
+        const acceptButton = document.getElementById('acceptButton');
+        const declineButton = document.getElementById('declineButton');
+        
+        function updateAcceptButton() {
+            acceptButton.disabled = !(agreeTerms.checked && agreePrivacy.checked);
+        }
+        
+        agreeTerms.addEventListener('change', updateAcceptButton);
+        agreePrivacy.addEventListener('change', updateAcceptButton);
+        
+        acceptButton.addEventListener('click', function() {
+            // In a real implementation, this would save acceptance to user account
+            // For demo purposes, we'll just show a confirmation
+            alert('Thank you for accepting our Terms of Service. You may now continue using Weather AI.');
+            
+            // Store acceptance in localStorage for demo
+            localStorage.setItem('termsAccepted', 'true');
+            localStorage.setItem('termsAcceptanceDate', new Date().toISOString());
+            
+            // Redirect to home page or dashboard
+            window.location.href = 'index.html';
+        });
+        
+        declineButton.addEventListener('click', function() {
+            if (confirm('You must accept our Terms of Service to use Weather AI. Would you like to return to the home page?')) {
+                window.location.href = 'index.html';
+            }
+        });
+        
+        // Check if terms were already accepted
+        document.addEventListener('DOMContentLoaded', function() {
+            const termsAccepted = localStorage.getItem('termsAccepted');
+            if (termsAccepted === 'true') {
+                // Pre-check the boxes for returning users
+                agreeTerms.checked = true;
+                agreePrivacy.checked = true;
+                agreeUpdates.checked = true;
+                updateAcceptButton();
+            }
+        });
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initScrollAnimations();
+            updateActiveTermsNav();
+            
+            // Add print button functionality
+            const printButton = document.createElement('button');
+            printButton.className = 'btn btn-outline-secondary d-none d-md-inline-flex align-items-center';
+            printButton.innerHTML = '<i class="fas fa-print me-2"></i>Print Terms';
+            printButton.style.position = 'fixed';
+            printButton.style.bottom = '30px';
+            printButton.style.left = '30px';
+            printButton.style.zIndex = '1000';
+            printButton.addEventListener('click', function() {
+                window.print();
+            });
+            document.body.appendChild(printButton);
+        });
+        
+        // Print styles
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @media print {
+                .navbar, .footer, .back-to-top, .terms-nav, 
+                .acceptance-section, .important-notice,
+                button, .btn {
+                    display: none !important;
+                }
+                
+                body {
+                    padding-top: 0 !important;
+                    font-size: 12pt;
+                }
+                
+                .terms-section {
+                    box-shadow: none !important;
+                    border: none !important;
+                    page-break-inside: avoid;
+                }
+                
+                h1, h2, h3 {
+                    page-break-after: avoid;
+                }
+                
+                .highlight-box {
+                    background: #f8f9fa !important;
+                    border: 1px solid #dee2e6 !important;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        // Newsletter Subscription Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const newsletterForm = document.querySelector('.footer .input-group');
+    if (newsletterForm) {
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const subscribeBtn = newsletterForm.querySelector('button');
+        
+        // Create message container if it doesn't exist
+        let messageDiv = document.querySelector('.newsletter-message');
+        if (!messageDiv) {
+            messageDiv = document.createElement('div');
+            messageDiv.className = 'newsletter-message mt-2';
+            messageDiv.style.display = 'none';
+            newsletterForm.parentNode.insertBefore(messageDiv, newsletterForm.nextSibling);
+        }
+        
+        // Remove existing click handler and add new one
+        const newSubscribeBtn = subscribeBtn.cloneNode(true);
+        subscribeBtn.parentNode.replaceChild(newSubscribeBtn, subscribeBtn);
+        
+        newSubscribeBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            
+            // Validate email
+            if (!email) {
+                showNewsletterMessage('Please enter your email address', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNewsletterMessage('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Disable button and show loading
+            newSubscribeBtn.disabled = true;
+            const originalText = newSubscribeBtn.innerHTML;
+            newSubscribeBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Subscribing...';
+            
+            try {
+                const response = await fetch('/api/newsletter/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showNewsletterMessage(data.message, 'success');
+                    emailInput.value = ''; // Clear input
+                } else {
+                    showNewsletterMessage(data.detail || 'Failed to subscribe. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error('Newsletter subscription error:', error);
+                showNewsletterMessage('Network error. Please check your connection and try again.', 'error');
+            } finally {
+                // Re-enable button
+                newSubscribeBtn.disabled = false;
+                newSubscribeBtn.innerHTML = originalText;
+            }
+        });
+        
+        // Allow Enter key to submit
+        emailInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                newSubscribeBtn.click();
+            }
+        });
+        
+        function showNewsletterMessage(text, type) {
+            messageDiv.style.display = 'block';
+            messageDiv.textContent = text;
+            
+            if (type === 'success') {
+                messageDiv.style.color = '#28a745';
+                messageDiv.style.backgroundColor = '#d4edda';
+                messageDiv.style.border = '1px solid #c3e6cb';
+            } else {
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.border = '1px solid #f5c6cb';
+            }
+            
+            messageDiv.style.padding = '10px';
+            messageDiv.style.borderRadius = '4px';
+            messageDiv.style.fontSize = '14px';
+            messageDiv.style.marginTop = '10px';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+    }
+});
+    </script>
+</body>
+</html>

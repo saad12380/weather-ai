@@ -1,0 +1,32 @@
+# Environment variables (SECRET KEYS!)
+.env
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Python temporary files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Uploads (user uploaded images)
+uploads/
+
+# Node modules (if you use npm)
+node_modules/

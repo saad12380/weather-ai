@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Weather AI Platform</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Privacy Policy for Weather AI Platform. Learn how we collect, use, and protect your data.">
+    <meta name="keywords" content="privacy policy, data protection, GDPR, weather AI, data security">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    
+     <!-- Favicon -->
+   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        html { font-size: 14px !important; }
+        body {
+            font-size: 0.95rem !important;
+            overflow-x: hidden !important;
+        }
+        @supports (zoom: 1) {
+            body { zoom: 0.95 !important; }
+        }
+        @supports not (zoom: 1) {
+            body {
+                transform: scale(0.95) !important;
+                transform-origin: top center !important;
+                width: 100% !important;
+            }
+        }
+
+        /* Enhanced Navbar Styles - Matching Home Page Theme */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
+            padding: 1rem 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar-scrolled {
+            padding: 0.7rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 6px 30px rgba(10, 37, 64, 0.12);
+        }
+
+        /* Logo Styling */
+        .logo-container {
+            position: relative;
+            padding: 0.25rem 0;
+        }
+
+        .logo-icon {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .logo-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(0, 201, 255, 0.1);
+            animation: pulse 2s infinite;
+        }
+
+        /* Animated Hamburger Menu */
+        .hamburger-menu {
+            position: relative;
+            width: 30px;
+            height: 21px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .hamburger-line {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Navigation Links Styling */
+        .nav-link-content {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-icon {
+            font-size: 1.1rem;
+            margin-right: 8px;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-text {
+            font-weight: 500;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-underline {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50px;
+            background: linear-gradient(135deg, rgba(26, 107, 179, 0.1), rgba(0, 201, 255, 0.1));
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        /* Hover Effects */
+        .nav-link:hover .nav-text,
+        .nav-link.active .nav-text {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .nav-link:hover .nav-icon,
+        .nav-link.active .nav-icon {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover .nav-underline,
+        .nav-link.active .nav-underline {
+            width: 70%;
+        }
+
+        .nav-link:hover .nav-bg,
+        .nav-link.active .nav-bg {
+            width: calc(100% + 20px);
+            height: calc(100% + 10px);
+            opacity: 1;
+        }
+
+        .navbar-brand:hover .logo-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Login Button Styling */
+        .btn-login {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            overflow: hidden;
+            border-radius: 12px;
+            background: var(--gradient-primary);
+            padding: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+            background: white;
+            border-radius: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(26, 107, 179, 0.3);
+        }
+
+        .btn-login:hover .btn-content {
+            background: transparent;
+            color: white;
+        }
+
+        .btn-login:hover .btn-gradient {
+            opacity: 1;
+        }
+
+        /* Mobile Menu Styling */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                padding: 1.5rem;
+                border-radius: 0 0 20px 20px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+                animation: slideDown 0.3s ease;
+            }
+
+            .nav-link-content {
+                padding: 0.75rem 0;
+                margin: 0.25rem 0;
+            }
+
+            .btn-login {
+                margin-top: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.5;
+            }
+            100% {
+                width: 60px;
+                height: 60px;
+                opacity: 0;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Active State Enhancement */
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Floating Particles Background (Subtle) */
+        .navbar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 201, 255, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(26, 107, 179, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        :root {
+            --primary-color: #1a6bb3;
+            --secondary-color: #0a2540;
+            --accent-color: #00c9ff;
+            --light-bg: #f8fafc;
+            --dark-bg: #0f172a;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --gradient-primary: linear-gradient(135deg, #1a6bb3 0%, #00c9ff 100%);
+            --gradient-dark: linear-gradient(135deg, #0a2540 0%, #1e293b 100%);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Hero Section */
+        .privacy-hero {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .privacy-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.15;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(to right, #00c9ff, #92fe9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Privacy Content */
+        .privacy-content {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+        
+        .privacy-card {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .privacy-section {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .privacy-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        /* Privacy Features */
+        .privacy-feature {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .privacy-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-color);
+        }
+        
+        .privacy-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Data Types Table */
+        .data-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            margin: 30px 0;
+        }
+        
+        .data-row {
+            display: flex;
+            padding: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .data-row:hover {
+            background: #f8fafc;
+        }
+        
+        .data-row:last-child {
+            border-bottom: none;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Scroll Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, opacity;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom bullet points */
+        .custom-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .custom-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .custom-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Info Boxes */
+        .info-box {
+            background: linear-gradient(135deg, rgba(26, 107, 179, 0.05), rgba(0, 201, 255, 0.05));
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .info-box.warning {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.05), rgba(255, 235, 59, 0.05));
+            border-left-color: #ffc107;
+        }
+        
+        .info-box.success {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.05), rgba(76, 175, 80, 0.05));
+            border-left-color: #28a745;
+        }
+        
+        /* Table of Contents */
+        .toc-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 40px;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .toc-link {
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 35px;
+        }
+        
+        .toc-link:hover,
+        .toc-link.active {
+            background: rgba(26, 107, 179, 0.1);
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+        
+        .toc-link::before {
+            content: '•';
+            position: absolute;
+            left: 15px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        /* Scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        /* Custom button styles */
+        .btn-primary {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .privacy-hero {
+                padding: 100px 0 60px;
+            }
+            
+            .privacy-card {
+                padding: 30px;
+            }
+            
+            .privacy-feature {
+                padding: 20px;
+            }
+            
+            .data-row {
+                flex-wrap: wrap;
+                padding: 15px;
+            }
+            
+            .toc-container {
+                position: static;
+                margin-top: 30px;
+            }
+        }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        .newsletter-message {
+    animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.footer .btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <!-- Animated Logo with Hover Effect -->
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-container d-flex align-items-center">
+                    <div class="logo-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <div class="logo-text ms-2">
+                        <span class="fw-bold">Weather</span>
+                        <span class="logo-gradient fw-bold">AI</span>
+                    </div>
+                    <div class="logo-pulse"></div>
+                </div>
+            </a>
+
+            <!-- Mobile Toggle Button with Animation -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <div class="hamburger-menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+
+            <!-- Navigation Items -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-home nav-icon"></i>
+                                <span class="nav-text">Home</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-sliders-h nav-icon"></i>
+                                <span class="nav-text">Features</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-tag nav-icon"></i>
+                                <span class="nav-text">Pricing</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-blog nav-icon"></i>
+                                <span class="nav-text">Blog</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-info-circle nav-icon"></i>
+                                <span class="nav-text">About</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-envelope nav-icon"></i>
+                                <span class="nav-text">Contact</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a href="login.html" class="btn-login">
+                            <div class="btn-content">
+                                <i class="fas fa-sign-in-alt me-2"></i>
+                                <span>Login/Signup</span>
+                                <div class="btn-gradient"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="privacy-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center fade-in-up">
+                    <h1 class="display-3 fw-bold mb-4">
+                        Privacy <span class="text-gradient">Policy</span>
+                    </h1>
+                    <p class="lead mb-4">
+                        At Weather AI, we are committed to protecting your privacy and ensuring the security of your personal information. 
+                        This Privacy Policy explains how we collect, use, and safeguard your data.
+                    </p>
+                    <p class="text-light mb-0">
+                        Last Updated: <strong>December 15, 2024</strong> | Effective Date: <strong>January 1, 2024</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Content -->
+    <section class="privacy-content">
+        <div class="container">
+            <div class="row">
+                <!-- Table of Contents -->
+                <div class="col-lg-4">
+                    <div class="toc-container fade-in-up">
+                        <h4 class="fw-bold mb-4">Table of Contents</h4>
+                        <nav class="toc-nav">
+                            <a href="#data-collection" class="toc-link active">1. Data Collection</a>
+                            <a href="#data-usage" class="toc-link">2. Data Usage</a>
+                            <a href="#data-sharing" class="toc-link">3. Data Sharing</a>
+                            <a href="#data-security" class="toc-link">4. Data Security</a>
+                            <a href="#your-rights" class="toc-link">5. Your Rights</a>
+                            <a href="#cookies" class="toc-link">6. Cookies</a>
+                            <a href="#compliance" class="toc-link">7. Compliance</a>
+                            <a href="#contact" class="toc-link">8. Contact Us</a>
+                        </nav>
+                    </div>
+                    
+                    <!-- Privacy Features -->
+                    <div class="mt-4 fade-in-up" style="transition-delay: 0.1s;">
+                        <div class="privacy-feature">
+                            <div class="privacy-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h5 class="fw-bold mb-2">Enterprise-Grade Security</h5>
+                            <p class="text-muted mb-0">Bank-level encryption and security protocols to protect your data.</p>
+                        </div>
+                        
+                        <div class="privacy-feature">
+                            <div class="privacy-icon">
+                                <i class="fas fa-user-lock"></i>
+                            </div>
+                            <h5 class="fw-bold mb-2">Data Ownership</h5>
+                            <p class="text-muted mb-0">You retain full ownership of your data at all times.</p>
+                        </div>
+                        
+                        <div class="privacy-feature">
+                            <div class="privacy-icon">
+                                <i class="fas fa-globe-europe"></i>
+                            </div>
+                            <h5 class="fw-bold mb-2">GDPR Compliant</h5>
+                            <p class="text-muted mb-0">Full compliance with EU General Data Protection Regulation.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="col-lg-8">
+                    <div class="privacy-card fade-in-up" style="transition-delay: 0.2s;">
+                        <!-- Introduction -->
+                        <div class="privacy-section">
+                            <div class="info-box">
+                                <h5 class="fw-bold mb-2"><i class="fas fa-info-circle me-2"></i>Important Notice</h5>
+                                <p class="mb-0">
+                                    This Privacy Policy applies to all users of Weather AI services, including our website, mobile applications, 
+                                    and API services. By using our services, you agree to the collection and use of information in accordance 
+                                    with this policy.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Data Collection -->
+                        <div id="data-collection" class="privacy-section">
+                            <h2 class="display-6 fw-bold mb-4 section-title">1. Data Collection</h2>
+                            <p>We collect several types of information to provide and improve our services:</p>
+                            
+                            <div class="data-table">
+                                <div class="data-row">
+                                    <div class="col-6"><strong>Type of Data</strong></div>
+                                    <div class="col-6"><strong>Purpose</strong></div>
+                                </div>
+                                <div class="data-row">
+                                    <div class="col-6">
+                                        <strong>Personal Information</strong>
+                                        <p class="text-muted mb-0 small">Name, email, company, contact details</p>
+                                    </div>
+                                    <div class="col-6">
+                                        Account creation, communication, and service provision
+                                    </div>
+                                </div>
+                                <div class="data-row">
+                                    <div class="col-6">
+                                        <strong>Usage Data</strong>
+                                        <p class="text-muted mb-0 small">IP address, browser type, pages visited</p>
+                                    </div>
+                                    <div class="col-6">
+                                        Service improvement and analytics
+                                    </div>
+                                </div>
+                                <div class="data-row">
+                                    <div class="col-6">
+                                        <strong>Weather Data</strong>
+                                        <p class="text-muted mb-0 small">Location data, weather parameters, analytics</p>
+                                    </div>
+                                    <div class="col-6">
+                                        Core service functionality and predictions
+                                    </div>
+                                </div>
+                                <div class="data-row">
+                                    <div class="col-6">
+                                        <strong>Technical Data</strong>
+                                        <p class="text-muted mb-0 small">Device information, API usage, logs</p>
+                                    </div>
+                                    <div class="col-6">
+                                        Security monitoring and system optimization
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="info-box warning">
+                                <h5 class="fw-bold mb-2"><i class="fas fa-exclamation-triangle me-2"></i>Data Minimization</h5>
+                                <p class="mb-0">
+                                    We only collect data necessary for providing our services and improving user experience. 
+                                    We do not collect sensitive personal data without explicit consent.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Data Usage -->
+                        <div id="data-usage" class="privacy-section">
+                            <h2 class="display-6 fw-bold mb-4 section-title">2. How We Use Your Data</h2>
+                            <p>Your information is used for the following purposes:</p>
+                            
+                            <ul class="custom-list">
+                                <li><strong>Service Provision:</strong> To deliver and maintain our weather intelligence platform</li>
+                                <li><strong>Communication:</strong> To send important updates, notifications, and support responses</li>
+                                <li><strong>Improvement:</strong> To enhance our services, develop new features, and conduct research</li>
+                                <li><strong>Security:</strong> To protect our services, users, and prevent fraudulent activities</li>
+                                <li><strong>Compliance:</strong> To meet legal obligations and regulatory requirements</li>
+                                <li><strong>Analytics:</strong> To understand usage patterns and optimize user experience</li>
+                            </ul>
+                            
+                            <div class="info-box">
+                                <h5 class="fw-bold mb-2"><i class="fas fa-chart-line me-2"></i>Analytics & Research</h5>
+                                <p class="mb-0">
+                                    We use anonymized and aggregated data for research purposes to improve weather prediction 
+                                    algorithms and climate models. This data cannot be traced back to individual users.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Data Sharing -->
+                        <div id="data-sharing" class="privacy-section">
+                            <h2 class="display-6 fw-bold mb-4 section-title">3. Data Sharing & Disclosure</h2>
+                            <p>We may share your information in the following circumstances:</p>
+                            
+                            <h5 class="fw-bold mt-4 mb-3">Service Providers</h5>
+                            <p>We work with trusted third-party providers for:</p>
+                            <ul class="custom-list">
+                                <li>Cloud hosting and infrastructure (AWS, Google Cloud)</li>
+                                <li>Payment processing (Stripe, PayPal)</li>
+                                <li>Email communication (SendGrid, Mailchimp)</li>
+                                <li>Analytics and monitoring (Google Analytics, New Relic)</li>
+                            </ul>
+                            
+                            <h5 class="fw-bold mt-4 mb-3">Legal Requirements</h5>
+                            <p>We may disclose your information if required by law or in response to:</p>
+                            <ul class="custom-list">
+                                <li>Court orders or legal processes</li>
+                                <li>Government requests</li>
+                                <li>To protect our rights, property, or safety</li>
+                                <li>To prevent fraud or security issues</li>
+                            </ul>
+                            
+                            <div class="info-box warning">
+                                <h5 class="fw-bold mb-2"><i class="fas fa-handshake me-2"></i>No Data Selling</h5>
+                                <p class="mb-0">
+                                    We <strong>do not sell</strong> your personal data to third parties. We only share data 
+                                    with service providers who help us deliver our services, and they are contractually 
+                                    obligated to protect your information.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Data Security -->
+                        <div id="data-security" class="privacy-section">
+                            <h2 class="display-6 fw-bold mb-4 section-title">4. Data Security</h2>
+                            <p>We implement robust security measures to protect your data:</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-3">
+                                    <div class="privacy-feature">
+                                        <div class="privacy-icon">
+                                            <i class="fas fa-lock"></i>
+                                        </div>
+                                        <h5 class="fw-bold mb-2">Encryption</h5>
+                                        <p class="text-muted mb-0">End-to-end encryption for data in transit and at rest</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="privacy-feature">
+                                        <div class="privacy-icon">
+                                            <i class="fas fa-server"></i>
+                                        </div>
+                                        <h5 class="fw-bold mb-2">Secure Infrastructure</h5>
+                                        <p class="text-muted mb-0">Enterprise-grade cloud infrastructure with regular security audits</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="privacy-feature">
+                                        <div class="privacy-icon">
+                                            <i class="fas fa-user-shield"></i>
+                                        </div>
+                                        <h5 class="fw-bold mb-2">Access Controls</h5>
+                                        <p class="text-muted mb-0">Role-based access controls and multi-factor authentication</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="privacy-feature">
+                                        <div class="privacy-icon">
+                                            <i class="fas fa-history"></i>
+                                        </div>
+                                        <h5 class="fw-bold mb-2">Regular Audits</h5>
+                                        <p class="text-muted mb-0">Continuous security monitoring and regular penetration testing</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="info-box">
+                                <h5 class="fw-bold mb-2"><i class="fas fa-shield-alt me-2"></i>Security Standards</h5>
+                                <p class="mb-0">
+                                    We adhere to industry-standard security frameworks including ISO 27001, SOC 2, 
+                                    and implement GDPR-compliant data protection measures.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Your Rights -->
+                        <div id="your-rights" class="privacy-section">
+                            <h2 class="display-6 fw-bold mb-4 section-title">5. Your Rights</h2>
+                            <p>You have the following rights regarding your personal data:</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-4">
+                                    <h5 class="fw-bold mb-3"><i class="fas fa-eye me-2"></i>Access & Portability</h5>
+                                    <p>Request access to your personal data and receive it in a structured, commonly used format.</p>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <h5 class="fw-bold mb-3"><i class="fas fa-edit me-2"></i>Correction</h5>
+                                    <p>Request correction of inaccurate or incomplete personal data.</p>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <h5 class="fw-bold mb-3"><i class="fas fa-trash-alt me-2"></i>Deletion</h5>
+                                    <p>Request deletion of your personal data under certain circumstances.</p>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <h5 class="fw-bold mb-3"><i class="fas fa-ban me-2"></i>Restriction</h5>
+                                    <p>Request restriction of processing of your personal data.</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="fw-bold mb-3"><i class="fas fa-times-circle me-2"></i>Objection</h5>
+                                    <p>Object to processing of your personal data for direct marketing purposes.</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="fw-bold mb-3"><i class="fas fa-file-export me-2"></i>Withdraw Consent</h5>
+                                    <p>Withdraw your consent at any time where we rely on consent to process your data.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-box success">
+                                <h5 class="fw-bold mb-2"><i class="fas fa-user-check me-2"></i>Exercising Your Rights</h5>
+                                <p class="mb-0">
+                                    To exercise any of these rights, please contact our Data Protection Officer at 
+                                    <a href="mailto:dpo@weatherai.com" class="text-decoration-none">dpo@weatherai.com</a>. 
+                                    We will respond to your request within 30 days.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Cookies -->
+                        <div id="cookies" class="privacy-section">
+                            <h2 class="display-6 fw-bold mb-4 section-title">6. Cookies & Tracking Technologies</h2>
+                            <p>We use cookies and similar tracking technologies to track activity on our service:</p>
+                            
+                            <h5 class="fw-bold mt-4 mb-3">Essential Cookies</h5>
+                            <p>Required for the basic functionality of our website and services.</p>
+                            
+                            <h5 class="fw-bold mt-4 mb-3">Analytics Cookies</h5>
+                            <p>Help us understand how visitors interact with our website and improve user experience.</p>
+                            
+                            <h5 class="fw-bold mt-4 mb-3">Preference Cookies</h5>
+                            <p>Remember your settings and preferences for a personalized experience.</p>
+                            
+                            <div class="info-box">
+                                <h5 class="fw-bold mb-2"><i class="fas fa-cookie-bite me-2"></i>Cookie Management</h5>
+                                <p class="mb-0">
+                                    You can control cookie preferences through your browser settings. 
+                                    Most browsers allow you to refuse cookies or alert you when cookies are being sent.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Compliance -->
+                        <div id="compliance" class="privacy-section">
+                            <h2 class="display-6 fw-bold mb-4 section-title">7. Legal Compliance</h2>
+                            
+                            <h5 class="fw-bold mt-4 mb-3">GDPR Compliance</h5>
+                            <p>We comply with the General Data Protection Regulation (GDPR) for users in the European Union.</p>
+                            
+                            <h5 class="fw-bold mt-4 mb-3">CCPA Compliance</h5>
+                            <p>We comply with the California Consumer Privacy Act (CCPA) for users in California, USA.</p>
+                            
+                            <h5 class="fw-bold mt-4 mb-3">International Data Transfers</h5>
+                            <p>We use Standard Contractual Clauses (SCCs) for international data transfers outside the EEA.</p>
+                            
+                            <div class="info-box">
+                                <h5 class="fw-bold mb-2"><i class="fas fa-balance-scale me-2"></i>Data Protection Officer</h5>
+                                <p class="mb-0">
+                                    We have appointed a Data Protection Officer (DPO) who oversees our privacy program 
+                                    and ensures compliance with data protection laws.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact -->
+                        <div id="contact" class="privacy-section">
+                            <h2 class="display-6 fw-bold mb-4 section-title">8. Contact Us</h2>
+                            <p>If you have any questions about this Privacy Policy, please contact us:</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-3">
+                                    <div class="privacy-feature">
+                                        <div class="privacy-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <h5 class="fw-bold mb-2">Email</h5>
+                                        <p class="text-muted mb-0">
+                                            <a href="mailto:privacy@weatherai.com" class="text-decoration-none">
+                                                privacy@weatherai.com
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="privacy-feature">
+                                        <div class="privacy-icon">
+                                            <i class="fas fa-user-shield"></i>
+                                        </div>
+                                        <h5 class="fw-bold mb-2">Data Protection Officer</h5>
+                                        <p class="text-muted mb-0">
+                                            <a href="mailto:dpo@weatherai.com" class="text-decoration-none">
+                                                dpo@weatherai.com
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="info-box">
+                                <h5 class="fw-bold mb-2"><i class="fas fa-file-contract me-2"></i>Policy Updates</h5>
+                                <p class="mb-0">
+                                    We may update this Privacy Policy periodically. We will notify you of any changes 
+                                    by posting the new Privacy Policy on this page and updating the "Last Updated" date.
+                                </p>
+                            </div>
+                            
+                            <div class="mt-5 text-center">
+                                <a href="#data-collection" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-arrow-up me-2"></i>Back to Top
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3" href="index.html">
+                        <i class="fas fa-cloud-sun me-2"></i>
+                        <span class="fw-bold">Weather</span><span class="fw-bold" style="color: #00c9ff;">AI</span>
+                    </a>
+                    <p class="text-light">Advanced AI-powered weather anomaly detection platform for researchers, meteorologists, and organizations worldwide.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Platform</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="features.html" class="text-light text-decoration-none">Features</a></li>
+                        <li><a href="pricing.html" class="text-light text-decoration-none">Pricing</a></li>
+                        <li><a href="demo.html" class="text-light text-decoration-none">Live Demo</a></li>
+                        <li><a href="api.html" class="text-light text-decoration-none">API Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="privacy.html" class="text-light text-decoration-none fw-bold">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-light text-decoration-none">Terms of Service</a></li>
+                        <li><a href="compliance.html" class="text-light text-decoration-none">GDPR Compliance</a></li>
+                        <li><a href="cookie-policy.html" class="text-light text-decoration-none">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Stay Updated</h5>
+                    <p class="text-light">Subscribe to our newsletter for the latest research, updates, and climate insights.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <p class="text-light mt-3 small">
+                        <i class="fas fa-lock me-1"></i> We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+            <hr class="border-light my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light">&copy; 2024 Weather AI. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <span class="text-light">Privacy Policy Version: 3.2</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Enhanced Navbar Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const hamburger = document.querySelector('.navbar-toggler');
+            const currentPage = window.location.pathname.split('/').pop();
+            
+            // Set active nav link
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Scroll effect with parallax
+            window.addEventListener('scroll', function() {
+                const scrollY = window.scrollY;
+                
+                // Navbar scroll effect
+                if (scrollY > 50) {
+                    navbar.classList.add('navbar-scrolled');
+                    // Add parallax effect to background
+                    navbar.style.background = `rgba(255, 255, 255, ${0.92 + (scrollY * 0.001)})`;
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                    navbar.style.background = 'rgba(255, 255, 255, 0.92)';
+                }
+                
+                // Update active TOC link based on scroll position
+                updateActiveToc();
+                
+                // Show/hide scroll to top button
+                const scrollTopBtn = document.querySelector('.scroll-top');
+                if (scrollY > 500) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            });
+
+            // Update active TOC link based on scroll position
+            function updateActiveToc() {
+                const sections = document.querySelectorAll('.privacy-section');
+                const tocLinks = document.querySelectorAll('.toc-link');
+                const scrollY = window.pageYOffset;
+                
+                sections.forEach(section => {
+                    const sectionHeight = section.offsetHeight;
+                    const sectionTop = section.offsetTop - 200;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        tocLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+
+            // Smooth scroll for TOC links
+            const tocLinks = document.querySelectorAll('.toc-link');
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    
+                    if (target) {
+                        // Close mobile menu if open
+                        if (window.innerWidth < 992) {
+                            const collapse = document.querySelector('.navbar-collapse');
+                            if (collapse.classList.contains('show')) {
+                                hamburger.click();
+                            }
+                        }
+                        
+                        // Smooth scroll
+                        window.scrollTo({
+                            top: target.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active TOC
+                        tocLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+
+            // Smooth scroll for anchor links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            // Close mobile menu if open
+                            if (window.innerWidth < 992) {
+                                const collapse = document.querySelector('.navbar-collapse');
+                                if (collapse.classList.contains('show')) {
+                                    hamburger.click();
+                                }
+                            }
+                            
+                            // Smooth scroll
+                            window.scrollTo({
+                                top: target.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Update active nav
+                            navLinks.forEach(l => l.classList.remove('active'));
+                            this.classList.add('active');
+                        }
+                    }
+                });
+            });
+
+            // Hover effects enhancement
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('active')) {
+                        const icon = this.querySelector('.nav-icon');
+                        if (icon) {
+                            icon.style.transform = 'translateY(-2px) scale(1.1)';
+                        }
+                    }
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('active')) {
+                        const icon = this.querySelector('.nav-icon');
+                        if (icon) {
+                            icon.style.transform = '';
+                        }
+                    }
+                });
+            });
+
+            // Initialize on load
+            updateActiveToc();
+            
+            // Add subtle animation on page load
+            setTimeout(() => {
+                navbar.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            }, 100);
+        });
+
+        // Scroll progress indicator
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + "%";
+            
+            // Scroll animation
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+        
+        // Trigger initial scroll check for animations
+        window.dispatchEvent(new Event('scroll'));
+        
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Privacy feature cards hover animation
+            const privacyFeatures = document.querySelectorAll('.privacy-feature');
+            privacyFeatures.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Data table row hover effect
+            const dataRows = document.querySelectorAll('.data-row');
+            dataRows.forEach(row => {
+                row.addEventListener('mouseenter', () => {
+                    row.style.backgroundColor = '#f8fafc';
+                });
+                
+                row.addEventListener('mouseleave', () => {
+                    row.style.backgroundColor = '';
+                });
+            });
+            
+            // Print-friendly version button
+            const printBtn = document.createElement('button');
+            printBtn.className = 'btn btn-outline-primary btn-sm position-fixed bottom-3 start-3';
+            printBtn.innerHTML = '<i class="fas fa-print me-2"></i>Print Policy';
+            printBtn.style.zIndex = '1000';
+            printBtn.onclick = () => window.print();
+            document.body.appendChild(printBtn);
+        });
+        // Newsletter Subscription Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const newsletterForm = document.querySelector('.footer .input-group');
+    if (newsletterForm) {
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const subscribeBtn = newsletterForm.querySelector('button');
+        
+        // Create message container if it doesn't exist
+        let messageDiv = document.querySelector('.newsletter-message');
+        if (!messageDiv) {
+            messageDiv = document.createElement('div');
+            messageDiv.className = 'newsletter-message mt-2';
+            messageDiv.style.display = 'none';
+            newsletterForm.parentNode.insertBefore(messageDiv, newsletterForm.nextSibling);
+        }
+        
+        // Remove existing click handler and add new one
+        const newSubscribeBtn = subscribeBtn.cloneNode(true);
+        subscribeBtn.parentNode.replaceChild(newSubscribeBtn, subscribeBtn);
+        
+        newSubscribeBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            
+            // Validate email
+            if (!email) {
+                showNewsletterMessage('Please enter your email address', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNewsletterMessage('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Disable button and show loading
+            newSubscribeBtn.disabled = true;
+            const originalText = newSubscribeBtn.innerHTML;
+            newSubscribeBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Subscribing...';
+            
+            try {
+                const response = await fetch('/api/newsletter/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showNewsletterMessage(data.message, 'success');
+                    emailInput.value = ''; // Clear input
+                } else {
+                    showNewsletterMessage(data.detail || 'Failed to subscribe. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error('Newsletter subscription error:', error);
+                showNewsletterMessage('Network error. Please check your connection and try again.', 'error');
+            } finally {
+                // Re-enable button
+                newSubscribeBtn.disabled = false;
+                newSubscribeBtn.innerHTML = originalText;
+            }
+        });
+        
+        // Allow Enter key to submit
+        emailInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                newSubscribeBtn.click();
+            }
+        });
+        
+        function showNewsletterMessage(text, type) {
+            messageDiv.style.display = 'block';
+            messageDiv.textContent = text;
+            
+            if (type === 'success') {
+                messageDiv.style.color = '#28a745';
+                messageDiv.style.backgroundColor = '#d4edda';
+                messageDiv.style.border = '1px solid #c3e6cb';
+            } else {
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.border = '1px solid #f5c6cb';
+            }
+            
+            messageDiv.style.padding = '10px';
+            messageDiv.style.borderRadius = '4px';
+            messageDiv.style.fontSize = '14px';
+            messageDiv.style.marginTop = '10px';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+    }
+});
+    </script>
+</body>
+</html>
