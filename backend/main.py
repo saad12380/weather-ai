@@ -95,7 +95,7 @@ BACKEND_PORT = 3000
 OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
 # Get absolute paths
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 FRONTEND_DIR = BASE_DIR / "weather-ai-website"
 WEBAPP_DIR = BASE_DIR / "frontend"
 
