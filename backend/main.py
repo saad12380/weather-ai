@@ -97,21 +97,9 @@ BACKEND_PORT = 3000
 OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
 # Get absolute paths
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 FRONTEND_DIR = BASE_DIR / "weather-ai-website"
 WEBAPP_DIR = BASE_DIR / "frontend"
-
-@app.get("/debug-paths")
-async def debug_paths():
-    import os
-    return {
-        "base_dir": str(BASE_DIR),
-        "frontend_exists": FRONTEND_DIR.exists(),
-        "webapp_exists": WEBAPP_DIR.exists(),
-        "cwd": str(Path.cwd()),
-        "frontend_path": str(FRONTEND_DIR),
-        "webapp_path": str(WEBAPP_DIR)
-    }
 
 print("="*60)
 print("🚀 WEATHER AI PLATFORM - STARTING SERVER")
