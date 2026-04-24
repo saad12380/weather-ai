@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather AI - Documentation & API Reference</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Complete documentation for Weather AI platform. API reference, integration guides, and technical specifications.">
+    <meta name="keywords" content="weather AI documentation, API reference, integration guide, technical specs, weather API">
+    <meta name="author" content="Weather AI Team">
+    
+     <!-- Favicon -->
+   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+    
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Highlight.js for code syntax -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        html { font-size: 14px !important; }
+        body {
+            font-size: 0.95rem !important;
+            overflow-x: hidden !important;
+        }
+        @supports (zoom: 1) {
+            body { zoom: 0.95 !important; }
+        }
+        @supports not (zoom: 1) {
+            body {
+                transform: scale(0.95) !important;
+                transform-origin: top center !important;
+                width: 100% !important;
+            }
+        }
+
+        /* CSS Variables - Fixed */
+        :root {
+            --primary-color: #1a6bb3;
+            --secondary-color: #0a2540;
+            --accent-color: #00c9ff;
+            --light-bg: #f8fafc;
+            --dark-bg: #0f172a;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --gradient-primary: linear-gradient(135deg, #1a6bb3 0%, #00c9ff 100%);
+            --gradient-dark: linear-gradient(135deg, #0a2540 0%, #1e293b 100%);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background-color: var(--light-bg);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Enhanced Navbar Styles */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-scrolled {
+            padding: 0.7rem 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Logo Styling */
+        .logo-container {
+            position: relative;
+            padding: 0.25rem 0;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Animated Hamburger Menu */
+        .hamburger-menu {
+            position: relative;
+            width: 30px;
+            height: 21px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+        }
+
+        .hamburger-line {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Navigation Links Styling - FIXED */
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-icon {
+            font-size: 1.1rem;
+            margin-right: 8px;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-text {
+            font-weight: 500;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-underline {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover Effects - FIXED */
+        .nav-link:hover .nav-text,
+        .nav-link.active .nav-text {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .nav-link:hover .nav-icon,
+        .nav-link.active .nav-icon {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover .nav-underline,
+        .nav-link.active .nav-underline {
+            width: 70%;
+        }
+
+        .navbar-brand:hover .logo-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Login Button Styling - FIXED */
+        .btn-login-custom {
+            display: inline-block;
+            background: var(--gradient-primary);
+            border: none;
+            padding: 3px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .btn-login-custom .btn-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+            background: white;
+            border-radius: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .btn-login-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(26, 107, 179, 0.3);
+        }
+
+        .btn-login-custom:hover .btn-content {
+            background: transparent;
+            color: white;
+        }
+
+        /* Documentation Specific Styles */
+        .docs-hero {
+            padding: 160px 0 80px;
+            background: var(--gradient-dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .docs-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.15;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(to right, #00c9ff, #92fe9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .docs-container {
+            padding: 80px 0;
+        }
+        
+        .docs-sidebar {
+            position: sticky;
+            top: 120px;
+            height: calc(100vh - 140px);
+            overflow-y: auto;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .docs-sidebar::-webkit-scrollbar {
+            width: 5px;
+        }
+        
+        .docs-sidebar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .docs-sidebar::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+        
+        .sidebar-title {
+            color: var(--text-dark);
+            font-weight: 700;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-bg);
+        }
+        
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-nav li {
+            margin-bottom: 8px;
+        }
+        
+        .sidebar-nav a {
+            display: block;
+            padding: 10px 15px;
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            color: var(--primary-color);
+            background: rgba(26, 107, 179, 0.05);
+            border-left-color: var(--primary-color);
+            transform: translateX(5px);
+        }
+        
+        .sidebar-nav .nav-section {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .docs-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .docs-content h2 {
+            margin-top: 40px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-bg);
+            position: relative;
+        }
+        
+        .docs-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--gradient-primary);
+        }
+        
+        .docs-content h3 {
+            margin-top: 30px;
+            color: var(--text-dark);
+        }
+        
+        .api-endpoint {
+            background: var(--light-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .endpoint-method {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+        
+        .method-get { background: #61affe; color: white; }
+        .method-post { background: #49cc90; color: white; }
+        .method-put { background: #fca130; color: white; }
+        .method-delete { background: #f93e3e; color: white; }
+        
+        .endpoint-url {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.05);
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+        
+        .code-block {
+            background: #282c34;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-block pre {
+            margin: 0;
+            padding: 0;
+        }
+
+        .code-block code {
+            color: #abb2bf;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        }
+        
+        .copy-code-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .copy-code-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .param-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .param-table th {
+            background: var(--light-bg);
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .param-table td {
+            padding: 15px;
+            border-top: 1px solid var(--light-bg);
+        }
+        
+        .param-table tr:hover {
+            background: rgba(26, 107, 179, 0.02);
+        }
+        
+        .badge {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .badge-required {
+            background: #ff6b6b;
+            color: white;
+        }
+        
+        .badge-optional {
+            background: #4ecdc4;
+            color: white;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            height: 100%;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-color);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .custom-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .custom-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .custom-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            background: var(--gradient-primary);
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            padding: 10px 28px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline-light {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+        }
+
+        .btn-outline-light:hover {
+            background: white;
+            color: var(--dark-bg);
+        }
+        
+        /* Scroll Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, opacity;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Scroll Progress Indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: var(--gradient-primary);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.1;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 80px 0 30px;
+            background-color: var(--dark-bg);
+            color: white;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 10px;
+                box-shadow: var(--shadow-md);
+            }
+
+            .docs-sidebar {
+                position: static;
+                height: auto;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .docs-hero {
+                padding: 140px 0 60px;
+            }
+            
+            .docs-content {
+                padding: 25px;
+            }
+            
+            .display-4 {
+                font-size: 2.5rem;
+            }
+        }
+        .newsletter-message {
+    animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.footer .btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <!-- Animated Logo -->
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-container d-flex align-items-center">
+                    <div class="logo-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <div class="logo-text ms-2">
+                        <span class="fw-bold">Weather</span>
+                        <span class="logo-gradient fw-bold">AI</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false">
+                <div class="hamburger-menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+
+            <!-- Navigation Items -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home nav-icon"></i>
+                            <span class="nav-text">Home</span>
+                            <span class="nav-underline"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">
+                            <i class="fas fa-sliders-h nav-icon"></i>
+                            <span class="nav-text">Features</span>
+                            <span class="nav-underline"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">
+                            <i class="fas fa-tag nav-icon"></i>
+                            <span class="nav-text">Pricing</span>
+                            <span class="nav-underline"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">
+                            <i class="fas fa-blog nav-icon"></i>
+                            <span class="nav-text">Blog</span>
+                            <span class="nav-underline"></span>
+                        </a>
+                    </li>
+                      <li class="nav-item">
+                    <a class="nav-link" href="about.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-info-circle nav-icon"></i>
+                            <span class="nav-text">About</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-envelope nav-icon"></i>
+                            <span class="nav-text">Contact</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a href="login.html" class="btn-login-custom">
+                            <div class="btn-content">
+                                <i class="fas fa-sign-in-alt me-2"></i>
+                                <span>Login/Signup</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="docs-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center fade-in-up">
+                    <h1 class="display-4 fw-bold mb-4">
+                        <span class="text-gradient">Developer Documentation</span> & API Reference
+                    </h1>
+                    <p class="lead mb-5">
+                        Comprehensive guides, API documentation, and integration resources for the Weather AI platform. 
+                        Everything you need to build weather intelligence into your applications.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 justify-content-center">
+                        <a href="#getting-started" class="btn btn-primary btn-lg">
+                            <i class="fas fa-rocket me-2"></i>Get Started
+                        </a>
+                        <a href="#api-reference" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-code me-2"></i>API Reference
+                        </a>
+                        <a href="https://github.com" target="_blank" class="btn btn-light btn-lg">
+                            <i class="fab fa-github me-2"></i>GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Container -->
+    <section class="docs-container">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar Navigation -->
+                <div class="col-lg-3 fade-in-up">
+                    <div class="docs-sidebar">
+                        <h4 class="sidebar-title">Documentation</h4>
+                        <ul class="sidebar-nav">
+                            <li class="nav-section">Getting Started</li>
+                            <li><a href="#getting-started" class="active">Quick Start</a></li>
+                            <li><a href="#authentication">Authentication</a></li>
+                            <li><a href="#rate-limiting">Rate Limiting</a></li>
+                            
+                            <li class="nav-section">API Reference</li>
+                            <li><a href="#weather-data">Weather Data API</a></li>
+                            <li><a href="#anomaly-detection">Anomaly Detection</a></li>
+                            <li><a href="#forecast-api">Forecast API</a></li>
+                            <li><a href="#historical-data">Historical Data</a></li>
+                            
+                            <li class="nav-section">SDKs & Libraries</li>
+                            <li><a href="#javascript-sdk">JavaScript SDK</a></li>
+                            <li><a href="#python-sdk">Python SDK</a></li>
+                            <li><a href="#java-sdk">Java SDK</a></li>
+                            
+                            <li class="nav-section">Guides</li>
+                            <li><a href="#integration-guide">Integration Guide</a></li>
+                            <li><a href="#best-practices">Best Practices</a></li>
+                            <li><a href="#troubleshooting">Troubleshooting</a></li>
+                            
+                            <li class="nav-section">Resources</li>
+                            <li><a href="#code-examples">Code Examples</a></li>
+                            <li><a href="#changelog">Changelog</a></li>
+                            <li><a href="#support">Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="col-lg-9">
+                    <!-- Getting Started -->
+                    <div id="getting-started" class="docs-content fade-in-up">
+                        <h2>Getting Started</h2>
+                        <p class="lead">Welcome to the Weather AI documentation. This guide will help you get started with our APIs and SDKs quickly.</p>
+                        
+                        <h3>Prerequisites</h3>
+                        <ul class="custom-list">
+                            <li>A Weather AI account (Sign up for free)</li>
+                            <li>API Key from your dashboard</li>
+                            <li>Basic knowledge of REST APIs</li>
+                        </ul>
+                        
+                        <h3>Quick Start in 3 Steps</h3>
+                        
+                        <div class="api-endpoint">
+                            <h5>1. Get Your API Key</h5>
+                            <p>Navigate to the <a href="login.html">API Settings</a> in your dashboard to generate your API key.</p>
+                            <div class="code-block">
+                                <button class="copy-code-btn" onclick="copyCode(this)">Copy</button>
+                                <pre><code class="language-bash"># Your API Key will look like this
+WEATHER_AI_API_KEY=wai_sk_live_1234567890abcdef1234567890abcdef</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="api-endpoint">
+                            <h5>2. Make Your First API Call</h5>
+                            <p>Test your connection with a simple weather data request:</p>
+                            <div class="code-block">
+                                <button class="copy-code-btn" onclick="copyCode(this)">Copy</button>
+                                <pre><code class="language-javascript">// JavaScript Example
+fetch('https://api.weatherai.com/v1/weather/current?location=New+York&api_key=YOUR_API_KEY')
+  .then(response => response.json())
+  .then(data => console.log(data));</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="api-endpoint">
+                            <h5>3. Integrate with Your App</h5>
+                            <p>Use our SDKs for easy integration:</p>
+                            <div class="code-block">
+                                <button class="copy-code-btn" onclick="copyCode(this)">Copy</button>
+                                <pre><code class="language-bash"># Install the Python SDK
+pip install weatherai-sdk
+
+# Install the JavaScript SDK
+npm install weatherai-js</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Authentication -->
+                    <div id="authentication" class="docs-content fade-in-up">
+                        <h2>Authentication</h2>
+                        <p>All API requests require authentication using your API key. Include it in the request header or as a query parameter.</p>
+                        
+                        <h3>Using API Key in Headers</h3>
+                        <div class="code-block">
+                            <button class="copy-code-btn" onclick="copyCode(this)">Copy</button>
+                            <pre><code class="language-http">GET /v1/weather/current?location=London HTTP/1.1
+Host: api.weatherai.com
+X-API-Key: wai_sk_live_1234567890abcdef1234567890abcdef
+Content-Type: application/json</code></pre>
+                        </div>
+                        
+                        <h3>Using API Key in Query Parameter</h3>
+                        <div class="code-block">
+                            <button class="copy-code-btn" onclick="copyCode(this)">Copy</button>
+                            <pre><code class="language-bash">curl -X GET \
+  "https://api.weatherai.com/v1/weather/current?location=London&api_key=YOUR_API_KEY" \
+  -H "Content-Type: application/json"</code></pre>
+                        </div>
+                        
+                        <h3>Authentication Errors</h3>
+                        <table class="param-table">
+                            <thead>
+                                <tr>
+                                    <th>Error Code</th>
+                                    <th>Description</th>
+                                    <th>Solution</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>401 Unauthorized</code></td>
+                                    <td>Invalid or missing API key</td>
+                                    <td>Check your API key and ensure it's included in the request</td>
+                                </tr>
+                                <tr>
+                                    <td><code>403 Forbidden</code></td>
+                                    <td>API key doesn't have permission for this endpoint</td>
+                                    <td>Upgrade your plan or request access</td>
+                                </tr>
+                                <tr>
+                                    <td><code>429 Too Many Requests</code></td>
+                                    <td>Rate limit exceeded</td>
+                                    <td>Wait before making more requests or upgrade your plan</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- API Reference: Weather Data -->
+                    <div id="weather-data" class="docs-content fade-in-up">
+                        <h2>Weather Data API</h2>
+                        <p>Retrieve current weather conditions, temperature, humidity, wind speed, and other meteorological data.</p>
+                        
+                        <div class="api-endpoint">
+                            <span class="endpoint-method method-get">GET</span>
+                            <span class="endpoint-url">/v1/weather/current</span>
+                            <p>Get current weather data for a specific location.</p>
+                            
+                            <h5>Parameters</h5>
+                            <table class="param-table">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Type</th>
+                                        <th>Required</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>location</code></td>
+                                        <td>string</td>
+                                        <td><span class="badge badge-required">Required</span></td>
+                                        <td>City name, coordinates (lat,lon), or ZIP code</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>units</code></td>
+                                        <td>string</td>
+                                        <td><span class="badge badge-optional">Optional</span></td>
+                                        <td>Units: metric, imperial, or scientific (default: metric)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>language</code></td>
+                                        <td>string</td>
+                                        <td><span class="badge badge-optional">Optional</span></td>
+                                        <td>Language code for descriptions (default: en)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <h5>Example Request</h5>
+                            <div class="code-block">
+                                <button class="copy-code-btn" onclick="copyCode(this)">Copy</button>
+                                <pre><code class="language-bash">curl -X GET \
+  "https://api.weatherai.com/v1/weather/current?location=Paris&units=metric&language=en" \
+  -H "X-API-Key: YOUR_API_KEY"</code></pre>
+                            </div>
+                            
+                            <h5>Example Response</h5>
+                            <div class="code-block">
+                                <button class="copy-code-btn" onclick="copyCode(this)">Copy</button>
+                                <pre><code class="language-json">{
+  "location": {
+    "name": "Paris",
+    "country": "FR",
+    "lat": 48.8566,
+    "lon": 2.3522,
+    "timezone": "Europe/Paris"
+  },
+  "current": {
+    "timestamp": 1625673600,
+    "temperature": 22.5,
+    "feels_like": 23.1,
+    "humidity": 65,
+    "pressure": 1013,
+    "wind_speed": 5.2,
+    "wind_direction": 270,
+    "weather": "Clear",
+    "description": "clear sky",
+    "icon": "01d",
+    "visibility": 10000,
+    "cloud_coverage": 0,
+    "uv_index": 6.5
+  },
+  "anomaly_detected": false,
+  "anomaly_score": 0.12,
+  "data_source": "satellite_ground_fusion"
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SDKs Section -->
+                    <div id="javascript-sdk" class="docs-content fade-in-up">
+                        <h2>JavaScript SDK</h2>
+                        <p>Official Weather AI JavaScript SDK for browser and Node.js applications.</p>
+                        
+                        <h3>Installation</h3>
+                        <div class="code-block">
+                            <button class="copy-code-btn" onclick="copyCode(this)">Copy</button>
+                            <pre><code class="language-bash"># Using npm
+npm install weatherai-js
+
+# Using yarn
+yarn add weatherai-js
+
+# Using CDN
+&lt;script src="https://cdn.weatherai.com/weatherai-js/v1.0.0/weatherai.min.js"&gt;&lt;/script&gt;</code></pre>
+                        </div>
+                        
+                        <h3>Quick Example</h3>
+                        <div class="code-block">
+                            <button class="copy-code-btn" onclick="copyCode(this)">Copy</button>
+                            <pre><code class="language-javascript">import WeatherAI from 'weatherai-js';
+
+// Initialize with your API key
+const weatherAI = new WeatherAI('YOUR_API_KEY');
+
+// Get current weather
+async function getWeather() {
+  try {
+    const weather = await weatherAI.current('New York');
+    console.log(`Temperature: ${weather.temperature}°C`);
+    console.log(`Condition: ${weather.weather}`);
+    
+    if (weather.anomaly_detected) {
+      console.log(`Anomaly detected with score: ${weather.anomaly_score}`);
+    }
+  } catch (error) {
+    console.error('Error fetching weather:', error);
+  }
+}
+
+// Detect anomalies
+async function detectAnomalies() {
+  const anomalies = await weatherAI.anomalies({
+    location: 'London',
+    days: 7,
+    metrics: ['temperature', 'humidity']
+  });
+  
+  anomalies.forEach(anomaly => {
+    console.log(`Anomaly at ${anomaly.timestamp}: ${anomaly.description}`);
+  });
+}</code></pre>
+                        </div>
+                        
+                        <h3>SDK Methods</h3>
+                        <table class="param-table">
+                            <thead>
+                                <tr>
+                                    <th>Method</th>
+                                    <th>Description</th>
+                                    <th>Returns</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>current(location, options)</code></td>
+                                    <td>Get current weather</td>
+                                    <td>CurrentWeather object</td>
+                                </tr>
+                                <tr>
+                                    <td><code>forecast(location, days, options)</code></td>
+                                    <td>Get weather forecast</td>
+                                    <td>Forecast array</td>
+                                </tr>
+                                <tr>
+                                    <td><code>historical(location, start, end, options)</code></td>
+                                    <td>Get historical weather data</td>
+                                    <td>Historical data array</td>
+                                </tr>
+                                <tr>
+                                    <td><code>anomalies(options)</code></td>
+                                    <td>Detect weather anomalies</td>
+                                    <td>Anomaly detection results</td>
+                                </tr>
+                                <tr>
+                                    <td><code>alerts(location, options)</code></td>
+                                    <td>Get weather alerts</td>
+                                    <td>Alert array</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Support Section -->
+                    <div id="support" class="docs-content fade-in-up">
+                        <h2>Support & Resources</h2>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-4 mb-4">
+                                <div class="feature-card text-center h-100">
+                                    <div class="feature-icon mx-auto">
+                                        <i class="fas fa-question-circle"></i>
+                                    </div>
+                                    <h4>FAQ</h4>
+                                    <p>Find answers to common questions about API usage, billing, and integration.</p>
+                                    <a href="../faq.html" class="btn btn-outline-primary btn-sm mt-2">View FAQ</a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="feature-card text-center h-100">
+                                    <div class="feature-icon mx-auto">
+                                        <i class="fas fa-comments"></i>
+                                    </div>
+                                    <h4>Community Forum</h4>
+                                    <p>Join our developer community to share ideas and get help from other users.</p>
+                                    <a href="#" class="btn btn-outline-primary btn-sm mt-2">Join Forum</a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="feature-card text-center h-100">
+                                    <div class="feature-icon mx-auto">
+                                        <i class="fas fa-headset"></i>
+                                    </div>
+                                    <h4>Technical Support</h4>
+                                    <p>Get personalized help from our technical support team.</p>
+                                    <a href="contact.html" class="btn btn-outline-primary btn-sm mt-2">Contact Support</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3>Additional Resources</h3>
+                        <ul class="custom-list">
+                            <li><a href="#">API Status Dashboard</a> - Check API uptime and performance</li>
+                            <li><a href="#">Postman Collection</a> - Pre-configured API requests</li>
+                            <li><a href="#">OpenAPI Specification</a> - Download API specification</li>
+                            <li><a href="https://github.com" target="_blank">GitHub Repository</a> - Example code and SDK source</li>
+                            <li><a href="#">Webhook Guide</a> - Set up real-time notifications</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-8 mx-auto fade-in-up">
+                    <h2 class="display-5 fw-bold mb-4">Ready to Integrate Weather Intelligence?</h2>
+                    <p class="lead mb-5">Start building with Weather AI today. Free tier includes 1,000 API calls per month.</p>
+                    <div class="d-flex flex-column flex-md-row justify-content-center gap-3 mb-5">
+                        <a href="login.html" class="btn btn-light btn-lg">
+                            <i class="fas fa-rocket me-2"></i>Start Free Trial
+                        </a>
+                        <a href="contact.html" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-sales me-2"></i>Contact Sales
+                        </a>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center flex-wrap">
+                        <div class="me-4 mb-2">
+                            <p class="mb-0">
+                                <i class="fas fa-code text-warning me-1"></i>
+                                <span>SDKs for 5+ languages</span>
+                            </p>
+                        </div>
+                        <div class="me-4 mb-2">
+                            <p class="mb-0">
+                                <i class="fas fa-shield-alt text-warning me-1"></i>
+                                <span>99.9% API Uptime</span>
+                            </p>
+                        </div>
+                        <div class="mb-2">
+                            <p class="mb-0">
+                                <i class="fas fa-clock text-warning me-1"></i>
+                                <span>24/7 Technical Support</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3 d-inline-flex align-items-center" href="index.html">
+                        <i class="fas fa-cloud-sun me-2 fs-3"></i>
+                        <div>
+                            <span class="fw-bold fs-4">Weather</span>
+                            <span class="fw-bold fs-4" style="color: #00c9ff;">AI</span>
+                        </div>
+                    </a>
+                    <p class="text-light">Advanced AI-powered weather anomaly detection platform for developers, researchers, and organizations worldwide.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="https://github.com" target="_blank" class="text-light me-3"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Documentation</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#getting-started" class="text-light text-decoration-none">Getting Started</a></li>
+                        <li><a href="#weather-data" class="text-light text-decoration-none">API Reference</a></li>
+                        <li><a href="#javascript-sdk" class="text-light text-decoration-none">JavaScript SDK</a></li>
+                        <li><a href="#integration-guide" class="text-light text-decoration-none">Integration Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">API Status</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Postman Collection</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Changelog</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">System Status</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Developer Updates</h5>
+                    <p class="text-light">Subscribe to our developer newsletter for API updates, new features, and best practices.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <p class="text-light mt-3 small">
+                        <i class="fas fa-lock me-1"></i> We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+            <hr class="border-light my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light">&copy; 2024 Weather AI. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="privacy.html" class="text-light text-decoration-none me-3">Privacy Policy</a>
+                    <a href="terms.html" class="text-light text-decoration-none me-3">Terms of Service</a>
+                    <a href="security.html" class="text-light text-decoration-none">Security</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Highlight.js for syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Initialize syntax highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            hljs.highlightAll();
+            initScrollAnimations();
+            initNavbar();
+            initScrollProgress();
+            initSidebarNavigation();
+        });
+        
+        // Navbar functionality
+        function initNavbar() {
+            const navbar = document.querySelector('.navbar');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', function() {
+                const scrollY = window.scrollY;
+                
+                if (scrollY > 50) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+                
+                // Update active nav link based on scroll position
+                updateActiveNav();
+            });
+            
+            // Update active nav based on scroll position
+            function updateActiveNav() {
+                const sections = document.querySelectorAll('.docs-content');
+                const scrollY = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                        
+                        // Update sidebar active link
+                        const sidebarLink = document.querySelector(`.sidebar-nav a[href="#${sectionId}"]`);
+                        if (sidebarLink) {
+                            document.querySelectorAll('.sidebar-nav a').forEach(link => link.classList.remove('active'));
+                            sidebarLink.classList.add('active');
+                        }
+                    }
+                });
+            }
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            // Close mobile menu if open
+                            if (window.innerWidth < 992) {
+                                const navbarCollapse = document.querySelector('.navbar-collapse.show');
+                                if (navbarCollapse) {
+                                    const toggleBtn = document.querySelector('.navbar-toggler');
+                                    toggleBtn.click();
+                                }
+                            }
+                            
+                            // Smooth scroll
+                            window.scrollTo({
+                                top: target.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Update active nav
+                            navLinks.forEach(link => link.classList.remove('active'));
+                            this.classList.add('active');
+                            
+                            // Update URL hash without jumping
+                            history.pushState(null, null, href);
+                        }
+                    }
+                });
+            });
+            
+            // Initialize hamburger menu animation
+            const hamburgerBtn = document.querySelector('.navbar-toggler');
+            if (hamburgerBtn) {
+                hamburgerBtn.addEventListener('click', function() {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    const hamburgerLines = this.querySelectorAll('.hamburger-line');
+                    
+                    if (isExpanded) {
+                        // Close animation
+                        hamburgerLines[0].style.transform = 'none';
+                        hamburgerLines[1].style.opacity = '1';
+                        hamburgerLines[2].style.transform = 'none';
+                    } else {
+                        // Open animation
+                        hamburgerLines[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+                        hamburgerLines[1].style.opacity = '0';
+                        hamburgerLines[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+                    }
+                });
+            }
+        }
+        
+        // Scroll progress indicator
+        function initScrollProgress() {
+            window.addEventListener('scroll', function() {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.querySelector('.scroll-progress').style.width = scrolled + "%";
+            });
+        }
+        
+        // Sidebar navigation highlighting
+        function initSidebarNavigation() {
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+            const sections = document.querySelectorAll('.docs-content');
+            
+            // Set click event for sidebar links
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    
+                    if (target) {
+                        // Remove active class from all sidebar links
+                        sidebarLinks.forEach(l => l.classList.remove('active'));
+                        
+                        // Add active class to clicked link
+                        this.classList.add('active');
+                        
+                        // Smooth scroll to section
+                        window.scrollTo({
+                            top: target.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update URL
+                        history.pushState(null, null, targetId);
+                    }
+                });
+            });
+        }
+        
+        // Scroll animation with Intersection Observer
+        function initScrollAnimations() {
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -100px 0px'
+                });
+                
+                fadeElements.forEach(element => {
+                    observer.observe(element);
+                });
+            } else {
+                // Fallback for older browsers
+                function checkScrollFallback() {
+                    const windowHeight = window.innerHeight;
+                    
+                    fadeElements.forEach(element => {
+                        const elementTop = element.getBoundingClientRect().top;
+                        
+                        if (elementTop < windowHeight * 0.85) {
+                            element.classList.add('visible');
+                        }
+                    });
+                }
+                
+                window.addEventListener('scroll', checkScrollFallback);
+                window.addEventListener('resize', checkScrollFallback);
+                checkScrollFallback();
+            }
+        }
+        
+        // Copy code blocks functionality
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block');
+            const code = codeBlock.querySelector('code').textContent;
+            
+            navigator.clipboard.writeText(code).then(function() {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.background = '#49cc90';
+                
+                setTimeout(function() {
+                    button.textContent = originalText;
+                    button.style.background = 'rgba(255, 255, 255, 0.1)';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy: ', err);
+                button.textContent = 'Failed!';
+                button.style.background = '#f93e3e';
+                
+                setTimeout(function() {
+                    button.textContent = 'Copy';
+                    button.style.background = 'rgba(255, 255, 255, 0.1)';
+                }, 2000);
+            });
+        }
+        
+        // Handle form submission
+        document.addEventListener('submit', function(e) {
+            if (e.target.classList.contains('newsletter-form')) {
+                e.preventDefault();
+                const email = e.target.querySelector('input[type="email"]').value;
+                
+                if (email && email.includes('@')) {
+                    alert('Thank you for subscribing to our newsletter!');
+                    e.target.reset();
+                } else {
+                    alert('Please enter a valid email address.');
+                }
+            }
+        });
+        // Newsletter Subscription Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const newsletterForm = document.querySelector('.footer .input-group');
+    if (newsletterForm) {
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const subscribeBtn = newsletterForm.querySelector('button');
+        
+        // Create message container if it doesn't exist
+        let messageDiv = document.querySelector('.newsletter-message');
+        if (!messageDiv) {
+            messageDiv = document.createElement('div');
+            messageDiv.className = 'newsletter-message mt-2';
+            messageDiv.style.display = 'none';
+            newsletterForm.parentNode.insertBefore(messageDiv, newsletterForm.nextSibling);
+        }
+        
+        // Remove existing click handler and add new one
+        const newSubscribeBtn = subscribeBtn.cloneNode(true);
+        subscribeBtn.parentNode.replaceChild(newSubscribeBtn, subscribeBtn);
+        
+        newSubscribeBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            
+            // Validate email
+            if (!email) {
+                showNewsletterMessage('Please enter your email address', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNewsletterMessage('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Disable button and show loading
+            newSubscribeBtn.disabled = true;
+            const originalText = newSubscribeBtn.innerHTML;
+            newSubscribeBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Subscribing...';
+            
+            try {
+                const response = await fetch('/api/newsletter/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showNewsletterMessage(data.message, 'success');
+                    emailInput.value = ''; // Clear input
+                } else {
+                    showNewsletterMessage(data.detail || 'Failed to subscribe. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error('Newsletter subscription error:', error);
+                showNewsletterMessage('Network error. Please check your connection and try again.', 'error');
+            } finally {
+                // Re-enable button
+                newSubscribeBtn.disabled = false;
+                newSubscribeBtn.innerHTML = originalText;
+            }
+        });
+        
+        // Allow Enter key to submit
+        emailInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                newSubscribeBtn.click();
+            }
+        });
+        
+        function showNewsletterMessage(text, type) {
+            messageDiv.style.display = 'block';
+            messageDiv.textContent = text;
+            
+            if (type === 'success') {
+                messageDiv.style.color = '#28a745';
+                messageDiv.style.backgroundColor = '#d4edda';
+                messageDiv.style.border = '1px solid #c3e6cb';
+            } else {
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.border = '1px solid #f5c6cb';
+            }
+            
+            messageDiv.style.padding = '10px';
+            messageDiv.style.borderRadius = '4px';
+            messageDiv.style.fontSize = '14px';
+            messageDiv.style.marginTop = '10px';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+    }
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,1555 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Weather AI Insights</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Latest insights, research, and articles about weather AI, climate technology, and anomaly detection.">
+    <meta name="keywords" content="weather AI blog, climate tech articles, weather research, AI insights, meteorological studies">
+    
+     <!-- Favicon -->
+   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+    
+
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        html { font-size: 14px !important; }
+        body {
+            font-size: 0.95rem !important;
+            overflow-x: hidden !important;
+        }
+        @supports (zoom: 1) {
+            body { zoom: 0.95 !important; }
+        }
+        @supports not (zoom: 1) {
+            body {
+                transform: scale(0.95) !important;
+                transform-origin: top center !important;
+                width: 100% !important;
+            }
+        }
+
+         /* Enhanced Navbar Styles - Matching Home Page Theme */
+    .navbar {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(15px) saturate(180%);
+        -webkit-backdrop-filter: blur(15px) saturate(180%);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
+        padding: 1rem 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .navbar-scrolled {
+        padding: 0.7rem 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 6px 30px rgba(10, 37, 64, 0.12);
+    }
+
+    /* Logo Styling */
+    .logo-container {
+        position: relative;
+        padding: 0.25rem 0;
+    }
+
+    .logo-icon {
+        font-size: 1.6rem;
+        color: var(--primary-color);
+        transition: transform 0.3s ease;
+    }
+
+    .logo-gradient {
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+    }
+
+    .logo-pulse {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(0, 201, 255, 0.1);
+        animation: pulse 2s infinite;
+    }
+
+    /* Animated Hamburger Menu */
+    .hamburger-menu {
+        position: relative;
+        width: 30px;
+        height: 21px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+    .hamburger-line {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background: var(--text-dark);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Navigation Links Styling */
+    .nav-link-content {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .nav-icon {
+        font-size: 1.1rem;
+        margin-right: 8px;
+        color: var(--text-light);
+        transition: all 0.3s ease;
+    }
+
+    .nav-text {
+        font-weight: 500;
+        color: var(--text-light);
+        transition: all 0.3s ease;
+    }
+
+    .nav-underline {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: var(--gradient-primary);
+        border-radius: 2px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        border-radius: 50px;
+        background: linear-gradient(135deg, rgba(26, 107, 179, 0.1), rgba(0, 201, 255, 0.1));
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: -1;
+    }
+
+    /* Hover Effects */
+    .nav-link:hover .nav-text,
+    .nav-link.active .nav-text {
+        color: var(--text-dark);
+        font-weight: 600;
+    }
+
+    .nav-link:hover .nav-icon,
+    .nav-link.active .nav-icon {
+        color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+
+    .nav-link:hover .nav-underline,
+    .nav-link.active .nav-underline {
+        width: 70%;
+    }
+
+    .nav-link:hover .nav-bg,
+    .nav-link.active .nav-bg {
+        width: calc(100% + 20px);
+        height: calc(100% + 10px);
+        opacity: 1;
+    }
+
+    .navbar-brand:hover .logo-icon {
+        transform: rotate(15deg) scale(1.1);
+    }
+
+    /* Login Button Styling */
+    .btn-login {
+        display: inline-block;
+        position: relative;
+        text-decoration: none;
+        overflow: hidden;
+        border-radius: 12px;
+        background: var(--gradient-primary);
+        padding: 3px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 24px;
+        background: white;
+        border-radius: 10px;
+        font-weight: 600;
+        color: var(--text-dark);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+    }
+
+    .btn-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+    }
+
+    .btn-login:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(26, 107, 179, 0.3);
+    }
+
+    .btn-login:hover .btn-content {
+        background: transparent;
+        color: white;
+    }
+
+    .btn-login:hover .btn-gradient {
+        opacity: 1;
+    }
+
+    /* Mobile Menu Styling */
+    @media (max-width: 991.98px) {
+        .navbar-collapse {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 1.5rem;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.3s ease;
+        }
+
+        .nav-link-content {
+            padding: 0.75rem 0;
+            margin: 0.25rem 0;
+        }
+
+        .btn-login {
+            margin-top: 1rem;
+        }
+    }
+
+    /* Animations */
+    @keyframes pulse {
+        0% {
+            width: 0;
+            height: 0;
+            opacity: 0.5;
+        }
+        100% {
+            width: 60px;
+            height: 60px;
+            opacity: 0;
+        }
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Active State Enhancement */
+    .nav-link.active::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 6px;
+        height: 6px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateX(-50%) translateY(0);
+        }
+        50% {
+            transform: translateX(-50%) translateY(-5px);
+        }
+    }
+
+    /* Floating Particles Background (Subtle) */
+    .navbar::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 80%, rgba(0, 201, 255, 0.05) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(26, 107, 179, 0.05) 0%, transparent 50%);
+        z-index: -1;
+        opacity: 0.5;
+    }
+
+        :root {
+            --primary-color: #1a6bb3;
+            --secondary-color: #0a2540;
+            --accent-color: #00c9ff;
+            --light-bg: #f8fafc;
+            --dark-bg: #0f172a;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --gradient-primary: linear-gradient(135deg, #1a6bb3 0%, #00c9ff 100%);
+            --gradient-dark: linear-gradient(135deg, #0a2540 0%, #1e293b 100%);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+        }
+        
+        /* Blog Hero */
+        .blog-hero {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.15;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(to right, #00c9ff, #92fe9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Blog Cards */
+        .blog-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-color);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .blog-card:hover .blog-image {
+            transform: scale(1.05);
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .blog-excerpt {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .author-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        /* Featured Post */
+        .featured-post {
+            background: var(--dark-bg);
+            color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .featured-post::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.1;
+        }
+        
+        .featured-content {
+            padding: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .featured-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Categories Sidebar */
+        .category-list {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .category-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .category-item:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+        
+        .category-count {
+            background: #f1f5f9;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+        }
+        
+        /* Newsletter Widget */
+        .newsletter-widget {
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        /* Pagination */
+        .blog-pagination .page-link {
+            border: none;
+            color: var(--text-light);
+            padding: 0.75rem 1.25rem;
+            border-radius: 10px;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+            background: white;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .blog-pagination .page-link:hover,
+        .blog-pagination .page-link.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
+        
+        /* Search Bar */
+        .blog-search {
+            position: relative;
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+        
+        .blog-search input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+        }
+        
+        .blog-search input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(0, 201, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .blog-search input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .blog-search i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Section Titles */
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Scroll Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom button styles */
+        .btn-primary {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-outline-light {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+            padding: 10px 28px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-light:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Popular Posts */
+        .popular-post {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .popular-post:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        /* Scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .blog-hero {
+                padding: 100px 0 60px;
+            }
+            
+            .featured-content {
+                padding: 2rem;
+            }
+            
+            .blog-image {
+                height: 180px;
+            }
+        }
+        .newsletter-message {
+    animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.footer .btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+        <!-- Animated Logo with Hover Effect -->
+        <a class="navbar-brand" href="index.html">
+            <div class="logo-container d-flex align-items-center">
+                <div class="logo-icon">
+                    <i class="fas fa-cloud-sun"></i>
+                </div>
+                <div class="logo-text ms-2">
+                    <span class="fw-bold">Weather</span>
+                    <span class="logo-gradient fw-bold">AI</span>
+                </div>
+                <div class="logo-pulse"></div>
+            </div>
+        </a>
+
+        <!-- Mobile Toggle Button with Animation -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <div class="hamburger-menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </button>
+
+        <!-- Navigation Items -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-home nav-icon"></i>
+                            <span class="nav-text">Home</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="features.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-sliders-h nav-icon"></i>
+                            <span class="nav-text">Features</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pricing.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-tag nav-icon"></i>
+                            <span class="nav-text">Pricing</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-blog nav-icon"></i>
+                            <span class="nav-text">Blog</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-info-circle nav-icon"></i>
+                            <span class="nav-text">About</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-envelope nav-icon"></i>
+                            <span class="nav-text">Contact</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                    <a href="login.html" class="btn-login">
+                        <div class="btn-content">
+                            <i class="fas fa-sign-in-alt me-2"></i>
+                            <span>Login/Signup</span>
+                            <div class="btn-gradient"></div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center fade-in-up">
+                    <h1 class="display-3 fw-bold mb-4">Weather AI <span class="text-gradient">Insights</span></h1>
+                    <p class="lead mb-4">Latest research, articles, and insights about weather intelligence, AI technology, and climate science innovation.</p>
+                    <div class="blog-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="blogSearch" placeholder="Search articles, research, or insights...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="py-5">
+        <div class="container">
+            <div class="featured-post fade-in-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="featured-content">
+                            <span class="featured-badge">Featured Research</span>
+                            <h2 class="display-6 fw-bold mb-3">How AI is Revolutionizing Weather Prediction Accuracy</h2>
+                            <p class="mb-4">Discover how advanced machine learning algorithms are achieving unprecedented 94.5% accuracy in weather forecasting, reducing prediction errors by 40% compared to traditional meteorological methods.</p>
+                            <a href="blog/post1.html" class="btn btn-light">Read Full Article</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="AI Weather Prediction" class="img-fluid" style="height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row">
+                <!-- Main Blog Posts -->
+                <div class="col-lg-8">
+                    <div class="row g-4" id="blogPosts">
+                        <!-- Post 1 -->
+                        <div class="col-md-6 fade-in-up">
+                            <div class="blog-card">
+                                <a href="blog/post1.html">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                         alt="AI Climate Research" class="blog-image">
+                                </a>
+                                <div class="blog-content">
+                                    <span class="blog-category">Research</span>
+                                    <h3 class="blog-title">
+                                        <a href="blog/post1.html" class="text-decoration-none text-dark">Advanced Climate Pattern Recognition with Deep Learning</a>
+                                    </h3>
+                                    <p class="blog-excerpt">Exploring how convolutional neural networks are identifying complex climate patterns and predicting long-term weather changes with remarkable accuracy.</p>
+                                    <div class="blog-meta">
+                                        <div class="author-info">
+                                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                                 alt="Dr. Sarah Chen" class="author-avatar">
+                                            <span>Dr. Sarah Chen</span>
+                                        </div>
+                                        <span>May 15, 2024 • 8 min read</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Post 2 -->
+                        <div class="col-md-6 fade-in-up" style="transition-delay: 0.1s;">
+                            <div class="blog-card">
+                                <a href="blog/post2.html">
+                                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                         alt="Real-time Weather Monitoring" class="blog-image">
+                                </a>
+                                <div class="blog-content">
+                                    <span class="blog-category">Technology</span>
+                                    <h3 class="blog-title">
+                                        <a href="blog/post2.html" class="text-decoration-none text-dark">Real-time Anomaly Detection in Weather Data Streams</a>
+                                    </h3>
+                                    <p class="blog-excerpt">How our platform processes millions of data points in real-time to detect anomalies and provide instant alerts for critical weather events.</p>
+                                    <div class="blog-meta">
+                                        <div class="author-info">
+                                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                                 alt="Michael Rodriguez" class="author-avatar">
+                                            <span>Michael Rodriguez</span>
+                                        </div>
+                                        <span>April 22, 2024 • 6 min read</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Post 3 -->
+                        <div class="col-md-6 fade-in-up" style="transition-delay: 0.2s;">
+                            <div class="blog-card">
+                                <a href="blog/post3.html">
+                                    <img src="https://images.unsplash.com/photo-1519241047957-be31d7379a5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                         alt="Disaster Prevention" class="blog-image">
+                                </a>
+                                <div class="blog-content">
+                                    <span class="blog-category">Case Study</span>
+                                    <h3 class="blog-title">
+                                        <a href="blog/post3.html" class="text-decoration-none text-dark">How Weather AI Prevented a Major Agricultural Disaster</a>
+                                    </h3>
+                                    <p class="blog-excerpt">A detailed case study of how early frost detection saved millions in crop yields for farmers in the Midwest United States.</p>
+                                    <div class="blog-meta">
+                                        <div class="author-info">
+                                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                                 alt="Emma Johnson" class="author-avatar">
+                                            <span>Emma Johnson</span>
+                                        </div>
+                                        <span>March 30, 2024 • 10 min read</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Post 4 -->
+                        <div class="col-md-6 fade-in-up" style="transition-delay: 0.3s;">
+                            <div class="blog-card">
+                                <a href="blog/post4.html">
+                                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                         alt="Data Analytics" class="blog-image">
+                                </a>
+                                <div class="blog-content">
+                                    <span class="blog-category">Analytics</span>
+                                    <h3 class="blog-title">
+                                        <a href="blog/post4.html" class="text-decoration-none text-dark">The Future of Weather Data Visualization</a>
+                                    </h3>
+                                    <p class="blog-excerpt">Exploring innovative ways to visualize complex weather data that make insights accessible to non-technical users and decision-makers.</p>
+                                    <div class="blog-meta">
+                                        <div class="author-info">
+                                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                                 alt="David Kim" class="author-avatar">
+                                            <span>David Kim</span>
+                                        </div>
+                                        <span>February 18, 2024 • 7 min read</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <nav aria-label="Blog pagination" class="mt-5">
+                        <ul class="blog-pagination pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="#">
+                                    <i class="fas fa-chevron-left"></i>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <!-- Categories Widget -->
+                    <div class="category-list mb-4 fade-in-up">
+                        <h4 class="fw-bold mb-3 section-title">Categories</h4>
+                        <div class="category-item">
+                            <a href="#" class="text-decoration-none text-dark">Research & Development</a>
+                            <span class="category-count">12</span>
+                        </div>
+                        <div class="category-item">
+                            <a href="#" class="text-decoration-none text-dark">AI & Machine Learning</a>
+                            <span class="category-count">8</span>
+                        </div>
+                        <div class="category-item">
+                            <a href="#" class="text-decoration-none text-dark">Case Studies</a>
+                            <span class="category-count">15</span>
+                        </div>
+                        <div class="category-item">
+                            <a href="#" class="text-decoration-none text-dark">Data Analytics</a>
+                            <span class="category-count">6</span>
+                        </div>
+                        <div class="category-item">
+                            <a href="#" class="text-decoration-none text-dark">Climate Science</a>
+                            <span class="category-count">9</span>
+                        </div>
+                        <div class="category-item">
+                            <a href="#" class="text-decoration-none text-dark">Industry Insights</a>
+                            <span class="category-count">5</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Popular Posts -->
+                    <div class="category-list mb-4 fade-in-up" style="transition-delay: 0.1s;">
+                        <h4 class="fw-bold mb-3 section-title">Popular Articles</h4>
+                        <div class="popular-post">
+                            <h6 class="fw-semibold mb-2">
+                                <a href="blog/post1.html" class="text-decoration-none text-dark">Understanding Advanced AI Weather Models</a>
+                            </h6>
+                            <small class="text-muted">May 10, 2024 • 1.2k views</small>
+                        </div>
+                        <div class="popular-post">
+                            <h6 class="fw-semibold mb-2">
+                                <a href="blog/post2.html" class="text-decoration-none text-dark">Real-time Data Processing Techniques</a>
+                            </h6>
+                            <small class="text-muted">April 28, 2024 • 980 views</small>
+                        </div>
+                        <div class="popular-post">
+                            <h6 class="fw-semibold mb-2">
+                                <a href="blog/post3.html" class="text-decoration-none text-dark">Climate Change Detection Algorithms</a>
+                            </h6>
+                            <small class="text-muted">March 15, 2024 • 1.5k views</small>
+                        </div>
+                    </div>
+                    
+                    <!-- Newsletter Widget -->
+                    <div class="newsletter-widget fade-in-up" style="transition-delay: 0.2s;">
+                        <h4 class="fw-bold mb-3">Stay Updated</h4>
+                        <p class="mb-3">Subscribe to our newsletter for the latest articles and research updates.</p>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your email address">
+                            <button class="btn btn-light" type="button">Subscribe</button>
+                        </div>
+                        <small class="text-light opacity-75">No spam. Unsubscribe anytime.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center fade-in-up">
+                    <h2 class="display-5 fw-bold mb-3 section-title">Never Miss an Update</h2>
+                    <p class="lead mb-4">Join 10,000+ professionals who receive our weekly newsletter with the latest weather AI insights and research.</p>
+                    <form class="row g-3 justify-content-center">
+                        <div class="col-md-6">
+                            <input type="email" class="form-control form-control-lg" placeholder="Enter your email">
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-primary btn-lg w-100">Subscribe</button>
+                        </div>
+                    </form>
+                    <p class="text-muted mt-3">
+                        <i class="fas fa-lock me-1"></i> We respect your privacy. No spam ever.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3" href="index.html">
+                        <i class="fas fa-cloud-sun me-2"></i>
+                        <span class="fw-bold">Weather</span><span class="fw-bold" style="color: #00c9ff;">AI</span>
+                    </a>
+                    <p class="text-light">Advanced AI-powered weather anomaly detection platform for researchers, meteorologists, and organizations worldwide.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Platform</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="features.html" class="text-light text-decoration-none">Features</a></li>
+                        <li><a href="pricing.html" class="text-light text-decoration-none">Pricing</a></li>
+                        <li><a href="demo.html" class="text-light text-decoration-none">Live Demo</a></li>
+                        <li><a href="api.html" class="text-light text-decoration-none">API Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="blog.html" class="text-light text-decoration-none">Research Blog</a></li>
+                        <li><a href="careers.html" class="text-light text-decoration-none">Careers</a></li>
+                        <li><a href="press.html" class="text-light text-decoration-none">Press Kit</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Stay Updated</h5>
+                    <p class="text-light">Subscribe to our newsletter for the latest research, updates, and climate insights.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <p class="text-light mt-3 small">
+                        <i class="fas fa-lock me-1"></i> We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+            <hr class="border-light my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light">&copy; 2024 Weather AI. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="privacy.html" class="text-light text-decoration-none me-3">Privacy Policy</a>
+                    <a href="terms.html" class="text-light text-decoration-none me-3">Terms of Service</a>
+                    <a href="compliance.html" class="text-light text-decoration-none">GDPR Compliance</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+          // Enhanced Navbar Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const navbar = document.querySelector('.navbar');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const hamburger = document.querySelector('.navbar-toggler');
+        
+        // Scroll effect with parallax
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY;
+            
+            // Navbar scroll effect
+            if (scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+                // Add parallax effect to background
+                navbar.style.background = `rgba(255, 255, 255, ${0.92 + (scrollY * 0.001)})`;
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+                navbar.style.background = 'rgba(255, 255, 255, 0.92)';
+            }
+            
+            // Update active section based on scroll position
+            updateActiveNav();
+        });
+
+        // Update active navigation based on scroll position
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollY = window.pageYOffset;
+            
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}` || 
+                            (sectionId === 'hero' && link.getAttribute('href') === 'index.html')) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        // Smooth scroll for anchor links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        // Close mobile menu if open
+                        if (window.innerWidth < 992) {
+                            const collapse = document.querySelector('.navbar-collapse');
+                            if (collapse.classList.contains('show')) {
+                                hamburger.click();
+                            }
+                        }
+                        
+                        // Smooth scroll
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active nav
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Hover effects enhancement
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('active')) {
+                    const icon = this.querySelector('.nav-icon');
+                    if (icon) {
+                        icon.style.transform = 'translateY(-2px) scale(1.1)';
+                    }
+                }
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('active')) {
+                    const icon = this.querySelector('.nav-icon');
+                    if (icon) {
+                        icon.style.transform = '';
+                    }
+                }
+            });
+        });
+
+        // Initialize on load
+        updateActiveNav();
+        
+        // Add subtle animation on page load
+        setTimeout(() => {
+            navbar.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        }, 100);
+    });
+
+
+        // Scroll progress indicator
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + "%";
+            
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+            
+            // Scroll animation
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+        
+        // Trigger initial scroll check for animations
+        window.dispatchEvent(new Event('scroll'));
+        
+        // Blog Search Functionality
+        const blogSearch = document.getElementById('blogSearch');
+        const blogPosts = document.querySelectorAll('.blog-card');
+        
+        blogSearch.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            blogPosts.forEach(post => {
+                const title = post.querySelector('.blog-title').textContent.toLowerCase();
+                const excerpt = post.querySelector('.blog-excerpt').textContent.toLowerCase();
+                const category = post.querySelector('.blog-category').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || excerpt.includes(searchTerm) || category.includes(searchTerm)) {
+                    post.style.display = 'block';
+                    setTimeout(() => {
+                        post.style.opacity = '1';
+                        post.style.transform = 'translateY(0)';
+                    }, 100);
+                } else {
+                    post.style.opacity = '0';
+                    post.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        post.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+
+        // Category filtering
+        const categoryItems = document.querySelectorAll('.category-item a');
+        categoryItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all categories
+                categoryItems.forEach(i => i.classList.remove('active'));
+                
+                // Add active class to clicked category
+                this.classList.add('active');
+                
+                const category = this.textContent;
+                filterPostsByCategory(category);
+            });
+        });
+
+        function filterPostsByCategory(category) {
+            blogPosts.forEach(post => {
+                const postCategory = post.querySelector('.blog-category').textContent;
+                
+                if (category === 'All' || postCategory === category) {
+                    post.style.display = 'block';
+                    setTimeout(() => {
+                        post.style.opacity = '1';
+                        post.style.transform = 'translateY(0)';
+                    }, 100);
+                } else {
+                    post.style.opacity = '0';
+                    post.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        post.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        // Newsletter subscription
+        const newsletterForms = document.querySelectorAll('form');
+        newsletterForms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]');
+                const button = this.querySelector('button');
+                
+                if (emailInput.value) {
+                    // Show success message
+                    const originalText = button.textContent;
+                    button.innerHTML = '<i class="fas fa-check"></i>';
+                    button.classList.remove('btn-primary');
+                    button.classList.add('btn-success');
+                    
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.classList.remove('btn-success');
+                        button.classList.add('btn-primary');
+                        emailInput.value = '';
+                    }, 2000);
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add active class to current page nav item
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Blog cards hover animation
+            const blogCards = document.querySelectorAll('.blog-card');
+            blogCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+        });
+        // Newsletter Subscription Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const newsletterForm = document.querySelector('.footer .input-group');
+    if (newsletterForm) {
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const subscribeBtn = newsletterForm.querySelector('button');
+        
+        // Create message container if it doesn't exist
+        let messageDiv = document.querySelector('.newsletter-message');
+        if (!messageDiv) {
+            messageDiv = document.createElement('div');
+            messageDiv.className = 'newsletter-message mt-2';
+            messageDiv.style.display = 'none';
+            newsletterForm.parentNode.insertBefore(messageDiv, newsletterForm.nextSibling);
+        }
+        
+        // Remove existing click handler and add new one
+        const newSubscribeBtn = subscribeBtn.cloneNode(true);
+        subscribeBtn.parentNode.replaceChild(newSubscribeBtn, subscribeBtn);
+        
+        newSubscribeBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            
+            // Validate email
+            if (!email) {
+                showNewsletterMessage('Please enter your email address', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNewsletterMessage('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Disable button and show loading
+            newSubscribeBtn.disabled = true;
+            const originalText = newSubscribeBtn.innerHTML;
+            newSubscribeBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Subscribing...';
+            
+            try {
+                const response = await fetch('/api/newsletter/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showNewsletterMessage(data.message, 'success');
+                    emailInput.value = ''; // Clear input
+                } else {
+                    showNewsletterMessage(data.detail || 'Failed to subscribe. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error('Newsletter subscription error:', error);
+                showNewsletterMessage('Network error. Please check your connection and try again.', 'error');
+            } finally {
+                // Re-enable button
+                newSubscribeBtn.disabled = false;
+                newSubscribeBtn.innerHTML = originalText;
+            }
+        });
+        
+        // Allow Enter key to submit
+        emailInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                newSubscribeBtn.click();
+            }
+        });
+        
+        function showNewsletterMessage(text, type) {
+            messageDiv.style.display = 'block';
+            messageDiv.textContent = text;
+            
+            if (type === 'success') {
+                messageDiv.style.color = '#28a745';
+                messageDiv.style.backgroundColor = '#d4edda';
+                messageDiv.style.border = '1px solid #c3e6cb';
+            } else {
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.border = '1px solid #f5c6cb';
+            }
+            
+            messageDiv.style.padding = '10px';
+            messageDiv.style.borderRadius = '4px';
+            messageDiv.style.fontSize = '14px';
+            messageDiv.style.marginTop = '10px';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+    }
+});
+    </script>
+</body>
+</html>

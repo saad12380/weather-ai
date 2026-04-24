@@ -1,0 +1,2167 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Weather AI Platform</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Flexible pricing plans for Weather AI - Choose the perfect plan for your weather monitoring needs.">
+    
+     <!-- Favicon -->
+   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+    
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        html { font-size: 14px !important; }
+        body {
+            font-size: 0.95rem !important;
+            overflow-x: hidden !important;
+        }
+        @supports (zoom: 1) {
+            body { zoom: 0.95 !important; }
+        }
+        @supports not (zoom: 1) {
+            body {
+                transform: scale(0.95) !important;
+                transform-origin: top center !important;
+                width: 100% !important;
+            }
+        }
+
+         /* Enhanced Navbar Styles - Matching Home Page Theme */
+    .navbar {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(15px) saturate(180%);
+        -webkit-backdrop-filter: blur(15px) saturate(180%);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
+        padding: 1rem 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .navbar-scrolled {
+        padding: 0.7rem 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 6px 30px rgba(10, 37, 64, 0.12);
+    }
+
+    /* Logo Styling */
+    .logo-container {
+        position: relative;
+        padding: 0.25rem 0;
+    }
+
+    .logo-icon {
+        font-size: 1.6rem;
+        color: var(--primary-color);
+        transition: transform 0.3s ease;
+    }
+
+    .logo-gradient {
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+    }
+
+    .logo-pulse {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(0, 201, 255, 0.1);
+        animation: pulse 2s infinite;
+    }
+
+    /* Animated Hamburger Menu */
+    .hamburger-menu {
+        position: relative;
+        width: 30px;
+        height: 21px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+    .hamburger-line {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background: var(--text-dark);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Navigation Links Styling */
+    .nav-link-content {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .nav-icon {
+        font-size: 1.1rem;
+        margin-right: 8px;
+        color: var(--text-light);
+        transition: all 0.3s ease;
+    }
+
+    .nav-text {
+        font-weight: 500;
+        color: var(--text-light);
+        transition: all 0.3s ease;
+    }
+
+    .nav-underline {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: var(--gradient-primary);
+        border-radius: 2px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        border-radius: 50px;
+        background: linear-gradient(135deg, rgba(26, 107, 179, 0.1), rgba(0, 201, 255, 0.1));
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: -1;
+    }
+
+    /* Hover Effects */
+    .nav-link:hover .nav-text,
+    .nav-link.active .nav-text {
+        color: var(--text-dark);
+        font-weight: 600;
+    }
+
+    .nav-link:hover .nav-icon,
+    .nav-link.active .nav-icon {
+        color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+
+    .nav-link:hover .nav-underline,
+    .nav-link.active .nav-underline {
+        width: 70%;
+    }
+
+    .nav-link:hover .nav-bg,
+    .nav-link.active .nav-bg {
+        width: calc(100% + 20px);
+        height: calc(100% + 10px);
+        opacity: 1;
+    }
+
+    .navbar-brand:hover .logo-icon {
+        transform: rotate(15deg) scale(1.1);
+    }
+
+    /* Login Button Styling */
+    .btn-login {
+        display: inline-block;
+        position: relative;
+        text-decoration: none;
+        overflow: hidden;
+        border-radius: 12px;
+        background: var(--gradient-primary);
+        padding: 3px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 24px;
+        background: white;
+        border-radius: 10px;
+        font-weight: 600;
+        color: var(--text-dark);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+    }
+
+    .btn-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+    }
+
+    .btn-login:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(26, 107, 179, 0.3);
+    }
+
+    .btn-login:hover .btn-content {
+        background: transparent;
+        color: white;
+    }
+
+    .btn-login:hover .btn-gradient {
+        opacity: 1;
+    }
+
+    /* Mobile Menu Styling */
+    @media (max-width: 991.98px) {
+        .navbar-collapse {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 1.5rem;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.3s ease;
+        }
+
+        .nav-link-content {
+            padding: 0.75rem 0;
+            margin: 0.25rem 0;
+        }
+
+        .btn-login {
+            margin-top: 1rem;
+        }
+    }
+
+    /* Animations */
+    @keyframes pulse {
+        0% {
+            width: 0;
+            height: 0;
+            opacity: 0.5;
+        }
+        100% {
+            width: 60px;
+            height: 60px;
+            opacity: 0;
+        }
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Active State Enhancement */
+    .nav-link.active::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 6px;
+        height: 6px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateX(-50%) translateY(0);
+        }
+        50% {
+            transform: translateX(-50%) translateY(-5px);
+        }
+    }
+
+    /* Floating Particles Background (Subtle) */
+    .navbar::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 80%, rgba(0, 201, 255, 0.05) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(26, 107, 179, 0.05) 0%, transparent 50%);
+        z-index: -1;
+        opacity: 0.5;
+    }
+
+        :root {
+            --primary-color: #1a6bb3;
+            --secondary-color: #0a2540;
+            --accent-color: #00c9ff;
+            --light-bg: #f8fafc;
+            --dark-bg: #0f172a;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --gradient-primary: linear-gradient(135deg, #1a6bb3 0%, #00c9ff 100%);
+            --gradient-dark: linear-gradient(135deg, #0a2540 0%, #1e293b 100%);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+        }
+        
+        /* Hero Section */
+        .pricing-hero {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.15;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(to right, #00c9ff, #92fe9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Pricing Cards */
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            height: 100%;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-color);
+        }
+        
+        .pricing-card.popular {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .pricing-card.popular:hover {
+            transform: translateY(-10px);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .price-amount {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1;
+            margin: 1.5rem 0;
+            color: var(--primary-color);
+        }
+        
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+        
+        .feature-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-available {
+            color: #10b981;
+            margin-right: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .feature-unavailable {
+            color: #94a3b8;
+            margin-right: 12px;
+            font-size: 1.1rem;
+            opacity: 0.5;
+        }
+        
+        /* Toggle Switch */
+        .pricing-toggle {
+            background: white;
+            border-radius: 50px;
+            padding: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: var(--shadow-sm);
+            margin: 2rem 0;
+        }
+        
+        .toggle-label {
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .toggle-label.active {
+            color: var(--primary-color);
+        }
+        
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: #e2e8f0;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .toggle-switch.active {
+            background: var(--primary-color);
+        }
+        
+        .toggle-switch.active::after {
+            transform: translateX(30px);
+        }
+        
+        /* Comparison Table */
+        .comparison-features {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .comparison-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .comparison-row {
+            display: flex;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            align-items: center;
+        }
+        
+        .comparison-row:nth-child(even) {
+            background: #f8fafc;
+        }
+        
+        /* FAQ Section */
+        .faq-item {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .faq-item:hover {
+            border-color: var(--accent-color);
+            transform: translateX(5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 1rem;
+        }
+        
+        /* Testimonials */
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            height: 100%;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            font-size: 3rem;
+            color: var(--accent-color);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Scroll Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom button styles */
+        .btn-primary {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            padding: 10px 28px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline-light {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+            padding: 10px 28px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-light:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Badges */
+        .badge {
+            padding: 6px 12px;
+            font-weight: 500;
+            border-radius: 6px;
+        }
+        
+        /* Scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .pricing-hero {
+                padding: 100px 0 60px;
+            }
+            
+            .price-amount {
+                font-size: 2.5rem;
+            }
+            
+            .pricing-card {
+                margin-bottom: 30px;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+            
+            .comparison-row {
+                flex-wrap: wrap;
+            }
+            
+            .comparison-row > div {
+                width: 100% !important;
+                margin-bottom: 10px;
+            }
+        }
+        .newsletter-message {
+    animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.footer .btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+/* ================================================================
+   COMPLETE MOBILE RESPONSIVE STYLES - PRICING PAGE
+   ================================================================ */
+
+/* ============ TABLET: 768px - 992px ============ */
+@media (max-width: 992px) {
+    .pricing-hero {
+        padding: 100px 0 50px !important;
+    }
+    
+    .pricing-hero .display-3 {
+        font-size: 2.2rem !important;
+    }
+    
+    .pricing-toggle {
+        gap: 10px !important;
+        padding: 8px 15px !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+    
+    .toggle-label {
+        font-size: 0.85rem !important;
+    }
+    
+    .pricing-card {
+        padding: 30px 25px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .pricing-card.popular {
+        transform: scale(1.02) !important;
+    }
+    
+    .price-amount {
+        font-size: 2.8rem !important;
+    }
+    
+    .popular-badge {
+        top: 15px !important;
+        right: 15px !important;
+        font-size: 0.8rem !important;
+        padding: 6px 12px !important;
+    }
+    
+    .comparison-row {
+        flex-wrap: wrap !important;
+    }
+    
+    .comparison-row > div {
+        width: 100% !important;
+        margin-bottom: 6px !important;
+        text-align: left !important;
+    }
+    
+    .comparison-row .col-2,
+    .comparison-row .col-6 {
+        width: 100% !important;
+    }
+    
+    .testimonial-card {
+        padding: 20px !important;
+    }
+    
+    .footer {
+        padding: 40px 0 20px !important;
+    }
+}
+
+/* ============ MOBILE: UP TO 768px ============ */
+@media (max-width: 768px) {
+    body {
+        zoom: 1 !important;
+        transform: none !important;
+        overflow-x: hidden !important;
+        padding-top: 70px !important;
+    }
+    
+    /* Hero Section */
+    .pricing-hero {
+        padding: 80px 0 40px !important;
+        text-align: center !important;
+    }
+    
+    .pricing-hero .display-3 {
+        font-size: 1.8rem !important;
+    }
+    
+    .pricing-hero .lead {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Pricing Toggle */
+    .pricing-toggle {
+        gap: 8px !important;
+        padding: 8px 12px !important;
+        border-radius: 30px !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+    
+    .toggle-label {
+        font-size: 0.75rem !important;
+    }
+    
+    .toggle-label .badge {
+        font-size: 0.6rem !important;
+        padding: 3px 6px !important;
+    }
+    
+    .toggle-switch {
+        width: 48px !important;
+        height: 26px !important;
+    }
+    
+    .toggle-switch::after {
+        width: 20px !important;
+        height: 20px !important;
+    }
+    
+    .toggle-switch.active::after {
+        transform: translateX(22px) !important;
+    }
+    
+    /* Pricing Cards */
+    .pricing-card {
+        padding: 25px 20px !important;
+        border-radius: 16px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .pricing-card.popular {
+        transform: scale(1) !important;
+    }
+    
+    .pricing-card h3 {
+        font-size: 1.3rem !important;
+    }
+    
+    .pricing-card p {
+        font-size: 0.85rem !important;
+    }
+    
+    .price-amount {
+        font-size: 2.5rem !important;
+        margin: 1rem 0 !important;
+    }
+    
+    .popular-badge {
+        top: 12px !important;
+        right: 12px !important;
+        font-size: 0.7rem !important;
+        padding: 5px 10px !important;
+    }
+    
+    .feature-list li {
+        padding: 0.5rem 0 !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .feature-available,
+    .feature-unavailable {
+        font-size: 0.9rem !important;
+        margin-right: 8px !important;
+    }
+    
+    /* Section Titles */
+    .section-title {
+        font-size: 1.5rem !important;
+        margin-bottom: 40px !important;
+    }
+    
+    .section-title::after {
+        width: 40px !important;
+        height: 3px !important;
+        bottom: -10px !important;
+    }
+    
+    .display-5 {
+        font-size: 1.5rem !important;
+    }
+    
+    .lead {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Comparison Table */
+    .comparison-features {
+        border-radius: 12px !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .comparison-header {
+        padding: 1rem !important;
+    }
+    
+    .comparison-header h4 {
+        font-size: 1.1rem !important;
+    }
+    
+    .comparison-row {
+        padding: 12px 10px !important;
+        flex-direction: column !important;
+    }
+    
+    .comparison-row > div {
+        width: 100% !important;
+        text-align: left !important;
+        padding: 3px 0 !important;
+    }
+    
+    .comparison-row .col-2 {
+        text-align: left !important;
+        padding-left: 15px !important;
+    }
+    
+    .comparison-row .col-2::before {
+        content: attr(data-label);
+        font-weight: 600;
+        margin-right: 8px;
+        color: var(--text-dark);
+    }
+    
+    .comparison-row:first-of-type {
+        display: none !important;
+    }
+    
+    /* Testimonials */
+    .testimonial-card {
+        padding: 20px !important;
+        border-radius: 16px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .testimonial-card::before {
+        font-size: 2rem !important;
+        top: -10px !important;
+        left: 15px !important;
+    }
+    
+    .testimonial-card p {
+        font-size: 0.85rem !important;
+    }
+    
+    .testimonial-card h6 {
+        font-size: 0.9rem !important;
+    }
+    
+    .testimonial-card small {
+        font-size: 0.75rem !important;
+    }
+    
+    .testimonial-card img {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    /* FAQ */
+    .faq-item {
+        padding: 1rem !important;
+        border-radius: 12px !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    .faq-question {
+        font-size: 0.9rem !important;
+    }
+    
+    .faq-question span {
+        font-size: 0.9rem !important;
+    }
+    
+    .faq-answer p {
+        font-size: 0.85rem !important;
+    }
+    
+    /* CTA Section */
+    .bg-primary .display-5 {
+        font-size: 1.4rem !important;
+    }
+    
+    .bg-primary .lead {
+        font-size: 0.9rem !important;
+    }
+    
+    .bg-primary .btn {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .bg-primary .d-flex {
+        flex-direction: column !important;
+    }
+    
+    /* Footer */
+    .footer {
+        text-align: center !important;
+        padding: 30px 0 15px !important;
+    }
+    
+    .footer .social-links {
+        justify-content: center !important;
+        display: flex !important;
+    }
+    
+    .footer h5 {
+        margin-top: 20px !important;
+        font-size: 1rem !important;
+    }
+    
+    .footer .text-md-end {
+        text-align: center !important;
+        margin-top: 10px !important;
+    }
+    
+    .footer .input-group {
+        flex-direction: column !important;
+    }
+    
+    .footer .input-group .form-control {
+        border-radius: 8px !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .footer .input-group .btn {
+        border-radius: 8px !important;
+        width: 100% !important;
+    }
+    
+    /* Navbar adjustments */
+    .navbar {
+        padding: 0.6rem 0 !important;
+    }
+    
+    .navbar-brand {
+        font-size: 1.3rem !important;
+    }
+    
+    .navbar-collapse {
+        position: fixed !important;
+        top: 60px !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: white !important;
+        padding: 1rem !important;
+        border-radius: 0 0 16px 16px !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+        max-height: 80vh !important;
+        overflow-y: auto !important;
+    }
+    
+    .btn-login {
+        width: 100% !important;
+    }
+    
+    .btn-content {
+        justify-content: center !important;
+    }
+}
+
+/* ============ SMALL MOBILE: Up to 480px ============ */
+@media (max-width: 480px) {
+    .pricing-hero {
+        padding: 70px 0 30px !important;
+    }
+    
+    .pricing-hero .display-3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .pricing-toggle {
+        padding: 6px 10px !important;
+        gap: 5px !important;
+    }
+    
+    .toggle-label {
+        font-size: 0.7rem !important;
+    }
+    
+    .pricing-card {
+        padding: 20px 15px !important;
+    }
+    
+    .price-amount {
+        font-size: 2rem !important;
+    }
+    
+    .popular-badge {
+        top: 10px !important;
+        right: 10px !important;
+        font-size: 0.65rem !important;
+        padding: 4px 8px !important;
+    }
+    
+    .feature-list li {
+        font-size: 0.8rem !important;
+        padding: 0.4rem 0 !important;
+    }
+    
+    .comparison-row {
+        padding: 10px 8px !important;
+        font-size: 0.75rem !important;
+    }
+    
+    .testimonial-card {
+        padding: 15px !important;
+    }
+    
+    .faq-question span {
+        font-size: 0.85rem !important;
+    }
+    
+    .btn-lg {
+        padding: 10px 20px !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .btn {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* ============ VERY SMALL: Up to 375px ============ */
+@media (max-width: 375px) {
+    .pricing-hero .display-3 {
+        font-size: 1.3rem !important;
+    }
+    
+    .toggle-label {
+        font-size: 0.65rem !important;
+    }
+    
+    .price-amount {
+        font-size: 1.8rem !important;
+    }
+    
+    .pricing-card h3 {
+        font-size: 1.1rem !important;
+    }
+    
+    .section-title {
+        font-size: 1.3rem !important;
+    }
+}
+
+/* ============ TOUCH DEVICES ============ */
+@media (hover: none) and (pointer: coarse) {
+    .btn,
+    .nav-link,
+    .faq-item,
+    .pricing-toggle {
+        min-height: 44px !important;
+    }
+    
+    .pricing-card:hover {
+        transform: none !important;
+    }
+    
+    .faq-item:hover {
+        transform: none !important;
+    }
+}
+
+/* ============ FIX COMPARISON TABLE LABELS ============ */
+@media (max-width: 768px) {
+        .floating-element {
+        display: none !important;
+    }
+
+    /* Fix image spacing */
+    .position-relative img {
+        margin-top: 0 !important;
+    }
+
+    /* Ensure buttons are above the image on mobile */
+    .features-hero .col-lg-6:first-child,
+    .pricing-hero .col-lg-6:first-child {
+        order: 1 !important;
+    }
+
+    .features-hero .col-lg-6:last-child,
+    .pricing-hero .col-lg-6:last-child {
+        order: 2 !important;
+    }
+    .comparison-row .col-2:nth-child(2)::before {
+        content: "Basic: ";
+    }
+    
+    .comparison-row .col-2:nth-child(3)::before {
+        content: "Professional: ";
+    }
+    
+    .comparison-row .col-2:nth-child(4)::before {
+        content: "Enterprise: ";
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+        <!-- Animated Logo with Hover Effect -->
+        <a class="navbar-brand" href="index.html">
+            <div class="logo-container d-flex align-items-center">
+                <div class="logo-icon">
+                    <i class="fas fa-cloud-sun"></i>
+                </div>
+                <div class="logo-text ms-2">
+                    <span class="fw-bold">Weather</span>
+                    <span class="logo-gradient fw-bold">AI</span>
+                </div>
+                <div class="logo-pulse"></div>
+            </div>
+        </a>
+
+        <!-- Mobile Toggle Button with Animation -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <div class="hamburger-menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </button>
+
+        <!-- Navigation Items -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-home nav-icon"></i>
+                            <span class="nav-text">Home</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="features.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-sliders-h nav-icon"></i>
+                            <span class="nav-text">Features</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pricing.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-tag nav-icon"></i>
+                            <span class="nav-text">Pricing</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-blog nav-icon"></i>
+                            <span class="nav-text">Blog</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-info-circle nav-icon"></i>
+                            <span class="nav-text">About</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-envelope nav-icon"></i>
+                            <span class="nav-text">Contact</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                    <a href="login.html" class="btn-login">
+                        <div class="btn-content">
+                            <i class="fas fa-sign-in-alt me-2"></i>
+                            <span>Login/Signup</span>
+                            <div class="btn-gradient"></div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="pricing-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center fade-in-up">
+                    <h1 class="display-3 fw-bold mb-4">
+                        Simple & <span class="text-gradient">Transparent</span> Pricing
+                    </h1>
+                    <p class="lead mb-4">
+                        Choose the perfect plan for your weather monitoring needs. All plans include a 30-day free trial.
+                    </p>
+                    
+                    <!-- Pricing Toggle -->
+                    <div class="d-flex justify-content-center align-items-center mb-4">
+                        <div class="pricing-toggle">
+                            <span class="toggle-label active" id="monthlyToggle">Monthly Billing</span>
+                            <div class="toggle-switch" id="pricingToggle">
+                                <div class="toggle-handle"></div>
+                            </div>
+                            <span class="toggle-label" id="yearlyToggle">Annual Billing <span class="badge bg-success ms-2">Save 20%</span></span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-light">Trusted by 1,500+ climate researchers and organizations worldwide</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Basic Plan -->
+                <div class="col-lg-4 fade-in-up">
+                    <div class="pricing-card">
+                        <h3 class="h4 fw-bold">Basic</h3>
+                        <p class="text-muted">For individuals & small projects</p>
+                        
+                        <div class="price-display">
+                            <div class="price-amount monthly">$49</div>
+                            <div class="price-amount yearly d-none">$39</div>
+                            <p class="text-muted">per month, billed <span class="billing-period">monthly</span></p>
+                        </div>
+                        
+                        <a href="login.html?plan=basic" class="btn btn-outline-primary w-100 mb-4">Start Free Trial</a>
+                        
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check feature-available"></i> 10 Cities Monitoring</li>
+                            <li><i class="fas fa-check feature-available"></i> Basic Anomaly Detection</li>
+                            <li><i class="fas fa-check feature-available"></i> 30-Day History</li>
+                            <li><i class="fas fa-check feature-available"></i> Email Alerts</li>
+                            <li><i class="fas fa-times feature-unavailable"></i> Predictive Analytics</li>
+                            <li><i class="fas fa-times feature-unavailable"></i> API Access</li>
+                            <li><i class="fas fa-times feature-unavailable"></i> Priority Support</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Pro Plan (Popular) -->
+                <div class="col-lg-4 fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">MOST POPULAR</div>
+                        <h3 class="h4 fw-bold">Professional</h3>
+                        <p class="text-muted">For teams & growing businesses</p>
+                        
+                        <div class="price-display">
+                            <div class="price-amount monthly">$99</div>
+                            <div class="price-amount yearly d-none">$79</div>
+                            <p class="text-muted">per month, billed <span class="billing-period">monthly</span></p>
+                        </div>
+                        
+                        <a href="login.html?plan=professional" class="btn btn-primary w-100 mb-4">Start Free Trial</a>
+                        
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check feature-available"></i> 50 Cities Monitoring</li>
+                            <li><i class="fas fa-check feature-available"></i> Advanced Anomaly Detection</li>
+                            <li><i class="fas fa-check feature-available"></i> 1-Year History</li>
+                            <li><i class="fas fa-check feature-available"></i> Multi-channel Alerts</li>
+                            <li><i class="fas fa-check feature-available"></i> Predictive Analytics</li>
+                            <li><i class="fas fa-check feature-available"></i> Basic API Access</li>
+                            <li><i class="fas fa-times feature-unavailable"></i> 24/7 Priority Support</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Enterprise Plan -->
+                <div class="col-lg-4 fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="pricing-card">
+                        <h3 class="h4 fw-bold">Enterprise</h3>
+                        <p class="text-muted">For large organizations & research</p>
+                        
+                        <div class="price-display">
+                            <div class="price-amount monthly">$299</div>
+                            <div class="price-amount yearly d-none">$239</div>
+                            <p class="text-muted">per month, billed <span class="billing-period">monthly</span></p>
+                        </div>
+                        
+                        <a href="contact.html" class="btn btn-outline-primary w-100 mb-4">Contact Sales</a>
+                        
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check feature-available"></i> Unlimited Cities</li>
+                            <li><i class="fas fa-check feature-available"></i> AI-Powered Detection</li>
+                            <li><i class="fas fa-check feature-available"></i> 5-Year History</li>
+                            <li><i class="fas fa-check feature-available"></i> Custom Alert System</li>
+                            <li><i class="fas fa-check feature-available"></i> Advanced Analytics</li>
+                            <li><i class="fas fa-check feature-available"></i> Full API Access</li>
+                            <li><i class="fas fa-check feature-available"></i> 24/7 Priority Support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <p class="text-muted">
+                        <i class="fas fa-shield-alt me-2"></i>All plans include bank-level security, GDPR compliance, and regular updates
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Comparison -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3 section-title">Detailed Plan Comparison</h2>
+                    <p class="lead text-muted">See exactly what's included in each plan</p>
+                </div>
+            </div>
+            
+            <div class="comparison-features fade-in-up">
+                <div class="comparison-header">
+                    <h4 class="mb-0">Feature Comparison Matrix</h4>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="col-6"><strong>Feature</strong></div>
+                    <div class="col-2 text-center"><strong>Basic</strong></div>
+                    <div class="col-2 text-center"><strong>Professional</strong></div>
+                    <div class="col-2 text-center"><strong>Enterprise</strong></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="col-6">Cities Monitoring</div>
+                    <div class="col-2 text-center">10</div>
+                    <div class="col-2 text-center">50</div>
+                    <div class="col-2 text-center">Unlimited</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="col-6">Anomaly Detection</div>
+                    <div class="col-2 text-center"><i class="fas fa-check text-success"></i></div>
+                    <div class="col-2 text-center"><i class="fas fa-check text-success"></i></div>
+                    <div class="col-2 text-center"><i class="fas fa-check text-success"></i></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="col-6">Predictive Analytics</div>
+                    <div class="col-2 text-center"><i class="fas fa-times text-muted"></i></div>
+                    <div class="col-2 text-center"><i class="fas fa-check text-success"></i></div>
+                    <div class="col-2 text-center"><i class="fas fa-check text-success"></i></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="col-6">API Access</div>
+                    <div class="col-2 text-center"><i class="fas fa-times text-muted"></i></div>
+                    <div class="col-2 text-center"><i class="fas fa-check text-success"></i></div>
+                    <div class="col-2 text-center"><i class="fas fa-check text-success"></i></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="col-6">Data Retention</div>
+                    <div class="col-2 text-center">30 days</div>
+                    <div class="col-2 text-center">1 year</div>
+                    <div class="col-2 text-center">5 years</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="col-6">Support</div>
+                    <div class="col-2 text-center">Email</div>
+                    <div class="col-2 text-center">Chat + Email</div>
+                    <div class="col-2 text-center">24/7 Priority</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="col-6">Custom Alerts</div>
+                    <div class="col-2 text-center"><i class="fas fa-times text-muted"></i></div>
+                    <div class="col-2 text-center"><i class="fas fa-check text-success"></i></div>
+                    <div class="col-2 text-center"><i class="fas fa-check text-success"></i></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="col-6">Team Members</div>
+                    <div class="col-2 text-center">1</div>
+                    <div class="col-2 text-center">5</div>
+                    <div class="col-2 text-center">Unlimited</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3 section-title">Trusted by Climate Experts</h2>
+                    <p class="lead text-muted">See what organizations say about Weather AI</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 fade-in-up">
+                    <div class="testimonial-card">
+                        <p class="mb-4">"Weather AI has transformed our climate research capabilities. The predictive analytics alone have justified the investment ten times over."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                 alt="Sarah Chen" class="rounded-circle me-3" width="50" height="50">
+                            <div>
+                                <h6 class="mb-0">Dr. Sarah Chen</h6>
+                                <small class="text-muted">Climate Research Institute</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="testimonial-card">
+                        <p class="mb-4">"The Professional plan gives our team everything we need. The ROI has been phenomenal - we've reduced weather-related downtime by 40%."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                 alt="Michael Rodriguez" class="rounded-circle me-3" width="50" height="50">
+                            <div>
+                                <h6 class="mb-0">Michael Rodriguez</h6>
+                                <small class="text-muted">Agricultural Solutions Inc.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="testimonial-card">
+                        <p class="mb-4">"The Enterprise solution has everything our government agency needs. The accuracy and reliability have exceeded our highest expectations."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://imageio.forbes.com/blogs-images/files/2014/09/Emma-Johnson_avatar_1409691205.png?format=png&width=300" 
+                                 alt="Emma Johnson" class="rounded-circle me-3" width="50" height="50">
+                            <div>
+                                <h6 class="mb-0">Emma Johnson</h6>
+                                <small class="text-muted">National Weather Bureau</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3 section-title">Frequently Asked Questions</h2>
+                    <p class="lead text-muted">Common questions about our pricing and plans</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item fade-in-up">
+                        <div class="faq-question">
+                            <span>Can I change plans later?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="mb-0">Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate your billing accordingly.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item fade-in-up" style="transition-delay: 0.1s;">
+                        <div class="faq-question">
+                            <span>Is there a free trial?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="mb-0">Yes, all plans come with a 30-day free trial. No credit card required to start your trial.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item fade-in-up" style="transition-delay: 0.2s;">
+                        <div class="faq-question">
+                            <span>What payment methods do you accept?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="mb-0">We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers for enterprise plans.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item fade-in-up" style="transition-delay: 0.3s;">
+                        <div class="faq-question">
+                            <span>Do you offer discounts for non-profits?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="mb-0">Yes, we offer a 50% discount for registered non-profit organizations and educational institutions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item fade-in-up" style="transition-delay: 0.4s;">
+                        <div class="faq-question">
+                            <span>Can I cancel anytime?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="mb-0">Absolutely. You can cancel your subscription at any time with no cancellation fees.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row text-center fade-in-up">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-4">Ready to Get Started?</h2>
+                    <p class="lead mb-5">Join thousands of researchers and organizations using Weather AI for advanced weather intelligence.</p>
+                    <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+                        <a href="login.html" class="btn btn-light btn-lg">
+                            <i class="fas fa-rocket me-2"></i>Start 30-Day Free Trial
+                        </a>
+                        <a href="contact.html" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-calendar-alt me-2"></i>Schedule Demo
+                        </a>
+                    </div>
+                    <p class="mt-4 text-light">
+                        <i class="fas fa-shield-alt me-2"></i>No credit card required • Cancel anytime
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3" href="index.html">
+                        <i class="fas fa-cloud-sun me-2"></i>
+                        <span class="fw-bold">Weather</span><span class="fw-bold" style="color: #00c9ff;">AI</span>
+                    </a>
+                    <p class="text-light">Advanced AI-powered weather anomaly detection platform for researchers, meteorologists, and organizations worldwide.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Platform</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="features.html" class="text-light text-decoration-none">Features</a></li>
+                        <li><a href="pricing.html" class="text-light text-decoration-none">Pricing</a></li>
+                        <li><a href="demo.html" class="text-light text-decoration-none">Live Demo</a></li>
+                        <li><a href="api.html" class="text-light text-decoration-none">API Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="blog.html" class="text-light text-decoration-none">Research Blog</a></li>
+                        <li><a href="careers.html" class="text-light text-decoration-none">Careers</a></li>
+                        <li><a href="press.html" class="text-light text-decoration-none">Press Kit</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Stay Updated</h5>
+                    <p class="text-light">Subscribe to our newsletter for the latest research, updates, and climate insights.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <p class="text-light mt-3 small">
+                        <i class="fas fa-lock me-1"></i> We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+            <hr class="border-light my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light">&copy; 2024 Weather AI. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="privacy.html" class="text-light text-decoration-none me-3">Privacy Policy</a>
+                    <a href="terms.html" class="text-light text-decoration-none me-3">Terms of Service</a>
+                    <a href="compliance.html" class="text-light text-decoration-none">GDPR Compliance</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+          // Enhanced Navbar Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const navbar = document.querySelector('.navbar');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const hamburger = document.querySelector('.navbar-toggler');
+        
+        // Scroll effect with parallax
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY;
+            
+            // Navbar scroll effect
+            if (scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+                // Add parallax effect to background
+                navbar.style.background = `rgba(255, 255, 255, ${0.92 + (scrollY * 0.001)})`;
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+                navbar.style.background = 'rgba(255, 255, 255, 0.92)';
+            }
+            
+            // Update active section based on scroll position
+            updateActiveNav();
+        });
+
+        // Update active navigation based on scroll position
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollY = window.pageYOffset;
+            
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}` || 
+                            (sectionId === 'hero' && link.getAttribute('href') === 'index.html')) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        // Smooth scroll for anchor links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        // Close mobile menu if open
+                        if (window.innerWidth < 992) {
+                            const collapse = document.querySelector('.navbar-collapse');
+                            if (collapse.classList.contains('show')) {
+                                hamburger.click();
+                            }
+                        }
+                        
+                        // Smooth scroll
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active nav
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Hover effects enhancement
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('active')) {
+                    const icon = this.querySelector('.nav-icon');
+                    if (icon) {
+                        icon.style.transform = 'translateY(-2px) scale(1.1)';
+                    }
+                }
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('active')) {
+                    const icon = this.querySelector('.nav-icon');
+                    if (icon) {
+                        icon.style.transform = '';
+                    }
+                }
+            });
+        });
+
+        // Initialize on load
+        updateActiveNav();
+        
+        // Add subtle animation on page load
+        setTimeout(() => {
+            navbar.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        }, 100);
+    });
+
+        // Scroll progress indicator
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + "%";
+            
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+            
+            // Scroll animation
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+        
+        // Trigger initial scroll check for animations
+        window.dispatchEvent(new Event('scroll'));
+        
+        // Pricing Toggle Functionality
+        const pricingToggle = document.getElementById('pricingToggle');
+        const monthlyToggle = document.getElementById('monthlyToggle');
+        const yearlyToggle = document.getElementById('yearlyToggle');
+        const monthlyPrices = document.querySelectorAll('.price-amount.monthly');
+        const yearlyPrices = document.querySelectorAll('.price-amount.yearly');
+        const billingPeriods = document.querySelectorAll('.billing-period');
+
+        pricingToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            monthlyToggle.classList.toggle('active');
+            yearlyToggle.classList.toggle('active');
+            
+            if (this.classList.contains('active')) {
+                // Switch to yearly pricing
+                monthlyPrices.forEach(price => price.classList.add('d-none'));
+                yearlyPrices.forEach(price => price.classList.remove('d-none'));
+                billingPeriods.forEach(period => period.textContent = 'annually');
+            } else {
+                // Switch to monthly pricing
+                monthlyPrices.forEach(price => price.classList.remove('d-none'));
+                yearlyPrices.forEach(price => price.classList.add('d-none'));
+                billingPeriods.forEach(period => period.textContent = 'monthly');
+            }
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        const otherIcon = otherItem.querySelector('.faq-question i');
+                        otherIcon.style.transform = 'rotate(0deg)';
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+                
+                // Rotate icon
+                const icon = question.querySelector('i');
+                if (item.classList.contains('active')) {
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Pricing cards hover animation
+        const pricingCards = document.querySelectorAll('.pricing-card');
+        pricingCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                if (!card.classList.contains('popular') || window.innerWidth < 768) {
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add active class to current page nav item
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Add click animation to buttons
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.6);
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        width: ${size}px;
+                        height: ${size}px;
+                        top: ${y}px;
+                        left: ${x}px;
+                    `;
+                    
+                    this.appendChild(ripple);
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+            
+            // Add ripple animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+        // Newsletter Subscription Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const newsletterForm = document.querySelector('.footer .input-group');
+    if (newsletterForm) {
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const subscribeBtn = newsletterForm.querySelector('button');
+        
+        // Create message container if it doesn't exist
+        let messageDiv = document.querySelector('.newsletter-message');
+        if (!messageDiv) {
+            messageDiv = document.createElement('div');
+            messageDiv.className = 'newsletter-message mt-2';
+            messageDiv.style.display = 'none';
+            newsletterForm.parentNode.insertBefore(messageDiv, newsletterForm.nextSibling);
+        }
+        
+        // Remove existing click handler and add new one
+        const newSubscribeBtn = subscribeBtn.cloneNode(true);
+        subscribeBtn.parentNode.replaceChild(newSubscribeBtn, subscribeBtn);
+        
+        newSubscribeBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            
+            // Validate email
+            if (!email) {
+                showNewsletterMessage('Please enter your email address', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNewsletterMessage('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Disable button and show loading
+            newSubscribeBtn.disabled = true;
+            const originalText = newSubscribeBtn.innerHTML;
+            newSubscribeBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Subscribing...';
+            
+            try {
+                const response = await fetch('/api/newsletter/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showNewsletterMessage(data.message, 'success');
+                    emailInput.value = ''; // Clear input
+                } else {
+                    showNewsletterMessage(data.detail || 'Failed to subscribe. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error('Newsletter subscription error:', error);
+                showNewsletterMessage('Network error. Please check your connection and try again.', 'error');
+            } finally {
+                // Re-enable button
+                newSubscribeBtn.disabled = false;
+                newSubscribeBtn.innerHTML = originalText;
+            }
+        });
+        
+        // Allow Enter key to submit
+        emailInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                newSubscribeBtn.click();
+            }
+        });
+        
+        function showNewsletterMessage(text, type) {
+            messageDiv.style.display = 'block';
+            messageDiv.textContent = text;
+            
+            if (type === 'success') {
+                messageDiv.style.color = '#28a745';
+                messageDiv.style.backgroundColor = '#d4edda';
+                messageDiv.style.border = '1px solid #c3e6cb';
+            } else {
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.border = '1px solid #f5c6cb';
+            }
+            
+            messageDiv.style.padding = '10px';
+            messageDiv.style.borderRadius = '4px';
+            messageDiv.style.fontSize = '14px';
+            messageDiv.style.marginTop = '10px';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+    }
+});
+    </script>
+</body>
+</html>

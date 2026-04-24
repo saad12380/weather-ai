@@ -1,0 +1,2788 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather AI - Advanced Weather Anomaly Detection Platform</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Advanced AI-powered weather anomaly detection platform. Real-time weather monitoring, predictive analytics, and intelligent insights for climate patterns.">
+    <meta name="keywords" content="weather AI, anomaly detection, weather monitoring, climate analytics, machine learning, predictive weather, artificial intelligence">
+    <meta name="author" content="Weather AI Team">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Weather AI - Anomaly Detection Platform">
+    <meta property="og:description" content="Advanced AI-powered weather anomaly detection platform">
+    <meta property="og:image" content="https://weatherai.example.com/assets/images/og-image.jpg">
+    <meta property="og:url" content="https://weatherai.example.com">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Weather AI Platform">
+    <meta name="twitter:description" content="AI-powered weather anomaly detection">
+    
+    <!-- Favicon -->
+   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Swiper CSS for Carousel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <!-- Custom CSS -->
+    <style>
+        html { font-size: 14px !important; }
+        body {
+            font-size: 0.95rem !important;
+            overflow-x: hidden !important;
+        }
+        @supports (zoom: 1) {
+            body { zoom: 0.95 !important; }
+        }
+        @supports not (zoom: 1) {
+            body {
+                transform: scale(0.95) !important;
+                transform-origin: top center !important;
+                width: 100% !important;
+            }
+        }
+
+          .demo-section {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+    
+    .video-wrapper {
+        background: #000;
+        min-height: 400px;
+    }
+    
+    .video-preview {
+        object-fit: cover;
+        height: 400px;
+        opacity: 0.7;
+        transition: opacity 0.3s;
+    }
+    
+    .play-overlay {
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: 2;
+        cursor: pointer;
+    }
+    
+    .play-button {
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .play-button:hover {
+        transform: scale(1.1);
+        background-color: #0b5ed7 !important;
+        box-shadow: 0 8px 25px rgba(13, 110, 253, 0.4);
+    }
+    
+    .youtube-iframe-container {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+    }
+    
+    .youtube-iframe-container iframe,
+    .youtube-iframe-container > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .video-chapters .chapter-btn {
+        width: 100%;
+        padding: 0.75rem 0.5rem;
+        border: 2px solid #dee2e6;
+        border-radius: 0.75rem;
+        background: white;
+        color: #495057;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    .video-chapters .chapter-btn:hover {
+        background: #0d6efd;
+        color: white;
+        border-color: #0d6efd;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+    }
+    
+    .video-chapters .chapter-btn:active {
+        transform: translateY(0);
+    }
+    
+    .demo-feature-icon {
+        width: 48px;
+        height: 48px;
+        background: rgba(13, 110, 253, 0.1);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    
+    .demo-feature-icon i {
+        font-size: 1.25rem;
+    }
+    
+    .demo-stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0d6efd;
+        line-height: 1;
+    }
+    
+    .demo-stat-label {
+        font-size: 0.875rem;
+        color: #6c757d;
+        margin-top: 0.25rem;
+    }
+    
+    .section-title {
+        background: linear-gradient(90deg, #0d6efd, #0dcaf0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    /* Scroll Animation - FIXED */
+    .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform, opacity;
+    }
+    
+    .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+         /* Enhanced Navbar Styles - Matching Home Page Theme */
+    .navbar {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(15px) saturate(180%);
+        -webkit-backdrop-filter: blur(15px) saturate(180%);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
+        padding: 1rem 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .navbar-scrolled {
+        padding: 0.7rem 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 6px 30px rgba(10, 37, 64, 0.12);
+    }
+
+    /* Logo Styling */
+    .logo-container {
+        position: relative;
+        padding: 0.25rem 0;
+    }
+
+    .logo-icon {
+        font-size: 1.6rem;
+        color: var(--primary-color);
+        transition: transform 0.3s ease;
+    }
+
+    .logo-gradient {
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+    }
+
+    .logo-pulse {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(0, 201, 255, 0.1);
+        animation: pulse 2s infinite;
+    }
+
+    /* Animated Hamburger Menu */
+    .hamburger-menu {
+        position: relative;
+        width: 30px;
+        height: 21px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+    .hamburger-line {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background: var(--text-dark);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Navigation Links Styling */
+    .nav-link-content {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .nav-icon {
+        font-size: 1.1rem;
+        margin-right: 8px;
+        color: var(--text-light);
+        transition: all 0.3s ease;
+    }
+
+    .nav-text {
+        font-weight: 500;
+        color: var(--text-light);
+        transition: all 0.3s ease;
+    }
+
+    .nav-underline {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: var(--gradient-primary);
+        border-radius: 2px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        border-radius: 50px;
+        background: linear-gradient(135deg, rgba(26, 107, 179, 0.1), rgba(0, 201, 255, 0.1));
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: -1;
+    }
+
+    /* Hover Effects */
+    .nav-link:hover .nav-text,
+    .nav-link.active .nav-text {
+        color: var(--text-dark);
+        font-weight: 600;
+    }
+
+    .nav-link:hover .nav-icon,
+    .nav-link.active .nav-icon {
+        color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+
+    .nav-link:hover .nav-underline,
+    .nav-link.active .nav-underline {
+        width: 70%;
+    }
+
+    .nav-link:hover .nav-bg,
+    .nav-link.active .nav-bg {
+        width: calc(100% + 20px);
+        height: calc(100% + 10px);
+        opacity: 1;
+    }
+
+    .navbar-brand:hover .logo-icon {
+        transform: rotate(15deg) scale(1.1);
+    }
+
+    /* Login Button Styling */
+    .btn-login {
+        display: inline-block;
+        position: relative;
+        text-decoration: none;
+        overflow: hidden;
+        border-radius: 12px;
+        background: var(--gradient-primary);
+        padding: 3px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 24px;
+        background: white;
+        border-radius: 10px;
+        font-weight: 600;
+        color: var(--text-dark);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+    }
+
+    .btn-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+    }
+
+    .btn-login:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(26, 107, 179, 0.3);
+    }
+
+    .btn-login:hover .btn-content {
+        background: transparent;
+        color: white;
+    }
+
+    .btn-login:hover .btn-gradient {
+        opacity: 1;
+    }
+
+    /* Mobile Menu Styling */
+    @media (max-width: 991.98px) {
+        .navbar-collapse {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 1.5rem;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.3s ease;
+        }
+
+        .nav-link-content {
+            padding: 0.75rem 0;
+            margin: 0.25rem 0;
+        }
+
+        .btn-login {
+            margin-top: 1rem;
+        }
+    }
+
+    /* Animations */
+    @keyframes pulse {
+        0% {
+            width: 0;
+            height: 0;
+            opacity: 0.5;
+        }
+        100% {
+            width: 60px;
+            height: 60px;
+            opacity: 0;
+        }
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Active State Enhancement */
+    .nav-link.active::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 6px;
+        height: 6px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateX(-50%) translateY(0);
+        }
+        50% {
+            transform: translateX(-50%) translateY(-5px);
+        }
+    }
+
+    /* Floating Particles Background (Subtle) */
+    .navbar::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 80%, rgba(0, 201, 255, 0.05) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(26, 107, 179, 0.05) 0%, transparent 50%);
+        z-index: -1;
+        opacity: 0.5;
+    }
+        
+        :root {
+            --primary-color: #1a6bb3;
+            --secondary-color: #0a2540;
+            --accent-color: #00c9ff;
+            --light-bg: #f8fafc;
+            --dark-bg: #0f172a;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --gradient-primary: linear-gradient(135deg, #1a6bb3 0%, #00c9ff 100%);
+            --gradient-dark: linear-gradient(135deg, #0a2540 0%, #1e293b 100%);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+        }
+        
+        .hero-section {
+            position: relative;
+            padding: 120px 0 80px;
+            background: var(--gradient-dark);
+            color: white;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.15;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(to right, #00c9ff, #92fe9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-slider {
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+        
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .swiper-slide {
+            position: relative;
+        }
+        
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .slide-content {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            right: 40px;
+            background: rgba(10, 37, 64, 0.85);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            color: white;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        
+        .swiper-slide-active .slide-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .stats-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .stat-card {
+            padding: 30px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .features-section {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            height: 100%;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-color);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: white;
+            font-size: 1.8rem;
+        }
+        /* Demo Section Enhanced Styles */
+    .demo-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .demo-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            radial-gradient(circle at 20% 80%, rgba(0, 201, 255, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(26, 107, 179, 0.05) 0%, transparent 50%);
+        pointer-events: none;
+    }
+    
+    .demo-feature-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, rgba(26, 107, 179, 0.1), rgba(0, 201, 255, 0.1));
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    
+    .demo-feature-icon i {
+        font-size: 1.2rem;
+    }
+    
+    .video-wrapper {
+        position: relative;
+        background: var(--gradient-dark);
+        min-height: 400px;
+        overflow: hidden;
+    }
+    
+    .video-preview {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    
+    .video-wrapper:hover .video-preview {
+        transform: scale(1.05);
+    }
+    
+    .play-overlay {
+        background: rgba(10, 37, 64, 0.85);
+        backdrop-filter: blur(5px);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .play-overlay:hover {
+        background: rgba(10, 37, 64, 0.95);
+    }
+    
+    .play-button {
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .play-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+    
+    .video-controls {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        transition: all 0.3s ease;
+    }
+    
+    .video-chapters {
+        margin-top: 100px;
+        padding: 15px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .chapter-btn {
+
+        width: 100%;
+        padding: 10px;
+        background: var(--light-bg);
+        border: 2px solid var(--light-bg);
+        border-radius: 8px;
+        color: var(--text-light);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .chapter-btn:hover {
+        background: white;
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .chapter-btn.active {
+        background: var(--gradient-primary);
+        border-color: transparent;
+        color: white;
+        box-shadow: var(--shadow-md);
+    }
+    
+    .demo-stats {
+        padding: 20px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .demo-stat-value {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+    
+    .demo-stat-label {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        font-weight: 500;
+    }
+    
+    /* Video Player States */
+    .video-playing .video-preview,
+    .video-playing .play-overlay {
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    .video-playing .video-controls {
+        display: block !important;
+    }
+    
+    .video-playing video {
+        display: block !important;
+    }
+    
+    @media (max-width: 768px) {
+         /* Ensure buttons stack above the slider */
+        .hero-section .col-lg-6:first-child {
+            margin-bottom: 20px !important;
+        }
+        
+        .hero-section .d-flex.flex-wrap {
+            flex-direction: column !important;
+        }
+        
+        .hero-section .btn {
+            width: 100% !important;
+        }
+        .demo-section {
+            padding: 60px 0;
+        }
+        
+        .video-wrapper {
+            min-height: 300px;
+        }
+        
+        .video-preview {
+            height: 300px;
+        }
+        
+        .play-button {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+        .demo-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .technology-section {
+            padding: 100px 0;
+            background-color: var(--dark-bg);
+            color: white;
+        }
+        
+        .tech-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .testimonial-section {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            height: 100%;
+        }
+        
+        .testimonial-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section {
+            padding: 100px 0;
+            background: var(--gradient-primary);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.1;
+        }
+        
+        .footer {
+            padding: 80px 0 30px;
+            background-color: var(--dark-bg);
+            color: white;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Parallax Effect */
+        .parallax-section {
+            position: relative;
+            min-height: 500px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        /* Custom button styles */
+        .btn-primary {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            padding: 10px 28px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Custom bullet points */
+        .custom-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .custom-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 0 60px;
+            }
+            
+            .hero-slider {
+                height: 350px;
+            }
+            
+            .display-3 {
+                font-size: 2.5rem;
+            }
+            
+            .slide-content {
+                left: 20px;
+                right: 20px;
+                bottom: 20px;
+                padding: 20px;
+            }
+        }
+        
+        /* Scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        .newsletter-message {
+    animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.footer .btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* ================================================================
+   COMPLETE MOBILE RESPONSIVE STYLES - LANDING PAGE
+   ================================================================ */
+
+/* ============ TABLET: 768px - 992px ============ */
+@media (max-width: 992px) {
+    .hero-section {
+        padding: 100px 0 60px !important;
+    }
+    
+    .hero-section .display-3 {
+        font-size: 2.2rem !important;
+    }
+    
+    .hero-section .lead {
+        font-size: 1rem !important;
+    }
+    
+    .hero-slider {
+        height: 350px !important;
+        margin-top: 30px !important;
+    }
+    
+    .slide-content {
+        left: 15px !important;
+        right: 15px !important;
+        bottom: 15px !important;
+        padding: 15px !important;
+    }
+    
+    .slide-content h5 {
+        font-size: 1rem !important;
+    }
+    
+    .slide-content p {
+        font-size: 0.85rem !important;
+    }
+    
+    .stats-section .stat-card {
+        padding: 20px 15px !important;
+    }
+    
+    .stats-section .display-4 {
+        font-size: 2rem !important;
+    }
+    
+    .feature-card {
+        padding: 25px 20px !important;
+    }
+    
+    .feature-icon {
+        width: 55px !important;
+        height: 55px !important;
+        font-size: 1.4rem !important;
+    }
+    
+    .demo-section {
+        padding: 60px 0 !important;
+    }
+    
+    .demo-section .display-5 {
+        font-size: 2rem !important;
+    }
+    
+    .video-wrapper {
+        min-height: 300px !important;
+    }
+    
+    .video-preview {
+        height: 300px !important;
+    }
+    
+    .play-button {
+        width: 65px !important;
+        height: 65px !important;
+    }
+    
+    .testimonial-card {
+        padding: 25px !important;
+    }
+    
+    .cta-section {
+        padding: 60px 0 !important;
+    }
+    
+    .cta-section .display-5 {
+        font-size: 2rem !important;
+    }
+    
+    .technology-section {
+        padding: 60px 0 !important;
+    }
+    
+    .tech-card {
+        padding: 20px !important;
+    }
+    
+    .footer {
+        padding: 50px 0 20px !important;
+    }
+    
+    /* Navbar mobile */
+    .navbar-collapse {
+        position: fixed !important;
+        top: 70px !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(20px) !important;
+        padding: 1rem !important;
+        border-radius: 0 0 16px 16px !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+        max-height: 80vh !important;
+        overflow-y: auto !important;
+    }
+    
+    .nav-link-content {
+        padding: 0.6rem 0 !important;
+    }
+    
+    .btn-login {
+        width: 100% !important;
+        margin-top: 1rem !important;
+    }
+    
+    .btn-content {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+
+/* ============ MOBILE: UP TO 768px ============ */
+@media (max-width: 768px) {
+    body {
+        zoom: 1 !important;
+        transform: none !important;
+        overflow-x: hidden !important;
+    }
+    
+    .hero-section {
+        padding: 80px 0 40px !important;
+        text-align: center !important;
+    }
+    
+    .hero-section .display-3 {
+        font-size: 1.8rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .hero-section .lead {
+        font-size: 0.9rem !important;
+    }
+    
+    .hero-section .d-flex.flex-wrap {
+        justify-content: center !important;
+    }
+    
+    .hero-section .btn {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .hero-section .row .col-md-6 {
+        text-align: center !important;
+    }
+    
+    .hero-slider {
+        height: 250px !important;
+        border-radius: 12px !important;
+    }
+    
+    .slide-content {
+        left: 10px !important;
+        right: 10px !important;
+        bottom: 10px !important;
+        padding: 12px !important;
+        border-radius: 8px !important;
+    }
+    
+    .slide-content h5 {
+        font-size: 0.9rem !important;
+    }
+    
+    .slide-content p {
+        font-size: 0.75rem !important;
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none !important;
+    }
+    
+    /* Stats Section */
+    .stats-section {
+        padding: 40px 0 !important;
+    }
+    
+    .stats-section .stat-card {
+        padding: 15px 10px !important;
+        border-radius: 10px !important;
+    }
+    
+    .stats-section .display-4 {
+        font-size: 1.5rem !important;
+    }
+    
+    .stats-section .text-muted {
+        font-size: 0.75rem !important;
+    }
+    
+    /* Features Section */
+    .features-section {
+        padding: 50px 0 !important;
+    }
+    
+    .features-section .display-5 {
+        font-size: 1.6rem !important;
+    }
+    
+    .features-section .lead {
+        font-size: 0.9rem !important;
+    }
+    
+    .feature-card {
+        padding: 20px 15px !important;
+        border-radius: 12px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .feature-icon {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.3rem !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .feature-card h4 {
+        font-size: 1.1rem !important;
+    }
+    
+    .feature-card p {
+        font-size: 0.85rem !important;
+    }
+    
+    .custom-list li {
+        font-size: 0.8rem !important;
+        padding-left: 22px !important;
+        margin-bottom: 6px !important;
+    }
+    
+    /* Technology Section */
+    .technology-section {
+        padding: 50px 0 !important;
+    }
+    
+    .technology-section .display-5 {
+        font-size: 1.6rem !important;
+    }
+    
+    .tech-card {
+        padding: 18px !important;
+        border-radius: 12px !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .tech-card h4 {
+        font-size: 1rem !important;
+    }
+    
+    .tech-card p {
+        font-size: 0.85rem !important;
+    }
+    
+    .tech-card .feature-icon {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 1.1rem !important;
+    }
+    
+    /* Demo Section */
+    .demo-section {
+        padding: 50px 0 !important;
+    }
+    
+    .demo-section .display-5 {
+        font-size: 1.6rem !important;
+    }
+    
+    .demo-section .lead {
+        font-size: 0.9rem !important;
+    }
+    
+    .demo-feature-item h5 {
+        font-size: 1rem !important;
+    }
+    
+    .demo-feature-item p {
+        font-size: 0.8rem !important;
+    }
+    
+    .demo-feature-icon {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .video-wrapper {
+        min-height: 220px !important;
+        border-radius: 12px !important;
+    }
+    
+    .video-preview {
+        height: 220px !important;
+    }
+    
+    .play-button {
+        width: 55px !important;
+        height: 55px !important;
+    }
+    
+    .play-button i {
+        font-size: 1.2rem !important;
+    }
+    
+    .video-info h5 {
+        font-size: 0.9rem !important;
+    }
+    
+    .video-info p {
+        font-size: 0.75rem !important;
+    }
+    
+    .video-chapters {
+        margin-top: 15px !important;
+    }
+    
+    .chapter-btn {
+        font-size: 0.7rem !important;
+        padding: 8px 5px !important;
+    }
+    
+    .demo-stats {
+        padding: 15px !important;
+    }
+    
+    .demo-stat-value {
+        font-size: 1.3rem !important;
+    }
+    
+    .demo-stat-label {
+        font-size: 0.7rem !important;
+    }
+    
+    .demo-actions .btn {
+        width: 100% !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Testimonials */
+    .testimonial-section {
+        padding: 50px 0 !important;
+    }
+    
+    .testimonial-section .display-5 {
+        font-size: 1.6rem !important;
+    }
+    
+    .testimonial-card {
+        padding: 20px !important;
+        border-radius: 12px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .testimonial-img {
+        width: 55px !important;
+        height: 55px !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .testimonial-card h5 {
+        font-size: 1rem !important;
+    }
+    
+    .testimonial-card p {
+        font-size: 0.85rem !important;
+    }
+    
+    /* Features Section (second) */
+    .features-section .row.mb-5 .display-5 {
+        font-size: 1.5rem !important;
+    }
+    
+    .features-section h4 {
+        font-size: 1.1rem !important;
+    }
+    
+    .features-section p {
+        font-size: 0.85rem !important;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+        padding: 50px 0 !important;
+        text-align: center !important;
+    }
+    
+    .cta-section .display-5 {
+        font-size: 1.6rem !important;
+    }
+    
+    .cta-section .lead {
+        font-size: 0.9rem !important;
+    }
+    
+    .cta-section .btn {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .cta-section .d-flex.justify-content-center {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    .cta-section .me-4 {
+        margin-right: 0 !important;
+        margin-bottom: 8px !important;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 40px 0 20px !important;
+        text-align: center !important;
+    }
+    
+    .footer .social-links {
+        justify-content: center !important;
+        display: flex !important;
+    }
+    
+    .footer h5 {
+        margin-top: 20px !important;
+        font-size: 1rem !important;
+    }
+    
+    .footer .text-md-end {
+        text-align: center !important;
+        margin-top: 10px !important;
+    }
+    
+    .footer .input-group {
+        flex-direction: column !important;
+    }
+    
+    .footer .input-group .form-control {
+        border-radius: 8px !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .footer .input-group .btn {
+        border-radius: 8px !important;
+        width: 100% !important;
+    }
+    
+    /* Section title adjustments */
+    .section-title {
+        font-size: 1.5rem !important;
+    }
+    
+    .section-title::after {
+        width: 40px !important;
+        height: 3px !important;
+        bottom: -10px !important;
+    }
+    
+    /* Navbar */
+    .navbar {
+        padding: 0.7rem 0 !important;
+    }
+    
+    .navbar-brand {
+        font-size: 1.3rem !important;
+    }
+    
+    .logo-icon {
+        font-size: 1.2rem !important;
+    }
+    
+    .navbar-toggler {
+        padding: 5px 8px !important;
+    }
+    
+    .hamburger-menu {
+        width: 24px !important;
+        height: 18px !important;
+    }
+    
+    /* Scroll progress */
+    .scroll-progress {
+        height: 3px !important;
+    }
+}
+
+/* ============ SMALL MOBILE: Up to 480px ============ */
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 70px 0 30px !important;
+    }
+    
+    .hero-section .display-3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .hero-section .lead {
+        font-size: 0.85rem !important;
+    }
+    
+    .hero-slider {
+        height: 200px !important;
+    }
+    
+    .slide-content {
+        left: 8px !important;
+        right: 8px !important;
+        bottom: 8px !important;
+        padding: 10px !important;
+    }
+    
+    .slide-content h5 {
+        font-size: 0.8rem !important;
+    }
+    
+    .slide-content p {
+        font-size: 0.7rem !important;
+        display: none !important;
+    }
+    
+    .stats-section .col-6 {
+        padding: 4px !important;
+    }
+    
+    .stats-section .stat-card {
+        padding: 12px 8px !important;
+    }
+    
+    .stats-section .display-4 {
+        font-size: 1.3rem !important;
+    }
+    
+    .stats-section .text-muted {
+        font-size: 0.7rem !important;
+    }
+    
+    .feature-card {
+        padding: 15px 12px !important;
+    }
+    
+    .feature-icon {
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 1.1rem !important;
+    }
+    
+    .video-wrapper {
+        min-height: 180px !important;
+    }
+    
+    .video-preview {
+        height: 180px !important;
+    }
+    
+    .play-button {
+        width: 48px !important;
+        height: 48px !important;
+    }
+    
+    .chapter-btn {
+        font-size: 0.65rem !important;
+        padding: 6px 4px !important;
+    }
+    
+    .demo-stats .col-4 {
+        padding: 0 3px !important;
+    }
+    
+    .demo-stat-value {
+        font-size: 1.1rem !important;
+    }
+    
+    .demo-stat-label {
+        font-size: 0.65rem !important;
+    }
+    
+    .testimonial-card {
+        padding: 15px !important;
+    }
+    
+    .cta-section .display-5 {
+        font-size: 1.4rem !important;
+    }
+    
+    .btn-lg {
+        padding: 10px 20px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* ============ VERY SMALL: Up to 375px ============ */
+@media (max-width: 375px) {
+    .hero-section .display-3 {
+        font-size: 1.3rem !important;
+    }
+    
+    .hero-slider {
+        height: 180px !important;
+    }
+    
+    .stats-section .display-4 {
+        font-size: 1.1rem !important;
+    }
+    
+    .play-button {
+        width: 42px !important;
+        height: 42px !important;
+    }
+    
+    .chapter-btn span {
+        display: none !important;
+    }
+    
+    .chapter-btn i {
+        margin-right: 0 !important;
+    }
+}
+
+/* ============ LANDSCAPE MODE ============ */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-section {
+        padding: 60px 0 20px !important;
+        min-height: auto !important;
+    }
+    
+    .hero-slider {
+        height: 180px !important;
+    }
+    
+    .navbar-collapse {
+        max-height: 70vh !important;
+    }
+}
+
+/* ============ TOUCH DEVICES ============ */
+@media (hover: none) and (pointer: coarse) {
+    .btn,
+    .nav-link,
+    .chapter-btn {
+        min-height: 44px !important;
+    }
+    
+    .feature-card:hover,
+    .stat-card:hover,
+    .tech-card:hover {
+        transform: none !important;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+        <!-- Animated Logo with Hover Effect -->
+        <a class="navbar-brand" href="index.html">
+            <div class="logo-container d-flex align-items-center">
+                <div class="logo-icon">
+                    <i class="fas fa-cloud-sun"></i>
+                </div>
+                <div class="logo-text ms-2">
+                    <span class="fw-bold">Weather</span>
+                    <span class="logo-gradient fw-bold">AI</span>
+                </div>
+                <div class="logo-pulse"></div>
+            </div>
+        </a>
+
+        <!-- Mobile Toggle Button with Animation -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <div class="hamburger-menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </button>
+
+        <!-- Navigation Items -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-home nav-icon"></i>
+                            <span class="nav-text">Home</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="features.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-sliders-h nav-icon"></i>
+                            <span class="nav-text">Features</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pricing.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-tag nav-icon"></i>
+                            <span class="nav-text">Pricing</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-blog nav-icon"></i>
+                            <span class="nav-text">Blog</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-info-circle nav-icon"></i>
+                            <span class="nav-text">About</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-envelope nav-icon"></i>
+                            <span class="nav-text">Contact</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                    <a href="login.html" class="btn-login">
+                        <div class="btn-content">
+                            <i class="fas fa-sign-in-alt me-2"></i>
+                            <span>Login/Signup</span>
+                            <div class="btn-gradient"></div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Hero Section with Slider -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 fade-in-up">
+                    <h1 class="display-3 fw-bold mb-4">
+                        Advanced <span class="text-gradient">Weather Intelligence</span> & Anomaly Detection
+                    </h1>
+                    <p class="lead mb-4">
+                        Harness the power of artificial intelligence to detect, analyze, and predict weather anomalies with unprecedented accuracy. Our platform combines cutting-edge machine learning with comprehensive climate data for actionable insights.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 mb-5">
+                        <a href="login.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-rocket me-2"></i>Start Free Trial
+                        </a>
+                        <a href="#demo" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-play-circle me-2"></i>View Live Demo
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="text-light mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                94.5% Detection Accuracy
+                            </p>
+                            <p class="text-light mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                Real-time Global Monitoring
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-light mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                Predictive Analytics
+                            </p>
+                            <p class="text-light">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                24/7 Expert Support
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 fade-in-up">
+                    <div class="hero-slider mt-5 mt-lg-0">
+                        <!-- Slider main container -->
+                        <div class="swiper">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <div class="swiper-slide">
+                                    <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Weather Analytics Dashboard">
+                                    <div class="slide-content">
+                                        <h5>Real-time Weather Analytics</h5>
+                                        <p class="mb-0">Monitor global weather patterns with live data visualization</p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://images.unsplash.com/photo-1534088568595-a066f410bcda?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Anomaly Detection Interface">
+                                    <div class="slide-content">
+                                        <h5>AI-Powered Anomaly Detection</h5>
+                                        <p class="mb-0">Advanced algorithms identifying unusual weather patterns</p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Predictive Analytics Dashboard">
+                                    <div class="slide-content">
+                                        <h5>Predictive Weather Models</h5>
+                                        <p class="mb-0">Forecast weather patterns with machine learning algorithms</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Pagination -->
+                            <div class="swiper-pagination"></div>
+                            <!-- Navigation buttons -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 col-6 mb-4 fade-in-up">
+                    <div class="stat-card">
+                        <h3 class="display-4 fw-bold text-primary">50K+</h3>
+                        <p class="text-muted">Daily Weather Analyses</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4 fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="stat-card">
+                        <h3 class="display-4 fw-bold text-primary">94.5%</h3>
+                        <p class="text-muted">Anomaly Detection Accuracy</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4 fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="stat-card">
+                        <h3 class="display-4 fw-bold text-primary">150+</h3>
+                        <p class="text-muted">Global Cities Monitored</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4 fade-in-up" style="transition-delay: 0.3s;">
+                    <div class="stat-card">
+                        <h3 class="display-4 fw-bold text-primary">24/7</h3>
+                        <p class="text-muted">Real-time Data Processing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3 section-title">Advanced Weather Intelligence Platform</h2>
+                    <p class="lead text-muted">Our platform combines cutting-edge AI technology with comprehensive weather data to deliver unprecedented insights</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 fade-in-up">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>Machine Learning Detection</h4>
+                        <p>Advanced neural networks analyze weather patterns to detect anomalies with 94.5% accuracy, reducing false positives by 78% compared to traditional methods.</p>
+                        <ul class="custom-list">
+                            <li>Real-time pattern recognition</li>
+                            <li>Deep learning algorithms</li>
+                            <li>Historical trend analysis</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-satellite"></i>
+                        </div>
+                        <h4>Satellite Data Integration</h4>
+                        <p>Integrate real-time satellite imagery with ground sensor data for comprehensive global weather monitoring and pattern analysis.</p>
+                        <ul class="custom-list">
+                            <li>Multi-source data fusion</li>
+                            <li>High-resolution imagery</li>
+                            <li>Global coverage</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Predictive Analytics</h4>
+                        <p>Forecast weather patterns and predict anomalies up to 14 days in advance with our proprietary predictive models.</p>
+                        <ul class="custom-list">
+                            <li>14-day advanced forecasting</li>
+                            <li>Risk probability assessment</li>
+                            <li>Climate trend analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3 section-title">Advanced Technology Stack</h2>
+                    <p class="lead text-light">Built with cutting-edge technologies for maximum performance and reliability</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4 fade-in-up">
+                    <div class="tech-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="feature-icon me-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h4 class="mb-0">AI & Machine Learning</h4>
+                        </div>
+                        <p class="text-light">TensorFlow and PyTorch-based models trained on petabytes of historical weather data for accurate anomaly detection.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="tech-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="feature-icon me-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h4 class="mb-0">Big Data Processing</h4>
+                        </div>
+                        <p class="text-light">Apache Spark and Hadoop infrastructure processing terabytes of weather data daily from global sources.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="tech-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="feature-icon me-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h4 class="mb-0">Cloud Infrastructure</h4>
+                        </div>
+                        <p class="text-light">AWS and Google Cloud Platform with global CDN for real-time data delivery and 99.9% uptime guarantee.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+  <section id="demo" class="demo-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 fade-in-up">
+                <h2 class="display-5 fw-bold mb-4 section-title">Interactive Platform Demo</h2>
+                <p class="lead mb-4">
+                    Experience the power of our weather intelligence platform with hands-on access to real-time anomaly detection and predictive analytics.
+                </p>
+                
+                <div class="demo-features">
+                    <div class="demo-feature-item mb-4 fade-in-up" style="transition-delay: 0.1s;">
+                        <div class="d-flex align-items-start">
+                            <div class="demo-feature-icon me-3">
+                                <i class="fas fa-network-wired text-primary me-2"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-2">Real-time Data Visualization</h5>
+                                <p class="text-muted mb-0">Interactive maps and charts displaying live weather data from thousands of global sensors with 94.5% detection accuracy.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-feature-item mb-4 fade-in-up" style="transition-delay: 0.2s;">
+                        <div class="d-flex align-items-start">
+                            <div class="demo-feature-icon me-3">
+                                <i class="fas fa-map-marked-alt text-primary me-2"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-2">Geospatial Analysis Tools</h5>
+                                <p class="text-muted mb-0">Advanced mapping tools for visualizing weather patterns and anomalies across 150+ global cities in real-time.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-feature-item mb-4 fade-in-up" style="transition-delay: 0.3s;">
+                        <div class="d-flex align-items-start">
+                            <div class="demo-feature-icon me-3">
+                                <i class="fas fa-bell text-primary"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-2">Smart Alert System</h5>
+                                <p class="text-muted mb-0">Customizable notifications for critical weather conditions with multi-channel delivery options and 24/7 monitoring.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-actions d-flex flex-wrap gap-3 fade-in-up" style="transition-delay: 0.4s;">
+                    <a href="../demo.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-external-link-alt me-2"></i>Launch Full Demo
+                    </a>
+                    <button type="button" class="btn btn-outline-primary btn-lg" onclick="playYouTubeVideo()">
+                        <i class="fas fa-play-circle me-2"></i>Watch Demo Video
+                    </button>
+                </div>
+                
+                <div class="demo-stats mt-5 fade-in-up" style="transition-delay: 0.5s;">
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <div class="demo-stat">
+                                <div class="demo-stat-value">50K+</div>
+                                <div class="demo-stat-label">Daily Analyses</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="demo-stat">
+                                <div class="demo-stat-value">94.5%</div>
+                                <div class="demo-stat-label">Accuracy</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="demo-stat">
+                                <div class="demo-stat-value">150+</div>
+                                <div class="demo-stat-label">Cities</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 fade-in-up" style="transition-delay: 0.3s;">
+                <div class="demo-video-container mt-5 mt-lg-0">
+                    <div class="video-wrapper position-relative rounded-4 overflow-hidden shadow-lg">
+                        <!-- YouTube Video Thumbnail & Player -->
+                        <div id="demoVideoPlayer" class="video-placeholder position-relative">
+                            <!-- YouTube thumbnail (using direct YouTube thumbnail URL) -->
+                            <img src="https://img.youtube.com/vi/utGbK5qiR6A/maxresdefault.jpg" 
+                                 alt="Weather AI Dashboard Preview" 
+                                 class="img-fluid video-preview w-100"
+                                 onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'">
+                            
+                            <!-- Play overlay -->
+                            <div class="play-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="play-button bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3"
+                                     style="width: 80px; height: 80px; cursor: pointer;"
+                                     onclick="playYouTubeVideo()">
+                                    <i class="fas fa-play text-white fs-4"></i>
+                                </div>
+                                <div class="video-info text-center">
+                                    <h5 class="text-white mb-1">Watch Platform Demo</h5>
+                                    <p class="text-white-50 mb-0">3:45 min • Weather anomaly detection in action</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- YouTube iframe container (hidden initially) -->
+                        <div id="youtubePlayer" class="youtube-iframe-container d-none"></div>
+                    </div>
+                    
+                    <!-- Video Chapters -->
+                    <div class="video-chapters mt-4">
+                        <div class="row g-2">
+                            <div class="col-4">
+                                <button class="chapter-btn" onclick="playYouTubeVideoAtTime(0)">
+                                    <i class="fas fa-chart-line me-1"></i>
+                                    <span>Dashboard</span>
+                                </button>
+                            </div>
+                            <div class="col-4">
+                                <button class="chapter-btn" onclick="playYouTubeVideoAtTime(45)">
+                                    <i class="fas fa-map me-1"></i>
+                                    <span>Live Maps</span>
+                                </button>
+                            </div>
+                            <div class="col-4">
+                                <button class="chapter-btn" onclick="playYouTubeVideoAtTime(90)">
+                                    <i class="fas fa-bell me-1"></i>
+                                    <span>Alerts</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Testimonials Section -->
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3 section-title">Trusted by Climate Experts</h2>
+                    <p class="lead text-muted">See what leading meteorologists and researchers say about Weather AI</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 fade-in-up">
+                    <div class="testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Dr. Sarah Chen" class="testimonial-img">
+                        <h5>Dr. Sarah Chen</h5>
+                        <p class="text-muted mb-3">Chief Meteorologist, Global Climate Institute</p>
+                        <p class="mb-0">"Weather AI has revolutionized how we detect and analyze climate anomalies. The accuracy of their predictive models is unmatched in the industry."</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Michael Rodriguez" class="testimonial-img">
+                        <h5>Michael Rodriguez</h5>
+                        <p class="text-muted mb-3">Director of Research, National Weather Center</p>
+                        <p class="mb-0">"The machine learning algorithms powering Weather AI have reduced our false positive rate by 78% while increasing detection accuracy significantly."</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="testimonial-card">
+                        <img src="https://cdn.realtor.ca/individual/TS638120901000000000/highres/1248993.jpg" alt="Jennifer Park" class="testimonial-img">
+                        <h5>Jennifer Park</h5>
+                        <p class="text-muted mb-3">Climate Data Scientist, European Weather Agency</p>
+                        <p class="mb-0">"Their real-time anomaly detection system has helped us identify potential severe weather events days before traditional methods could."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Content Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="display-5 fw-bold mb-4">Comprehensive Weather Intelligence Solutions</h2>
+                    <p class="lead text-muted mb-5">Our platform provides end-to-end solutions for weather monitoring, analysis, and prediction across multiple industries and applications.</p>
+                    
+                    <div class="row mb-5 fade-in-up">
+                        <div class="col-md-6">
+                            <h4><i class="fas fa-industry text-primary me-2"></i>Industrial Applications</h4>
+                            <p>Weather AI helps industries mitigate climate-related risks with predictive analytics for agriculture, energy, transportation, and construction sectors.</p>
+                            <ul class="custom-list">
+                                <li>Crop yield prediction and optimization</li>
+                                <li>Renewable energy production forecasting</li>
+                                <li>Supply chain disruption prevention</li>
+                                <li>Construction weather risk assessment</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 fade-in-up" style="transition-delay: 0.1s;">
+                            <h4><i class="fas fa-city text-primary me-2"></i>Urban Planning & Smart Cities</h4>
+                            <p>Municipalities use our platform for flood prediction, heatwave management, and climate-resilient urban planning.</p>
+                            <ul class="custom-list">
+                                <li>Flood risk modeling and early warning</li>
+                                <li>Urban heat island effect monitoring</li>
+                                <li>Emergency response planning</li>
+                                <li>Infrastructure resilience assessment</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="row fade-in-up" style="transition-delay: 0.2s;">
+                        <div class="col-md-6">
+                            <h4><i class="fas fa-leaf text-primary me-2"></i>Environmental Monitoring</h4>
+                            <p>Track climate change indicators, monitor deforestation impacts, and analyze environmental trends with comprehensive data visualization tools.</p>
+                            <ul class="custom-list">
+                                <li>Climate change impact assessment</li>
+                                <li>Air quality correlation analysis</li>
+                                <li>Deforestation pattern tracking</li>
+                                <li>Ocean temperature monitoring</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 fade-in-up" style="transition-delay: 0.3s;">
+                            <h4><i class="fas fa-shield-alt text-primary me-2"></i>Disaster Preparedness</h4>
+                            <p>Early detection of severe weather events enables proactive disaster management and reduces response times for emergency services.</p>
+                            <ul class="custom-list">
+                                <li>Hurricane and typhoon tracking</li>
+                                <li>Wildfire risk prediction</li>
+                                <li>Drought condition monitoring</li>
+                                <li>Tornado formation probability</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-8 mx-auto fade-in-up">
+                    <h2 class="display-5 fw-bold mb-4">Transform Your Weather Analytics Today</h2>
+                    <p class="lead mb-5">Join thousands of researchers, meteorologists, and organizations using Weather AI for advanced climate insights and predictive analytics.</p>
+                    <div class="d-flex flex-column flex-md-row justify-content-center gap-3 mb-5">
+                        <a href="login.html" class="btn btn-light btn-lg">
+                            <i class="fas fa-rocket me-2"></i>Start 30-Day Free Trial
+                        </a>
+                        <a href="contact.html" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-calendar-alt me-2"></i>Schedule Personalized Demo
+                        </a>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center flex-wrap">
+                        <div class="me-4 mb-2">
+                            <p class="mb-0">
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <span class="ms-2">4.9/5 from 850+ reviews</span>
+                            </p>
+                        </div>
+                        <div class="mb-2">
+                            <p class="mb-0">
+                                <i class="fas fa-award text-warning me-1"></i>
+                                <span>2024 Climate Tech Innovation Award</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3" href="index.html">
+                        <i class="fas fa-cloud-sun me-2"></i>
+                        <span class="fw-bold">Weather</span><span class="fw-bold" style="color: #00c9ff;">AI</span>
+                    </a>
+                    <p class="text-light">Advanced AI-powered weather anomaly detection platform for researchers, meteorologists, and organizations worldwide.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Platform</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="features.html" class="text-light text-decoration-none">Features</a></li>
+                        <li><a href="pricing.html" class="text-light text-decoration-none">Pricing</a></li>
+                        <li><a href="demo.html" class="text-light text-decoration-none">Live Demo</a></li>
+                        <li><a href="api.html" class="text-light text-decoration-none">API Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="blog.html" class="text-light text-decoration-none">Research Blog</a></li>
+                        <li><a href="careers.html" class="text-light text-decoration-none">Careers</a></li>
+                        <li><a href="press.html" class="text-light text-decoration-none">Press Kit</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Stay Updated</h5>
+                    <p class="text-light">Subscribe to our newsletter for the latest research, updates, and climate insights.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <p class="text-light mt-3 small">
+                        <i class="fas fa-lock me-1"></i> We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+            <hr class="border-light my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light">&copy; 2024 Weather AI. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="privacy.html" class="text-light text-decoration-none me-3">Privacy Policy</a>
+                    <a href="terms.html" class="text-light text-decoration-none me-3">Terms of Service</a>
+                    <a href="compliance.html" class="text-light text-decoration-none">GDPR Compliance</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+          // YouTube API variables
+    let youtubeIframe;
+    let youtubePlayer;
+    
+    // Function to load YouTube IFrame API
+    function loadYouTubeAPI() {
+        if (!document.getElementById('youtube-api')) {
+            const tag = document.createElement('script');
+            tag.id = 'youtube-api';
+            tag.src = 'https://www.youtube.com/iframe_api';
+            const firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        }
+    }
+    
+    // This function is called by YouTube API when ready
+    function onYouTubeIframeAPIReady() {
+        // Player will be created when needed
+    }
+    
+    // Function to play YouTube video
+    function playYouTubeVideo(startTime = 0) {
+        const videoPlaceholder = document.getElementById('demoVideoPlayer');
+        const youtubeContainer = document.getElementById('youtubePlayer');
+        
+        // Hide placeholder, show YouTube player
+        videoPlaceholder.classList.add('d-none');
+        youtubeContainer.classList.remove('d-none');
+        
+        // Set container dimensions
+        youtubeContainer.style.height = '400px';
+        youtubeContainer.style.width = '100%';
+        
+        // Create YouTube player if it doesn't exist
+        if (!youtubeIframe) {
+            youtubeIframe = document.createElement('div');
+            youtubeIframe.id = 'youtubeIframe';
+            youtubeContainer.appendChild(youtubeIframe);
+            
+            youtubePlayer = new YT.Player('youtubeIframe', {
+                height: '100%',
+                width: '100%',
+                videoId: 'utGbK5qiR6A',
+                playerVars: {
+                    'autoplay': 1,
+                    'rel': 0,
+                    'modestbranding': 1,
+                    'start': startTime
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        } else {
+            // If player exists, load video at specific time
+            youtubePlayer.loadVideoById({
+                'videoId': 'utGbK5qiR6A',
+                'startSeconds': startTime
+            });
+        }
+        
+        // Update button text
+        const watchBtn = document.querySelector('.btn-outline-primary');
+        if (watchBtn) {
+            watchBtn.innerHTML = '<i class="fas fa-play-circle me-2"></i>Playing Now';
+            watchBtn.classList.remove('btn-outline-primary');
+            watchBtn.classList.add('btn-success');
+        }
+    }
+    
+    // Function to play at specific time
+    function playYouTubeVideoAtTime(seconds) {
+        playYouTubeVideo(seconds);
+    }
+    
+    // YouTube player events
+    function onPlayerReady(event) {
+        console.log('YouTube player ready');
+    }
+    
+    function onPlayerStateChange(event) {
+        // When video ends, show placeholder again
+        if (event.data === YT.PlayerState.ENDED) {
+            const videoPlaceholder = document.getElementById('demoVideoPlayer');
+            const youtubeContainer = document.getElementById('youtubePlayer');
+            
+            youtubeContainer.classList.add('d-none');
+            videoPlaceholder.classList.remove('d-none');
+            
+            // Reset button
+            const watchBtn = document.querySelector('.btn-success');
+            if (watchBtn) {
+                watchBtn.innerHTML = '<i class="fas fa-play-circle me-2"></i>Watch Demo Video';
+                watchBtn.classList.remove('btn-success');
+                watchBtn.classList.add('btn-outline-primary');
+            }
+        }
+    }
+    
+    // Load YouTube API when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        loadYouTubeAPI();
+        initScrollAnimations(); // Initialize scroll animations
+    });
+
+
+         // Enhanced Navbar Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const navbar = document.querySelector('.navbar');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const hamburger = document.querySelector('.navbar-toggler');
+        
+        // Scroll effect with parallax
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY;
+            
+            // Navbar scroll effect
+            if (scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+                // Add parallax effect to background
+                navbar.style.background = `rgba(255, 255, 255, ${0.92 + (scrollY * 0.001)})`;
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+                navbar.style.background = 'rgba(255, 255, 255, 0.92)';
+            }
+            
+            // Update active section based on scroll position
+            updateActiveNav();
+        });
+
+        // Update active navigation based on scroll position
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollY = window.pageYOffset;
+            
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}` || 
+                            (sectionId === 'hero' && link.getAttribute('href') === 'index.html')) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        // Smooth scroll for anchor links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        // Close mobile menu if open
+                        if (window.innerWidth < 992) {
+                            const collapse = document.querySelector('.navbar-collapse');
+                            if (collapse.classList.contains('show')) {
+                                hamburger.click();
+                            }
+                        }
+                        
+                        // Smooth scroll
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active nav
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Hover effects enhancement
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('active')) {
+                    const icon = this.querySelector('.nav-icon');
+                    if (icon) {
+                        icon.style.transform = 'translateY(-2px) scale(1.1)';
+                    }
+                }
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('active')) {
+                    const icon = this.querySelector('.nav-icon');
+                    if (icon) {
+                        icon.style.transform = '';
+                    }
+                }
+            });
+        });
+
+        // Initialize on load
+        updateActiveNav();
+        
+        // Add subtle animation on page load
+        setTimeout(() => {
+            navbar.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        }, 100);
+    });
+
+        // Initialize Swiper with autoplay that pauses on hover
+        const swiper = new Swiper('.swiper', {
+            direction: 'horizontal',
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            speed: 800,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+        
+        // Pause autoplay on hover
+        const heroSlider = document.querySelector('.hero-slider');
+        heroSlider.addEventListener('mouseenter', () => {
+            swiper.autoplay.stop();
+        });
+        
+        heroSlider.addEventListener('mouseleave', () => {
+            swiper.autoplay.start();
+        });
+        
+        // Scroll progress indicator
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + "%";
+            
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animation with Intersection Observer
+        function initScrollAnimations() {
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            
+            // Use Intersection Observer for better performance
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -100px 0px'
+                });
+                
+                fadeElements.forEach(element => {
+                    observer.observe(element);
+                });
+            } else {
+                // Fallback for older browsers
+                function checkScrollFallback() {
+                    const windowHeight = window.innerHeight;
+                    
+                    fadeElements.forEach(element => {
+                        const elementTop = element.getBoundingClientRect().top;
+                        
+                        if (elementTop < windowHeight * 0.85) {
+                            element.classList.add('visible');
+                        }
+                    });
+                }
+                
+                window.addEventListener('scroll', checkScrollFallback);
+                window.addEventListener('resize', checkScrollFallback);
+                checkScrollFallback(); // Initial check
+            }
+        }
+        // Newsletter Subscription Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const newsletterForm = document.querySelector('.footer .input-group');
+    if (newsletterForm) {
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const subscribeBtn = newsletterForm.querySelector('button');
+        
+        // Create message container if it doesn't exist
+        let messageDiv = document.querySelector('.newsletter-message');
+        if (!messageDiv) {
+            messageDiv = document.createElement('div');
+            messageDiv.className = 'newsletter-message mt-2';
+            messageDiv.style.display = 'none';
+            newsletterForm.parentNode.insertBefore(messageDiv, newsletterForm.nextSibling);
+        }
+        
+        // Remove existing click handler and add new one
+        const newSubscribeBtn = subscribeBtn.cloneNode(true);
+        subscribeBtn.parentNode.replaceChild(newSubscribeBtn, subscribeBtn);
+        
+        newSubscribeBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            
+            // Validate email
+            if (!email) {
+                showNewsletterMessage('Please enter your email address', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNewsletterMessage('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Disable button and show loading
+            newSubscribeBtn.disabled = true;
+            const originalText = newSubscribeBtn.innerHTML;
+            newSubscribeBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Subscribing...';
+            
+            try {
+                const response = await fetch('/api/newsletter/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showNewsletterMessage(data.message, 'success');
+                    emailInput.value = ''; // Clear input
+                } else {
+                    showNewsletterMessage(data.detail || 'Failed to subscribe. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error('Newsletter subscription error:', error);
+                showNewsletterMessage('Network error. Please check your connection and try again.', 'error');
+            } finally {
+                // Re-enable button
+                newSubscribeBtn.disabled = false;
+                newSubscribeBtn.innerHTML = originalText;
+            }
+        });
+        
+        // Allow Enter key to submit
+        emailInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                newSubscribeBtn.click();
+            }
+        });
+        
+        function showNewsletterMessage(text, type) {
+            messageDiv.style.display = 'block';
+            messageDiv.textContent = text;
+            
+            if (type === 'success') {
+                messageDiv.style.color = '#28a745';
+                messageDiv.style.backgroundColor = '#d4edda';
+                messageDiv.style.border = '1px solid #c3e6cb';
+            } else {
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.border = '1px solid #f5c6cb';
+            }
+            
+            messageDiv.style.padding = '10px';
+            messageDiv.style.borderRadius = '4px';
+            messageDiv.style.fontSize = '14px';
+            messageDiv.style.marginTop = '10px';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+    }
+});
+    </script>
+</body>
+</html>

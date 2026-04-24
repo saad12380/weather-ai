@@ -1,0 +1,2380 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Weather AI Platform</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore powerful features of Weather AI - Advanced anomaly detection, real-time monitoring, predictive analytics, and more.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <style>
+        html { font-size: 14px !important; }
+        body {
+            font-size: 0.95rem !important;
+            overflow-x: hidden !important;
+        }
+        @supports (zoom: 1) {
+            body { zoom: 0.95 !important; }
+        }
+        @supports not (zoom: 1) {
+            body {
+                transform: scale(0.95) !important;
+                transform-origin: top center !important;
+                width: 100% !important;
+            }
+        }
+
+        /* Enhanced Navbar Styles - Matching Home Page Theme */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
+            padding: 1rem 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar-scrolled {
+            padding: 0.7rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 6px 30px rgba(10, 37, 64, 0.12);
+        }
+
+        /* Logo Styling */
+        .logo-container {
+            position: relative;
+            padding: 0.25rem 0;
+        }
+
+        .logo-icon {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .logo-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(0, 201, 255, 0.1);
+            animation: pulse 2s infinite;
+        }
+
+        /* Animated Hamburger Menu */
+        .hamburger-menu {
+            position: relative;
+            width: 30px;
+            height: 21px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .hamburger-line {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Navigation Links Styling */
+        .nav-link-content {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-icon {
+            font-size: 1.1rem;
+            margin-right: 8px;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-text {
+            font-weight: 500;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-underline {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50px;
+            background: linear-gradient(135deg, rgba(26, 107, 179, 0.1), rgba(0, 201, 255, 0.1));
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        /* Hover Effects */
+        .nav-link:hover .nav-text,
+        .nav-link.active .nav-text {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .nav-link:hover .nav-icon,
+        .nav-link.active .nav-icon {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover .nav-underline,
+        .nav-link.active .nav-underline {
+            width: 70%;
+        }
+
+        .nav-link:hover .nav-bg,
+        .nav-link.active .nav-bg {
+            width: calc(100% + 20px);
+            height: calc(100% + 10px);
+            opacity: 1;
+        }
+
+        .navbar-brand:hover .logo-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Login Button Styling */
+        .btn-login {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            overflow: hidden;
+            border-radius: 12px;
+            background: var(--gradient-primary);
+            padding: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+            background: white;
+            border-radius: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(26, 107, 179, 0.3);
+        }
+
+        .btn-login:hover .btn-content {
+            background: transparent;
+            color: white;
+        }
+
+        .btn-login:hover .btn-gradient {
+            opacity: 1;
+        }
+
+        /* Mobile Menu Styling */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                padding: 1.5rem;
+                border-radius: 0 0 20px 20px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+                animation: slideDown 0.3s ease;
+            }
+
+            .nav-link-content {
+                padding: 0.75rem 0;
+                margin: 0.25rem 0;
+            }
+
+            .btn-login {
+                margin-top: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.5;
+            }
+            100% {
+                width: 60px;
+                height: 60px;
+                opacity: 0;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Active State Enhancement */
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Floating Particles Background (Subtle) */
+        .navbar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 201, 255, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(26, 107, 179, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        :root {
+            --primary-color: #1a6bb3;
+            --secondary-color: #0a2540;
+            --accent-color: #00c9ff;
+            --light-bg: #f8fafc;
+            --dark-bg: #0f172a;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --gradient-primary: linear-gradient(135deg, #1a6bb3 0%, #00c9ff 100%);
+            --gradient-dark: linear-gradient(135deg, #0a2540 0%, #1e293b 100%);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+        }
+        
+        /* Hero Section */
+        .features-hero {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .features-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.15;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(to right, #00c9ff, #92fe9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Feature Cards */
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            height: 100%;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-color);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: white;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        /* Feature Highlight */
+        .feature-highlight {
+            background: var(--light-bg);
+            border-radius: 20px;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(26, 107, 179, 0.1);
+        }
+        
+        .stat-feature {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* Comparison Table */
+        .comparison-table {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .comparison-row {
+            display: flex;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .comparison-row:hover {
+            background: #f8fafc;
+        }
+        
+        .feature-check {
+            color: #10b981;
+            font-size: 1.2rem;
+        }
+        
+        .feature-cross {
+            color: #ef4444;
+            font-size: 1.2rem;
+        }
+        
+        /* Interactive Demo Styling */
+        .interactive-demo {
+            background: var(--gradient-dark);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .demo-slider {
+            width: 100%;
+            height: 10px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            outline: none;
+        }
+        
+        .demo-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .demo-slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Chart container */
+        #weatherChartContainer {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+            min-height: 300px;
+        }
+        
+        #weatherChart {
+            width: 100% !important;
+            height: 300px !important;
+        }
+        
+        .chart-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            backdrop-filter: blur(3px);
+        }
+        
+        /* Section Titles */
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Scroll Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Progress Bar */
+        .progress {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+        
+        /* Custom button styles */
+        .btn-primary {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-outline-light {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+            padding: 10px 28px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-light:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Badges */
+        .badge {
+            padding: 6px 12px;
+            font-weight: 500;
+            border-radius: 6px;
+        }
+        
+        /* Floating Elements */
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            /* Hide the floating badge elements */
+            .position-absolute .bg-white,
+            .position-absolute .bg-primary {
+                display: none !important;
+            }
+            
+            /* Make the dashboard image full width */
+            .features-hero img {
+                width: 100% !important;
+                margin-top: 20px !important;
+                border-radius: 12px !important;
+            }
+            .features-hero {
+                padding: 100px 0 60px;
+            }
+            
+            .feature-highlight,
+            .interactive-demo {
+                padding: 30px;
+            }
+            
+            .display-3 {
+                font-size: 2.5rem;
+            }
+            
+            .comparison-row {
+                flex-wrap: wrap;
+            }
+            
+            .comparison-row > div {
+                width: 100% !important;
+                margin-bottom: 10px;
+            }
+            
+            #weatherChart {
+                height: 250px !important;
+            }
+        }
+        
+        /* Scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        /* Pulse animation for interactive elements */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 0.5s ease;
+        }
+        .newsletter-message {
+    animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.footer .btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* ================================================================
+   COMPLETE MOBILE RESPONSIVE STYLES - FEATURES PAGE
+   ================================================================ */
+
+/* ============ TABLET: 768px - 992px ============ */
+@media (max-width: 992px) {
+    .features-hero {
+        padding: 100px 0 50px !important;
+    }
+    
+    .features-hero .display-3 {
+        font-size: 2.2rem !important;
+    }
+    
+    .features-hero .lead {
+        font-size: 1rem !important;
+    }
+    
+    .floating-element {
+        display: none !important;
+    }
+    
+    .feature-card {
+        padding: 25px 20px !important;
+    }
+    
+    .feature-icon {
+        width: 55px !important;
+        height: 55px !important;
+        font-size: 1.4rem !important;
+    }
+    
+    .feature-highlight {
+        padding: 30px !important;
+    }
+    
+    .feature-highlight .display-5 {
+        font-size: 1.8rem !important;
+    }
+    
+    .stat-feature .display-6 {
+        font-size: 2rem !important;
+    }
+    
+    .interactive-demo {
+        padding: 30px !important;
+    }
+    
+    .interactive-demo .display-5 {
+        font-size: 1.8rem !important;
+    }
+    
+    .comparison-row {
+        flex-wrap: wrap !important;
+    }
+    
+    .comparison-row > div {
+        width: 100% !important;
+        margin-bottom: 8px !important;
+        text-align: left !important;
+    }
+    
+    .comparison-row > div:first-child {
+        font-weight: 600 !important;
+    }
+    
+    #weatherChart {
+        height: 250px !important;
+    }
+    
+    .footer {
+        padding: 40px 0 20px !important;
+    }
+}
+
+/* ============ MOBILE: UP TO 768px ============ */
+@media (max-width: 768px) {
+    body {
+        zoom: 1 !important;
+        transform: none !important;
+        overflow-x: hidden !important;
+        padding-top: 70px !important;
+    }
+    
+    /* Hero Section */
+    .features-hero {
+        padding: 80px 0 40px !important;
+        text-align: center !important;
+    }
+    
+    .features-hero .display-3 {
+        font-size: 1.8rem !important;
+    }
+    
+    .features-hero .lead {
+        font-size: 0.9rem !important;
+    }
+    
+    .features-hero .btn {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .features-hero .d-flex.flex-wrap {
+        flex-direction: column !important;
+    }
+    
+    .features-hero img {
+        margin-top: 20px !important;
+    }
+    
+    /* Floating elements - hide on mobile */
+    .floating-element {
+        display: none !important;
+    }
+    
+    /* Feature Cards */
+    .feature-card {
+        padding: 20px 15px !important;
+        border-radius: 12px !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .feature-icon {
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 1.2rem !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .feature-card h4 {
+        font-size: 1.1rem !important;
+    }
+    
+    .feature-card p {
+        font-size: 0.85rem !important;
+    }
+    
+    .feature-card ul li {
+        font-size: 0.8rem !important;
+    }
+    
+    .feature-card .badge {
+        font-size: 0.7rem !important;
+        padding: 4px 8px !important;
+    }
+    
+    /* Feature Highlight */
+    .feature-highlight {
+        padding: 20px !important;
+        border-radius: 12px !important;
+    }
+    
+    .feature-highlight .display-5 {
+        font-size: 1.5rem !important;
+    }
+    
+    .feature-highlight .lead {
+        font-size: 0.9rem !important;
+    }
+    
+    .stat-feature {
+        padding: 15px !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .stat-feature .display-6 {
+        font-size: 1.6rem !important;
+    }
+    
+    .stat-feature p {
+        font-size: 0.8rem !important;
+    }
+    
+    .feature-highlight .col-6 {
+        padding: 5px !important;
+    }
+    
+    /* Section Titles */
+    .section-title {
+        font-size: 1.5rem !important;
+    }
+    
+    .section-title::after {
+        width: 40px !important;
+        height: 3px !important;
+        bottom: -10px !important;
+    }
+    
+    .display-5 {
+        font-size: 1.5rem !important;
+    }
+    
+    .lead {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Interactive Demo */
+    .interactive-demo {
+        padding: 20px !important;
+        border-radius: 12px !important;
+    }
+    
+    .interactive-demo .display-5 {
+        font-size: 1.5rem !important;
+    }
+    
+    .interactive-demo .lead {
+        font-size: 0.9rem !important;
+    }
+    
+    .demo-slider {
+        height: 8px !important;
+    }
+    
+    .demo-slider::-webkit-slider-thumb {
+        width: 20px !important;
+        height: 20px !important;
+    }
+    
+    #weatherChartContainer {
+        padding: 10px !important;
+        min-height: 200px !important;
+        margin-top: 20px !important;
+    }
+    
+    #weatherChart {
+        height: 200px !important;
+    }
+    
+    /* Demo stats cards */
+    .interactive-demo .col-6 {
+        padding: 3px !important;
+    }
+    
+    .interactive-demo .p-3 {
+        padding: 10px !important;
+    }
+    
+    .interactive-demo .h4 {
+        font-size: 1.1rem !important;
+    }
+    
+    .interactive-demo small {
+        font-size: 0.65rem !important;
+    }
+    
+    .interactive-demo .btn {
+        width: 100% !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .interactive-demo .d-flex.gap-3 {
+        flex-direction: column !important;
+    }
+    
+    /* Comparison Table */
+    .comparison-table {
+        border-radius: 12px !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .comparison-row {
+        padding: 12px 10px !important;
+        flex-direction: column !important;
+        text-align: left !important;
+    }
+    
+    .comparison-row > div {
+        width: 100% !important;
+        padding: 4px 0 !important;
+    }
+    
+    .comparison-row .col-3 {
+        text-align: left !important;
+    }
+    
+    .comparison-row .col-3::before {
+        content: attr(data-label);
+        font-weight: 600;
+        margin-right: 10px;
+    }
+    
+    .feature-check,
+    .feature-cross {
+        font-size: 1rem !important;
+    }
+    
+    /* CTA Section */
+    .bg-primary .display-5 {
+        font-size: 1.4rem !important;
+    }
+    
+    .bg-primary .btn {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+    }
+    
+    /* Footer */
+    .footer {
+        text-align: center !important;
+        padding: 30px 0 15px !important;
+    }
+    
+    .footer .social-links {
+        justify-content: center !important;
+        display: flex !important;
+    }
+    
+    .footer h5 {
+        margin-top: 20px !important;
+        font-size: 1rem !important;
+    }
+    
+    .footer .text-md-end {
+        text-align: center !important;
+        margin-top: 10px !important;
+    }
+    
+    .footer .input-group {
+        flex-direction: column !important;
+    }
+    
+    .footer .input-group .form-control {
+        border-radius: 8px !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .footer .input-group .btn {
+        border-radius: 8px !important;
+        width: 100% !important;
+    }
+    
+    /* Navbar adjustments */
+    .navbar {
+        padding: 0.6rem 0 !important;
+    }
+    
+    .navbar-brand {
+        font-size: 1.3rem !important;
+    }
+    
+    .navbar-collapse {
+        position: fixed !important;
+        top: 60px !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: white !important;
+        padding: 1rem !important;
+        border-radius: 0 0 16px 16px !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+        max-height: 80vh !important;
+        overflow-y: auto !important;
+    }
+    
+    .btn-login {
+        width: 100% !important;
+    }
+    
+    .btn-content {
+        justify-content: center !important;
+    }
+}
+
+/* ============ SMALL MOBILE: Up to 480px ============ */
+@media (max-width: 480px) {
+    .features-hero {
+        padding: 70px 0 30px !important;
+    }
+    
+    .features-hero .display-3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .feature-card {
+        padding: 15px 12px !important;
+    }
+    
+    .feature-icon {
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 1.1rem !important;
+    }
+    
+    .feature-highlight .display-5 {
+        font-size: 1.3rem !important;
+    }
+    
+    .stat-feature .display-6 {
+        font-size: 1.4rem !important;
+    }
+    
+    #weatherChart {
+        height: 180px !important;
+    }
+    
+    .interactive-demo .col-6 {
+        padding: 2px !important;
+    }
+    
+    .interactive-demo .p-3 {
+        padding: 8px !important;
+    }
+    
+    .interactive-demo .h4 {
+        font-size: 1rem !important;
+    }
+    
+    .comparison-row {
+        padding: 10px 8px !important;
+        font-size: 0.75rem !important;
+    }
+    
+    .btn-lg {
+        padding: 10px 20px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* ============ VERY SMALL: Up to 375px ============ */
+@media (max-width: 375px) {
+    .features-hero .display-3 {
+        font-size: 1.3rem !important;
+    }
+    
+    .feature-card h4 {
+        font-size: 1rem !important;
+    }
+    
+    .section-title {
+        font-size: 1.3rem !important;
+    }
+    
+    .display-5 {
+        font-size: 1.3rem !important;
+    }
+}
+
+/* ============ TOUCH DEVICES ============ */
+@media (hover: none) and (pointer: coarse) {
+    .btn,
+    .nav-link,
+    .feature-card {
+        min-height: 44px !important;
+    }
+    
+    .feature-card:hover {
+        transform: none !important;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <!-- Animated Logo with Hover Effect -->
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-container d-flex align-items-center">
+                    <div class="logo-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <div class="logo-text ms-2">
+                        <span class="fw-bold">Weather</span>
+                        <span class="logo-gradient fw-bold">AI</span>
+                    </div>
+                    <div class="logo-pulse"></div>
+                </div>
+            </a>
+
+            <!-- Mobile Toggle Button with Animation -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <div class="hamburger-menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+
+            <!-- Navigation Items -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-home nav-icon"></i>
+                                <span class="nav-text">Home</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="features.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-sliders-h nav-icon"></i>
+                                <span class="nav-text">Features</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-tag nav-icon"></i>
+                                <span class="nav-text">Pricing</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-blog nav-icon"></i>
+                                <span class="nav-text">Blog</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-info-circle nav-icon"></i>
+                                <span class="nav-text">About</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-envelope nav-icon"></i>
+                                <span class="nav-text">Contact</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a href="login.html" class="btn-login">
+                            <div class="btn-content">
+                                <i class="fas fa-sign-in-alt me-2"></i>
+                                <span>Login/Signup</span>
+                                <div class="btn-gradient"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="features-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 fade-in-up">
+                    <h1 class="display-3 fw-bold mb-4">
+                        Advanced <span class="text-gradient">Features</span> for Weather Intelligence
+                    </h1>
+                    <p class="lead mb-4">
+                        Discover the comprehensive suite of AI-powered tools and capabilities that make Weather AI the most advanced weather anomaly detection platform available.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#all-features" class="btn btn-light btn-lg">
+                            <i class="fas fa-list me-2"></i>Explore Features
+                        </a>
+                        <a href="#interactive-demo" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-play-circle me-2"></i>Try Interactive Demo
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 fade-in-up">
+                    <div class="position-relative mt-5 mt-lg-0">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Features Dashboard" class="img-fluid rounded-3 shadow-lg">
+                        <div class="position-absolute top-0 start-0 w-100 h-100">
+                            <div class="floating-element" style="top: 20%; left: -20px;">
+                                <div class="bg-white rounded-3 p-3 shadow-sm">
+                                    <i class="fas fa-bolt text-warning me-2"></i> Real-time Alerts
+                                </div>
+                            </div>
+                            <div class="floating-element" style="animation-delay: 0.5s; bottom: 30%; right: -20px;">
+                                <div class="bg-primary text-white rounded-3 p-3 shadow-sm">
+                                    <i class="fas fa-chart-line me-2"></i> Live Analytics
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section id="all-features" class="py-5 bg-white">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3 section-title">Core Platform Capabilities</h2>
+                    <p class="lead text-muted">Comprehensive tools for advanced weather analysis and anomaly detection</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- AI Detection -->
+                <div class="col-lg-4 col-md-6 fade-in-up">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>AI-Powered Detection</h4>
+                        <p class="text-muted mb-3">
+                            Advanced machine learning algorithms detect anomalies with 94.5% accuracy using deep neural networks.
+                        </p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Real-time pattern recognition</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Deep learning models</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Continuous model training</li>
+                        </ul>
+                        <div class="mt-4">
+                            <span class="badge bg-primary">Premium</span>
+                            <span class="badge bg-info ms-2">AI/ML</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Global Monitoring -->
+                <div class="col-lg-4 col-md-6 fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <h4>Global Weather Monitoring</h4>
+                        <p class="text-muted mb-3">
+                            Monitor 150+ cities worldwide with real-time data from multiple satellite and ground sources.
+                        </p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Multi-source data integration</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Regional comparisons</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Historical trend analysis</li>
+                        </ul>
+                        <div class="mt-4">
+                            <span class="badge bg-success">All Plans</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Predictive Analytics -->
+                <div class="col-lg-4 col-md-6 fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Predictive Analytics</h4>
+                        <p class="text-muted mb-3">
+                            Forecast weather patterns 14 days in advance with 92% accuracy using time-series analysis.
+                        </p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>14-day weather forecasts</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Risk probability scoring</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Seasonal trend predictions</li>
+                        </ul>
+                        <div class="mt-4">
+                            <span class="badge bg-primary">Premium</span>
+                            <span class="badge bg-warning ms-2">Advanced</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Alert System -->
+                <div class="col-lg-4 col-md-6 fade-in-up" style="transition-delay: 0.3s;">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h4>Smart Alert System</h4>
+                        <p class="text-muted mb-3">
+                            Multi-channel notifications with customizable thresholds and priority escalation protocols.
+                        </p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Email, SMS, & push notifications</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Custom threshold settings</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Escalation protocols</li>
+                        </ul>
+                        <div class="mt-4">
+                            <span class="badge bg-success">All Plans</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Visualization -->
+                <div class="col-lg-4 col-md-6 fade-in-up" style="transition-delay: 0.4s;">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h4>Advanced Visualization</h4>
+                        <p class="text-muted mb-3">
+                            Interactive charts, heat maps, and 3D visualizations for comprehensive data analysis.
+                        </p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Interactive dashboards</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Heat maps & 3D models</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Custom report generation</li>
+                        </ul>
+                        <div class="mt-4">
+                            <span class="badge bg-primary">Premium</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- API Integration -->
+                <div class="col-lg-4 col-md-6 fade-in-up" style="transition-delay: 0.5s;">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>API & Integration</h4>
+                        <p class="text-muted mb-3">
+                            RESTful API with comprehensive documentation for seamless third-party integration.
+                        </p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>REST API endpoints</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Webhook support</li>
+                            <li><i class="fas fa-check text-success me-2"></i>SDK libraries</li>
+                        </ul>
+                        <div class="mt-4">
+                            <span class="badge bg-primary">Premium</span>
+                            <span class="badge bg-dark ms-2">Developer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Highlight -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="feature-highlight fade-in-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="display-5 fw-bold mb-4">
+                            Real-time <span class="text-gradient">Anomaly Detection</span>
+                        </h2>
+                        <p class="lead mb-4">
+                            Our proprietary AI engine analyzes millions of data points every second to detect anomalies as they happen, with industry-leading accuracy.
+                        </p>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="stat-feature">
+                                    <h3 class="display-6 fw-bold text-primary">50ms</h3>
+                                    <p class="text-muted mb-0">Detection Speed</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-feature">
+                                    <h3 class="display-6 fw-bold text-primary">99.9%</h3>
+                                    <p class="text-muted mb-0">System Uptime</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="position-relative mt-4 mt-lg-0">
+                            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Anomaly Detection" class="img-fluid rounded-3 shadow">
+                            <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-75 text-white rounded-bottom-3">
+                                <i class="fas fa-bolt text-warning me-2"></i>
+                                <span>Live anomaly detection in progress</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo -->
+    <section id="interactive-demo" class="py-5 bg-dark">
+        <div class="container">
+            <div class="interactive-demo fade-in-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="display-5 fw-bold mb-4 text-white">Interactive Feature Demo</h2>
+                        <p class="lead mb-4 text-light">Experience how our anomaly detection system responds to different sensitivity settings.</p>
+                        
+                        <div class="mb-4">
+                            <label class="form-label text-light">Detection Sensitivity</label>
+                            <input type="range" class="demo-slider form-range" min="1" max="100" value="50" id="sensitivitySlider">
+                            <div class="d-flex justify-content-between mt-2 text-light">
+                                <small>Low Sensitivity</small>
+                                <small>Medium</small>
+                                <small>High Sensitivity</small>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-light">Current Detection Rate</span>
+                                <span id="detectionRate" class="fw-bold" style="color: #00c9ff;">85%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" id="detectionBar" style="width: 85%; background: linear-gradient(90deg, #00c9ff, #1a6bb3);"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-light">False Positive Rate</span>
+                                <span id="falsePositiveRate" class="fw-bold text-warning">2.5%</span>
+                            </div>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-warning" id="falsePositiveBar" style="width: 2.5%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex gap-3">
+                            <button class="btn btn-light btn-lg flex-grow-1" id="resetDemoBtn">
+                                <i class="fas fa-redo me-2"></i>Reset Demo
+                            </button>
+                            <button class="btn btn-primary btn-lg" id="autoDemoBtn">
+                                <i class="fas fa-play me-2"></i>Auto Test
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text-center mt-5 mt-lg-0">
+                            <div id="weatherChartContainer">
+                                <canvas id="weatherChart"></canvas>
+                                <div id="chartOverlay" class="chart-overlay d-none">
+                                    <div class="spinner-border text-light mb-2" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    <p class="text-light mb-0">Analyzing weather patterns...</p>
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <div class="p-3 rounded-3 border" style="background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1) !important;">
+                                        <small class="text-light d-block">Anomalies Detected</small>
+                                        <div class="h4 mb-0 text-light" id="anomaliesCount">3</div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-3 rounded-3 border" style="background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1) !important;">
+                                        <small class="text-light d-block">Confidence Level</small>
+                                        <div class="h4 mb-0 text-light" id="confidenceLevel">94.5%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="demoStatusBox" class="p-3 rounded-3 mb-3" style="background: rgba(25, 135, 84, 0.1); border: 2px solid rgba(25, 135, 84, 0.3);">
+                                <h5 id="demoStatus" class="text-success mb-1">
+                                    <i class="fas fa-check-circle me-2"></i>Normal Weather Patterns
+                                </h5>
+                                <p class="text-light mb-0 small" id="demoDescription">All parameters within expected ranges</p>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <div class="p-3 rounded-3 border" style="background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1) !important;">
+                                        <small class="text-light d-block">
+                                            <i class="fas fa-thermometer-half me-1"></i>Temperature
+                                        </small>
+                                        <div class="h4 mb-0 text-light" id="demoTemp">22°C</div>
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="p-3 rounded-3 border" style="background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1) !important;">
+                                        <small class="text-light d-block">
+                                            <i class="fas fa-tint me-1"></i>Humidity
+                                        </small>
+                                        <div class="h4 mb-0 text-light" id="demoHumidity">65%</div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-3 rounded-3 border" style="background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1) !important;">
+                                        <small class="text-light d-block">
+                                            <i class="fas fa-weight-hanging me-1"></i>Pressure
+                                        </small>
+                                        <div class="h4 mb-0 text-light" id="demoPressure">1013 hPa</div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-3 rounded-3 border" style="background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1) !important;">
+                                        <small class="text-light d-block">
+                                            <i class="fas fa-wind me-1"></i>Wind Speed
+                                        </small>
+                                        <div class="h4 mb-0 text-light" id="demoWind">12 km/h</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Features -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3 section-title">Advanced Capabilities</h2>
+                    <p class="lead text-muted">Additional features for comprehensive weather intelligence</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4 fade-in-up">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon mx-auto mb-4">
+                            <i class="fas fa-satellite"></i>
+                        </div>
+                        <h4>Satellite Data Integration</h4>
+                        <p class="text-muted">Real-time satellite imagery integration with advanced pattern recognition for global weather monitoring.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon mx-auto mb-4">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Enterprise Security</h4>
+                        <p class="text-muted">Bank-level security with end-to-end encryption, role-based access control, and comprehensive audit logs.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon mx-auto mb-4">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Team Collaboration</h4>
+                        <p class="text-muted">Role-based team management with shared dashboards, collaborative annotations, and workflow automation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Comparison -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3 section-title">Compare Platform Features</h2>
+                    <p class="lead text-muted">See how Weather AI outperforms traditional weather monitoring solutions</p>
+                </div>
+            </div>
+            
+            <div class="comparison-table fade-in-up">
+                <div class="comparison-row bg-primary text-white">
+                    <div class="col-6"><strong>Feature</strong></div>
+                    <div class="col-3 text-center"><strong>Weather AI</strong></div>
+                    <div class="col-3 text-center"><strong>Traditional Systems</strong></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="col-6">AI Anomaly Detection</div>
+                    <div class="col-3 text-center"><i class="fas fa-check feature-check"></i></div>
+                    <div class="col-3 text-center"><i class="fas fa-times feature-cross"></i></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="col-6">Real-time Processing</div>
+                    <div class="col-3 text-center"><i class="fas fa-check feature-check"></i></div>
+                    <div class="col-3 text-center"><i class="fas fa-check feature-check"></i></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="col-6">Predictive Analytics (14-day)</div>
+                    <div class="col-3 text-center"><i class="fas fa-check feature-check"></i></div>
+                    <div class="col-3 text-center"><i class="fas fa-times feature-cross"></i></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="col-6">Global Coverage (150+ cities)</div>
+                    <div class="col-3 text-center"><i class="fas fa-check feature-check"></i></div>
+                    <div class="col-3 text-center"><i class="fas fa-check feature-check"></i></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="col-6">Custom Alert Systems</div>
+                    <div class="col-3 text-center"><i class="fas fa-check feature-check"></i></div>
+                    <div class="col-3 text-center"><i class="fas fa-times feature-cross"></i></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="col-6">API Access & Webhooks</div>
+                    <div class="col-3 text-center"><i class="fas fa-check feature-check"></i></div>
+                    <div class="col-3 text-center"><i class="fas fa-times feature-cross"></i></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="col-6">Advanced Data Visualization</div>
+                    <div class="col-3 text-center"><i class="fas fa-check feature-check"></i></div>
+                    <div class="col-3 text-center"><i class="fas fa-check feature-check"></i></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="col-6">Enterprise Security Features</div>
+                    <div class="col-3 text-center"><i class="fas fa-check feature-check"></i></div>
+                    <div class="col-3 text-center"><i class="fas fa-times feature-cross"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row text-center fade-in-up">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-4">Experience Advanced Weather Intelligence</h2>
+                    <p class="lead mb-5">Start your free trial today and discover how AI-powered features can transform your weather analysis.</p>
+                    <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+                        <a href="login.html" class="btn btn-light btn-lg">
+                            <i class="fas fa-rocket me-2"></i>Start 30-Day Free Trial
+                        </a>
+                        <a href="contact.html" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-calendar-alt me-2"></i>Schedule Personalized Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3" href="index.html">
+                        <i class="fas fa-cloud-sun me-2"></i>
+                        <span class="fw-bold">Weather</span><span class="fw-bold" style="color: #00c9ff;">AI</span>
+                    </a>
+                    <p class="text-light">Advanced AI-powered weather anomaly detection platform for researchers, meteorologists, and organizations worldwide.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Platform</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="features.html" class="text-light text-decoration-none">Features</a></li>
+                        <li><a href="pricing.html" class="text-light text-decoration-none">Pricing</a></li>
+                        <li><a href="#interactive-demo" class="text-light text-decoration-none">Live Demo</a></li>
+                        <li><a href="api.html" class="text-light text-decoration-none">API Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="blog.html" class="text-light text-decoration-none">Research Blog</a></li>
+                        <li><a href="careers.html" class="text-light text-decoration-none">Careers</a></li>
+                        <li><a href="press.html" class="text-light text-decoration-none">Press Kit</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Stay Updated</h5>
+                    <p class="text-light">Subscribe to our newsletter for the latest research, updates, and climate insights.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <p class="text-light mt-3 small">
+                        <i class="fas fa-lock me-1"></i> We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+            <hr class="border-light my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light">&copy; 2024 Weather AI. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="privacy.html" class="text-light text-decoration-none me-3">Privacy Policy</a>
+                    <a href="terms.html" class="text-light text-decoration-none me-3">Terms of Service</a>
+                    <a href="compliance.html" class="text-light text-decoration-none">GDPR Compliance</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Initialize variables
+        let weatherChart = null;
+        let autoDemoInterval = null;
+
+        // DOM Ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize navbar functionality
+            initNavbar();
+            
+            // Initialize scroll animations
+            initScrollAnimations();
+            
+            // Initialize the weather chart
+            initWeatherChart();
+            
+            // Initialize interactive demo
+            initInteractiveDemo();
+            
+            // Initialize feature card hover effects
+            initFeatureCards();
+            
+            // Trigger initial scroll check
+            window.dispatchEvent(new Event('scroll'));
+        });
+
+        // Navbar functionality
+        function initNavbar() {
+            const navbar = document.querySelector('.navbar');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            
+            // Set active nav link
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+            });
+        }
+
+        // Scroll animations
+        function initScrollAnimations() {
+            // Scroll progress indicator
+            window.addEventListener('scroll', function() {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.querySelector('.scroll-progress').style.width = scrolled + "%";
+                
+                // Fade-in animation
+                const fadeElements = document.querySelectorAll('.fade-in-up');
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            });
+        }
+
+        // Weather Chart initialization
+        function initWeatherChart() {
+            const ctx = document.getElementById('weatherChart').getContext('2d');
+            
+            // Generate initial data
+            const labels = Array.from({length: 24}, (_, i) => `${i}:00`);
+            const temperatures = Array.from({length: 24}, () => 18 + Math.random() * 8);
+            
+            // Create gradient
+            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+            gradient.addColorStop(0, 'rgba(0, 201, 255, 0.3)');
+            gradient.addColorStop(1, 'rgba(0, 201, 255, 0.05)');
+            
+            weatherChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Temperature (°C)',
+                        data: temperatures,
+                        borderColor: '#00c9ff',
+                        backgroundColor: gradient,
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#00c9ff',
+                        pointBorderColor: 'white',
+                        pointBorderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleColor: 'white',
+                            bodyColor: 'white',
+                            borderColor: '#00c9ff',
+                            borderWidth: 1
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '°C';
+                                }
+                            },
+                            min: 10,
+                            max: 35
+                        }
+                    },
+                    animation: {
+                        duration: 1000
+                    }
+                }
+            });
+        }
+
+        // Interactive Demo functionality
+        function initInteractiveDemo() {
+            const sensitivitySlider = document.getElementById('sensitivitySlider');
+            const resetDemoBtn = document.getElementById('resetDemoBtn');
+            const autoDemoBtn = document.getElementById('autoDemoBtn');
+            
+            // Initial update
+            updateDemoData(50);
+            
+            // Slider event
+            sensitivitySlider.addEventListener('input', function() {
+                updateDemoData(parseInt(this.value));
+            });
+            
+            // Reset button event
+            resetDemoBtn.addEventListener('click', resetDemo);
+            
+            // Auto demo button event
+            autoDemoBtn.addEventListener('click', runAutoDemo);
+        }
+
+        // Update demo data based on sensitivity
+        function updateDemoData(sensitivityValue) {
+            // Calculate metrics based on sensitivity
+            const detectionRate = 60 + (sensitivityValue * 0.4);
+            const falsePositiveRate = Math.max(0.5, 5 - (sensitivityValue * 0.04));
+            
+            // Update display values
+            document.getElementById('detectionRate').textContent = Math.round(detectionRate) + '%';
+            document.getElementById('detectionBar').style.width = detectionRate + '%';
+            
+            document.getElementById('falsePositiveRate').textContent = falsePositiveRate.toFixed(1) + '%';
+            document.getElementById('falsePositiveBar').style.width = falsePositiveRate + '%';
+            
+            // Update anomalies count and confidence
+            const anomalies = Math.min(10, Math.round(sensitivityValue / 10));
+            document.getElementById('anomaliesCount').textContent = anomalies;
+            
+            const confidence = 80 + (sensitivityValue * 0.2);
+            document.getElementById('confidenceLevel').textContent = confidence.toFixed(1) + '%';
+            
+            // Update weather parameters based on sensitivity
+            let temp, humidity, pressure, wind, status, statusClass, description, icon;
+            
+            if (sensitivityValue > 80) {
+                temp = 35 + (Math.random() * 3);
+                humidity = 85 + (Math.random() * 10);
+                pressure = 980 + (Math.random() * 15);
+                wind = 25 + (Math.random() * 10);
+                status = 'Severe Anomaly Detected';
+                statusClass = 'text-danger';
+                description = 'Critical weather anomaly detected - Immediate attention required';
+                icon = 'fas fa-exclamation-triangle';
+            } else if (sensitivityValue > 60) {
+                temp = 28 + (Math.random() * 4);
+                humidity = 75 + (Math.random() * 8);
+                pressure = 1000 + (Math.random() * 10);
+                wind = 18 + (Math.random() * 7);
+                status = 'Anomaly Detected';
+                statusClass = 'text-warning';
+                description = 'Unusual patterns detected in weather parameters';
+                icon = 'fas fa-exclamation-circle';
+            } else if (sensitivityValue > 40) {
+                temp = 22 + (Math.random() * 3);
+                humidity = 65 + (Math.random() * 5);
+                pressure = 1010 + (Math.random() * 5);
+                wind = 12 + (Math.random() * 4);
+                status = 'Minor Variations';
+                statusClass = 'text-info';
+                description = 'Slight deviations from normal weather patterns';
+                icon = 'fas fa-info-circle';
+            } else {
+                temp = 20 + (Math.random() * 2);
+                humidity = 60 + (Math.random() * 3);
+                pressure = 1013 + (Math.random() * 2);
+                wind = 10 + (Math.random() * 2);
+                status = 'Normal Weather Patterns';
+                statusClass = 'text-success';
+                description = 'All parameters within expected ranges';
+                icon = 'fas fa-check-circle';
+            }
+            
+            // Update weather parameters display
+            document.getElementById('demoTemp').textContent = Math.round(temp) + '°C';
+            document.getElementById('demoHumidity').textContent = Math.round(humidity) + '%';
+            document.getElementById('demoPressure').textContent = Math.round(pressure) + ' hPa';
+            document.getElementById('demoWind').textContent = Math.round(wind) + ' km/h';
+            
+            // Update status display
+            const demoStatus = document.getElementById('demoStatus');
+            demoStatus.innerHTML = `<i class="${icon} me-2"></i>${status}`;
+            demoStatus.className = statusClass + ' mb-1';
+            
+            document.getElementById('demoDescription').textContent = description;
+            
+            // Update status box styling
+            const statusBox = document.getElementById('demoStatusBox');
+            if (sensitivityValue > 80) {
+                statusBox.style.background = 'rgba(220, 53, 69, 0.1)';
+                statusBox.style.borderColor = 'rgba(220, 53, 69, 0.3)';
+            } else if (sensitivityValue > 60) {
+                statusBox.style.background = 'rgba(255, 193, 7, 0.1)';
+                statusBox.style.borderColor = 'rgba(255, 193, 7, 0.3)';
+            } else if (sensitivityValue > 40) {
+                statusBox.style.background = 'rgba(13, 202, 240, 0.1)';
+                statusBox.style.borderColor = 'rgba(13, 202, 240, 0.3)';
+            } else {
+                statusBox.style.background = 'rgba(25, 135, 84, 0.1)';
+                statusBox.style.borderColor = 'rgba(25, 135, 84, 0.3)';
+            }
+            
+            // Update chart with new data
+            if (weatherChart) {
+                const newData = weatherChart.data.datasets[0].data.map((value, index) => {
+                    const base = sensitivityValue > 80 ? 30 : 
+                                sensitivityValue > 60 ? 25 : 
+                                sensitivityValue > 40 ? 20 : 18;
+                    const variation = sensitivityValue > 80 ? 10 : 
+                                    sensitivityValue > 60 ? 7 : 
+                                    sensitivityValue > 40 ? 4 : 2;
+                    
+                    // Add some anomalies in the chart
+                    if (sensitivityValue > 60 && (index === 8 || index === 16)) {
+                        return base + variation * 2 + Math.random() * 5;
+                    }
+                    
+                    return base + Math.sin(index / 4) * variation + Math.random() * 3;
+                });
+                
+                weatherChart.data.datasets[0].data = newData;
+                weatherChart.update();
+            }
+            
+            // Add animation effect to progress bar
+            const detectionBar = document.getElementById('detectionBar');
+            detectionBar.classList.add('pulse');
+            setTimeout(() => {
+                detectionBar.classList.remove('pulse');
+            }, 500);
+        }
+
+        // Reset demo to default state
+        function resetDemo() {
+            const slider = document.getElementById('sensitivitySlider');
+            slider.value = 50;
+            
+            // Show loading overlay
+            const overlay = document.getElementById('chartOverlay');
+            overlay.classList.remove('d-none');
+            
+            // Reset after delay
+            setTimeout(() => {
+                updateDemoData(50);
+                overlay.classList.add('d-none');
+                
+                // Show reset confirmation
+                const autoDemoBtn = document.getElementById('autoDemoBtn');
+                const originalText = autoDemoBtn.innerHTML;
+                autoDemoBtn.innerHTML = '<i class="fas fa-check me-2"></i>Reset Complete!';
+                autoDemoBtn.classList.add('btn-success');
+                
+                setTimeout(() => {
+                    autoDemoBtn.innerHTML = originalText;
+                    autoDemoBtn.classList.remove('btn-success');
+                }, 2000);
+            }, 1500);
+        }
+
+        // Run auto demo sequence
+        function runAutoDemo() {
+            const slider = document.getElementById('sensitivitySlider');
+            const autoDemoBtn = document.getElementById('autoDemoBtn');
+            const resetDemoBtn = document.getElementById('resetDemoBtn');
+            
+            // Clear any existing interval
+            if (autoDemoInterval) {
+                clearInterval(autoDemoInterval);
+            }
+            
+            // Disable buttons during auto demo
+            autoDemoBtn.disabled = true;
+            resetDemoBtn.disabled = true;
+            autoDemoBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Running Test...';
+            
+            let currentValue = 20;
+            autoDemoInterval = setInterval(() => {
+                if (currentValue <= 100) {
+                    slider.value = currentValue;
+                    updateDemoData(currentValue);
+                    currentValue += 20;
+                } else {
+                    clearInterval(autoDemoInterval);
+                    autoDemoInterval = null;
+                    
+                    // Reset to middle value after completion
+                    setTimeout(() => {
+                        slider.value = 50;
+                        updateDemoData(50);
+                        
+                        // Re-enable buttons
+                        autoDemoBtn.disabled = false;
+                        resetDemoBtn.disabled = false;
+                        autoDemoBtn.innerHTML = '<i class="fas fa-play me-2"></i>Auto Test';
+                        
+                        // Show completion message
+                        autoDemoBtn.innerHTML = '<i class="fas fa-check me-2"></i>Test Complete!';
+                        autoDemoBtn.classList.add('btn-success');
+                        
+                        setTimeout(() => {
+                            autoDemoBtn.innerHTML = '<i class="fas fa-play me-2"></i>Auto Test';
+                            autoDemoBtn.classList.remove('btn-success');
+                        }, 2000);
+                    }, 1000);
+                }
+            }, 1000);
+        }
+
+        // Feature card hover effects
+        function initFeatureCards() {
+            const featureCards = document.querySelectorAll('.feature-card');
+            
+            featureCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Handle window resize for chart responsiveness
+        window.addEventListener('resize', function() {
+            if (weatherChart) {
+                weatherChart.resize();
+            }
+        });
+        // Newsletter Subscription Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const newsletterForm = document.querySelector('.footer .input-group');
+    if (newsletterForm) {
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const subscribeBtn = newsletterForm.querySelector('button');
+        
+        // Create message container if it doesn't exist
+        let messageDiv = document.querySelector('.newsletter-message');
+        if (!messageDiv) {
+            messageDiv = document.createElement('div');
+            messageDiv.className = 'newsletter-message mt-2';
+            messageDiv.style.display = 'none';
+            newsletterForm.parentNode.insertBefore(messageDiv, newsletterForm.nextSibling);
+        }
+        
+        // Remove existing click handler and add new one
+        const newSubscribeBtn = subscribeBtn.cloneNode(true);
+        subscribeBtn.parentNode.replaceChild(newSubscribeBtn, subscribeBtn);
+        
+        newSubscribeBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            
+            // Validate email
+            if (!email) {
+                showNewsletterMessage('Please enter your email address', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNewsletterMessage('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Disable button and show loading
+            newSubscribeBtn.disabled = true;
+            const originalText = newSubscribeBtn.innerHTML;
+            newSubscribeBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Subscribing...';
+            
+            try {
+                const response = await fetch('/api/newsletter/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showNewsletterMessage(data.message, 'success');
+                    emailInput.value = ''; // Clear input
+                } else {
+                    showNewsletterMessage(data.detail || 'Failed to subscribe. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error('Newsletter subscription error:', error);
+                showNewsletterMessage('Network error. Please check your connection and try again.', 'error');
+            } finally {
+                // Re-enable button
+                newSubscribeBtn.disabled = false;
+                newSubscribeBtn.innerHTML = originalText;
+            }
+        });
+        
+        // Allow Enter key to submit
+        emailInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                newSubscribeBtn.click();
+            }
+        });
+        
+        function showNewsletterMessage(text, type) {
+            messageDiv.style.display = 'block';
+            messageDiv.textContent = text;
+            
+            if (type === 'success') {
+                messageDiv.style.color = '#28a745';
+                messageDiv.style.backgroundColor = '#d4edda';
+                messageDiv.style.border = '1px solid #c3e6cb';
+            } else {
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.border = '1px solid #f5c6cb';
+            }
+            
+            messageDiv.style.padding = '10px';
+            messageDiv.style.borderRadius = '4px';
+            messageDiv.style.fontSize = '14px';
+            messageDiv.style.marginTop = '10px';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+    }
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press Kit - Weather AI</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Weather AI press kit, media resources, company information, and brand assets for journalists and media professionals.">
+    <meta name="keywords" content="weather AI press, media kit, press releases, brand assets, company news, climate technology">
+    <meta name="author" content="Weather AI Team">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Press Kit - Weather AI Platform">
+    <meta property="og:description" content="Media resources and brand assets for Weather AI">
+    <meta property="og:image" content="https://weatherai.example.com/assets/images/press-og-image.jpg">
+    <meta property="og:url" content="https://weatherai.example.com/press.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Weather AI Press Kit">
+    <meta name="twitter:description" content="Media resources for Weather AI's climate intelligence platform">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    
+     <!-- Favicon -->
+   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        html { font-size: 14px !important; }
+        body {
+            font-size: 0.95rem !important;
+            overflow-x: hidden !important;
+        }
+        @supports (zoom: 1) {
+            body { zoom: 0.95 !important; }
+        }
+        @supports not (zoom: 1) {
+            body {
+                transform: scale(0.95) !important;
+                transform-origin: top center !important;
+                width: 100% !important;
+            }
+        }
+
+        /* All original CSS from the provided code */
+        :root {
+            --primary-color: #1a6bb3;
+            --secondary-color: #0a2540;
+            --accent-color: #00c9ff;
+            --light-bg: #f8fafc;
+            --dark-bg: #0f172a;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --gradient-primary: linear-gradient(135deg, #1a6bb3 0%, #00c9ff 100%);
+            --gradient-dark: linear-gradient(135deg, #0a2540 0%, #1e293b 100%);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Enhanced Navbar Styles */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
+            padding: 1rem 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar-scrolled {
+            padding: 0.7rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 6px 30px rgba(10, 37, 64, 0.12);
+        }
+
+        /* Logo Styling */
+        .logo-container {
+            position: relative;
+            padding: 0.25rem 0;
+        }
+
+        .logo-icon {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .logo-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(0, 201, 255, 0.1);
+            animation: pulse 2s infinite;
+        }
+
+        /* Animated Hamburger Menu */
+        .hamburger-menu {
+            position: relative;
+            width: 30px;
+            height: 21px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .hamburger-line {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Navigation Links Styling */
+        .nav-link-content {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-icon {
+            font-size: 1.1rem;
+            margin-right: 8px;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-text {
+            font-weight: 500;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-underline {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50px;
+            background: linear-gradient(135deg, rgba(26, 107, 179, 0.1), rgba(0, 201, 255, 0.1));
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        /* Hover Effects */
+        .nav-link:hover .nav-text,
+        .nav-link.active .nav-text {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .nav-link:hover .nav-icon,
+        .nav-link.active .nav-icon {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover .nav-underline,
+        .nav-link.active .nav-underline {
+            width: 70%;
+        }
+
+        .nav-link:hover .nav-bg,
+        .nav-link.active .nav-bg {
+            width: calc(100% + 20px);
+            height: calc(100% + 10px);
+            opacity: 1;
+        }
+
+        .navbar-brand:hover .logo-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Login Button Styling */
+        .btn-login {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            overflow: hidden;
+            border-radius: 12px;
+            background: var(--gradient-primary);
+            padding: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+            background: white;
+            border-radius: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(26, 107, 179, 0.3);
+        }
+
+        .btn-login:hover .btn-content {
+            background: transparent;
+            color: white;
+        }
+
+        .btn-login:hover .btn-gradient {
+            opacity: 1;
+        }
+
+        /* Mobile Menu Styling */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                padding: 1.5rem;
+                border-radius: 0 0 20px 20px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+                animation: slideDown 0.3s ease;
+            }
+
+            .nav-link-content {
+                padding: 0.75rem 0;
+                margin: 0.25rem 0;
+            }
+
+            .btn-login {
+                margin-top: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.5;
+            }
+            100% {
+                width: 60px;
+                height: 60px;
+                opacity: 0;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Active State Enhancement */
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Floating Particles Background (Subtle) */
+        .navbar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 201, 255, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(26, 107, 179, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        .hero-section {
+            position: relative;
+            padding: 120px 0 80px;
+            background: var(--gradient-dark);
+            color: white;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.15;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(to right, #00c9ff, #92fe9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stats-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .stat-card {
+            padding: 30px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .features-section {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            height: 100%;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-color);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .technology-section {
+            padding: 100px 0;
+            background-color: var(--dark-bg);
+            color: white;
+        }
+        
+        .tech-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .testimonial-section {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            height: 100%;
+        }
+        
+        .testimonial-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section {
+            padding: 100px 0;
+            background: var(--gradient-primary);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.1;
+        }
+        
+        .footer {
+            padding: 80px 0 30px;
+            background-color: var(--dark-bg);
+            color: white;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Custom button styles */
+        .btn-primary {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            padding: 10px 28px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline-light {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+            padding: 10px 28px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-light:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Custom bullet points */
+        .custom-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .custom-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        /* Scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        /* Scroll Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, opacity;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .display-3 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section {
+                padding: 100px 0 60px;
+            }
+        }
+        
+        /* PRESS PAGE SPECIFIC STYLES */
+        .press-hero {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 140px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .press-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.15;
+        }
+
+        .press-badge {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            animation: pulse-badge 2s infinite;
+        }
+
+        @keyframes pulse-badge {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .press-media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .media-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .media-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .media-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .media-card:hover .media-image {
+            transform: scale(1.05);
+        }
+
+        .media-content {
+            padding: 25px;
+        }
+
+        .media-tag {
+            display: inline-block;
+            background: rgba(13, 110, 253, 0.1);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .press-kit-section {
+            background: var(--light-bg);
+            padding: 100px 0;
+        }
+
+        .kit-item {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            height: 100%;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .kit-item:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .kit-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            color: white;
+        }
+
+        .download-btn.btn-sm {
+            padding: 8px 16px;
+            font-size: 0.875rem;
+        }
+
+        .team-section {
+            padding: 100px 0;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 25px;
+        }
+
+        .team-role {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .press-contact-section {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .press-contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.1;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+        }
+
+        /* Timeline for Press Releases */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-primary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            width: calc(50% - 30px);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        /* Responsive Design for Press Page */
+        @media (max-width: 768px) {
+            .press-hero {
+                padding: 120px 0 60px;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+            
+            .media-card, .team-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .press-media-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .newsletter-message {
+    animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.footer .btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-container d-flex align-items-center">
+                    <div class="logo-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <div class="logo-text ms-2">
+                        <span class="fw-bold">Weather</span>
+                        <span class="logo-gradient fw-bold">AI</span>
+                    </div>
+                    <div class="logo-pulse"></div>
+                </div>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <div class="hamburger-menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-home nav-icon"></i>
+                                <span class="nav-text">Home</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-sliders-h nav-icon"></i>
+                                <span class="nav-text">Features</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-tag nav-icon"></i>
+                                <span class="nav-text">Pricing</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-blog nav-icon"></i>
+                                <span class="nav-text">Blog</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-info-circle nav-icon"></i>
+                                <span class="nav-text">About</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                   <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-envelope nav-icon"></i>
+                            <span class="nav-text">Contact</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a href="login.html" class="btn-login">
+                            <div class="btn-content">
+                                <i class="fas fa-sign-in-alt me-2"></i>
+                                <span>Login/Signup</span>
+                                <div class="btn-gradient"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Press Hero Section -->
+    <section class="press-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center fade-in-up">
+                    <div class="press-badge fade-in-up">PRESS KIT</div>
+                    <h1 class="display-3 fw-bold mb-4">Weather AI in the Media</h1>
+                    <p class="lead mb-5">Welcome to our press center. Here you'll find the latest news, company information, media resources, and brand assets for journalists and media professionals.</p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="#press-releases" class="btn btn-light btn-lg">
+                            <i class="fas fa-newspaper me-2"></i>Latest News
+                        </a>
+                        <a href="#media-kit" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-download me-2"></i>Download Media Kit
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Press Coverage -->
+    <section class="press-kit-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center fade-in-up">
+                    <h2 class="display-5 fw-bold mb-3">Recent Media Coverage</h2>
+                    <p class="lead text-muted">See how Weather AI is making headlines in climate technology and AI innovation</p>
+                </div>
+            </div>
+
+            <div class="press-media-grid">
+                <!-- Media Coverage Item 1 -->
+                <div class="media-card fade-in-up">
+                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="TechCrunch Feature" 
+                         class="media-image">
+                    <div class="media-content">
+                        <span class="media-tag">Featured</span>
+                        <h4>Weather AI Raises $20M to Expand Climate Intelligence Platform</h4>
+                        <p class="text-muted">TechCrunch covers our Series B funding round and expansion plans for global weather monitoring.</p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            Read Article
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Media Coverage Item 2 -->
+                <div class="media-card fade-in-up" style="transition-delay: 0.1s;">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Forbes Interview" 
+                         class="media-image">
+                    <div class="media-content">
+                        <span class="media-tag">Interview</span>
+                        <h4>How AI is Revolutionizing Climate Prediction</h4>
+                        <p class="text-muted">Forbes interviews our CEO about the future of AI in climate science and weather forecasting.</p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            Read Article
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Media Coverage Item 3 -->
+                <div class="media-card fade-in-up" style="transition-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Wired Feature" 
+                         class="media-image">
+                    <div class="media-content">
+                        <span class="media-tag">Technology</span>
+                        <h4>The Machine Learning Models Predicting Extreme Weather</h4>
+                        <p class="text-muted">Wired explores the technical innovations behind Weather AI's anomaly detection system.</p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            Read Article
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press Releases Timeline -->
+    <section id="press-releases" class="team-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center fade-in-up">
+                    <h2 class="display-5 fw-bold mb-3">Latest Press Releases</h2>
+                    <p class="lead text-muted">Official announcements and company news</p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <!-- Press Release 1 -->
+                <div class="timeline-item fade-in-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="badge bg-primary">New Release</span>
+                            <small class="text-muted">March 15, 2024</small>
+                        </div>
+                        <h4>Weather AI Launches Global Climate Risk Assessment Platform</h4>
+                        <p>New platform provides real-time climate risk scoring for businesses and governments worldwide, using advanced machine learning models.</p>
+                        <a href="#" class="download-btn btn-sm">
+                            <i class="fas fa-download"></i>
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Press Release 2 -->
+                <div class="timeline-item fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="badge bg-success">Partnership</span>
+                            <small class="text-muted">February 28, 2024</small>
+                        </div>
+                        <h4>Partnership Announced with European Weather Agency</h4>
+                        <p>Strategic collaboration to integrate Weather AI's anomaly detection technology with Europe's leading weather monitoring infrastructure.</p>
+                        <a href="#" class="download-btn btn-sm">
+                            <i class="fas fa-download"></i>
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Press Release 3 -->
+                <div class="timeline-item fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="badge bg-warning">Award</span>
+                            <small class="text-muted">January 10, 2024</small>
+                        </div>
+                        <h4>Climate Tech Innovation Award 2024</h4>
+                        <p>Weather AI recognized for outstanding contribution to climate technology innovation at the Global Climate Summit in Davos.</p>
+                        <a href="#" class="download-btn btn-sm">
+                            <i class="fas fa-download"></i>
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Kit Download Section -->
+    <section id="media-kit" class="press-kit-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center fade-in-up">
+                    <h2 class="display-5 fw-bold mb-3">Media Kit & Resources</h2>
+                    <p class="lead text-muted">Download official brand assets, logos, and media resources</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Brand Assets -->
+                <div class="col-md-4 fade-in-up">
+                    <div class="kit-item">
+                        <div class="kit-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4>Brand Guidelines</h4>
+                        <p class="text-muted">Complete brand style guide including logos, colors, typography, and usage guidelines.</p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-download"></i>
+                            Download (PDF, 5.2MB)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Logos -->
+                <div class="col-md-4 fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="kit-item">
+                        <div class="kit-icon">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <h4>Logo Pack</h4>
+                        <p class="text-muted">High-resolution logos in PNG, SVG, and EPS formats for print and digital use.</p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-download"></i>
+                            Download (ZIP, 12.4MB)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Media Images -->
+                <div class="col-md-4 fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="kit-item">
+                        <div class="kit-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <h4>Media Images</h4>
+                        <p class="text-muted">High-quality product shots, team photos, and office images for media use.</p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-download"></i>
+                            Download (ZIP, 48.7MB)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team -->
+    <section class="team-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center fade-in-up">
+                    <h2 class="display-5 fw-bold mb-3">Leadership Team</h2>
+                    <p class="lead text-muted">Meet the executives driving Weather AI's innovation</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- CEO -->
+                <div class="col-md-4 fade-in-up">
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Alex Johnson" 
+                             class="team-img">
+                        <div class="team-info">
+                            <h5 class="mb-1">Alex Johnson</h5>
+                            <div class="team-role">Chief Executive Officer</div>
+                            <p class="text-muted mb-3">Former Google AI research lead with 15+ years in machine learning and climate science.</p>
+                            <a href="mailto:alex.johnson@weatherai.com" class="text-primary text-decoration-none">
+                                <i class="fas fa-envelope me-1"></i> Contact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTO -->
+                <div class="col-md-4 fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Michael Chen" 
+                             class="team-img">
+                        <div class="team-info">
+                            <h5 class="mb-1">Dr. Michael Chen</h5>
+                            <div class="team-role">Chief Technology Officer</div>
+                            <p class="text-muted mb-3">PhD in Atmospheric Sciences from MIT, specializing in predictive weather modeling.</p>
+                            <a href="mailto:michael.chen@weatherai.com" class="text-primary text-decoration-none">
+                                <i class="fas fa-envelope me-1"></i> Contact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Head of Research -->
+                <div class="col-md-4 fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Sarah Williams" 
+                             class="team-img">
+                        <div class="team-info">
+                            <h5 class="mb-1">Dr. Sarah Williams</h5>
+                            <div class="team-role">Head of Research</div>
+                            <p class="text-muted mb-3">Former NASA climate scientist with expertise in satellite data analysis and AI integration.</p>
+                            <a href="mailto:sarah.williams@weatherai.com" class="text-primary text-decoration-none">
+                                <i class="fas fa-envelope me-1"></i> Contact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Facts -->
+    <section class="press-kit-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center fade-in-up">
+                    <h2 class="display-5 fw-bold mb-3">Company Facts & Figures</h2>
+                    <p class="lead text-muted">Key statistics about Weather AI</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-3 col-6 fade-in-up">
+                    <div class="text-center">
+                        <div class="display-4 fw-bold text-primary mb-2">2019</div>
+                        <p class="text-muted mb-0">Founded</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="text-center">
+                        <div class="display-4 fw-bold text-primary mb-2">85+</div>
+                        <p class="text-muted mb-0">Team Members</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="text-center">
+                        <div class="display-4 fw-bold text-primary mb-2">$42M</div>
+                        <p class="text-muted mb-0">Total Funding</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 fade-in-up" style="transition-delay: 0.3s;">
+                    <div class="text-center">
+                        <div class="display-4 fw-bold text-primary mb-2">150+</div>
+                        <p class="text-muted mb-0">Enterprise Clients</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press Contact -->
+    <section class="press-contact-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center fade-in-up">
+                    <h2 class="display-5 fw-bold mb-3">Press Contact</h2>
+                    <p class="lead mb-0">For media inquiries, interview requests, or additional information</p>
+                </div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4 fade-in-up">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h4>Media Relations</h4>
+                        <p class="mb-3">Lisa Rodriguez</p>
+                        <a href="mailto:press@weatherai.com" class="text-white text-decoration-none">
+                            <i class="fas fa-envelope me-2"></i>press@weatherai.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4>Phone</h4>
+                        <p class="mb-3">Press Line</p>
+                        <a href="tel:+1-555-123-4567" class="text-white text-decoration-none">
+                            <i class="fas fa-phone me-2"></i>+1 (555) 123-4567
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h4>Headquarters</h4>
+                        <p class="mb-3">San Francisco, CA</p>
+                        <address class="text-white">
+                            123 Innovation Drive<br>
+                            San Francisco, CA 94107
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3" href="index.html">
+                        <i class="fas fa-cloud-sun me-2"></i>
+                        <span class="fw-bold">Weather</span><span class="fw-bold" style="color: #00c9ff;">AI</span>
+                    </a>
+                    <p class="text-light">Advanced AI-powered weather anomaly detection platform for researchers, meteorologists, and organizations worldwide.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Platform</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="features.html" class="text-light text-decoration-none">Features</a></li>
+                        <li><a href="pricing.html" class="text-light text-decoration-none">Pricing</a></li>
+                        <li><a href="demo.html" class="text-light text-decoration-none">Live Demo</a></li>
+                        <li><a href="api.html" class="text-light text-decoration-none">API Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="blog.html" class="text-light text-decoration-none">Research Blog</a></li>
+                        <li><a href="careers.html" class="text-light text-decoration-none">Careers</a></li>
+                        <li><a href="press.html" class="text-light text-decoration-none active">Press Kit</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Stay Updated</h5>
+                    <p class="text-light">Subscribe to our newsletter for the latest research, updates, and climate insights.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <p class="text-light mt-3 small">
+                        <i class="fas fa-lock me-1"></i> We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+            <hr class="border-light my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light">&copy; 2024 Weather AI. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="privacy.html" class="text-light text-decoration-none me-3">Privacy Policy</a>
+                    <a href="terms.html" class="text-light text-decoration-none me-3">Terms of Service</a>
+                    <a href="compliance.html" class="text-light text-decoration-none">GDPR Compliance</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Scroll progress indicator
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + "%";
+            
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animation with Intersection Observer
+        function initScrollAnimations() {
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -100px 0px'
+                });
+                
+                fadeElements.forEach(element => {
+                    observer.observe(element);
+                });
+            } else {
+                // Fallback for older browsers
+                function checkScrollFallback() {
+                    const windowHeight = window.innerHeight;
+                    
+                    fadeElements.forEach(element => {
+                        const elementTop = element.getBoundingClientRect().top;
+                        
+                        if (elementTop < windowHeight * 0.85) {
+                            element.classList.add('visible');
+                        }
+                    });
+                }
+                
+                window.addEventListener('scroll', checkScrollFallback);
+                window.addEventListener('resize', checkScrollFallback);
+                checkScrollFallback(); // Initial check
+            }
+        }
+
+        // Enhanced navbar functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const hamburger = document.querySelector('.navbar-toggler');
+            
+            // Scroll effect with parallax
+            window.addEventListener('scroll', function() {
+                const scrollY = window.scrollY;
+                
+                // Navbar scroll effect
+                if (scrollY > 50) {
+                    navbar.classList.add('navbar-scrolled');
+                    // Add parallax effect to background
+                    navbar.style.background = `rgba(255, 255, 255, ${0.92 + (scrollY * 0.001)})`;
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                    navbar.style.background = 'rgba(255, 255, 255, 0.92)';
+                }
+            });
+
+            // Smooth scroll for anchor links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            // Close mobile menu if open
+                            if (window.innerWidth < 992) {
+                                const collapse = document.querySelector('.navbar-collapse');
+                                if (collapse.classList.contains('show')) {
+                                    hamburger.click();
+                                }
+                            }
+                            
+                            // Smooth scroll
+                            window.scrollTo({
+                                top: target.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Hover effects enhancement
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('active')) {
+                        const icon = this.querySelector('.nav-icon');
+                        if (icon) {
+                            icon.style.transform = 'translateY(-2px) scale(1.1)';
+                        }
+                    }
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('active')) {
+                        const icon = this.querySelector('.nav-icon');
+                        if (icon) {
+                            icon.style.transform = '';
+                        }
+                    }
+                });
+            });
+
+            // Initialize on load
+            initScrollAnimations();
+            
+            // Set active nav link for current page
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === 'press.html') {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Add subtle animation on page load
+            setTimeout(() => {
+                navbar.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            }, 100);
+        });
+        // Newsletter Subscription Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const newsletterForm = document.querySelector('.footer .input-group');
+    if (newsletterForm) {
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const subscribeBtn = newsletterForm.querySelector('button');
+        
+        // Create message container if it doesn't exist
+        let messageDiv = document.querySelector('.newsletter-message');
+        if (!messageDiv) {
+            messageDiv = document.createElement('div');
+            messageDiv.className = 'newsletter-message mt-2';
+            messageDiv.style.display = 'none';
+            newsletterForm.parentNode.insertBefore(messageDiv, newsletterForm.nextSibling);
+        }
+        
+        // Remove existing click handler and add new one
+        const newSubscribeBtn = subscribeBtn.cloneNode(true);
+        subscribeBtn.parentNode.replaceChild(newSubscribeBtn, subscribeBtn);
+        
+        newSubscribeBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            
+            // Validate email
+            if (!email) {
+                showNewsletterMessage('Please enter your email address', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNewsletterMessage('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Disable button and show loading
+            newSubscribeBtn.disabled = true;
+            const originalText = newSubscribeBtn.innerHTML;
+            newSubscribeBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Subscribing...';
+            
+            try {
+                const response = await fetch('/api/newsletter/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showNewsletterMessage(data.message, 'success');
+                    emailInput.value = ''; // Clear input
+                } else {
+                    showNewsletterMessage(data.detail || 'Failed to subscribe. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error('Newsletter subscription error:', error);
+                showNewsletterMessage('Network error. Please check your connection and try again.', 'error');
+            } finally {
+                // Re-enable button
+                newSubscribeBtn.disabled = false;
+                newSubscribeBtn.innerHTML = originalText;
+            }
+        });
+        
+        // Allow Enter key to submit
+        emailInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                newSubscribeBtn.click();
+            }
+        });
+        
+        function showNewsletterMessage(text, type) {
+            messageDiv.style.display = 'block';
+            messageDiv.textContent = text;
+            
+            if (type === 'success') {
+                messageDiv.style.color = '#28a745';
+                messageDiv.style.backgroundColor = '#d4edda';
+                messageDiv.style.border = '1px solid #c3e6cb';
+            } else {
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.border = '1px solid #f5c6cb';
+            }
+            
+            messageDiv.style.padding = '10px';
+            messageDiv.style.borderRadius = '4px';
+            messageDiv.style.fontSize = '14px';
+            messageDiv.style.marginTop = '10px';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+    }
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,1969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather AI Demo | Interactive Platform Demonstration</title>
+    
+     <!-- Favicon -->
+   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+    
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Interactive demo of Weather AI platform. Experience real-time weather anomaly detection, predictive analytics, and advanced visualization tools.">
+    <meta name="keywords" content="Weather AI demo, weather platform demo, anomaly detection demo, predictive analytics demo, weather visualization">
+    <meta name="author" content="Weather AI Team">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Weather AI Demo - Interactive Platform Demonstration">
+    <meta property="og:description" content="Experience the power of AI-driven weather analytics with our interactive demo platform.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://weatherai.example.com/demo.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Weather AI Platform Demo">
+    <meta name="twitter:description" content="Interactive demo of our AI-powered weather anomaly detection platform.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Chart.js for interactive charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <style>
+        html { font-size: 14px !important; }
+        body {
+            font-size: 0.95rem !important;
+            overflow-x: hidden !important;
+        }
+        @supports (zoom: 1) {
+            body { zoom: 0.95 !important; }
+        }
+        @supports not (zoom: 1) {
+            body {
+                transform: scale(0.95) !important;
+                transform-origin: top center !important;
+                width: 100% !important;
+            }
+        }
+
+           /* Enhanced Navbar Styles - Matching Home Page Theme */
+    .navbar {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(15px) saturate(180%);
+        -webkit-backdrop-filter: blur(15px) saturate(180%);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
+        padding: 1rem 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .navbar-scrolled {
+        padding: 0.7rem 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 6px 30px rgba(10, 37, 64, 0.12);
+    }
+
+    /* Logo Styling */
+    .logo-container {
+        position: relative;
+        padding: 0.25rem 0;
+    }
+
+    .logo-icon {
+        font-size: 1.6rem;
+        color: var(--primary-color);
+        transition: transform 0.3s ease;
+    }
+
+    .logo-gradient {
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+    }
+
+    .logo-pulse {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(0, 201, 255, 0.1);
+        animation: pulse 2s infinite;
+    }
+
+    /* Animated Hamburger Menu */
+    .hamburger-menu {
+        position: relative;
+        width: 30px;
+        height: 21px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+    .hamburger-line {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background: var(--text-dark);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Navigation Links Styling */
+    .nav-link-content {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .nav-icon {
+        font-size: 1.1rem;
+        margin-right: 8px;
+        color: var(--text-light);
+        transition: all 0.3s ease;
+    }
+
+    .nav-text {
+        font-weight: 500;
+        color: var(--text-light);
+        transition: all 0.3s ease;
+    }
+
+    .nav-underline {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: var(--gradient-primary);
+        border-radius: 2px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        border-radius: 50px;
+        background: linear-gradient(135deg, rgba(26, 107, 179, 0.1), rgba(0, 201, 255, 0.1));
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: -1;
+    }
+
+    /* Hover Effects */
+    .nav-link:hover .nav-text,
+    .nav-link.active .nav-text {
+        color: var(--text-dark);
+        font-weight: 600;
+    }
+
+    .nav-link:hover .nav-icon,
+    .nav-link.active .nav-icon {
+        color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+
+    .nav-link:hover .nav-underline,
+    .nav-link.active .nav-underline {
+        width: 70%;
+    }
+
+    .nav-link:hover .nav-bg,
+    .nav-link.active .nav-bg {
+        width: calc(100% + 20px);
+        height: calc(100% + 10px);
+        opacity: 1;
+    }
+
+    .navbar-brand:hover .logo-icon {
+        transform: rotate(15deg) scale(1.1);
+    }
+
+    /* Login Button Styling */
+    .btn-login {
+        display: inline-block;
+        position: relative;
+        text-decoration: none;
+        overflow: hidden;
+        border-radius: 12px;
+        background: var(--gradient-primary);
+        padding: 3px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 24px;
+        background: white;
+        border-radius: 10px;
+        font-weight: 600;
+        color: var(--text-dark);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+    }
+
+    .btn-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+    }
+
+    .btn-login:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(26, 107, 179, 0.3);
+    }
+
+    .btn-login:hover .btn-content {
+        background: transparent;
+        color: white;
+    }
+
+    .btn-login:hover .btn-gradient {
+        opacity: 1;
+    }
+     /* Mobile Menu Styling */
+    @media (max-width: 991.98px) {
+        .navbar-collapse {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 1.5rem;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.3s ease;
+        }
+
+        .nav-link-content {
+            padding: 0.75rem 0;
+            margin: 0.25rem 0;
+        }
+
+        .btn-login {
+            margin-top: 1rem;
+        }
+    }
+
+    /* Animations */
+    @keyframes pulse {
+        0% {
+            width: 0;
+            height: 0;
+            opacity: 0.5;
+        }
+        100% {
+            width: 60px;
+            height: 60px;
+            opacity: 0;
+        }
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Active State Enhancement */
+    .nav-link.active::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 6px;
+        height: 6px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateX(-50%) translateY(0);
+        }
+        50% {
+            transform: translateX(-50%) translateY(-5px);
+        }
+    }
+
+    /* Floating Particles Background (Subtle) */
+    .navbar::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 80%, rgba(0, 201, 255, 0.05) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(26, 107, 179, 0.05) 0%, transparent 50%);
+        z-index: -1;
+        opacity: 0.5;
+    }
+
+
+
+        :root {
+            --primary-color: #1a6bb3;
+            --secondary-color: #0a2540;
+            --accent-color: #00c9ff;
+            --light-bg: #f8fafc;
+            --dark-bg: #0f172a;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --gradient-primary: linear-gradient(135deg, #1a6bb3 0%, #00c9ff 100%);
+            --gradient-dark: linear-gradient(135deg, #0a2540 0%, #1e293b 100%);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background-color: var(--light-bg);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navigation - Same as home page */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+        }
+        
+        /* Demo Header */
+        .demo-header {
+            padding: 120px 0 60px;
+            background: var(--gradient-dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .demo-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.15;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(to right, #00c9ff, #92fe9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Demo Dashboard */
+        .demo-dashboard {
+            background: white;
+            border-radius: 20px;
+            margin: -50px 0 50px;
+            position: relative;
+            z-index: 10;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+        
+        .demo-tabs {
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .demo-tab {
+            padding: 1.5rem 2rem;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-weight: 600;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+        
+        .demo-tab:hover {
+            color: var(--primary-color);
+        }
+        
+        .demo-tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+            background: linear-gradient(to bottom, rgba(26, 107, 179, 0.05), transparent);
+        }
+        
+        .demo-content {
+            padding: 2rem;
+            min-height: 600px;
+        }
+        
+        /* Map Container */
+        .map-container {
+            height: 400px;
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 107, 179, 0.1), rgba(0, 201, 255, 0.1));
+        }
+        
+        /* Weather Cards */
+        .weather-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .weather-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-color);
+        }
+        
+        .weather-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Anomaly Indicators */
+        .anomaly-indicator {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .anomaly-low {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+        }
+        
+        .anomaly-medium {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+        }
+        
+        .anomaly-high {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+        }
+        
+        /* Chart Container */
+        .chart-container {
+            position: relative;
+            height: 300px;
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        /* Data Table */
+        .data-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .data-table th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        /* Controls Panel */
+        .controls-panel {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+        }
+        
+        .control-slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #e2e8f0;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        .control-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(26, 107, 179, 0.3);
+        }
+        
+        /* Alert Panel */
+        .alert-panel {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .alert-item {
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .alert-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .alert-critical {
+            border-left-color: #ef4444;
+        }
+        
+        .alert-warning {
+            border-left-color: #f59e0b;
+        }
+        
+        .alert-info {
+            border-left-color: #3b82f6;
+        }
+        
+        /* Demo Stats */
+        .demo-stats {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        /* Demo Footer */
+        .demo-footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 80px 0 30px;
+            margin-top: 80px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .demo-header {
+                padding: 100px 0 40px;
+            }
+            
+            .demo-dashboard {
+                margin: -30px 0 30px;
+            }
+            
+            .demo-tab {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .demo-content {
+                padding: 1rem;
+            }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .newsletter-message {
+    animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.footer .btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+        <!-- Animated Logo with Hover Effect -->
+        <a class="navbar-brand" href="index.html">
+            <div class="logo-container d-flex align-items-center">
+                <div class="logo-icon">
+                    <i class="fas fa-cloud-sun"></i>
+                </div>
+                <div class="logo-text ms-2">
+                    <span class="fw-bold">Weather</span>
+                    <span class="logo-gradient fw-bold">AI</span>
+                </div>
+                <div class="logo-pulse"></div>
+            </div>
+        </a>
+
+        <!-- Mobile Toggle Button with Animation -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <div class="hamburger-menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </button>
+
+        <!-- Navigation Items -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-home nav-icon"></i>
+                            <span class="nav-text">Home</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="features.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-sliders-h nav-icon"></i>
+                            <span class="nav-text">Features</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pricing.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-tag nav-icon"></i>
+                            <span class="nav-text">Pricing</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-blog nav-icon"></i>
+                            <span class="nav-text">Blog</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-info-circle nav-icon"></i>
+                            <span class="nav-text">About</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-envelope nav-icon"></i>
+                            <span class="nav-text">Contact</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                    <a href="login.html" class="btn-login">
+                        <div class="btn-content">
+                            <i class="fas fa-sign-in-alt me-2"></i>
+                            <span>Login/Signup</span>
+                            <div class="btn-gradient"></div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Demo Header -->
+    <section class="demo-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-3 fw-bold mb-4">
+                        Interactive <span class="text-gradient">Platform Demo</span>
+                    </h1>
+                    <p class="lead mb-5">
+                        Experience the power of Weather AI with this interactive demonstration of our anomaly detection, 
+                        predictive analytics, and real-time monitoring capabilities.
+                    </p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <span class="badge bg-light text-dark px-3 py-2">
+                            <i class="fas fa-shield-alt me-2"></i>Live Data Simulation
+                        </span>
+                        <span class="badge bg-light text-dark px-3 py-2">
+                            <i class="fas fa-chart-line me-2"></i>Interactive Analytics
+                        </span>
+                        <span class="badge bg-light text-dark px-3 py-2">
+                            <i class="fas fa-map-marked-alt me-2"></i>Real-time Mapping
+                        </span>
+                        <span class="badge bg-light text-dark px-3 py-2">
+                            <i class="fas fa-bell me-2"></i>Smart Alerts
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Dashboard -->
+    <section class="demo-section">
+        <div class="container">
+            <div class="demo-dashboard">
+                <!-- Demo Tabs -->
+                <div class="demo-tabs d-flex flex-wrap">
+                    <button class="demo-tab active" onclick="switchTab('overview')">
+                        <i class="fas fa-chart-pie me-2"></i>Overview
+                    </button>
+                    <button class="demo-tab" onclick="switchTab('anomalies')">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Anomalies
+                    </button>
+                    <button class="demo-tab" onclick="switchTab('predictions')">
+                        <i class="fas fa-crystal-ball me-2"></i>Predictions
+                    </button>
+                    <button class="demo-tab" onclick="switchTab('alerts')">
+                        <i class="fas fa-bell me-2"></i>Alerts
+                    </button>
+                    <button class="demo-tab" onclick="switchTab('settings')">
+                        <i class="fas fa-cog me-2"></i>Settings
+                    </button>
+                </div>
+
+                <!-- Demo Content -->
+                <div class="demo-content">
+                    
+                    <!-- Overview Tab -->
+                    <div id="overview-tab" class="demo-tab-content active fade-in">
+                        <div class="row mb-4">
+                            <div class="col-md-8">
+                                <h3 class="mb-4">Global Weather Overview</h3>
+                                <div class="map-container slide-in">
+                                    <div class="map-overlay"></div>
+                                    <div class="position-absolute top-0 start-0 p-4">
+                                        <h5 class="text-dark mb-2">Live Weather Map</h5>
+                                        <p class="text-dark mb-0">Interactive global weather visualization</p>
+                                    </div>
+                                    <!-- Weather markers -->
+                                    <div class="position-absolute" style="top: 40%; left: 30%;">
+                                        <div class="weather-marker bg-warning p-2 rounded-circle" data-bs-toggle="tooltip" title="Temperature Anomaly Detected">
+                                            <i class="fas fa-thermometer-half text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div class="position-absolute" style="top: 50%; left: 50%;">
+                                        <div class="weather-marker bg-danger p-2 rounded-circle" data-bs-toggle="tooltip" title="Storm Alert">
+                                            <i class="fas fa-bolt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div class="position-absolute" style="top: 35%; left: 65%;">
+                                        <div class="weather-marker bg-info p-2 rounded-circle" data-bs-toggle="tooltip" title="High Precipitation">
+                                            <i class="fas fa-cloud-rain text-white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h3 class="mb-4">Quick Stats</h3>
+                                <div class="row g-3">
+                                    <div class="col-6">
+                                        <div class="weather-card">
+                                            <div class="weather-icon" style="background: var(--gradient-primary);">
+                                                <i class="fas fa-thermometer-half"></i>
+                                            </div>
+                                            <h5>24.5°C</h5>
+                                            <p class="text-muted small mb-2">Avg Temperature</p>
+                                            <span class="anomaly-indicator anomaly-low">+1.2°C</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="weather-card">
+                                            <div class="weather-icon" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">
+                                                <i class="fas fa-tint"></i>
+                                            </div>
+                                            <h5>65%</h5>
+                                            <p class="text-muted small mb-2">Humidity</p>
+                                            <span class="anomaly-indicator anomaly-medium">+8%</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="weather-card">
+                                            <div class="weather-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                                                <i class="fas fa-wind"></i>
+                                            </div>
+                                            <h5>18 km/h</h5>
+                                            <p class="text-muted small mb-2">Wind Speed</p>
+                                            <span class="badge bg-success">Normal</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="weather-card">
+                                            <div class="weather-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                                                <i class="fas fa-cloud"></i>
+                                            </div>
+                                            <h5>40%</h5>
+                                            <p class="text-muted small mb-2">Cloud Cover</p>
+                                            <span class="badge bg-success">Normal</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="chart-container">
+                                    <h5 class="mb-3">Temperature Trend (Last 7 Days)</h5>
+                                    <canvas id="temperatureChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="chart-container">
+                                    <h5 class="mb-3">Anomaly Detection Accuracy</h5>
+                                    <canvas id="accuracyChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Anomalies Tab -->
+                    <div id="anomalies-tab" class="demo-tab-content">
+                        <h3 class="mb-4">Detected Anomalies</h3>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="data-table">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Location</th>
+                                                <th>Anomaly Type</th>
+                                                <th>Severity</th>
+                                                <th>Detected At</th>
+                                                <th>Confidence</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                                                    Pacific Ocean
+                                                </td>
+                                                <td>Temperature Spike</td>
+                                                <td><span class="anomaly-indicator anomaly-high">High</span></td>
+                                                <td>2 hours ago</td>
+                                                <td>94.5%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="fas fa-map-marker-alt text-warning me-2"></i>
+                                                    North Atlantic
+                                                </td>
+                                                <td>Pressure Drop</td>
+                                                <td><span class="anomaly-indicator anomaly-medium">Medium</span></td>
+                                                <td>4 hours ago</td>
+                                                <td>87.3%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="fas fa-map-marker-alt text-info me-2"></i>
+                                                    Mediterranean
+                                                </td>
+                                                <td>Wind Pattern Change</td>
+                                                <td><span class="anomaly-indicator anomaly-low">Low</span></td>
+                                                <td>6 hours ago</td>
+                                                <td>76.8%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                                                    Indian Ocean
+                                                </td>
+                                                <td>Moisture Anomaly</td>
+                                                <td><span class="anomaly-indicator anomaly-high">High</span></td>
+                                                <td>8 hours ago</td>
+                                                <td>91.2%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="fas fa-map-marker-alt text-warning me-2"></i>
+                                                    Arctic Region
+                                                </td>
+                                                <td>Temperature Drop</td>
+                                                <td><span class="anomaly-indicator anomaly-medium">Medium</span></td>
+                                                <td>12 hours ago</td>
+                                                <td>82.5%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="controls-panel">
+                                    <h5 class="mb-4">Detection Settings</h5>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label d-flex justify-content-between">
+                                            <span>Sensitivity Level</span>
+                                            <span id="sensitivityValue">Medium</span>
+                                        </label>
+                                        <input type="range" class="control-slider" id="sensitivitySlider" 
+                                               min="1" max="3" value="2" 
+                                               oninput="updateSensitivity(this.value)">
+                                        <div class="d-flex justify-content-between mt-1">
+                                            <small class="text-muted">Low</small>
+                                            <small class="text-muted">Medium</small>
+                                            <small class="text-muted">High</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Anomaly Types</label>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="tempCheck" checked>
+                                            <label class="form-check-label" for="tempCheck">
+                                                Temperature Anomalies
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="pressureCheck" checked>
+                                            <label class="form-check-label" for="pressureCheck">
+                                                Pressure Anomalies
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="windCheck">
+                                            <label class="form-check-label" for="windCheck">
+                                                Wind Pattern Anomalies
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="moistureCheck" checked>
+                                            <label class="form-check-label" for="moistureCheck">
+                                                Moisture Anomalies
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="btn btn-primary w-100" onclick="applySettings()">
+                                        <i class="fas fa-sync-alt me-2"></i>Apply Settings
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Predictions Tab -->
+                    <div id="predictions-tab" class="demo-tab-content">
+                        <h3 class="mb-4">Predictive Analytics</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="weather-card">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h5 class="mb-0">7-Day Forecast</h5>
+                                        <span class="badge bg-primary">AI-Powered</span>
+                                    </div>
+                                    <div class="forecast-list">
+                                        <div class="forecast-item d-flex justify-content-between align-items-center py-2 border-bottom">
+                                            <div>
+                                                <strong>Today</strong>
+                                                <div class="small text-muted">Clear Sky</div>
+                                            </div>
+                                            <div class="text-end">
+                                                <div class="fw-bold">24°C</div>
+                                                <div class="small text-muted">+1.2°C anomaly</div>
+                                            </div>
+                                        </div>
+                                        <div class="forecast-item d-flex justify-content-between align-items-center py-2 border-bottom">
+                                            <div>
+                                                <strong>Tomorrow</strong>
+                                                <div class="small text-muted">Partly Cloudy</div>
+                                            </div>
+                                            <div class="text-end">
+                                                <div class="fw-bold">23°C</div>
+                                                <div class="small text-muted">+0.8°C anomaly</div>
+                                            </div>
+                                        </div>
+                                        <div class="forecast-item d-flex justify-content-between align-items-center py-2 border-bottom">
+                                            <div>
+                                                <strong>Day 3</strong>
+                                                <div class="small text-muted">Light Rain</div>
+                                            </div>
+                                            <div class="text-end">
+                                                <div class="fw-bold">21°C</div>
+                                                <div class="small text-success">Normal</div>
+                                            </div>
+                                        </div>
+                                        <div class="forecast-item d-flex justify-content-between align-items-center py-2 border-bottom">
+                                            <div>
+                                                <strong>Day 4</strong>
+                                                <div class="small text-muted">Storm Warning</div>
+                                            </div>
+                                            <div class="text-end">
+                                                <div class="fw-bold">19°C</div>
+                                                <div class="small text-danger">-2.5°C anomaly</div>
+                                            </div>
+                                        </div>
+                                        <div class="forecast-item d-flex justify-content-between align-items-center py-2">
+                                            <div>
+                                                <strong>Day 5</strong>
+                                                <div class="small text-muted">Clearing</div>
+                                            </div>
+                                            <div class="text-end">
+                                                <div class="fw-bold">22°C</div>
+                                                <div class="small text-success">Normal</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="chart-container">
+                                    <h5 class="mb-3">Storm Probability Forecast</h5>
+                                    <canvas id="stormChart"></canvas>
+                                    <div class="mt-3">
+                                        <div class="d-flex justify-content-between">
+                                            <small class="text-muted">Next 24h: 15% probability</small>
+                                            <small class="text-muted">Next 72h: 65% probability</small>
+                                        </div>
+                                        <div class="progress mt-2" style="height: 8px;">
+                                            <div class="progress-bar bg-warning" style="width: 15%"></div>
+                                            <div class="progress-bar bg-danger" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-stats mt-4">
+                            <div class="row text-center">
+                                <div class="col-md-3 mb-3 mb-md-0">
+                                    <h3 class="display-6 fw-bold">94.5%</h3>
+                                    <p class="mb-0">Prediction Accuracy</p>
+                                </div>
+                                <div class="col-md-3 mb-3 mb-md-0">
+                                    <h3 class="display-6 fw-bold">14 days</h3>
+                                    <p class="mb-0">Advanced Forecast</p>
+                                </div>
+                                <div class="col-md-3 mb-3 mb-md-0">
+                                    <h3 class="display-6 fw-bold">78%</h3>
+                                    <p class="mb-0">Reduced False Positives</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <h3 class="display-6 fw-bold">50K+</h3>
+                                    <p class="mb-0">Daily Predictions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alerts Tab -->
+                    <div id="alerts-tab" class="demo-tab-content">
+                        <h3 class="mb-4">Alert Management</h3>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="alert-panel">
+                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                        <h5 class="mb-0">Active Alerts</h5>
+                                        <span class="badge bg-danger">3 Critical</span>
+                                    </div>
+                                    
+                                    <div class="alert-item alert-critical">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <div>
+                                                <h6 class="mb-1">
+                                                    <i class="fas fa-exclamation-circle me-2 text-danger"></i>
+                                                    Severe Storm Alert
+                                                </h6>
+                                                <p class="mb-1 small">North Atlantic region showing signs of rapid intensification</p>
+                                                <small class="text-muted">Detected 2 hours ago • Confidence: 91%</small>
+                                            </div>
+                                            <button class="btn btn-sm btn-outline-danger">Acknowledge</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert-item alert-warning">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <div>
+                                                <h6 class="mb-1">
+                                                    <i class="fas fa-exclamation-triangle me-2 text-warning"></i>
+                                                    Temperature Anomaly
+                                                </h6>
+                                                <p class="mb-1 small">Unusual temperature spike detected in Pacific region</p>
+                                                <small class="text-muted">Detected 4 hours ago • Confidence: 87%</small>
+                                            </div>
+                                            <button class="btn btn-sm btn-outline-warning">Acknowledge</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert-item alert-info">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <div>
+                                                <h6 class="mb-1">
+                                                    <i class="fas fa-info-circle me-2 text-info"></i>
+                                                    Wind Pattern Change
+                                                </h6>
+                                                <p class="mb-1 small">Significant wind pattern shift detected in Mediterranean</p>
+                                                <small class="text-muted">Detected 6 hours ago • Confidence: 76%</small>
+                                            </div>
+                                            <button class="btn btn-sm btn-outline-info">Acknowledge</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert-item">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <div>
+                                                <h6 class="mb-1">
+                                                    <i class="fas fa-check-circle me-2 text-success"></i>
+                                                    Pressure Normalized
+                                                </h6>
+                                                <p class="mb-1 small">Previous pressure anomaly has returned to normal levels</p>
+                                                <small class="text-muted">Resolved 8 hours ago</small>
+                                            </div>
+                                            <span class="badge bg-success">Resolved</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="controls-panel">
+                                    <h5 class="mb-4">Alert Configuration</h5>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Notification Channels</label>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="emailCheck" checked>
+                                            <label class="form-check-label" for="emailCheck">
+                                                <i class="fas fa-envelope me-2"></i>Email
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="smsCheck">
+                                            <label class="form-check-label" for="smsCheck">
+                                                <i class="fas fa-sms me-2"></i>SMS
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="pushCheck" checked>
+                                            <label class="form-check-label" for="pushCheck">
+                                                <i class="fas fa-mobile-alt me-2"></i>Push Notification
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Alert Thresholds</label>
+                                        <div class="mb-3">
+                                            <small class="text-muted">Temperature Anomaly</small>
+                                            <input type="range" class="control-slider mt-1" value="2">
+                                        </div>
+                                        <div class="mb-3">
+                                            <small class="text-muted">Pressure Changes</small>
+                                            <input type="range" class="control-slider mt-1" value="3">
+                                        </div>
+                                        <div>
+                                            <small class="text-muted">Wind Speed</small>
+                                            <input type="range" class="control-slider mt-1" value="4">
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="btn btn-primary w-100" onclick="saveAlertConfig()">
+                                        <i class="fas fa-save me-2"></i>Save Configuration
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Settings Tab -->
+                    <div id="settings-tab" class="demo-tab-content">
+                        <h3 class="mb-4">Platform Settings</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="weather-card">
+                                    <h5 class="mb-4">General Settings</h5>
+                                    
+                                    <div class="mb-3">
+                                        <label class="form-label">Refresh Interval</label>
+                                        <select class="form-select">
+                                            <option value="5">5 seconds</option>
+                                            <option value="30" selected>30 seconds</option>
+                                            <option value="60">1 minute</option>
+                                            <option value="300">5 minutes</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="form-label">Data Sources</label>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="satelliteCheck" checked>
+                                            <label class="form-check-label" for="satelliteCheck">
+                                                Satellite Data
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="groundCheck" checked>
+                                            <label class="form-check-label" for="groundCheck">
+                                                Ground Stations
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="buoyCheck">
+                                            <label class="form-check-label" for="buoyCheck">
+                                                Ocean Buoys
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="radarCheck" checked>
+                                            <label class="form-check-label" for="radarCheck">
+                                                Weather Radar
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Theme</label>
+                                        <div class="d-flex gap-2">
+                                            <button class="btn btn-outline-primary btn-sm active">Light</button>
+                                            <button class="btn btn-outline-secondary btn-sm">Dark</button>
+                                            <button class="btn btn-outline-success btn-sm">Auto</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="btn btn-primary w-100">
+                                        <i class="fas fa-save me-2"></i>Save Settings
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="weather-card">
+                                    <h5 class="mb-4">API Integration</h5>
+                                    
+                                    <div class="mb-3">
+                                        <label class="form-label">API Key</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" value="sk_weatherai_*******" readonly>
+                                            <button class="btn btn-outline-secondary" type="button">
+                                                <i class="fas fa-copy"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="form-label">Rate Limit</label>
+                                        <select class="form-select">
+                                            <option value="100">100 requests/hour</option>
+                                            <option value="500" selected>500 requests/hour</option>
+                                            <option value="1000">1000 requests/hour</option>
+                                            <option value="unlimited">Unlimited</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Data Format</label>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="radio" name="dataFormat" id="jsonFormat" checked>
+                                            <label class="form-check-label" for="jsonFormat">
+                                                JSON
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="radio" name="dataFormat" id="xmlFormat">
+                                            <label class="form-check-label" for="xmlFormat">
+                                                XML
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="dataFormat" id="csvFormat">
+                                            <label class="form-check-label" for="csvFormat">
+                                                CSV
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="btn btn-outline-primary w-100">
+                                        <i class="fas fa-code me-2"></i>View API Documentation
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Call to Action -->
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="demo-stats">
+                        <h3 class="mb-4">Ready to Transform Your Weather Analytics?</h3>
+                        <p class="mb-4">Join thousands of researchers and organizations using Weather AI for advanced climate insights.</p>
+                        <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+                            <a href="login.html" class="btn btn-light btn-lg">
+                                <i class="fas fa-rocket me-2"></i>Start Free Trial
+                            </a>
+                            <a href="contact.html" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-calendar-alt me-2"></i>Schedule Custom Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="demo-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3" href="index.html">
+                        <i class="fas fa-cloud-sun me-2"></i>
+                        <span class="fw-bold">Weather</span><span class="fw-bold" style="color: #00c9ff;">AI</span>
+                    </a>
+                    <p class="text-light">Advanced AI-powered weather anomaly detection platform for researchers, meteorologists, and organizations worldwide.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Platform</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="features.html" class="text-light text-decoration-none">Features</a></li>
+                        <li><a href="pricing.html" class="text-light text-decoration-none">Pricing</a></li>
+                        <li><a href="demo.html" class="text-light text-decoration-none">Live Demo</a></li>
+                        <li><a href="api.html" class="text-light text-decoration-none">API Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="blog.html" class="text-light text-decoration-none">Research Blog</a></li>
+                        <li><a href="careers.html" class="text-light text-decoration-none">Careers</a></li>
+                        <li><a href="press.html" class="text-light text-decoration-none">Press Kit</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Stay Updated</h5>
+                    <p class="text-light">Subscribe to our newsletter for the latest research, updates, and climate insights.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <p class="text-light mt-3 small">
+                        <i class="fas fa-lock me-1"></i> We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+            <hr class="border-light my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light">&copy; 2024 Weather AI. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="privacy.html" class="text-light text-decoration-none me-3">Privacy Policy</a>
+                    <a href="terms.html" class="text-light text-decoration-none me-3">Terms of Service</a>
+                    <a href="compliance.html" class="text-light text-decoration-none">GDPR Compliance</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+         // Enhanced Navbar Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const navbar = document.querySelector('.navbar');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const hamburger = document.querySelector('.navbar-toggler');
+        
+        // Scroll effect with parallax
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY;
+            
+            // Navbar scroll effect
+            if (scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+                // Add parallax effect to background
+                navbar.style.background = `rgba(255, 255, 255, ${0.92 + (scrollY * 0.001)})`;
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+                navbar.style.background = 'rgba(255, 255, 255, 0.92)';
+            }
+            
+            // Update active section based on scroll position
+            updateActiveNav();
+        });
+
+        // Update active navigation based on scroll position
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollY = window.pageYOffset;
+            
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}` || 
+                            (sectionId === 'hero' && link.getAttribute('href') === 'index.html')) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        // Smooth scroll for anchor links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        // Close mobile menu if open
+                        if (window.innerWidth < 992) {
+                            const collapse = document.querySelector('.navbar-collapse');
+                            if (collapse.classList.contains('show')) {
+                                hamburger.click();
+                            }
+                        }
+                        
+                        // Smooth scroll
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active nav
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Hover effects enhancement
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('active')) {
+                    const icon = this.querySelector('.nav-icon');
+                    if (icon) {
+                        icon.style.transform = 'translateY(-2px) scale(1.1)';
+                    }
+                }
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('active')) {
+                    const icon = this.querySelector('.nav-icon');
+                    if (icon) {
+                        icon.style.transform = '';
+                    }
+                }
+            });
+        });
+
+        // Initialize on load
+        updateActiveNav();
+        
+        // Add subtle animation on page load
+        setTimeout(() => {
+            navbar.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        }, 100);
+    });
+
+
+
+        // Tab Switching Functionality
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.demo-tab-content').forEach(tab => {
+                tab.classList.remove('active');
+                tab.classList.remove('fade-in');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.demo-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            const selectedTab = document.getElementById(`${tabName}-tab`);
+            selectedTab.classList.add('active');
+            setTimeout(() => {
+                selectedTab.classList.add('fade-in');
+            }, 50);
+            
+            // Add active class to clicked tab
+            event.target.closest('.demo-tab').classList.add('active');
+            
+            // Initialize charts for the selected tab
+            if (tabName === 'overview') {
+                initializeOverviewCharts();
+            } else if (tabName === 'predictions') {
+                initializePredictionCharts();
+            }
+        }
+
+        // Sensitivity Slider Update
+        function updateSensitivity(value) {
+            const sensitivityLabels = ['Low', 'Medium', 'High'];
+            document.getElementById('sensitivityValue').textContent = sensitivityLabels[value - 1];
+        }
+
+        // Apply Settings
+        function applySettings() {
+            const sensitivity = document.getElementById('sensitivitySlider').value;
+            const anomalyTypes = [];
+            
+            if (document.getElementById('tempCheck').checked) anomalyTypes.push('Temperature');
+            if (document.getElementById('pressureCheck').checked) anomalyTypes.push('Pressure');
+            if (document.getElementById('windCheck').checked) anomalyTypes.push('Wind');
+            if (document.getElementById('moistureCheck').checked) anomalyTypes.push('Moisture');
+            
+            alert(`Settings applied:\nSensitivity: ${sensitivity}/3\nAnomaly Types: ${anomalyTypes.join(', ')}`);
+        }
+
+        // Save Alert Configuration
+        function saveAlertConfig() {
+            const channels = [];
+            if (document.getElementById('emailCheck').checked) channels.push('Email');
+            if (document.getElementById('smsCheck').checked) channels.push('SMS');
+            if (document.getElementById('pushCheck').checked) channels.push('Push');
+            
+            alert(`Alert configuration saved!\nNotification Channels: ${channels.join(', ')}`);
+        }
+
+        // Initialize Charts
+        function initializeOverviewCharts() {
+            // Temperature Chart
+            const tempCtx = document.getElementById('temperatureChart').getContext('2d');
+            new Chart(tempCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Temperature (°C)',
+                        data: [22, 23, 24.5, 23, 21, 19, 22],
+                        borderColor: '#1a6bb3',
+                        backgroundColor: 'rgba(26, 107, 179, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Accuracy Chart
+            const accuracyCtx = document.getElementById('accuracyChart').getContext('2d');
+            new Chart(accuracyCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Correct', 'False Positives', 'Missed'],
+                    datasets: [{
+                        data: [94.5, 3.2, 2.3],
+                        backgroundColor: [
+                            '#10b981',
+                            '#f59e0b',
+                            '#ef4444'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+
+        function initializePredictionCharts() {
+            // Storm Probability Chart
+            const stormCtx = document.getElementById('stormChart').getContext('2d');
+            new Chart(stormCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Now', '12h', '24h', '36h', '48h', '60h', '72h'],
+                    datasets: [{
+                        label: 'Storm Probability',
+                        data: [5, 10, 15, 35, 50, 60, 65],
+                        borderColor: '#ef4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        borderWidth: 3,
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize tooltips
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Bootstrap tooltips
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+
+            // Initialize overview charts
+            initializeOverviewCharts();
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 100) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+            });
+
+            // Simulate live data updates
+            setInterval(() => {
+                updateLiveData();
+            }, 30000); // Update every 30 seconds
+        });
+
+        // Simulate live data updates
+        function updateLiveData() {
+            const tempElement = document.querySelector('.weather-card:nth-child(1) h5');
+            if (tempElement) {
+                const currentTemp = parseFloat(tempElement.textContent.replace('°C', ''));
+                const newTemp = (currentTemp + (Math.random() - 0.5)).toFixed(1);
+                tempElement.textContent = `${newTemp}°C`;
+                
+                // Update anomaly indicator
+                const anomaly = (newTemp - 24.5).toFixed(1);
+                const anomalyElement = tempElement.nextElementSibling.nextElementSibling;
+                anomalyElement.textContent = `${anomaly > 0 ? '+' : ''}${anomaly}°C`;
+                
+                // Update class based on anomaly
+                anomalyElement.className = 'anomaly-indicator';
+                if (Math.abs(anomaly) > 2) {
+                    anomalyElement.classList.add('anomaly-high');
+                } else if (Math.abs(anomaly) > 1) {
+                    anomalyElement.classList.add('anomaly-medium');
+                } else {
+                    anomalyElement.classList.add('anomaly-low');
+                }
+            }
+        }
+        // Newsletter Subscription Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const newsletterForm = document.querySelector('.footer .input-group');
+    if (newsletterForm) {
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const subscribeBtn = newsletterForm.querySelector('button');
+        
+        // Create message container if it doesn't exist
+        let messageDiv = document.querySelector('.newsletter-message');
+        if (!messageDiv) {
+            messageDiv = document.createElement('div');
+            messageDiv.className = 'newsletter-message mt-2';
+            messageDiv.style.display = 'none';
+            newsletterForm.parentNode.insertBefore(messageDiv, newsletterForm.nextSibling);
+        }
+        
+        // Remove existing click handler and add new one
+        const newSubscribeBtn = subscribeBtn.cloneNode(true);
+        subscribeBtn.parentNode.replaceChild(newSubscribeBtn, subscribeBtn);
+        
+        newSubscribeBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            
+            // Validate email
+            if (!email) {
+                showNewsletterMessage('Please enter your email address', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNewsletterMessage('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Disable button and show loading
+            newSubscribeBtn.disabled = true;
+            const originalText = newSubscribeBtn.innerHTML;
+            newSubscribeBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Subscribing...';
+            
+            try {
+                const response = await fetch('/api/newsletter/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showNewsletterMessage(data.message, 'success');
+                    emailInput.value = ''; // Clear input
+                } else {
+                    showNewsletterMessage(data.detail || 'Failed to subscribe. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error('Newsletter subscription error:', error);
+                showNewsletterMessage('Network error. Please check your connection and try again.', 'error');
+            } finally {
+                // Re-enable button
+                newSubscribeBtn.disabled = false;
+                newSubscribeBtn.innerHTML = originalText;
+            }
+        });
+        
+        // Allow Enter key to submit
+        emailInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                newSubscribeBtn.click();
+            }
+        });
+        
+        function showNewsletterMessage(text, type) {
+            messageDiv.style.display = 'block';
+            messageDiv.textContent = text;
+            
+            if (type === 'success') {
+                messageDiv.style.color = '#28a745';
+                messageDiv.style.backgroundColor = '#d4edda';
+                messageDiv.style.border = '1px solid #c3e6cb';
+            } else {
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.border = '1px solid #f5c6cb';
+            }
+            
+            messageDiv.style.padding = '10px';
+            messageDiv.style.borderRadius = '4px';
+            messageDiv.style.fontSize = '14px';
+            messageDiv.style.marginTop = '10px';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+    }
+});
+    </script>
+</body>
+</html>

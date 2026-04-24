@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather AI - Cookie Policy</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Weather AI Cookie Policy - Information about how we use cookies and similar technologies on our platform.">
+    <meta name="keywords" content="weather AI cookies, cookie policy, privacy, tracking technologies, GDPR compliance">
+    <meta name="author" content="Weather AI Team">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Weather AI - Cookie Policy">
+    <meta property="og:description" content="Information about how we use cookies on Weather AI platform">
+    <meta property="og:image" content="https://weatherai.example.com/assets/images/og-cookies.jpg">
+    <meta property="og:url" content="https://weatherai.example.com/cookie-policy.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Weather AI Cookie Policy">
+    <meta name="twitter:description" content="Information about how we use cookies on Weather AI platform">
+    
+    <!-- Favicon -->
+   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+    
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Cookie Consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        html { font-size: 14px !important; }
+        body {
+            font-size: 0.95rem !important;
+            overflow-x: hidden !important;
+        }
+        @supports (zoom: 1) {
+            body { zoom: 0.95 !important; }
+        }
+        @supports not (zoom: 1) {
+            body {
+                transform: scale(0.95) !important;
+                transform-origin: top center !important;
+                width: 100% !important;
+            }
+        }
+
+        :root {
+            --primary-color: #1a6bb3;
+            --secondary-color: #0a2540;
+            --accent-color: #00c9ff;
+            --light-bg: #f8fafc;
+            --dark-bg: #0f172a;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --gradient-primary: linear-gradient(135deg, #1a6bb3 0%, #00c9ff 100%);
+            --gradient-dark: linear-gradient(135deg, #0a2540 0%, #1e293b 100%);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            padding-top: 80px; /* Account for fixed navbar */
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navbar Styles - Matching Home Page */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
+            padding: 1rem 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar-scrolled {
+            padding: 0.7rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 6px 30px rgba(10, 37, 64, 0.12);
+        }
+
+        /* Logo Styling */
+        .logo-container {
+            position: relative;
+            padding: 0.25rem 0;
+        }
+
+        .logo-icon {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        /* Navigation Links Styling */
+        .nav-link-content {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-icon {
+            font-size: 1.1rem;
+            margin-right: 8px;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-text {
+            font-weight: 500;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-underline {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50px;
+            background: linear-gradient(135deg, rgba(26, 107, 179, 0.1), rgba(0, 201, 255, 0.1));
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        /* Hover Effects */
+        .nav-link:hover .nav-text,
+        .nav-link.active .nav-text {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .nav-link:hover .nav-icon,
+        .nav-link.active .nav-icon {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover .nav-underline,
+        .nav-link.active .nav-underline {
+            width: 70%;
+        }
+
+        .nav-link:hover .nav-bg,
+        .nav-link.active .nav-bg {
+            width: calc(100% + 20px);
+            height: calc(100% + 10px);
+            opacity: 1;
+        }
+
+        .navbar-brand:hover .logo-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Login Button Styling */
+        .btn-login {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            overflow: hidden;
+            border-radius: 12px;
+            background: var(--gradient-primary);
+            padding: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+            background: white;
+            border-radius: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(26, 107, 179, 0.3);
+        }
+
+        .btn-login:hover .btn-content {
+            background: transparent;
+            color: white;
+        }
+
+        .btn-login:hover .btn-gradient {
+            opacity: 1;
+        }
+
+        /* Hero Section for Cookie Policy */
+        .cookie-hero {
+            position: relative;
+            padding: 100px 0 60px;
+            background: var(--gradient-dark);
+            color: white;
+            overflow: hidden;
+        }
+
+        .cookie-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.15;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #00c9ff, #92fe9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Cookie Content Section */
+        .cookie-content {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .cookie-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Cookie Navigation */
+        .cookie-nav {
+            position: sticky;
+            top: 120px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .cookie-nav h5 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .cookie-nav-link {
+            display: block;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            font-weight: 500;
+        }
+
+        .cookie-nav-link:hover,
+        .cookie-nav-link.active {
+            background: rgba(26, 107, 179, 0.05);
+            color: var(--primary-color);
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .cookie-nav-link i {
+            width: 20px;
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        /* Cookie Sections */
+        .cookie-section {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .cookie-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .cookie-section h3 {
+            color: var(--secondary-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .cookie-section p {
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .cookie-section ul, .cookie-section ol {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .cookie-section li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        /* Cookie Types Cards */
+        .cookie-type-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .cookie-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cookie-type-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .cookie-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .cookie-icon-essential {
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+        }
+
+        .cookie-icon-functional {
+            background: linear-gradient(135deg, #2196F3, #03A9F4);
+        }
+
+        .cookie-icon-analytics {
+            background: linear-gradient(135deg, #FF9800, #FFC107);
+        }
+
+        .cookie-icon-marketing {
+            background: linear-gradient(135deg, #E91E63, #F06292);
+        }
+
+        .cookie-type-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .cookie-type-status {
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .status-required {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+        }
+
+        .status-optional {
+            background: rgba(33, 150, 243, 0.1);
+            color: #2196F3;
+        }
+
+        /* Cookie Table */
+        .cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: var(--shadow-sm);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .cookie-table th {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .cookie-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .cookie-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .cookie-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .cookie-name {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .cookie-purpose {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Cookie Manager Section */
+        .cookie-manager-section {
+            padding: 60px 0;
+            background-color: var(--light-bg);
+        }
+
+        .cookie-manager {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .cookie-preference {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .cookie-preference-info h5 {
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .cookie-preference-info p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .cookie-toggle {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        .cookie-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .cookie-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .cookie-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .cookie-slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .cookie-slider:before {
+            transform: translateX(30px);
+        }
+
+        input:disabled + .cookie-slider {
+            background-color: #4CAF50;
+            cursor: not-allowed;
+        }
+
+        /* Cookie Control Buttons */
+        .cookie-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* Important Notice Section */
+        .important-notice {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.1));
+            border: 2px solid #ffc107;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .important-notice::before {
+            content: '⚠';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            font-size: 120px;
+            opacity: 0.1;
+            color: #ff9800;
+            transform: rotate(15deg);
+        }
+
+        .important-notice h4 {
+            color: #d84315;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 80px 0 30px;
+            background-color: var(--dark-bg);
+            color: white;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Custom button styles */
+        .btn-primary {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline-primary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            padding: 10px 28px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Scroll Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, opacity;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .cookie-hero {
+                padding: 80px 0 40px;
+            }
+            
+            .display-3 {
+                font-size: 2.5rem;
+            }
+            
+            .cookie-nav {
+                position: static;
+                margin-top: 20px;
+            }
+            
+            .cookie-section {
+                padding: 20px;
+            }
+            
+            .cookie-manager {
+                padding: 25px;
+            }
+            
+            .cookie-preference {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .cookie-toggle {
+                margin-top: 15px;
+            }
+            
+            .cookie-controls {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .cookie-table {
+                font-size: 0.85rem;
+            }
+            
+            .cookie-table th,
+            .cookie-table td {
+                padding: 10px;
+            }
+        }
+        .newsletter-message {
+    animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.footer .btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <!-- Animated Logo with Hover Effect -->
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-container d-flex align-items-center">
+                    <div class="logo-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <div class="logo-text ms-2">
+                        <span class="fw-bold">Weather</span>
+                        <span class="logo-gradient fw-bold">AI</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Items -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-home nav-icon"></i>
+                                <span class="nav-text">Home</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-sliders-h nav-icon"></i>
+                                <span class="nav-text">Features</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-tag nav-icon"></i>
+                                <span class="nav-text">Pricing</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-blog nav-icon"></i>
+                                <span class="nav-text">Blog</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-info-circle nav-icon"></i>
+                                <span class="nav-text">About</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-envelope nav-icon"></i>
+                            <span class="nav-text">Contact</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a href="login.html" class="btn-login">
+                            <div class="btn-content">
+                                <i class="fas fa-sign-in-alt me-2"></i>
+                                <span>Login/Signup</span>
+                                <div class="btn-gradient"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="cookie-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center fade-in-up">
+                    <h1 class="display-3 fw-bold mb-4">
+                        Cookie <span class="text-gradient">Policy</span>
+                    </h1>
+                    <p class="lead mb-4">
+                        Last Updated: March 15, 2024. Learn how Weather AI uses cookies and similar technologies to enhance your experience.
+                    </p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#manage" class="btn btn-primary btn-lg">
+                            <i class="fas fa-sliders-h me-2"></i>Manage Preferences
+                        </a>
+                        <a href="#types" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-list me-2"></i>View Cookie Types
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Notice -->
+    <section class="cookie-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="important-notice fade-in-up">
+                        <h4><i class="fas fa-info-circle me-2"></i>Transparency & Control</h4>
+                        <p class="mb-0">
+                            At Weather AI, we believe in transparency and user control. This policy explains what cookies are, how we use them, and how you can manage your preferences. We comply with GDPR, CCPA, and other privacy regulations to ensure your data protection.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cookie Content -->
+    <section class="cookie-content">
+        <div class="container">
+            <div class="row">
+                <!-- Cookie Navigation -->
+                <div class="col-lg-3 d-none d-lg-block">
+                    <div class="cookie-nav fade-in-up">
+                        <h5><i class="fas fa-cookie-bite me-2"></i>Quick Navigation</h5>
+                        <a href="#what-are-cookies" class="cookie-nav-link active">
+                            <i class="fas fa-question-circle"></i>What Are Cookies?
+                        </a>
+                        <a href="#types" class="cookie-nav-link">
+                            <i class="fas fa-layer-group"></i>Types We Use
+                        </a>
+                        <a href="#cookies-list" class="cookie-nav-link">
+                            <i class="fas fa-list-ul"></i>Specific Cookies
+                        </a>
+                        <a href="#why-we-use" class="cookie-nav-link">
+                            <i class="fas fa-bullseye"></i>Why We Use Them
+                        </a>
+                        <a href="#third-party" class="cookie-nav-link">
+                            <i class="fas fa-external-link-alt"></i>Third-Party Cookies
+                        </a>
+                        <a href="#manage" class="cookie-nav-link">
+                            <i class="fas fa-user-cog"></i>Managing Cookies
+                        </a>
+                        <a href="#updates" class="cookie-nav-link">
+                            <i class="fas fa-history"></i>Policy Updates
+                        </a>
+                        <a href="#contact" class="cookie-nav-link">
+                            <i class="fas fa-envelope"></i>Contact & Questions
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Cookie Sections -->
+                <div class="col-lg-9">
+                    <div class="cookie-container">
+                        <!-- Section 1: What Are Cookies -->
+                        <section class="cookie-section fade-in-up" id="what-are-cookies">
+                            <h2>1. What Are Cookies and Similar Technologies?</h2>
+                            <p>
+                                Cookies are small text files that are placed on your device (computer, tablet, or mobile) when you visit our website. They help us provide you with a better experience by remembering your preferences and understanding how you use our platform.
+                            </p>
+                            
+                            <h3>1.1 Types of Technologies We Use</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="cookie-type-card">
+                                        <div class="cookie-type-header">
+                                            <div class="cookie-icon cookie-icon-essential">
+                                                <i class="fas fa-cookie"></i>
+                                            </div>
+                                            <div>
+                                                <div class="cookie-type-title">Cookies</div>
+                                                <span class="cookie-type-status status-required">Required</span>
+                                            </div>
+                                        </div>
+                                        <p class="mb-0">Small text files stored on your device that help remember your preferences and login status.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="cookie-type-card">
+                                        <div class="cookie-type-header">
+                                            <div class="cookie-icon" style="background: linear-gradient(135deg, #9C27B0, #673AB7);">
+                                                <i class="fas fa-chart-bar"></i>
+                                            </div>
+                                            <div>
+                                                <div class="cookie-type-title">Local Storage</div>
+                                                <span class="cookie-type-status status-optional">Optional</span>
+                                            </div>
+                                        </div>
+                                        <p class="mb-0">Browser storage that allows us to save larger amounts of data locally on your device.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="cookie-type-card">
+                                        <div class="cookie-type-header">
+                                            <div class="cookie-icon" style="background: linear-gradient(135deg, #009688, #4DB6AC);">
+                                                <i class="fas fa-fingerprint"></i>
+                                            </div>
+                                            <div>
+                                                <div class="cookie-type-title">Web Beacons</div>
+                                                <span class="cookie-type-status status-optional">Optional</span>
+                                            </div>
+                                        </div>
+                                        <p class="mb-0">Tiny graphics that help us understand user behavior and campaign effectiveness.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="cookie-type-card">
+                                        <div class="cookie-type-header">
+                                            <div class="cookie-icon" style="background: linear-gradient(135deg, #607D8B, #78909C);">
+                                                <i class="fas fa-server"></i>
+                                            </div>
+                                            <div>
+                                                <div class="cookie-type-title">Session Storage</div>
+                                                <span class="cookie-type-status status-required">Required</span>
+                                            </div>
+                                        </div>
+                                        <p class="mb-0">Temporary storage that lasts only for your current browser session.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h3>1.2 How Long Do Cookies Last?</h3>
+                            <p>
+                                Cookies have different lifespans based on their purpose:
+                            </p>
+                            <ul>
+                                <li><strong>Session Cookies:</strong> Temporary cookies that expire when you close your browser</li>
+                                <li><strong>Persistent Cookies:</strong> Remain on your device for a set period (days, months, or years) unless deleted</li>
+                                <li><strong>First-Party Cookies:</strong> Set by Weather AI directly on our domain</li>
+                                <li><strong>Third-Party Cookies:</strong> Set by trusted partners and services we integrate with</li>
+                            </ul>
+                        </section>
+
+                        <!-- Section 2: Cookie Types -->
+                        <section class="cookie-section fade-in-up" style="transition-delay: 0.1s;" id="types">
+                            <h2>2. Types of Cookies We Use</h2>
+                            <p>
+                                We use different types of cookies for various purposes. Here's a breakdown of each category:
+                            </p>
+                            
+                            <!-- Essential Cookies -->
+                            <div class="cookie-type-card">
+                                <div class="cookie-type-header">
+                                    <div class="cookie-icon cookie-icon-essential">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div>
+                                        <div class="cookie-type-title">Essential Cookies</div>
+                                        <span class="cookie-type-status status-required">Always Active</span>
+                                    </div>
+                                </div>
+                                <p>
+                                    These cookies are necessary for the website to function and cannot be switched off. They are usually only set in response to actions made by you such as logging in, filling forms, or setting privacy preferences.
+                                </p>
+                                <p class="mb-0">
+                                    <strong>Examples:</strong> Authentication cookies, security cookies, load balancing cookies.
+                                </p>
+                            </div>
+                            
+                            <!-- Functional Cookies -->
+                            <div class="cookie-type-card">
+                                <div class="cookie-type-header">
+                                    <div class="cookie-icon cookie-icon-functional">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                    <div>
+                                        <div class="cookie-type-title">Functional Cookies</div>
+                                        <span class="cookie-type-status status-optional">Controllable</span>
+                                    </div>
+                                </div>
+                                <p>
+                                    These cookies enable the website to provide enhanced functionality and personalization. They may be set by us or by third-party providers whose services we have added to our pages.
+                                </p>
+                                <p class="mb-0">
+                                    <strong>Examples:</strong> Language preferences, region settings, font size preferences.
+                                </p>
+                            </div>
+                            
+                            <!-- Analytics Cookies -->
+                            <div class="cookie-type-card">
+                                <div class="cookie-type-header">
+                                    <div class="cookie-icon cookie-icon-analytics">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div>
+                                        <div class="cookie-type-title">Analytics Cookies</div>
+                                        <span class="cookie-type-status status-optional">Controllable</span>
+                                    </div>
+                                </div>
+                                <p>
+                                    These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us know which pages are popular and see how visitors move around the site.
+                                </p>
+                                <p class="mb-0">
+                                    <strong>Examples:</strong> Google Analytics cookies, performance tracking cookies.
+                                </p>
+                            </div>
+                            
+                            <!-- Marketing Cookies -->
+                            <div class="cookie-type-card">
+                                <div class="cookie-type-header">
+                                    <div class="cookie-icon cookie-icon-marketing">
+                                        <i class="fas fa-bullhorn"></i>
+                                    </div>
+                                    <div>
+                                        <div class="cookie-type-title">Marketing Cookies</div>
+                                        <span class="cookie-type-status status-optional">Controllable</span>
+                                    </div>
+                                </div>
+                                <p>
+                                    These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant advertisements on other sites.
+                                </p>
+                                <p class="mb-0">
+                                    <strong>Examples:</strong> Social media cookies, advertising network cookies.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- Section 3: Specific Cookies -->
+                        <section class="cookie-section fade-in-up" style="transition-delay: 0.2s;" id="cookies-list">
+                            <h2>3. Specific Cookies We Use</h2>
+                            <p>
+                                Below is a detailed list of cookies used on Weather AI platform:
+                            </p>
+                            
+                            <h3>3.1 Essential Cookies</h3>
+                            <div class="table-responsive">
+                                <table class="cookie-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Cookie Name</th>
+                                            <th>Provider</th>
+                                            <th>Purpose</th>
+                                            <th>Duration</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="cookie-name">weatherAI_session</td>
+                                            <td>Weather AI</td>
+                                            <td class="cookie-purpose">Maintains your session state and authentication status</td>
+                                            <td>Session</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cookie-name">XSRF-TOKEN</td>
+                                            <td>Weather AI</td>
+                                            <td class="cookie-purpose">Protects against cross-site request forgery attacks</td>
+                                            <td>Session</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cookie-name">laravel_session</td>
+                                            <td>Weather AI</td>
+                                            <td class="cookie-purpose">Framework session cookie for application functionality</td>
+                                            <td>2 hours</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cookie-name">cookie_consent</td>
+                                            <td>Weather AI</td>
+                                            <td class="cookie-purpose">Stores your cookie preferences</td>
+                                            <td>1 year</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <h3>3.2 Analytics Cookies</h3>
+                            <div class="table-responsive">
+                                <table class="cookie-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Cookie Name</th>
+                                            <th>Provider</th>
+                                            <th>Purpose</th>
+                                            <th>Duration</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="cookie-name">_ga</td>
+                                            <td>Google Analytics</td>
+                                            <td class="cookie-purpose">Distinguishes unique users with a client identifier</td>
+                                            <td>2 years</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cookie-name">_gid</td>
+                                            <td>Google Analytics</td>
+                                            <td class="cookie-purpose">Distinguishes unique users for 24-hour period</td>
+                                            <td>24 hours</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cookie-name">_gat</td>
+                                            <td>Google Analytics</td>
+                                            <td class="cookie-purpose">Throttles request rate to limit data collection</td>
+                                            <td>1 minute</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cookie-name">_ga_[ID]</td>
+                                            <td>Google Analytics</td>
+                                            <td class="cookie-purpose">Stores session state and attribution information</td>
+                                            <td>2 years</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <h3>3.3 Functional Cookies</h3>
+                            <div class="table-responsive">
+                                <table class="cookie-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Cookie Name</th>
+                                            <th>Provider</th>
+                                            <th>Purpose</th>
+                                            <th>Duration</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="cookie-name">user_preferences</td>
+                                            <td>Weather AI</td>
+                                            <td class="cookie-purpose">Stores your dashboard layout and display preferences</td>
+                                            <td>1 year</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cookie-name">map_settings</td>
+                                            <td>Weather AI</td>
+                                            <td class="cookie-purpose">Remembers your map view settings and zoom level</td>
+                                            <td>30 days</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cookie-name">theme_preference</td>
+                                            <td>Weather AI</td>
+                                            <td class="cookie-purpose">Stores your light/dark mode preference</td>
+                                            <td>1 year</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <!-- Section 4: Why We Use Cookies -->
+                        <section class="cookie-section fade-in-up" style="transition-delay: 0.3s;" id="why-we-use">
+                            <h2>4. Why We Use Cookies</h2>
+                            <p>
+                                Cookies help us provide you with a better experience on Weather AI platform. Here are the main reasons we use cookies:
+                            </p>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="cookie-icon cookie-icon-essential me-3" style="width: 60px; height: 60px;">
+                                            <i class="fas fa-user-shield"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Security & Authentication</h5>
+                                            <p class="mb-0">Protect your account and prevent unauthorized access through secure session management.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="cookie-icon cookie-icon-functional me-3" style="width: 60px; height: 60px;">
+                                            <i class="fas fa-cogs"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Personalization</h5>
+                                            <p class="mb-0">Remember your preferences, settings, and customizations across sessions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="cookie-icon cookie-icon-analytics me-3" style="width: 60px; height: 60px;">
+                                            <i class="fas fa-chart-bar"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Performance Analytics</h5>
+                                            <p class="mb-0">Understand how users interact with our platform to improve features and fix issues.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="cookie-icon cookie-icon-marketing me-3" style="width: 60px; height: 60px;">
+                                            <i class="fas fa-bullseye"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Feature Development</h5>
+                                            <p class="mb-0">Gather insights to develop new features that meet user needs and preferences.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-box" style="background: linear-gradient(135deg, rgba(26, 107, 179, 0.05), rgba(0, 201, 255, 0.05)); border-left: 4px solid var(--primary-color);">
+                                <h5><i class="fas fa-lightbulb me-2"></i>Our Commitment to Privacy</h5>
+                                <p class="mb-0">
+                                    We never use cookies to collect personally identifiable information without your consent. All data collected through cookies is anonymized where possible and handled in accordance with our <a href="privacy.html">Privacy Policy</a> and applicable data protection laws.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- Section 5: Third-Party Cookies -->
+                        <section class="cookie-section fade-in-up" style="transition-delay: 0.4s;" id="third-party">
+                            <h2>5. Third-Party Cookies</h2>
+                            <p>
+                                We work with trusted third-party services that may set cookies on your device when you visit Weather AI. These services help us provide additional functionality and analyze platform performance.
+                            </p>
+                            
+                            <h3>5.1 Analytics Partners</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="cookie-type-card">
+                                        <div class="cookie-type-header">
+                                            <div class="cookie-icon" style="background: linear-gradient(135deg, #4285F4, #34A853);">
+                                                <i class="fab fa-google"></i>
+                                            </div>
+                                            <div>
+                                                <div class="cookie-type-title">Google Analytics</div>
+                                                <span class="cookie-type-status status-optional">Optional</span>
+                                            </div>
+                                        </div>
+                                        <p class="mb-2">Helps us understand how users interact with our platform to improve user experience.</p>
+                                        <a href="https://policies.google.com/technologies/cookies" target="_blank" class="small">View Google's Cookie Policy →</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="cookie-type-card">
+                                        <div class="cookie-type-header">
+                                            <div class="cookie-icon" style="background: linear-gradient(135deg, #FF6384, #36A2EB);">
+                                                <i class="fas fa-chart-pie"></i>
+                                            </div>
+                                            <div>
+                                                <div class="cookie-type-title">Mixpanel</div>
+                                                <span class="cookie-type-status status-optional">Optional</span>
+                                            </div>
+                                        </div>
+                                        <p class="mb-2">Provides detailed analytics on user behavior and feature usage patterns.</p>
+                                        <a href="https://mixpanel.com/legal/cookie-policy/" target="_blank" class="small">View Mixpanel's Cookie Policy →</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h3>5.2 Functional Services</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="cookie-type-card">
+                                        <div class="cookie-type-header">
+                                            <div class="cookie-icon" style="background: linear-gradient(135deg, #00aced, #3b5998);">
+                                                <i class="fas fa-share-alt"></i>
+                                            </div>
+                                            <div>
+                                                <div class="cookie-type-title">Social Media</div>
+                                                <span class="cookie-type-status status-optional">Optional</span>
+                                            </div>
+                                        </div>
+                                        <p class="mb-2">Enables social sharing features and integration with social platforms.</p>
+                                        <p class="mb-0 small text-muted">Facebook, Twitter, LinkedIn integration</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="cookie-type-card">
+                                        <div class="cookie-type-header">
+                                            <div class="cookie-icon" style="background: linear-gradient(135deg, #FF6B6B, #4ECDC4);">
+                                                <i class="fas fa-comments"></i>
+                                            </div>
+                                            <div>
+                                                <div class="cookie-type-title">Live Chat</div>
+                                                <span class="cookie-type-status status-optional">Optional</span>
+                                            </div>
+                                        </div>
+                                        <p class="mb-2">Provides customer support through live chat functionality.</p>
+                                        <p class="mb-0 small text-muted">Intercom, Drift, or similar services</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-info mt-4">
+                                <i class="fas fa-external-link-alt me-2"></i>
+                                <strong>Note:</strong> Third-party cookies are subject to the respective privacy policies of these providers. We recommend reviewing their policies for more information about how they handle your data.
+                            </div>
+                        </section>
+
+                        <!-- Cookie Manager Section -->
+                        <section class="cookie-manager-section fade-in-up" style="transition-delay: 0.5s;" id="manage">
+                            <div class="cookie-manager">
+                                <h2 class="fw-bold mb-4 text-center section-title">Cookie Preferences Manager</h2>
+                                <p class="text-center mb-4">
+                                    Take control of your cookie preferences. You can adjust your settings at any time using the controls below.
+                                </p>
+                                
+                                <!-- Essential Cookies (Always On) -->
+                                <div class="cookie-preference">
+                                    <div class="cookie-preference-info">
+                                        <h5>Essential Cookies <span class="badge bg-success ms-2">Required</span></h5>
+                                        <p>Necessary for basic website functionality and security. These cannot be disabled.</p>
+                                    </div>
+                                    <label class="cookie-toggle">
+                                        <input type="checkbox" checked disabled>
+                                        <span class="cookie-slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <!-- Functional Cookies -->
+                                <div class="cookie-preference">
+                                    <div class="cookie-preference-info">
+                                        <h5>Functional Cookies</h5>
+                                        <p>Remember your preferences and settings for enhanced user experience.</p>
+                                    </div>
+                                    <label class="cookie-toggle">
+                                        <input type="checkbox" id="functionalCookies" checked>
+                                        <span class="cookie-slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <!-- Analytics Cookies -->
+                                <div class="cookie-preference">
+                                    <div class="cookie-preference-info">
+                                        <h5>Analytics Cookies</h5>
+                                        <p>Help us understand how visitors interact with our platform to improve it.</p>
+                                    </div>
+                                    <label class="cookie-toggle">
+                                        <input type="checkbox" id="analyticsCookies" checked>
+                                        <span class="cookie-slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <!-- Marketing Cookies -->
+                                <div class="cookie-preference">
+                                    <div class="cookie-preference-info">
+                                        <h5>Marketing Cookies</h5>
+                                        <p>Used to deliver relevant advertisements and measure campaign effectiveness.</p>
+                                    </div>
+                                    <label class="cookie-toggle">
+                                        <input type="checkbox" id="marketingCookies">
+                                        <span class="cookie-slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <!-- Third-Party Cookies -->
+                                <div class="cookie-preference">
+                                    <div class="cookie-preference-info">
+                                        <h5>Third-Party Cookies</h5>
+                                        <p>Set by trusted partners for additional functionality and services.</p>
+                                    </div>
+                                    <label class="cookie-toggle">
+                                        <input type="checkbox" id="thirdPartyCookies" checked>
+                                        <span class="cookie-slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <!-- Cookie Controls -->
+                                <div class="cookie-controls">
+                                    <button class="btn btn-outline-secondary" id="rejectAll">
+                                        <i class="fas fa-times-circle me-2"></i>Reject All Optional
+                                    </button>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-outline-primary" id="savePreferences">
+                                            <i class="fas fa-save me-2"></i>Save Preferences
+                                        </button>
+                                        <button class="btn btn-primary" id="acceptAll">
+                                            <i class="fas fa-check-circle me-2"></i>Accept All
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Browser Instructions -->
+                                <div class="mt-5">
+                                    <h5 class="mb-3"><i class="fas fa-browser me-2"></i>Managing Cookies via Browser Settings</h5>
+                                    <p>You can also manage cookies through your browser settings. Here are links to instructions for popular browsers:</p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <a href="https://support.google.com/chrome/answer/95647" target="_blank" class="btn btn-sm btn-outline-secondary">Google Chrome</a>
+                                        <a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop" target="_blank" class="btn btn-sm btn-outline-secondary">Mozilla Firefox</a>
+                                        <a href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank" class="btn btn-sm btn-outline-secondary">Safari</a>
+                                        <a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" class="btn btn-sm btn-outline-secondary">Microsoft Edge</a>
+                                        <a href="https://support.microsoft.com/en-us/windows/microsoft-edge-browsing-data-and-privacy-bb8174ba-9d73-dcf2-9b4a-c582b4e640dd" target="_blank" class="btn btn-sm btn-outline-secondary">Internet Explorer</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Section 6: Policy Updates -->
+                        <section class="cookie-section fade-in-up" style="transition-delay: 0.6s;" id="updates">
+                            <h2>6. Policy Updates and Changes</h2>
+                            <p>
+                                We may update this Cookie Policy from time to time to reflect changes in our practices, technologies, legal requirements, or other reasons. We will notify you of any material changes by:
+                            </p>
+                            
+                            <ul>
+                                <li>Posting the updated policy on this page with a new "Last Updated" date</li>
+                                <li>Sending an email notification to registered users (for significant changes)</li>
+                                <li>Displaying a prominent notice on our website before changes take effect</li>
+                                <li>Updating the cookie consent banner if you revisit our site</li>
+                            </ul>
+                            
+                            <p>
+                                We encourage you to periodically review this page for the latest information about our cookie practices. Your continued use of Weather AI after any changes to this Cookie Policy will constitute your acceptance of such changes.
+                            </p>
+                            
+                            <div class="highlight-box">
+                                <h5><i class="fas fa-history me-2"></i>Version History</h5>
+                                <ul class="mb-0">
+                                    <li><strong>March 15, 2024:</strong> Added detailed cookie tables and interactive preference manager</li>
+                                    <li><strong>January 10, 2024:</strong> Updated third-party cookie information and GDPR compliance details</li>
+                                    <li><strong>October 5, 2023:</strong> Initial Cookie Policy published</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <!-- Section 7: Contact -->
+                        <section class="cookie-section fade-in-up" style="transition-delay: 0.7s;" id="contact">
+                            <h2>7. Contact & Questions</h2>
+                            <p>
+                                If you have any questions, concerns, or requests regarding this Cookie Policy or our use of cookies, please contact us:
+                            </p>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><i class="fas fa-envelope text-primary me-2"></i>Email Contact</h5>
+                                            <p class="card-text">For general inquiries about our cookie practices:</p>
+                                            <a href="mailto:privacy@weatherai.com" class="btn btn-outline-primary">
+                                                <i class="fas fa-paper-plane me-2"></i>privacy@weatherai.com
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><i class="fas fa-headset text-primary me-2"></i>Data Protection Officer</h5>
+                                            <p class="card-text">For GDPR-related inquiries and data protection requests:</p>
+                                            <a href="mailto:dpo@weatherai.com" class="btn btn-outline-primary">
+                                                <i class="fas fa-user-shield me-2"></i>dpo@weatherai.com
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-info mt-4">
+                                <i class="fas fa-clock me-2"></i>
+                                <strong>Response Time:</strong> We aim to respond to all inquiries within 48 hours. For complex requests, we may need up to 30 days as permitted by applicable laws.
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3" href="index.html">
+                        <i class="fas fa-cloud-sun me-2"></i>
+                        <span class="fw-bold">Weather</span><span class="fw-bold" style="color: #00c9ff;">AI</span>
+                    </a>
+                    <p class="text-light">Advanced AI-powered weather anomaly detection platform for researchers, meteorologists, and organizations worldwide.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Platform</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="features.html" class="text-light text-decoration-none">Features</a></li>
+                        <li><a href="pricing.html" class="text-light text-decoration-none">Pricing</a></li>
+                        <li><a href="demo.html" class="text-light text-decoration-none">Live Demo</a></li>
+                        <li><a href="faq.html" class="text-light text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="terms.html" class="text-light text-decoration-none">Terms of Service</a></li>
+                        <li><a href="privacy.html" class="text-light text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="cookie-policy.html" class="text-light text-decoration-none fw-bold">Cookie Policy</a></li>
+                        <li><a href="compliance.html" class="text-light text-decoration-none">GDPR Compliance</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Stay Updated</h5>
+                    <p class="text-light">Subscribe to our newsletter for the latest research, updates, and climate insights.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <p class="text-light mt-3 small">
+                        <i class="fas fa-lock me-1"></i> We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+            <hr class="border-light my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light">&copy; 2024 Weather AI. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="privacy.html" class="text-light text-decoration-none me-3">Privacy Policy</a>
+                    <a href="terms.html" class="text-light text-decoration-none me-3">Terms of Service</a>
+                    <a href="cookie-policy.html" class="text-light text-decoration-none fw-bold">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Cookie Consent JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Initialize scroll animations
+        function initScrollAnimations() {
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -100px 0px'
+                });
+                
+                fadeElements.forEach(element => {
+                    observer.observe(element);
+                });
+            } else {
+                // Fallback for older browsers
+                function checkScrollFallback() {
+                    const windowHeight = window.innerHeight;
+                    
+                    fadeElements.forEach(element => {
+                        const elementTop = element.getBoundingClientRect().top;
+                        
+                        if (elementTop < windowHeight * 0.85) {
+                            element.classList.add('visible');
+                        }
+                    });
+                }
+                
+                window.addEventListener('scroll', checkScrollFallback);
+                window.addEventListener('resize', checkScrollFallback);
+                checkScrollFallback();
+            }
+        }
+        
+        // Scroll progress indicator
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + "%";
+            
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+            
+            // Update active cookie nav based on scroll position
+            updateActiveCookieNav();
+            
+            // Show/hide back to top button
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        // Update active cookie navigation based on scroll position
+        function updateActiveCookieNav() {
+            const sections = document.querySelectorAll('.cookie-section, .cookie-manager-section');
+            const navLinks = document.querySelectorAll('.cookie-nav-link');
+            const scrollY = window.pageYOffset;
+            let currentActive = null;
+            
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 150;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    currentActive = sectionId;
+                }
+            });
+            
+            // Update nav links
+            if (currentActive) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentActive}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    // Close mobile menu if open
+                    if (window.innerWidth < 992) {
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (navbarCollapse.classList.contains('show')) {
+                            const navbarToggler = document.querySelector('.navbar-toggler');
+                            navbarToggler.click();
+                        }
+                    }
+                    
+                    // Scroll to target
+                    window.scrollTo({
+                        top: target.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active nav
+                    if (this.classList.contains('cookie-nav-link')) {
+                        document.querySelectorAll('.cookie-nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
+                }
+            });
+        });
+        
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Cookie Manager Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load saved preferences
+            const savedPreferences = localStorage.getItem('cookiePreferences');
+            if (savedPreferences) {
+                const preferences = JSON.parse(savedPreferences);
+                document.getElementById('functionalCookies').checked = preferences.functional || false;
+                document.getElementById('analyticsCookies').checked = preferences.analytics || false;
+                document.getElementById('marketingCookies').checked = preferences.marketing || false;
+                document.getElementById('thirdPartyCookies').checked = preferences.thirdParty || false;
+            }
+            
+            // Save Preferences Button
+            document.getElementById('savePreferences').addEventListener('click', function() {
+                const preferences = {
+                    functional: document.getElementById('functionalCookies').checked,
+                    analytics: document.getElementById('analyticsCookies').checked,
+                    marketing: document.getElementById('marketingCookies').checked,
+                    thirdParty: document.getElementById('thirdPartyCookies').checked,
+                    savedAt: new Date().toISOString()
+                };
+                
+                localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+                
+                // Show success message
+                showToast('Cookie preferences saved successfully!', 'success');
+                
+                // Update cookie consent if it exists
+                if (window.cookieconsent) {
+                    // This would integrate with a real cookie consent library
+                    console.log('Preferences saved:', preferences);
+                }
+            });
+            
+            // Accept All Button
+            document.getElementById('acceptAll').addEventListener('click', function() {
+                document.getElementById('functionalCookies').checked = true;
+                document.getElementById('analyticsCookies').checked = true;
+                document.getElementById('marketingCookies').checked = true;
+                document.getElementById('thirdPartyCookies').checked = true;
+                
+                const preferences = {
+                    functional: true,
+                    analytics: true,
+                    marketing: true,
+                    thirdParty: true,
+                    savedAt: new Date().toISOString()
+                };
+                
+                localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+                showToast('All cookies accepted!', 'success');
+            });
+            
+            // Reject All Optional Button
+            document.getElementById('rejectAll').addEventListener('click', function() {
+                document.getElementById('functionalCookies').checked = false;
+                document.getElementById('analyticsCookies').checked = false;
+                document.getElementById('marketingCookies').checked = false;
+                document.getElementById('thirdPartyCookies').checked = false;
+                
+                const preferences = {
+                    functional: false,
+                    analytics: false,
+                    marketing: false,
+                    thirdParty: false,
+                    savedAt: new Date().toISOString()
+                };
+                
+                localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+                showToast('All optional cookies rejected!', 'success');
+            });
+            
+            // Helper function to show toast messages
+            function showToast(message, type) {
+                // Create toast element
+                const toast = document.createElement('div');
+                toast.className = `toast align-items-center text-white bg-${type === 'success' ? 'success' : 'danger'} border-0`;
+                toast.setAttribute('role', 'alert');
+                toast.setAttribute('aria-live', 'assertive');
+                toast.setAttribute('aria-atomic', 'true');
+                
+                toast.innerHTML = `
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'} me-2"></i>
+                            ${message}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                    </div>
+                `;
+                
+                // Add to page
+                const toastContainer = document.createElement('div');
+                toastContainer.className = 'toast-container position-fixed bottom-0 end-0 p-3';
+                toastContainer.style.zIndex = '1100';
+                toastContainer.appendChild(toast);
+                document.body.appendChild(toastContainer);
+                
+                // Initialize and show toast
+                const bsToast = new bootstrap.Toast(toast);
+                bsToast.show();
+                
+                // Remove after hide
+                toast.addEventListener('hidden.bs.toast', function() {
+                    toastContainer.remove();
+                });
+            }
+            
+            // Initialize cookie consent banner (optional)
+            if (window.cookieconsent) {
+                window.cookieconsent.initialise({
+                    palette: {
+                        popup: {
+                            background: "#1a6bb3",
+                            text: "#ffffff"
+                        },
+                        button: {
+                            background: "#00c9ff",
+                            text: "#ffffff"
+                        }
+                    },
+                    theme: "classic",
+                    position: "bottom-right",
+                    content: {
+                        message: "Weather AI uses cookies to enhance your experience. By continuing, you agree to our use of cookies.",
+                        dismiss: "Accept",
+                        deny: "Reject",
+                        link: "Learn more",
+                        href: "cookie-policy.html"
+                    },
+                    onStatusChange: function(status, chosenBefore) {
+                        console.log('Cookie consent status changed:', status);
+                    }
+                });
+            }
+        });
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initScrollAnimations();
+            updateActiveCookieNav();
+            
+            // Add print button functionality
+            const printButton = document.createElement('button');
+            printButton.className = 'btn btn-outline-secondary d-none d-md-inline-flex align-items-center';
+            printButton.innerHTML = '<i class="fas fa-print me-2"></i>Print Policy';
+            printButton.style.position = 'fixed';
+            printButton.style.bottom = '30px';
+            printButton.style.left = '30px';
+            printButton.style.zIndex = '1000';
+            printButton.addEventListener('click', function() {
+                window.print();
+            });
+            document.body.appendChild(printButton);
+        });
+        
+        // Print styles
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @media print {
+                .navbar, .footer, .back-to-top, .cookie-nav, 
+                .cookie-manager-section, .important-notice,
+                button, .btn, .cookie-toggle, .cookie-controls,
+                .toast-container {
+                    display: none !important;
+                }
+                
+                body {
+                    padding-top: 0 !important;
+                    font-size: 12pt;
+                }
+                
+                .cookie-section, .cookie-type-card {
+                    box-shadow: none !important;
+                    border: 1px solid #dee2e6 !important;
+                    page-break-inside: avoid;
+                }
+                
+                h1, h2, h3 {
+                    page-break-after: avoid;
+                }
+                
+                .cookie-table {
+                    font-size: 10pt;
+                }
+                
+                .cookie-icon {
+                    -webkit-print-color-adjust: exact;
+                    color-adjust: exact;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        // Newsletter Subscription Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const newsletterForm = document.querySelector('.footer .input-group');
+    if (newsletterForm) {
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const subscribeBtn = newsletterForm.querySelector('button');
+        
+        // Create message container if it doesn't exist
+        let messageDiv = document.querySelector('.newsletter-message');
+        if (!messageDiv) {
+            messageDiv = document.createElement('div');
+            messageDiv.className = 'newsletter-message mt-2';
+            messageDiv.style.display = 'none';
+            newsletterForm.parentNode.insertBefore(messageDiv, newsletterForm.nextSibling);
+        }
+        
+        // Remove existing click handler and add new one
+        const newSubscribeBtn = subscribeBtn.cloneNode(true);
+        subscribeBtn.parentNode.replaceChild(newSubscribeBtn, subscribeBtn);
+        
+        newSubscribeBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            
+            // Validate email
+            if (!email) {
+                showNewsletterMessage('Please enter your email address', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNewsletterMessage('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Disable button and show loading
+            newSubscribeBtn.disabled = true;
+            const originalText = newSubscribeBtn.innerHTML;
+            newSubscribeBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Subscribing...';
+            
+            try {
+                const response = await fetch('/api/newsletter/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showNewsletterMessage(data.message, 'success');
+                    emailInput.value = ''; // Clear input
+                } else {
+                    showNewsletterMessage(data.detail || 'Failed to subscribe. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error('Newsletter subscription error:', error);
+                showNewsletterMessage('Network error. Please check your connection and try again.', 'error');
+            } finally {
+                // Re-enable button
+                newSubscribeBtn.disabled = false;
+                newSubscribeBtn.innerHTML = originalText;
+            }
+        });
+        
+        // Allow Enter key to submit
+        emailInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                newSubscribeBtn.click();
+            }
+        });
+        
+        function showNewsletterMessage(text, type) {
+            messageDiv.style.display = 'block';
+            messageDiv.textContent = text;
+            
+            if (type === 'success') {
+                messageDiv.style.color = '#28a745';
+                messageDiv.style.backgroundColor = '#d4edda';
+                messageDiv.style.border = '1px solid #c3e6cb';
+            } else {
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.border = '1px solid #f5c6cb';
+            }
+            
+            messageDiv.style.padding = '10px';
+            messageDiv.style.borderRadius = '4px';
+            messageDiv.style.fontSize = '14px';
+            messageDiv.style.marginTop = '10px';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+    }
+});
+    </script>
+</body>
+</html>

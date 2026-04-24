@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather AI | Dashboard</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Keep these 3 files as-is -->
+    <link rel="stylesheet" href="/dashboard-assets/css/style.css">
+    <link rel="stylesheet" href="/dashboard-assets/css/sections_styles.css">
+    <link rel="stylesheet" href="/dashboard-assets/css/enhanced.css">
+
+    <!-- REPLACE your old responsive.css with the NEW one I gave above -->
+    <link rel="stylesheet" href="/dashboard-assets/css/responsive.css">
+
+</head>
+<body>
+    <div class="app-container">
+        <!-- Modern Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span>Weather</span>
+                        <span class="logo-gradient">AI</span>
+                    </div>
+                    <div class="logo-pulse"></div>
+                </div>
+                <div class="tagline">Anomaly Intelligence Platform</div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-group">
+                    <div class="nav-label">Main</div>
+                    <div class="nav-item active" data-section="dashboard">
+                        <i class="fas fa-home nav-icon"></i>
+                        <span class="nav-text">Dashboard</span>
+                    </div>
+                    <div class="nav-item" data-section="weather">
+                        <i class="fas fa-search nav-icon"></i>
+                        <span class="nav-text">Weather Check</span>
+                    </div>
+                    <div class="nav-item" data-section="anomaly">
+                        <i class="fas fa-exclamation-triangle nav-icon"></i>
+                        <span class="nav-text">Anomaly Detection</span>
+                        <span class="nav-badge" id="anomaly-badge">0</span>
+                    </div>
+                </div>
+
+                <div class="nav-group">
+                    <div class="nav-label">Insights</div>
+                    <div class="nav-item" data-section="insights">
+                        <i class="fas fa-chart-line nav-icon"></i>
+                        <span class="nav-text">Unique Insights</span>
+                    </div>
+                    <div class="nav-item" data-section="history">
+                        <i class="fas fa-history nav-icon"></i>
+                        <span class="nav-text">Weather History</span>
+                    </div>
+                    <div class="nav-item" data-section="analytics">
+                        <i class="fas fa-chart-pie nav-icon"></i>
+                        <span class="nav-text">Analytics</span>
+                    </div>
+                </div>
+
+                <div class="nav-group">
+                    <div class="nav-label">System</div>
+                    <div class="nav-item" data-section="settings">
+                        <i class="fas fa-cog nav-icon"></i>
+                        <span class="nav-text">Settings</span>
+                    </div>
+                    <div class="nav-item" data-section="help">
+                        <i class="fas fa-question-circle nav-icon"></i>
+                        <span class="nav-text">Help & Support</span>
+                    </div>
+            <div class="sidebar-footer">
+                <div class="api-status">
+                    <div class="status-indicator pulse"></div>
+                    <div class="status-text">API Connected</div>
+                    <div class="status-subtext" id="api-accuracy">Loading...</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Loading Screen -->
+            <div id="loading-screen" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80vh;">
+                <div class="loading-spinner"></div>
+                <p style="margin-top: 20px; color: var(--text-muted);">Loading dashboard...</p>
+            </div>
+
+            <!-- ============ DASHBOARD PAGE ============ -->
+            <div id="dashboard-page" class="page-content" style="display: none;">
+                <!-- Page Header -->
+                <header class="page-header">
+                    <div>
+                        <h1 class="page-title">Weather Intelligence Dashboard</h1>
+                        <p class="page-subtitle">Real-time anomaly detection and weather insights</p>
+                    </div>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search cities, analytics..." id="global-search">
+                        </div>
+                        <div class="user-profile" id="user-profile">
+                            <div class="user-avatar" id="user-avatar">AI</div>
+                            <div>
+                                <div style="color: var(--text-secondary);" class="user-name" id="user-name">Loading...</div>
+                                
+
+                            </div>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid" id="dashboard-stats">
+                    <!-- Stats will be loaded dynamically -->
+                </div>
+
+                <!-- Quick Actions -->
+                <section class="quick-actions fade-in-up">
+                    <h3 class="section-title">
+                        <i class="fas fa-bolt"></i>
+                        Quick Actions
+                    </h3>
+                    <div class="actions-grid">
+                        <button class="action-btn" data-action="weather">
+                            <div class="action-icon"><i class="fas fa-search"></i></div>
+                            <div class="action-info"><h4>Check Weather</h4><p>Real-time weather data</p></div>
+                        </button>
+                        <button class="action-btn" data-action="anomaly">
+                            <div class="action-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                            <div class="action-info"><h4>Detect Anomalies</h4><p>AI-powered detection</p></div>
+                        </button>
+                        <button class="action-btn" data-action="insights">
+                            <div class="action-icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="action-info"><h4>Unique Insights</h4><p>Advanced analytics</p></div>
+                        </button>
+                        <button class="action-btn" data-action="history">
+                            <div class="action-icon"><i class="fas fa-history"></i></div>
+                            <div class="action-info"><h4>Weather History</h4><p>Historical patterns</p></div>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Recent Activity -->
+                <section class="recent-activity fade-in-up">
+                    <h3 class="section-title">
+                        <i class="fas fa-history"></i>
+                        Recent Activity
+                    </h3>
+                    <table class="activity-table">
+                        <thead>
+                            <tr><th>Time</th><th>City</th><th>Activity</th><th>Status</th><th>Details</th></tr>
+                        </thead>
+                        <tbody id="activity-table-body">
+                            <!-- Dynamic content will be loaded here -->
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+
+            <!-- ============ WEATHER CHECK PAGE ============ -->
+            <div id="weather-page" class="page-content" style="display: none;">
+                <header class="page-header">
+                    <div>
+                        <h1 class="page-title">Weather Check</h1>
+                        <p class="page-subtitle">Get real-time weather data for any city worldwide</p>
+                    </div>
+                </header>
+
+                <div class="form-card">
+                    <h3 class="section-title"><i class="fas fa-search"></i> Search Location</h3>
+                    <div class="form-group">
+                        <label class="form-label">City Name</label>
+                        <input type="text" class="form-control" id="weather-city-input" placeholder="Enter city name (e.g., London, New York, Tokyo)" value="London">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Country Code (Optional)</label>
+                        <input type="text" class="form-control" id="weather-country-input" placeholder="e.g., US, GB, PK">
+                        <small style="color: var(--text-muted); display: block; margin-top: 5px;">ISO 3166-1 alpha-2 code for better accuracy</small>
+                    </div>
+                    <button class="btn btn-primary" id="get-weather-btn">
+                        <i class="fas fa-search"></i>
+                        Get Weather Data
+                    </button>
+                </div>
+
+                <div id="weather-result-container">
+                    <!-- Weather results will be displayed here dynamically -->
+                </div>
+
+                <div class="quick-actions fade-in-up">
+                    <h3 class="section-title"><i class="fas fa-star"></i> Popular Cities</h3>
+                    <div class="actions-grid" id="popular-cities-grid">
+                        <!-- Popular cities will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            
+           <!-- ============ ANOMALY DETECTION PAGE ============ -->
+<div id="anomaly-page" class="page-content" style="display: none;">
+    <header class="page-header">
+        <div>
+            <h1 class="page-title">Advanced Anomaly Detection</h1>
+            <p class="page-subtitle">Ensemble ML models: Isolation Forest, Autoencoder, LSTM, Prophet, ARIMA + Z-Score</p>
+        </div>
+    </header>
+
+    <div class="form-card">
+        <h3 class="section-title"><i class="fas fa-brain"></i> Detect Anomalies with Ensemble AI</h3>
+        <div class="form-group">
+            <label class="form-label">City Name</label>
+            <input type="text" class="form-control" id="anomaly-city-input" placeholder="Enter city to analyze for anomalies" value="Dubai">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Country Code (Optional)</label>
+            <input type="text" class="form-control" id="anomaly-country-input" placeholder="e.g., AE for Dubai">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Prediction Period</label>
+            <select class="form-select" id="prediction-period">
+                <option value="current">Current Conditions Only</option>
+                <option value="3">Next 3 Days</option>
+                <option value="7" selected>Next 7 Days</option>
+                <option value="10">Next 10 Days</option>
+                <option value="14">Next 14 Days</option>
+            </select>
+        </div>
+        <button class="btn btn-primary" id="detect-anomaly-btn" style="background: linear-gradient(135deg, #25aef7 0%, #1778b5 100%);">
+            <i class="fas fa-exclamation-triangle"></i>
+            Run Ensemble ML Detection
+        </button>
+    </div>
+
+    <div id="anomaly-result-container">
+        <!-- Current anomaly results will be displayed here dynamically -->
+    </div>
+
+    <!-- Model Performance Metrics -->
+    <div id="model-metrics-container" style="display: none;" class="metrics-grid">
+        <!-- Will be populated by JS -->
+    </div>
+
+    <!-- Future Anomalies Section -->
+    <div id="future-anomalies-container" style="display: none;">
+        <!-- ML Model Info Banner -->
+        <div class="model-info-banner">
+            <div class="model-icons">
+                <span class="model-badge"><i class="fas fa-tree"></i> Isolation Forest</span>
+                <span class="model-badge"><i class="fas fa-brain"></i> Autoencoder</span>
+                <span class="model-badge"><i class="fas fa-chart-line"></i> LSTM</span>
+                <span class="model-badge"><i class="fas fa-calendar"></i> Prophet</span>
+                <span class="model-badge"><i class="fas fa-wave-square"></i> ARIMA</span>
+                <span class="model-badge"><i class="fas fa-calculator"></i> Z-Score</span>
+            </div>
+            <p class="model-info-text">🔬 Predictions from 6 ML models with ensemble confidence scoring</p>
+        </div>
+
+        <div class="chart-container">
+            <h3 class="section-title"><i class="fas fa-calendar-alt"></i> 7-Day Future Anomaly Forecast</h3>
+            <canvas id="futureAnomalyChart" width="400" height="200"></canvas>
+        </div>
+
+        <!-- Model Confidence Meter -->
+        <div class="confidence-meter-large">
+            <h4>Ensemble Confidence: <span id="ensemble-confidence">0%</span></h4>
+            <div class="meter-bar-large">
+                <div class="meter-fill" id="confidence-fill" style="width: 0%;"></div>
+            </div>
+            <p id="ensemble-trend" class="trend-indicator"></p>
+        </div>
+
+        <div id="safety-guidance-container">
+            <!-- Safety guidance cards will be loaded here dynamically -->
+        </div>
+
+        <div id="future-anomalies-table-container" class="recent-activity">
+            <h3 class="section-title"><i class="fas fa-table"></i> Detailed Future Anomaly Predictions</h3>
+            <table class="activity-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Day</th>
+                        <th>Temperature</th>
+                        <th>Condition</th>
+                        <th>Anomaly Type</th>
+                        <th>Severity</th>
+                        <th>Z-Score</th>
+                        <th>Probability</th>
+                    </tr>
+                </thead>
+                <tbody id="future-anomalies-table-body">
+                    <!-- Future anomalies will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <h3 class="section-title"><i class="fas fa-chart-line"></i> Recent Anomalies History</h3>
+        <canvas id="anomalyChart" width="400" height="200"></canvas>
+    </div>
+</div>
+
+            <!-- ============ UNIQUE INSIGHTS PAGE ============ -->
+            <div id="insights-page" class="page-content" style="display: none;">
+                <header class="page-header">
+                    <div>
+                        <h1 class="page-title">Unique Insights</h1>
+                        <p class="page-subtitle">Advanced weather analytics and patterns</p>
+                    </div>
+                </header>
+
+                <div id="insights-container">
+                    <!-- Insights will be loaded here dynamically -->
+                </div>
+
+                <div class="chart-container">
+                    <h3 class="section-title"><i class="fas fa-chart-bar"></i> Weather Pattern Distribution</h3>
+                    <canvas id="insightsChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+
+            <!-- ============ WEATHER HISTORY PAGE ============ -->
+            <div id="history-page" class="page-content" style="display: none;">
+                <header class="page-header">
+                    <div>
+                        <h1 class="page-title">Weather History</h1>
+                        <p class="page-subtitle">Historical weather data and trend analysis</p>
+                    </div>
+                </header>
+
+                <div class="form-card">
+                    <h3 class="section-title"><i class="fas fa-history"></i> Historical Data Query</h3>
+                    <div class="form-group">
+                        <label class="form-label">City Name</label>
+                        <input type="text" class="form-control" id="history-city-input" placeholder="Enter city for historical data" value="London">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Time Period</label>
+                        <select class="form-select" id="history-period">
+                            <option value="7">Last 7 days</option>
+                            <option value="30">Last 30 days</option>
+                            <option value="90">Last 3 months</option>
+                            <option value="365">Last year</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" id="load-history-btn">
+                        <i class="fas fa-history"></i>
+                        Load Historical Data
+                    </button>
+                </div>
+
+                <div class="chart-container">
+                    <h3 class="section-title"><i class="fas fa-thermometer-half"></i> Temperature Trends</h3>
+                    <canvas id="historyChart" width="400" height="200"></canvas>
+                </div>
+
+                <div class="recent-activity">
+                    <h3 class="section-title"><i class="fas fa-table"></i> Historical Data</h3>
+                    <table class="history-table">
+                        <thead>
+                            <tr><th>Date</th><th>Temperature</th><th>Humidity</th><th>Pressure</th><th>Condition</th><th>Anomaly</th></tr>
+                        </thead>
+                        <tbody id="history-table-body">
+                            <!-- Historical data will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ============ ANALYTICS PAGE ============ -->
+            <div id="analytics-page" class="page-content" style="display: none;">
+                <header class="page-header">
+                    <div>
+                        <h1 class="page-title">Analytics</h1>
+                        <p class="page-subtitle">Comprehensive data analysis and performance metrics</p>
+                    </div>
+                </header>
+
+                <div id="analytics-stats-container">
+                    <!-- Analytics stats will be loaded here -->
+                </div>
+
+                <div class="chart-container">
+                    <h3 class="section-title"><i class="fas fa-chart-pie"></i> Anomaly Distribution</h3>
+                    <canvas id="analyticsChart1" width="400" height="200"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <h3 class="section-title"><i class="fas fa-chart-line"></i> Performance Trends</h3>
+                    <canvas id="analyticsChart2" width="400" height="200"></canvas>
+                </div>
+            </div>
+
+            <!-- ============ SETTINGS PAGE ============ -->
+            <div id="settings-page" class="page-content" style="display: none;">
+                <header class="page-header">
+                    <div>
+                        <h1 class="page-title">Settings</h1>
+                        <p class="page-subtitle">Configure your Weather AI platform</p>
+                    </div>
+                </header>
+
+                <div class="settings-section">
+                    <h3 class="section-title"><i class="fas fa-cog"></i> General Settings</h3>
+                    
+                    <div class="settings-item">
+                        <div class="setting-info"><h4>Dark Mode</h4><p>Switch between light and dark themes</p></div>
+                        <label class="toggle-switch"><input type="checkbox" id="dark-mode-toggle"><span class="toggle-slider"></span></label>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="setting-info"><h4>Auto-refresh Data</h4><p>Automatically update weather data every 5 minutes</p></div>
+                        <label class="toggle-switch"><input type="checkbox" id="auto-refresh-toggle" checked><span class="toggle-slider"></span></label>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="setting-info"><h4>Anomaly Notifications</h4><p>Receive alerts when anomalies are detected</p></div>
+                        <label class="toggle-switch"><input type="checkbox" id="notification-toggle" checked><span class="toggle-slider"></span></label>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3 class="section-title"><i class="fas fa-sliders-h"></i> Model Configuration</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Confidence Threshold</label>
+                        <input type="range" class="form-control" id="confidence-threshold" min="50" max="95" value="75">
+                        <small style="color: var(--text-muted);">Current: <span id="threshold-value">75%</span> - Higher values reduce false positives</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Model Sensitivity</label>
+                        <select class="form-select" id="model-sensitivity">
+                            <option value="low">Low (Fewer alerts)</option>
+                            <option value="medium" selected>Medium (Balanced)</option>
+                            <option value="high">High (More alerts)</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-secondary" id="save-model-settings-btn">
+                        <i class="fas fa-save"></i>
+                        Save Model Settings
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============ HELP & SUPPORT PAGE ============ -->
+            <div id="help-page" class="page-content" style="display: none;">
+                <header class="page-header">
+                    <div>
+                        <h1 class="page-title">Help & Support</h1>
+                        <p class="page-subtitle">Get assistance and learn about Weather AI</p>
+                    </div>
+                </header>
+
+                <div class="settings-section">
+                    <h3 class="section-title"><i class="fas fa-headset"></i> Contact Support</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="support-email" placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="support-subject" placeholder="How can we help you?">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-control" id="support-message" rows="4" placeholder="Describe your issue or question..."></textarea>
+                    </div>
+
+                    <button class="btn btn-primary" id="send-support-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- User Profile Dropdown (hidden by default) -->
+        <div id="user-dropdown" class="user-dropdown" style="display: none;">
+            <div class="dropdown-content">
+                <div class="user-dropdown-header">
+                    <div class="user-dropdown-avatar" id="dropdown-avatar">AI</div>
+                    <div class="user-dropdown-info">
+                        <h4 id="dropdown-name">Loading...</h4>
+                        <p id="dropdown-email">loading@example.com</p>
+                        <p class="user-role">
+                            <span class="badge-primary" id="dropdown-role">Administrator</span>
+                            <span class="status-indicator online" id="dropdown-status">Online</span>
+                        </p>
+                    </div>
+                </div>
+                
+                
+                <div class="dropdown-section">
+                    <h5 class="dropdown-section-title"><i class="fas fa-user-cog"></i> Account Settings</h5>
+                    <a href="#profile" class="dropdown-item" data-section="profile"><i class="fas fa-user"></i><span>Profile Settings</span></a>
+                    <a href="#preferences" class="dropdown-item" data-section="preferences"><i class="fas fa-sliders-h"></i><span>Account Preferences</span></a>
+                    <a href="#units" class="dropdown-item" data-section="units"><i class="fas fa-thermometer-half"></i><span>Data Units</span></a>
+                    <a href="#notifications" class="dropdown-item" data-section="notifications"><i class="fas fa-bell"></i><span>Notifications</span><span class="badge-notification">3</span></a>
+                    <a href="#security" class="dropdown-item" data-section="security"><i class="fas fa-shield-alt"></i><span>Security</span></a>
+                </div>
+                
+                <div class="dropdown-divider"></div>
+                
+                <div class="dropdown-section">
+                    <h5 class="dropdown-section-title"><i class="fas fa-tools"></i> Platform Management</h5>
+                    <a href="#api-keys" class="dropdown-item" data-section="api-keys"><i class="fas fa-key"></i><span>API Keys</span></a>
+                    <a href="#billing" class="dropdown-item" data-section="billing"><i class="fas fa-credit-card"></i><span>Billing & Subscription</span></a>
+                </div>
+                
+                <div class="dropdown-divider"></div>
+                
+                <div class="dropdown-section">
+                    <a href="#" class="dropdown-item" id="switch-account"><i class="fas fa-exchange-alt"></i><span>Switch Account</span></a>
+                    <a href="#" class="dropdown-item logout" id="dropdown-logout"><i class="fas fa-sign-out-alt"></i><span>Sign Out</span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Pages Container (hidden by default) -->
+        <div id="settings-container" style="display: none;">
+            <div class="settings-page active" id="profile-page"></div>
+            <div class="settings-page" id="preferences-page"></div>
+            <div class="settings-page" id="units-page"></div>
+            <div class="settings-page" id="notifications-page"></div>
+            <div class="settings-page" id="security-page"></div>
+            <div class="settings-page" id="api-keys-page"></div>
+            <div class="settings-page" id="usage-page"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="/dashboard-assets/js/app.js"></script>
+    <script src="/dashboard-assets/js/dashboard.js"></script>
+    <script src="/dashboard-assets/js/weather.js"></script>
+    <script src="/dashboard-assets/js/anomaly.js"></script>
+    <script src="/dashboard-assets/js/charts.js"></script>
+    <script src="/dashboard-assets/js/insights.js"></script>
+    <script src="/dashboard-assets/js/analytics.js"></script>
+    <script src="/dashboard-assets/js/settings.js"></script>
+    <script src="/dashboard-assets/js/support.js"></script>
+    <script src="/dashboard-assets/js/user-profile.js"></script>
+</body>
+</html>

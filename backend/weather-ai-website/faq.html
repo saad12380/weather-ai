@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather AI - Frequently Asked Questions</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Find answers to common questions about Weather AI platform, features, pricing, and technical details.">
+    <meta name="keywords" content="weather AI FAQ, anomaly detection questions, platform features, pricing, technical support">
+    <meta name="author" content="Weather AI Team">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Weather AI - FAQ & Support">
+    <meta property="og:description" content="Find answers to common questions about Weather AI platform">
+    <meta property="og:image" content="https://weatherai.example.com/assets/images/og-faq.jpg">
+    <meta property="og:url" content="https://weatherai.example.com/faq.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Weather AI FAQ">
+    <meta name="twitter:description" content="Answers to common questions about Weather AI platform">
+    
+    <!-- Favicon -->
+   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+    
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        html { font-size: 14px !important; }
+        body {
+            font-size: 0.95rem !important;
+            overflow-x: hidden !important;
+        }
+        @supports (zoom: 1) {
+            body { zoom: 0.95 !important; }
+        }
+        @supports not (zoom: 1) {
+            body {
+                transform: scale(0.95) !important;
+                transform-origin: top center !important;
+                width: 100% !important;
+            }
+        }
+
+        :root {
+            --primary-color: #1a6bb3;
+            --secondary-color: #0a2540;
+            --accent-color: #00c9ff;
+            --light-bg: #f8fafc;
+            --dark-bg: #0f172a;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --gradient-primary: linear-gradient(135deg, #1a6bb3 0%, #00c9ff 100%);
+            --gradient-dark: linear-gradient(135deg, #0a2540 0%, #1e293b 100%);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            padding-top: 80px; /* Account for fixed navbar */
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navbar Styles - Matching Home Page */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
+            padding: 1rem 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar-scrolled {
+            padding: 0.7rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 6px 30px rgba(10, 37, 64, 0.12);
+        }
+
+        /* Logo Styling */
+        .logo-container {
+            position: relative;
+            padding: 0.25rem 0;
+        }
+
+        .logo-icon {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        /* Navigation Links Styling */
+        .nav-link-content {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-icon {
+            font-size: 1.1rem;
+            margin-right: 8px;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-text {
+            font-weight: 500;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-underline {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50px;
+            background: linear-gradient(135deg, rgba(26, 107, 179, 0.1), rgba(0, 201, 255, 0.1));
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        /* Hover Effects */
+        .nav-link:hover .nav-text,
+        .nav-link.active .nav-text {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .nav-link:hover .nav-icon,
+        .nav-link.active .nav-icon {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover .nav-underline,
+        .nav-link.active .nav-underline {
+            width: 70%;
+        }
+
+        .nav-link:hover .nav-bg,
+        .nav-link.active .nav-bg {
+            width: calc(100% + 20px);
+            height: calc(100% + 10px);
+            opacity: 1;
+        }
+
+        .navbar-brand:hover .logo-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Login Button Styling */
+        .btn-login {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            overflow: hidden;
+            border-radius: 12px;
+            background: var(--gradient-primary);
+            padding: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+            background: white;
+            border-radius: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(26, 107, 179, 0.3);
+        }
+
+        .btn-login:hover .btn-content {
+            background: transparent;
+            color: white;
+        }
+
+        .btn-login:hover .btn-gradient {
+            opacity: 1;
+        }
+
+        /* Hero Section for FAQ */
+        .faq-hero {
+            position: relative;
+            padding: 100px 0 60px;
+            background: var(--gradient-dark);
+            color: white;
+            overflow: hidden;
+        }
+
+        .faq-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.15;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #00c9ff, #92fe9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* FAQ Categories Section */
+        .faq-categories {
+            padding: 80px 0 40px;
+            background-color: white;
+        }
+
+        .category-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: 100%;
+            text-align: center;
+            text.color: #FFFFFF;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-color);
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color:  #FFFFFF;
+            font-size: 1.8rem;
+        }
+
+        /* FAQ Accordion Section */
+        .faq-accordion-section {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .faq-accordion {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            border: none;
+            background: transparent;
+            margin-bottom: 15px;
+        }
+
+        .accordion-button {
+            background: white;
+            border-radius: 12px !important;
+            padding: 20px 25px;
+            font-weight: 600;
+            color: var(--text-dark);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: white;
+            color: var(--primary-color);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-color);
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: var(--accent-color);
+        }
+
+        .accordion-button::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%231a6bb3'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            transform: rotate(-90deg);
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-button:not(.collapsed)::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2300c9ff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            transform: rotate(0deg);
+        }
+
+        .accordion-body {
+            padding: 25px;
+            background: white;
+            border-radius: 0 0 12px 12px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-top: none;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-meta {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .faq-meta i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+
+        /* Search Section */
+        .faq-search-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .search-box {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .search-box input {
+            border: none;
+            padding: 20px 60px 20px 25px;
+            font-size: 1.1rem;
+            width: 100%;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .search-button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 60px;
+            background: var(--gradient-primary);
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-button:hover {
+            background: var(--primary-color);
+        }
+
+        /* Contact Section */
+        .faq-contact-section {
+            padding: 80px 0;
+            background: var(--gradient-dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faq-contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            opacity: 0.1;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 80px 0 30px;
+            background-color: var(--dark-bg);
+            color: white;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Custom button styles */
+        .btn-primary {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline-primary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            padding: 10px 28px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Custom bullet points */
+        .custom-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+
+        .custom-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Scroll Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, opacity;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+
+        /* FAQ Category Navigation */
+        .category-nav {
+            position: sticky;
+            top: 100px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
+            z-index: 10;
+        }
+
+        .category-nav-link {
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .category-nav-link:hover,
+        .category-nav-link.active {
+            background: rgba(26, 107, 179, 0.05);
+            color: var(--primary-color);
+            border-left: 3px solid var(--primary-color);
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .faq-hero {
+                padding: 80px 0 40px;
+            }
+            
+            .display-3 {
+                font-size: 2.5rem;
+            }
+            
+            .category-nav {
+                position: static;
+                margin-top: 20px;
+            }
+        }
+        .newsletter-message {
+    animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.footer .btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <!-- Animated Logo with Hover Effect -->
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-container d-flex align-items-center">
+                    <div class="logo-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <div class="logo-text ms-2">
+                        <span class="fw-bold">Weather</span>
+                        <span class="logo-gradient fw-bold">AI</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Items -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-home nav-icon"></i>
+                                <span class="nav-text">Home</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-sliders-h nav-icon"></i>
+                                <span class="nav-text">Features</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-tag nav-icon"></i>
+                                <span class="nav-text">Pricing</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-blog nav-icon"></i>
+                                <span class="nav-text">Blog</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <div class="nav-link-content">
+                                <i class="fas fa-info-circle nav-icon"></i>
+                                <span class="nav-text">About</span>
+                                <span class="nav-underline"></span>
+                                <span class="nav-bg"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                        <div class="nav-link-content">
+                            <i class="fas fa-envelope nav-icon"></i>
+                            <span class="nav-text">Contact</span>
+                            <span class="nav-underline"></span>
+                            <span class="nav-bg"></span>
+                        </div>
+                    </a>
+                </li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a href="login.html" class="btn-login">
+                            <div class="btn-content">
+                                <i class="fas fa-sign-in-alt me-2"></i>
+                                <span>Login/Signup</span>
+                                <div class="btn-gradient"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="faq-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center fade-in-up">
+                    <h1 class="display-3 fw-bold mb-4">
+                        Frequently Asked <span class="text-gradient">Questions</span>
+                    </h1>
+                    <p class="lead mb-4">
+                        Find answers to common questions about Weather AI platform, features, pricing, and technical details. Can't find what you're looking for? Contact our support team.
+                    </p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#faq" class="btn btn-primary btn-lg">
+                            <i class="fas fa-list-alt me-2"></i>Browse Questions
+                        </a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-headset me-2"></i>Contact Support
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="faq-categories" id="categories">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3 section-title">Browse by Category</h2>
+                    <p class="lead text-muted">Select a category to quickly find answers to your questions</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-3 col-6 fade-in-up">
+                    <a href="#general" class="text-decoration-none category-link">
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <h5>General</h5>
+                            <p class="text-muted small mb-0">Basic platform questions</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-3 col-6 fade-in-up" style="transition-delay: 0.1s;">
+                    <a href="#account" class="text-decoration-none category-link">
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <h5>Account & Billing</h5>
+                            <p class="text-muted small mb-0">Subscriptions & payments</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-3 col-6 fade-in-up" style="transition-delay: 0.2s;">
+                    <a href="#technical" class="text-decoration-none category-link">
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h5>Technical</h5>
+                            <p class="text-muted small mb-0">Integration & API</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-3 col-6 fade-in-up" style="transition-delay: 0.3s;">
+                    <a href="#data" class="text-decoration-none category-link">
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h5>Data & Accuracy</h5>
+                            <p class="text-muted small mb-0">Sources & reliability</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Search -->
+    <section class="faq-search-section">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h3 class="fw-bold mb-3">Search for Answers</h3>
+                    <p class="text-muted">Can't find what you're looking for? Search our FAQ database</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="search-container fade-in-up">
+                        <div class="search-box">
+                            <input type="text" id="faqSearch" placeholder="What can we help you with? (e.g., 'API integration', 'billing', 'data sources')">
+                            <button type="button" class="search-button" id="searchButton">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <div class="mt-3 text-center">
+                            <small class="text-muted">Try searching for: <a href="#" class="search-suggestion">free trial</a>, <a href="#" class="search-suggestion">mobile app</a>, <a href="#" class="search-suggestion">data export</a></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="faq-accordion-section" id="faq">
+        <div class="container">
+            <div class="row">
+                <!-- Category Navigation -->
+                <div class="col-lg-3 d-none d-lg-block">
+                    <div class="category-nav fade-in-up">
+                        <h6 class="mb-3 fw-bold">Categories</h6>
+                        <a href="#general" class="category-nav-link active">General Questions</a>
+                        <a href="#account" class="category-nav-link">Account & Billing</a>
+                        <a href="#technical" class="category-nav-link">Technical & API</a>
+                        <a href="#data" class="category-nav-link">Data & Accuracy</a>
+                        <a href="#features" class="category-nav-link">Platform Features</a>
+                        <a href="#security" class="category-nav-link">Security & Privacy</a>
+                    </div>
+                </div>
+                
+                <!-- FAQ Content -->
+                <div class="col-lg-9">
+                    <!-- General Questions -->
+                    <div class="faq-category mb-5" id="general">
+                        <h2 class="fw-bold mb-4 section-title">General Questions</h2>
+                        
+                        <div class="faq-accordion">
+                            <div class="accordion" id="generalAccordion">
+                                <!-- FAQ Item 1 -->
+                                <div class="accordion-item fade-in-up">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                            What is Weather AI and how does it work?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#generalAccordion">
+                                        <div class="accordion-body">
+                                            <p>Weather AI is an advanced artificial intelligence platform designed to detect, analyze, and predict weather anomalies with unprecedented accuracy. Our system works by:</p>
+                                            <ul class="custom-list">
+                                                <li>Collecting real-time data from thousands of global weather stations, satellites, and sensors</li>
+                                                <li>Processing this data through machine learning algorithms trained on petabytes of historical weather data</li>
+                                                <li>Identifying patterns and anomalies that traditional weather systems might miss</li>
+                                                <li>Providing actionable insights through an intuitive dashboard with predictive analytics</li>
+                                            </ul>
+                                            <p>The platform combines computer vision for satellite imagery analysis, natural language processing for report generation, and deep learning for pattern recognition to deliver comprehensive weather intelligence.</p>
+                                            <div class="faq-meta">
+                                                <i class="fas fa-clock"></i> Last updated: March 15, 2024
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- FAQ Item 2 -->
+                                <div class="accordion-item fade-in-up" style="transition-delay: 0.1s;">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            Who is Weather AI designed for?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#generalAccordion">
+                                        <div class="accordion-body">
+                                            <p>Weather AI serves a wide range of users across multiple industries:</p>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h6><i class="fas fa-user-tie text-primary me-2"></i> Professional Users</h6>
+                                                    <ul class="custom-list">
+                                                        <li>Meteorologists and climate researchers</li>
+                                                        <li>Emergency response teams</li>
+                                                        <li>Agricultural planners and farmers</li>
+                                                        <li>Renewable energy companies</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6><i class="fas fa-building text-primary me-2"></i> Enterprise Users</h6>
+                                                    <ul class="custom-list">
+                                                        <li>Government agencies and municipalities</li>
+                                                        <li>Insurance and risk assessment firms</li>
+                                                        <li>Transportation and logistics companies</li>
+                                                        <li>Construction and urban planning firms</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <p>Our platform offers different tiers to accommodate individual researchers, small teams, and large enterprises with varying needs and budgets.</p>
+                                            <div class="faq-meta">
+                                                <i class="fas fa-clock"></i> Last updated: March 10, 2024
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- FAQ Item 3 -->
+                                <div class="accordion-item fade-in-up" style="transition-delay: 0.2s;">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            How accurate is Weather AI compared to traditional weather forecasting?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#generalAccordion">
+                                        <div class="accordion-body">
+                                            <p>Weather AI achieves significantly higher accuracy rates than traditional forecasting methods:</p>
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <thead class="table-light">
+                                                        <tr>
+                                                            <th>Metric</th>
+                                                            <th>Traditional Methods</th>
+                                                            <th>Weather AI</th>
+                                                            <th>Improvement</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Anomaly Detection Accuracy</td>
+                                                            <td>72-85%</td>
+                                                            <td>94.5%</td>
+                                                            <td><span class="text-success">+9.5-22.5%</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>False Positive Rate</td>
+                                                            <td>18-25%</td>
+                                                            <td>4.2%</td>
+                                                            <td><span class="text-success">-13.8-20.8%</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>14-day Forecast Reliability</td>
+                                                            <td>55-65%</td>
+                                                            <td>78.3%</td>
+                                                            <td><span class="text-success">+13.3-23.3%</span></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <p>These improvements are achieved through our proprietary machine learning models that continuously learn from new data, improving accuracy over time.</p>
+                                            <div class="faq-meta">
+                                                <i class="fas fa-clock"></i> Last updated: March 5, 2024
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Account & Billing -->
+                    <div class="faq-category mb-5" id="account">
+                        <h2 class="fw-bold mb-4 section-title">Account & Billing</h2>
+                        
+                        <div class="faq-accordion">
+                            <div class="accordion" id="accountAccordion">
+                                <!-- FAQ Item 4 -->
+                                <div class="accordion-item fade-in-up">
+                                    <h2 class="accordion-header" id="headingFour">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                            What's included in the free trial?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accountAccordion">
+                                        <div class="accordion-body">
+                                            <p>Our 30-day free trial includes full access to all features of the Professional tier:</p>
+                                            <ul class="custom-list">
+                                                <li><strong>Full Platform Access:</strong> Complete dashboard with all visualization tools</li>
+                                                <li><strong>Real-time Monitoring:</strong> Access to live data from 50+ global stations</li>
+                                                <li><strong>Basic Analytics:</strong> Anomaly detection and trend analysis for up to 5 locations</li>
+                                                <li><strong>Export Capabilities:</strong> Download reports in PDF, CSV, and JSON formats</li>
+                                                <li><strong>API Access:</strong> Limited to 1,000 requests per day during trial</li>
+                                                <li><strong>Email Support:</strong> Direct access to our support team</li>
+                                            </ul>
+                                            <p>No credit card is required to start the trial. At the end of the trial period, you can choose to upgrade to a paid plan or continue with our limited free tier.</p>
+                                            <div class="faq-meta">
+                                                <i class="fas fa-clock"></i> Last updated: February 28, 2024
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- FAQ Item 5 -->
+                                <div class="accordion-item fade-in-up" style="transition-delay: 0.1s;">
+                                    <h2 class="accordion-header" id="headingFive">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                            Can I cancel or change my subscription at any time?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accountAccordion">
+                                        <div class="accordion-body">
+                                            <p>Yes, you have complete flexibility with your subscription:</p>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h6><i class="fas fa-sync-alt text-primary me-2"></i> Plan Changes</h6>
+                                                    <p>You can upgrade or downgrade your plan at any time. When upgrading, you'll be billed immediately for the prorated difference. When downgrading, changes take effect at your next billing cycle.</p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6><i class="fas fa-ban text-primary me-2"></i> Cancellation</h6>
+                                                    <p>You can cancel your subscription at any time. After cancellation, you'll retain access until the end of your current billing period. We don't charge cancellation fees.</p>
+                                                </div>
+                                            </div>
+                                            <div class="alert alert-info mt-3">
+                                                <i class="fas fa-info-circle me-2"></i>
+                                                <strong>Annual Plan Bonus:</strong> If you cancel an annual plan before the end of your term, we'll refund the unused portion on a prorated basis minus any discounts applied.
+                                            </div>
+                                            <div class="faq-meta">
+                                                <i class="fas fa-clock"></i> Last updated: February 25, 2024
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- FAQ Item 6 -->
+                                <div class="accordion-item fade-in-up" style="transition-delay: 0.2s;">
+                                    <h2 class="accordion-header" id="headingSix">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                            What payment methods do you accept?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accountAccordion">
+                                        <div class="accordion-body">
+                                            <p>We accept a wide variety of payment methods for your convenience:</p>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h6><i class="fas fa-credit-card text-primary me-2"></i> Credit & Debit Cards</h6>
+                                                    <ul class="custom-list">
+                                                        <li>Visa</li>
+                                                        <li>Mastercard</li>
+                                                        <li>American Express</li>
+                                                        <li>Discover</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6><i class="fas fa-wallet text-primary me-2"></i> Digital Payments</h6>
+                                                    <ul class="custom-list">
+                                                        <li>PayPal</li>
+                                                        <li>Apple Pay</li>
+                                                        <li>Google Pay</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-md-6">
+                                                    <h6><i class="fas fa-building text-primary me-2"></i> Enterprise & Invoice</h6>
+                                                    <p>For enterprise customers with annual contracts over $10,000, we offer invoice-based billing with net-30 terms. Contact our sales team for custom enterprise agreements.</p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6><i class="fas fa-globe text-primary me-2"></i> Regional Methods</h6>
+                                                    <p>We also support regional payment methods in select countries including SEPA transfers in Europe, Alipay in China, and UPI in India.</p>
+                                                </div>
+                                            </div>
+                                            <div class="alert alert-success mt-3">
+                                                <i class="fas fa-shield-alt me-2"></i>
+                                                <strong>Security:</strong> All payments are processed through PCI-DSS compliant payment processors. We never store your full payment details on our servers.
+                                            </div>
+                                            <div class="faq-meta">
+                                                <i class="fas fa-clock"></i> Last updated: February 20, 2024
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Technical & API -->
+                    <div class="faq-category mb-5" id="technical">
+                        <h2 class="fw-bold mb-4 section-title">Technical & API</h2>
+                        
+                        <div class="faq-accordion">
+                            <div class="accordion" id="technicalAccordion">
+                                <!-- FAQ Item 7 -->
+                                <div class="accordion-item fade-in-up">
+                                    <h2 class="accordion-header" id="headingSeven">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                            Do you offer an API for integration?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#technicalAccordion">
+                                        <div class="accordion-body">
+                                            <p>Yes, Weather AI offers a comprehensive RESTful API for developers. Our API includes:</p>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h6><i class="fas fa-code text-primary me-2"></i> Core API Features</h6>
+                                                    <ul class="custom-list">
+                                                        <li>Real-time weather data retrieval</li>
+                                                        <li>Historical data queries (up to 10 years)</li>
+                                                        <li>Anomaly detection endpoints</li>
+                                                        <li>Predictive analytics forecasts</li>
+                                                        <li>Webhook support for alerts</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6><i class="fas fa-tools text-primary me-2"></i> Developer Tools</h6>
+                                                    <ul class="custom-list">
+                                                        <li>Comprehensive documentation</li>
+                                                        <li>SDKs for Python, JavaScript, and Java</li>
+                                                        <li>Interactive API playground</li>
+                                                        <li>Rate limiting dashboard</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="mt-3">
+                                                <h6>API Access Tiers</h6>
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered">
+                                                        <thead class="table-light">
+                                                            <tr>
+                                                                <th>Plan</th>
+                                                                <th>Requests/Day</th>
+                                                                <th>Rate Limit</th>
+                                                                <th>Webhooks</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Free</td>
+                                                                <td>100</td>
+                                                                <td>10/min</td>
+                                                                <td>1</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Professional</td>
+                                                                <td>10,000</td>
+                                                                <td>100/min</td>
+                                                                <td>10</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Enterprise</td>
+                                                                <td>Unlimited</td>
+                                                                <td>Custom</td>
+                                                                <td>Unlimited</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <p>All API responses are in JSON format with extensive error handling. Authentication is handled via API keys with granular permission controls.</p>
+                                            <div class="faq-meta">
+                                                <i class="fas fa-clock"></i> Last updated: February 15, 2024
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- FAQ Item 8 -->
+                                <div class="accordion-item fade-in-up" style="transition-delay: 0.1s;">
+                                    <h2 class="accordion-header" id="headingEight">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                            What are the system requirements for the platform?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#technicalAccordion">
+                                        <div class="accordion-body">
+                                            <p>Weather AI is designed to work on modern devices and browsers with minimal requirements:</p>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h6><i class="fas fa-desktop text-primary me-2"></i> Web Browser Requirements</h6>
+                                                    <ul class="custom-list">
+                                                        <li><strong>Chrome:</strong> Version 88+</li>
+                                                        <li><strong>Firefox:</strong> Version 85+</li>
+                                                        <li><strong>Safari:</strong> Version 14+</li>
+                                                        <li><strong>Edge:</strong> Version 88+</li>
+                                                    </ul>
+                                                    <p>JavaScript must be enabled. The dashboard uses WebGL for 3D visualizations, which requires hardware acceleration support.</p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6><i class="fas fa-mobile-alt text-primary me-2"></i> Mobile Applications</h6>
+                                                    <ul class="custom-list">
+                                                        <li><strong>iOS:</strong> Version 14.0+</li>
+                                                        <li><strong>Android:</strong> Version 8.0+</li>
+                                                    </ul>
+                                                    <p>Our mobile apps are available on the App Store and Google Play Store. Push notifications require appropriate permissions.</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-md-6">
+                                                    <h6><i class="fas fa-server text-primary me-2"></i> API Integration</h6>
+                                                    <p>For API integration, any programming language with HTTP client support can be used. Our official SDKs support:</p>
+                                                    <ul class="custom-list">
+                                                        <li>Python 3.7+</li>
+                                                        <li>Node.js 14+</li>
+                                                        <li>Java 11+</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6><i class="fas fa-network-wired text-primary me-2"></i> Network Requirements</h6>
+                                                    <p>Minimum bandwidth of 1 Mbps for standard usage, 5 Mbps for high-resolution data streaming. WebSocket connections are used for real-time updates.</p>
+                                                    <p>Corporate firewalls may need to allow connections to <code>api.weatherai.com</code> (port 443) and <code>ws.weatherai.com</code> (port 443).</p>
+                                                </div>
+                                            </div>
+                                            <div class="faq-meta">
+                                                <i class="fas fa-clock"></i> Last updated: February 10, 2024
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="faq-contact-section" id="contact">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3 section-title">Still Have Questions?</h2>
+                    <p class="lead text-light">Our support team is here to help you get the most out of Weather AI</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4 fade-in-up">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon mx-auto">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h4>Live Chat</h4>
+                        <p>Chat with our support team in real-time during business hours (9 AM - 6 PM EST).</p>
+                        <a href="#" class="btn btn-outline-light mt-3">
+                            <i class="fas fa-comment-dots me-2"></i>Start Chat
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon mx-auto">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email Support</h4>
+                        <p>Send us an email and we'll respond within 24 hours, usually much sooner.</p>
+                        <a href="mailto:support@weatherai.com" class="btn btn-outline-light mt-3">
+                            <i class="fas fa-paper-plane me-2"></i>Send Email
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon mx-auto">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h4>Documentation</h4>
+                        <p>Browse our comprehensive documentation, tutorials, and API references.</p>
+                        <a href="docs.html" class="btn btn-outline-light mt-3">
+                            <i class="fas fa-book-open me-2"></i>View Docs
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto text-center fade-in-up" style="transition-delay: 0.3s;">
+                    <div class="card bg-transparent border-light">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3" style="color: #ffffffff;">Community Forum</h5>
+                            <p class="card-text" style="color: #ffffffff;">Join our community of meteorologists, researchers, and developers to share knowledge and best practices.</p>
+                            <a href="https://community.weatherai.com" class="btn btn-primary" target="_blank">
+                                <i class="fas fa-users me-2"></i>Join Community
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3" href="index.html">
+                        <i class="fas fa-cloud-sun me-2"></i>
+                        <span class="fw-bold">Weather</span><span class="fw-bold" style="color: #00c9ff;">AI</span>
+                    </a>
+                    <p class="text-light">Advanced AI-powered weather anomaly detection platform for researchers, meteorologists, and organizations worldwide.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Platform</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="features.html" class="text-light text-decoration-none">Features</a></li>
+                        <li><a href="pricing.html" class="text-light text-decoration-none">Pricing</a></li>
+                        <li><a href="demo.html" class="text-light text-decoration-none">Live Demo</a></li>
+                        <li><a href="faq.html" class="text-light text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="blog.html" class="text-light text-decoration-none">Research Blog</a></li>
+                        <li><a href="careers.html" class="text-light text-decoration-none">Careers</a></li>
+                        <li><a href="press.html" class="text-light text-decoration-none">Press Kit</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Stay Updated</h5>
+                    <p class="text-light">Subscribe to our newsletter for the latest research, updates, and climate insights.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <p class="text-light mt-3 small">
+                        <i class="fas fa-lock me-1"></i> We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+            <hr class="border-light my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light">&copy; 2024 Weather AI. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="privacy.html" class="text-light text-decoration-none me-3">Privacy Policy</a>
+                    <a href="terms.html" class="text-light text-decoration-none me-3">Terms of Service</a>
+                    <a href="compliance.html" class="text-light text-decoration-none">GDPR Compliance</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Initialize scroll animations
+        function initScrollAnimations() {
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -100px 0px'
+                });
+                
+                fadeElements.forEach(element => {
+                    observer.observe(element);
+                });
+            } else {
+                // Fallback for older browsers
+                function checkScrollFallback() {
+                    const windowHeight = window.innerHeight;
+                    
+                    fadeElements.forEach(element => {
+                        const elementTop = element.getBoundingClientRect().top;
+                        
+                        if (elementTop < windowHeight * 0.85) {
+                            element.classList.add('visible');
+                        }
+                    });
+                }
+                
+                window.addEventListener('scroll', checkScrollFallback);
+                window.addEventListener('resize', checkScrollFallback);
+                checkScrollFallback();
+            }
+        }
+        
+        // Scroll progress indicator
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + "%";
+            
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+            
+            // Update active category nav based on scroll position
+            updateActiveCategoryNav();
+        });
+        
+        // Update active category navigation based on scroll position
+        function updateActiveCategoryNav() {
+            const sections = document.querySelectorAll('.faq-category');
+            const navLinks = document.querySelectorAll('.category-nav-link');
+            const scrollY = window.pageYOffset;
+            
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 150;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    // Close mobile menu if open
+                    if (window.innerWidth < 992) {
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (navbarCollapse.classList.contains('show')) {
+                            const navbarToggler = document.querySelector('.navbar-toggler');
+                            navbarToggler.click();
+                        }
+                    }
+                    
+                    // Scroll to target
+                    window.scrollTo({
+                        top: target.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active nav
+                    if (this.classList.contains('category-nav-link')) {
+                        document.querySelectorAll('.category-nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
+                }
+            });
+        });
+        
+        // FAQ Search functionality
+        document.getElementById('searchButton').addEventListener('click', function() {
+            performSearch();
+        });
+        
+        document.getElementById('faqSearch').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        function performSearch() {
+            const searchTerm = document.getElementById('faqSearch').value.toLowerCase().trim();
+            if (searchTerm === '') return;
+            
+            // In a real implementation, this would search through FAQ content
+            // For now, we'll simulate search results
+            const allQuestions = document.querySelectorAll('.accordion-button');
+            let foundResults = false;
+            
+            // Clear previous highlights
+            allQuestions.forEach(question => {
+                question.classList.remove('bg-warning', 'bg-opacity-25');
+            });
+            
+            // Search through questions
+            allQuestions.forEach(question => {
+                const questionText = question.textContent.toLowerCase();
+                if (questionText.includes(searchTerm)) {
+                    question.classList.add('bg-warning', 'bg-opacity-25');
+                    
+                    // Expand the accordion item
+                    const targetId = question.getAttribute('data-bs-target');
+                    if (targetId) {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            // Close all accordion items first
+                            const allCollapses = document.querySelectorAll('.accordion-collapse');
+                            allCollapses.forEach(collapse => {
+                                if (collapse.id !== targetId.replace('#', '')) {
+                                    collapse.classList.remove('show');
+                                }
+                            });
+                            
+                            // Open the target
+                            const bsCollapse = new bootstrap.Collapse(targetElement, {
+                                toggle: true
+                            });
+                        }
+                    }
+                    
+                    foundResults = true;
+                }
+            });
+            
+            // Show message if no results found
+            if (!foundResults) {
+                alert(`No results found for "${searchTerm}". Try different keywords.`);
+            } else {
+                // Scroll to first result
+                const firstHighlighted = document.querySelector('.accordion-button.bg-warning');
+                if (firstHighlighted) {
+                    firstHighlighted.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
+            }
+        }
+        
+        // Search suggestion click handlers
+        document.querySelectorAll('.search-suggestion').forEach(suggestion => {
+            suggestion.addEventListener('click', function(e) {
+                e.preventDefault();
+                const term = this.textContent;
+                document.getElementById('faqSearch').value = term;
+                performSearch();
+            });
+        });
+        
+        // Category card click handlers
+        document.querySelectorAll('.category-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initScrollAnimations();
+            updateActiveCategoryNav();
+        });
+        // Newsletter Subscription Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const newsletterForm = document.querySelector('.footer .input-group');
+    if (newsletterForm) {
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const subscribeBtn = newsletterForm.querySelector('button');
+        
+        // Create message container if it doesn't exist
+        let messageDiv = document.querySelector('.newsletter-message');
+        if (!messageDiv) {
+            messageDiv = document.createElement('div');
+            messageDiv.className = 'newsletter-message mt-2';
+            messageDiv.style.display = 'none';
+            newsletterForm.parentNode.insertBefore(messageDiv, newsletterForm.nextSibling);
+        }
+        
+        // Remove existing click handler and add new one
+        const newSubscribeBtn = subscribeBtn.cloneNode(true);
+        subscribeBtn.parentNode.replaceChild(newSubscribeBtn, subscribeBtn);
+        
+        newSubscribeBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            
+            // Validate email
+            if (!email) {
+                showNewsletterMessage('Please enter your email address', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNewsletterMessage('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Disable button and show loading
+            newSubscribeBtn.disabled = true;
+            const originalText = newSubscribeBtn.innerHTML;
+            newSubscribeBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Subscribing...';
+            
+            try {
+                const response = await fetch('/api/newsletter/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showNewsletterMessage(data.message, 'success');
+                    emailInput.value = ''; // Clear input
+                } else {
+                    showNewsletterMessage(data.detail || 'Failed to subscribe. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error('Newsletter subscription error:', error);
+                showNewsletterMessage('Network error. Please check your connection and try again.', 'error');
+            } finally {
+                // Re-enable button
+                newSubscribeBtn.disabled = false;
+                newSubscribeBtn.innerHTML = originalText;
+            }
+        });
+        
+        // Allow Enter key to submit
+        emailInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                newSubscribeBtn.click();
+            }
+        });
+        
+        function showNewsletterMessage(text, type) {
+            messageDiv.style.display = 'block';
+            messageDiv.textContent = text;
+            
+            if (type === 'success') {
+                messageDiv.style.color = '#28a745';
+                messageDiv.style.backgroundColor = '#d4edda';
+                messageDiv.style.border = '1px solid #c3e6cb';
+            } else {
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.border = '1px solid #f5c6cb';
+            }
+            
+            messageDiv.style.padding = '10px';
+            messageDiv.style.borderRadius = '4px';
+            messageDiv.style.fontSize = '14px';
+            messageDiv.style.marginTop = '10px';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+    }
+});
+    </script>
+</body>
+</html>
